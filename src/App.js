@@ -6,12 +6,14 @@ import Main from "./layout/Main";
 
 function App() {
   return (
-    <div className="App">
+    <div className="relative min-h-screen App bg-test text-dark">
       <Header />
-      <div className="container mx-auto ">
+      <main className="container flex flex-wrap justify-around py-12 mx-auto">
         <Aside />
-        <Main />
-      </div>
+        <div className="w-full md:w-3/4 ">
+          <Main />
+        </div>
+      </main>
       <Footer />
     </div>
   );

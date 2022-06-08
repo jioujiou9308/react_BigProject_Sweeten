@@ -8,7 +8,7 @@ import {
 
 const Header = () => {
   return (
-    <header className="flex justify-around pt-6 pb-3 bg-white border-b">
+    <header className="flex justify-around pt-6 pb-3 bg-white">
       <div>logo</div>
       <nav>
         <ul className="flex">

@@ -9,6 +9,8 @@ module.exports = {
       sub: "#FAD2BC",
       light: "#FCE0CC",
       dark: "#765544",
+      test: "#A9A9A9",
+      aside: "#FFCB9B",
     },
     extend: {},
   },
