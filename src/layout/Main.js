@@ -1,12 +1,4 @@
 import React from "react";
-<<<<<<< HEAD
-import Course from "../page/Course";
-
-const Main = () => {
-  return <div className="bg-white ">
-    <Course/>
-  </div>;
-=======
 import { Routes, Route } from "react-router-dom";
 import About from "../page/About";
 import Course from "../page/Course";
@@ -32,7 +24,6 @@ const Main = () => {
       </div>
     </main>
   );
->>>>>>> master
 };
 
 export default Main;
