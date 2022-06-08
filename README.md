@@ -20,8 +20,3 @@
 5. 提示視窗 [alert](https://sweetalert2.github.io/ "alert"),[toast](https://react-hot-toast.com/ "toast")
 6. 表單驗證 [form-hook](https://react-hook-form.com/ "form-hook")
 
-
-## LOG 新>舊
-> 06/09 <br/>
-完成 專案資料夾架構 <br/>
-完成 routers
