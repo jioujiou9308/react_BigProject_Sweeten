@@ -1,7 +1,18 @@
 import "./App.css";
+import Aside from "./layout/Aside";
+import Footer from "./layout/Footer";
+import Header from "./layout/Header";
+import Main from "./layout/Main";
 
 function App() {
-  return <h1 className="text-3xl font-bold underline">Hello world!</h1>;
+  return (
+    <div className="App">
+      <Header />
+      <Aside />
+      <Main />
+      <Footer />
+    </div>
+  );
 }
 
 export default App;
