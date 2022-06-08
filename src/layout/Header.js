@@ -5,6 +5,7 @@ import {
   AiOutlineUnorderedList,
   AiOutlineUserAdd,
 } from "react-icons/ai";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
@@ -12,11 +13,21 @@ const Header = () => {
       <div>logo</div>
       <nav>
         <ul className="flex">
-          <li className="mx-2">首頁</li>
-          <li className="mx-2">測驗</li>
-          <li className="mx-2">產品</li>
-          <li className="mx-2">課程</li>
-          <li className="mx-2">關於我們</li>
+          <li className="mx-2">
+            <Link to="/">首頁</Link>
+          </li>
+          <li className="mx-2">
+            <Link to="/main/test">測驗</Link>
+          </li>
+          <li className="mx-2">
+            <Link to="main/product">產品</Link>
+          </li>
+          <li className="mx-2">
+            <Link to="main/course">課程</Link>
+          </li>
+          <li className="mx-2">
+            <Link to="main/about">關於我們</Link>
+          </li>
         </ul>
       </nav>
       <div className="flex">

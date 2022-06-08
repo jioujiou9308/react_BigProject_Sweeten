@@ -1,4 +1,5 @@
 import React from "react";
+<<<<<<< HEAD
 import Card from "../components/course/Card";
 
 const Course = () => {
@@ -14,6 +15,11 @@ const Course = () => {
       </div>
     </>
   );
+=======
+
+const Course = () => {
+  return <div>Course</div>;
+>>>>>>> master
 };
 
 export default Course;
