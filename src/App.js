@@ -4,6 +4,7 @@ import Footer from "./layout/Footer";
 import Header from "./layout/Header";
 import Main from "./layout/Main";
 
+
 function App() {
   return (
     <div className="relative min-h-screen App bg-test text-dark">
@@ -12,6 +13,7 @@ function App() {
         <Aside />
         <div className="w-full md:w-3/4 ">
           <Main />
+          
         </div>
       </main>
       <Footer />
