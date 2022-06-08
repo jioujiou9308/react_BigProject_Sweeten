@@ -8,8 +8,10 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <Aside />
-      <Main />
+      <div className="container mx-auto ">
+        <Aside />
+        <Main />
+      </div>
       <Footer />
     </div>
   );
