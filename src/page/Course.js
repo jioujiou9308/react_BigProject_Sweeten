@@ -16,8 +16,7 @@ const Course = () => {
         <img className='w-32 h-32' src={require('./IMAGE/green.jpg')} alt="Background" />
         <img className='w-32 h-32' src={require('./IMAGE/green.jpg')} alt="Background" /> */}
       </div>
-      {/*  */}
-
+      {/* pagination */}
       <Pagination />
     </>
   );
