@@ -2,7 +2,7 @@ import { useState, useCallback } from "react";
 
 // NOTE useLoading
 export function useLoading() {
-  const [loadingState, setLoadingState] = useState(true);
+  const [loadingState, setLoadingState] = useState(false);
 
   const onLoading = () => {
     setLoadingState(true);
@@ -15,17 +15,15 @@ export function useLoading() {
   const debounce = () => {
     let timer = null;
     return (fn, delay = 300) => {
-      // 開始 loading
-      setLoadingState(true);
-      if (timer) clearTimeout(timer);
+      setLoadingState(true); // 開始 loading
+      if (timer) clearTimeout(timer); // timer若存在，則清除舊timer
       timer = setTimeout(async () => {
         try {
           await fn();
-          // 結束 loading
-          setLoadingState(false);
+          setLoadingState(false); // 結束 loading
           timer = null;
-        } catch (e) {
-          console.error(e);
+        } catch (err) {
+          console.error(err);
         }
       }, delay);
     };
