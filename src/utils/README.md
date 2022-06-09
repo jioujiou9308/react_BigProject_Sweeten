@@ -1,14 +1,40 @@
 # Custom Hook
 
-## useLoading [source](https://github.com/Holin5566/sweeten/blob/master/src/utils/hooks.js "Source")
+### useLoading
 
-### Start :
+[source](https://github.com/Holin5566/sweeten/blob/master/src/utils/hooks.js "Source")
+
+### Example
 
 ```javascript
-const [loadingListener, runLoading] = useLoading();
-```
+import useLoading from "./path";
 
----
+const Demo = () => {
+  const [loadingListener, runLoading] = useLoading();
+
+  const setReq = () => {
+    runLoading(() => {
+      // START // isLoading = true
+      fetch("https://jsonplaceholder.typicode.com/todos/1")
+        .then((response) => response.json())
+        .then((json) => console.log(json));
+    });
+    // DONE // isLoading = false
+  };
+
+  const renderJSX = <p>done loading</p>;
+  const loadingJSX = <p>on loading</p>;
+  return (
+    <>
+      <button onClick={setReq}>sendReq</button>
+      {
+        loadingListener(renderJSX, loadingJSX)
+        /* isLoading ? loadingJSX : renderJSX */
+      }
+    </>
+  );
+};
+```
 
 #### 1. loadingListener
 
@@ -38,7 +64,8 @@ runLoading( [asyncFunc], [delay] );
 ###### Example:
 
 ```javascript
-// 1000ms後顯示 data
+// 1000ms 後顯示 data
+// 期間若觸發則重新計時
 runLoading(() => {
   fetch(url)
     .then((data) => console.log(data))
@@ -49,7 +76,7 @@ runLoading(() => {
 ###### Code:
 
 ```javascript
-// 防抖
+// 節流
 const debounce = () => {
   let timer = null;
   return (fn, delay = 300) => {

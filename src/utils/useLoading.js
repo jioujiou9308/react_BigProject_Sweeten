@@ -2,12 +2,12 @@ import { useState, useCallback } from "react";
 
 function useLoading() {
   const [loadingState, setLoadingState] = useState(false);
-  // 防抖
+  // 節流
   const debounce = () => {
     let timer = null;
     return (fn, delay = 300) => {
       setLoadingState(true); // 開始 loading
-      if (timer) clearTimeout(timer); // timer若存在，則清除舊timer
+      if (timer) clearTimeout(timer); // timer若存在，則清除舊timer (刷新動作)
       timer = setTimeout(async () => {
         try {
           await fn();
