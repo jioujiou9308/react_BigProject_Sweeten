@@ -10,8 +10,9 @@ const [loadingState, doLoading, onLoading, doneLoading] = useLoading();
 
 
 #### 1. loadingState
-
-	const [loadingState, setLoadingState] = useState(true);
+```javascript
+const [loadingState, setLoadingState] = useState(true);
+```
 
 #### 2. doLoading
 doLoading( [asyncFunc], [delay] );
