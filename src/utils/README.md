@@ -11,7 +11,8 @@ const [loadingState, doLoading, onLoading, doneLoading] = useLoading();
 
 #### 1. loadingState
 ```javascript
-const [loadingState, setLoadingState] = useState(true);
+// loadingState : boolean // default = false
+const [loadingState, setLoadingState] = useState(false);
 ```
 
 #### 2. doLoading
@@ -54,6 +55,7 @@ const doLoading = useCallback(debounce(), []); // state變更會刷新閉包, �
 
 #### 3. onLoading
 ```javascript
+// turn loadingState to true
 const onLoading = () => {
   setLoadingState(true);
 };
@@ -61,6 +63,7 @@ const onLoading = () => {
 
 #### 4. doneLoading
 ```javascript
+// turn loadingState to false
 const doneLoading = () => {
   setLoadingState(false);
 };
