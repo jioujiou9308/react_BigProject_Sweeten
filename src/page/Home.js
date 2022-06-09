@@ -20,7 +20,9 @@ const Home = () => {
           </div>
           <div class="flex g-4 ms-5 me-5">
             <div class="p-5">
-              <img src={cake1} alt="..." />
+              <div class="flex justify-center">
+               <img src={cake1} alt="..."/>
+              </div>
               <div class="my-2">
                 <h1 class="text-center text-lg font-normal my-5">
                   活動限定/季節限定
@@ -34,7 +36,9 @@ const Home = () => {
               </div>
             </div>
             <div class="p-5">
-              <img src={cake1} alt="..." />
+              <div class="flex justify-center">
+               <img src={cake1} alt="..."/>
+              </div>
               <div class="my-2 justify-center">
                 <h1 class="text-center text-lg font-normal my-5">經典熱銷</h1>
                 <p class="my-6">
@@ -46,7 +50,9 @@ const Home = () => {
               </div>
             </div>
             <div class="p-5">
-              <img src={cake1} alt="..." />
+              <div class="flex justify-center">
+               <img src={cake1} alt="..."/>
+              </div>
               <div class="my-2">
                 <h1 class="text-center text-lg font-normal my-5">課程介紹</h1>
                 <p class="my-6">
