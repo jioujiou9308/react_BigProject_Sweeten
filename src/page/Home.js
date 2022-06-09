@@ -5,6 +5,9 @@ import cake1 from "../images/section01_cake1.png";
 const Home = () => {
   return (
     <>
+      <div>
+        <img src={slider} alt="..." class="w-full"/>
+      </div>
       <div class="flex justify-center bg-white">
         <div class="p-5 ms-5 me-5 mt-5" style={{ width: "75%" }}>
           <div class="sec01_title">
@@ -110,7 +113,7 @@ const Home = () => {
           <div class="homepage-section-2-imgclip mw-100">
             <img
               class="img-fluid position-absolute"
-              src="./images/image 3.png"
+              src={cake1}
               alt=""
             />
           </div>
@@ -149,7 +152,7 @@ const Home = () => {
         <div class="homepage-card-wrap row justify-content-around gy-5">
           <div class="card p-0 col-md-3 mx-3">
             <img
-              src="./images/Rectangle 5.png"
+              src={cake1}
               class="card-img-top"
               alt="..."
             />
@@ -166,7 +169,7 @@ const Home = () => {
 
           <div class="card p-0 col-md-3 mx-3">
             <img
-              src="./images/Rectangle 6.png"
+              src={cake1}
               class="card-img-top"
               alt="..."
             />
@@ -183,7 +186,7 @@ const Home = () => {
 
           <div class="card p-0 col-md-3 mx-3">
             <img
-              src="./images/Rectangle 7.png"
+              src={cake1}
               class="card-img-top"
               alt="..."
             />
