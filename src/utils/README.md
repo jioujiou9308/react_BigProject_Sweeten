@@ -1,6 +1,6 @@
 # Custom Hook
 
-### useLoading
+## useLoading
 
 [source](https://github.com/Holin5566/sweeten/blob/master/src/utils/hooks.js "Source")
 
