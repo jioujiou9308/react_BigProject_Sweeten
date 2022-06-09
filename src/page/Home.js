@@ -31,7 +31,7 @@ const Home = () => {
                   我們不得不面對一個非常尷尬的事實我們不得不面對一個非常尷尬的事實
                 </p>
                 <div class="flex justify-center">
-                  <button class="btn-home">前往課程列表 ></button>
+                  <button class="btn-home">前往課程列表 ＞</button>
                 </div>
               </div>
             </div>
@@ -45,7 +45,7 @@ const Home = () => {
                   我們不得不面對一個非常尷尬的事實我們不得不面對一個非常尷尬的事實
                 </p>
                 <div class="flex justify-center">
-                  <button class="btn-home">前往課程列表 ></button>
+                  <button class="btn-home">前往課程列表 ＞</button>
                 </div>
               </div>
             </div>
@@ -59,7 +59,7 @@ const Home = () => {
                   我們不得不面對一個非常尷尬的事實我們不得不面對一個非常尷尬的事實
                 </p>
                 <div class="flex justify-center">
-                  <button class="btn-home">前往課程列表 ></button>
+                  <button class="btn-home">前往課程列表 ＞</button>
                 </div>
               </div>
             </div>
@@ -68,12 +68,12 @@ const Home = () => {
       </div>
 
       {/* section 02 */}
-      <section className="overflow-hidden h-60vh relative">
+      <section className="relative overflow-hidden h-60vh">
         {/* desktop */}
         <div className="hidden md:block">
           <div className="max-w-full">
             <img
-              className="max-w-full h-auto absolute -bottom-30vh"
+              className="absolute h-auto max-w-full -bottom-30vh"
               src={require("../images/bg.png")}
               alt=""
             />
@@ -109,11 +109,11 @@ const Home = () => {
         </div>
 
         {/* mobile */}
-        <div class="mobile d-md-none">
+        {/* <div class="mobile d-md-none">
           <div class="homepage-section-2-imgclip mw-100">
             <img
               class="img-fluid position-absolute"
-              src={cake1}
+              src=""
               alt=""
             />
           </div>
@@ -144,64 +144,60 @@ const Home = () => {
               </a>
             </div>
           </div>
-        </div>
+        </div> */}
       </section>
 
       {/* section 03 */}
-      <section class="homepage-section-3 container px-0">
-        <div class="homepage-card-wrap row justify-content-around gy-5">
-          <div class="card p-0 col-md-3 mx-3">
-            <img
-              src={cake1}
-              class="card-img-top"
-              alt="..."
-            />
-            <div class="card-body text-center">
-              <h5 class="card-title">我們不得不面對一個</h5>
-              <p class="card-text">
-                我們不得不面對一個非常尷尬的事實我們不得不面對一個非常尷尬的事實我們不得不面對一個非常尷尬的事實
-              </p>
-              <a href="#/" class="btn">
-                我們不得不
-              </a>
+      <section class="flex justify-center bg-white py-44">
+        <div className="ms-5 me-5" style={{ width: "75%" }}>
+        <div class="flex g-4 ms-5 me-5">
+            <div class="px-10">
+              <div class="flex justify-center w-full h-auto m-auto">
+               <img className="object-cover" src={require("../images/hp-express.png")} alt="..."/>
+              </div>
+              <div class="my-2">
+                <h1 class="text-center text-lg font-normal my-5">
+                宅配專區
+                </h1>
+                <p class="my-6">
+                  我們不得不面對一個非常尷尬的事實我們不得不面對一個非常尷尬的事實
+                </p>
+                <div class="flex justify-center">
+                  <button class="btn-home">前往課程列表 ＞</button>
+                </div>
+              </div>
             </div>
-          </div>
-
-          <div class="card p-0 col-md-3 mx-3">
-            <img
-              src={cake1}
-              class="card-img-top"
-              alt="..."
-            />
-            <div class="card-body text-center">
-              <h5 class="card-title">我們不得不面對一個</h5>
-              <p class="card-text">
-                我們不得不面對一個非常尷尬的事實我們不得不面對一個非常尷尬的事實我們不得不面對一個非常尷尬的事實
-              </p>
-              <a href="#/" class="btn">
-                我們不得不
-              </a>
+            <div class="px-10">
+              <div class="flex justify-center w-full h-auto m-auto">
+               <img className="object-cover" src={require("../images/hp-class.png")} alt="..."/>
+              </div>
+              <div class="my-2 justify-center">
+                <h1 class="text-center text-lg font-normal my-5">課程預約</h1>
+                <p class="my-6">
+                  我們不得不面對一個非常尷尬的事實我們不得不面對一個非常尷尬的事實
+                </p>
+                <div class="flex justify-center">
+                  <button class="btn-home">前往課程列表 ＞</button>
+                </div>
+              </div>
             </div>
-          </div>
-
-          <div class="card p-0 col-md-3 mx-3">
-            <img
-              src={cake1}
-              class="card-img-top"
-              alt="..."
-            />
-            <div class="card-body text-center">
-              <h5 class="card-title">我們不得不面對一個</h5>
-              <p class="card-text">
-                我們不得不面對一個非常尷尬的事實我們不得不面對一個非常尷尬的事實我們不得不面對一個非常尷尬的事實
-              </p>
-              <a href="#/" class="btn">
-                我們不得不
-              </a>
+            <div class="px-10">
+              <div class="flex justify-center w-full h-auto m-auto">
+               <img className="object-cover" src={require("../images/hp-order.png")} alt="..."/>
+              </div>
+              <div class="my-2">
+                <h1 class="text-center text-lg font-normal my-5">訂購流程訂購流程</h1>
+                <p class="my-6">
+                  我們不得不面對一個非常尷尬的事實我們不得不面對一個非常尷尬的事實
+                </p>
+                <div class="flex justify-center">
+                  <button class="btn-home">前往課程列表 ＞</button>
+                </div>
+              </div>
             </div>
-          </div>
+          </div> 
         </div>
-      </section>
+          </section>
     </>
   );
 };
