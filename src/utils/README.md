@@ -2,7 +2,9 @@
 
 ## useLoading
 
-[source](https://github.com/Holin5566/sweeten/blob/master/src/utils/useLoading.js "Source")
+[source](https://github.com/Holin5566/sweeten/blob/master/src/utils/useLoading.js "Source") <br/>
+[code sandbox](https://codesandbox.io/s/stoic-forest-cc0o8y?file=/src/App.js:756-762 "CodeSandbox")
+
 
 ### Example
 
