@@ -5,9 +5,6 @@ import cake1 from "../images/section01_cake1.png";
 const Home = () => {
   return (
     <>
-      <div class="w-full">
-        <img src={slider} alt="..." class="w-full" />
-      </div>
       <div class="flex justify-center bg-white">
         <div class="p-5 ms-5 me-5 mt-5" style={{ width: "75%" }}>
           <div class="sec01_title">
@@ -31,7 +28,7 @@ const Home = () => {
                   我們不得不面對一個非常尷尬的事實我們不得不面對一個非常尷尬的事實
                 </p>
                 <div class="flex justify-center">
-                <button class="btn-home">前往課程列表 ></button>
+                  <button class="btn-home">前往課程列表 ></button>
                 </div>
               </div>
             </div>
@@ -45,7 +42,7 @@ const Home = () => {
                   我們不得不面對一個非常尷尬的事實我們不得不面對一個非常尷尬的事實
                 </p>
                 <div class="flex justify-center">
-                <button class="btn-home">前往課程列表 ></button>
+                  <button class="btn-home">前往課程列表 ></button>
                 </div>
               </div>
             </div>
@@ -59,7 +56,7 @@ const Home = () => {
                   我們不得不面對一個非常尷尬的事實我們不得不面對一個非常尷尬的事實
                 </p>
                 <div class="flex justify-center">
-                <button class="btn-home">前往課程列表 ></button>
+                  <button class="btn-home">前往課程列表 ></button>
                 </div>
               </div>
             </div>
@@ -68,24 +65,25 @@ const Home = () => {
       </div>
 
       {/* section 02 */}
-      <section className="overflow-hidden relative bg-dark">
+      <section className="overflow-hidden h-60vh relative">
         {/* desktop */}
         <div className="hidden md:block">
           <div className="max-w-full">
             <img
-              class="img-fluid position-absolute"
-              src={require("../images/Shinnosuke11.png")}
+              className="max-w-full h-auto absolute -bottom-30vh"
+              src={require("../images/bg.png")}
               alt=""
             />
           </div>
-          <h1 class="position-absolute display-5">
+          <h1 className="absolute text-5xl bottom-8 left-6">
             <b>
               為了您，
               <br />
               &nbsp;&nbsp;&nbsp;打造精彩的甜食饗宴
             </b>
           </h1>
-          <div class="mask position-absolute text-center row justify-content-around">
+          {/* 施工 */}
+          <div class="mask h-full bg-light absolute text-center right-30vh">
             <p class="align-self-end mb-4">
               我們不得不面對一個非常尷尬的事實，
               <br />

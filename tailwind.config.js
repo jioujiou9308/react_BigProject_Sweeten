@@ -12,7 +12,17 @@ module.exports = {
       test: "#A9A9A9",
       aside: "#FFCB9B",
     },
-    extend: {},
+    extend: {
+      height: {
+        "60vh": "60vh", // homepage-section-2
+      },
+      spacing: {
+        "30vh": "30vh", // homepage-bg
+      },
+      zIndex: {
+        "(-1)": "-1", // homepage-bg
+      },
+    },
   },
   plugins: [],
 };
