@@ -2,14 +2,6 @@ import { useState, useCallback } from "react";
 
 function useLoading() {
   const [loadingState, setLoadingState] = useState(false);
-
-  const onLoading = () => {
-    setLoadingState(true);
-  };
-  const doneLoading = () => {
-    setLoadingState(false);
-  };
-
   // 防抖
   const debounce = () => {
     let timer = null;
@@ -28,10 +20,14 @@ function useLoading() {
     };
   };
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  const doLoading = useCallback(debounce(), []);
+  const runLoading = useCallback(debounce(), []);
   // state變更會刷新閉包, 用 useCallback 固定記憶體位置
 
-  return [loadingState, doLoading, onLoading, doneLoading];
+  const loadingListener = (renderJSX, loadingJSX = <p>loading</p>) => {
+    return <>{loadingState ? loadingJSX : renderJSX}</>;
+  };
+
+  return [loadingListener, runLoading];
 }
 
 export default useLoading;

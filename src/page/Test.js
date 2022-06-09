@@ -2,21 +2,30 @@ import React from "react";
 import { useLoading } from "../utils/hooks";
 
 const Test = () => {
-  const [isLoading, doLoading] = useLoading();
+  const [loadingListener, runLoading] = useLoading();
   return (
     <div>
       Test
-      <h1
+      <button
         onClick={() => {
-          doLoading(() => {
+          runLoading(() => {
             fetch("https://jsonplaceholder.typicode.com/todos/1")
               .then((response) => response.json())
               .then((json) => console.log(json));
           });
         }}
       >
-        {isLoading ? "loading" : "done"}
-      </h1>
+        sendReq
+      </button>
+      {loadingListener(
+        <div>
+          <h1>done</h1>
+          <h1>done</h1>
+          <h1>done</h1>
+          <h1>done</h1>
+        </div>,
+        <p>placeholder</p>
+      )}
     </div>
   );
 };
