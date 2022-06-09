@@ -16,6 +16,12 @@ module.exports = {
       height: {
         "60vh": "60vh", // homepage-section-2
       },
+      spacing: {
+        "(-30vh)": "-30vh", // homepage-bg
+      },
+      zIndex: {
+        "(-1)": "-1", // homepage-bg
+      },
     },
   },
   plugins: [],

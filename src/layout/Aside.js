@@ -3,7 +3,7 @@ import { IoReturnUpBack, IoCaretUp } from "react-icons/io5";
 
 const Aside = () => {
   return (
-    <aside className="max-w-xs bg-aside">
+    <aside className="hidden max-w-xs md:block bg-aside">
       <h3 className="flex items-center w-full px-8 py-2 font-bold text-white bg-sub">
         <IoReturnUpBack className="mr-1" />
         回到上一頁
