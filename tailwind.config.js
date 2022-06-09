@@ -12,7 +12,11 @@ module.exports = {
       test: "#A9A9A9",
       aside: "#FFCB9B",
     },
-    extend: {},
+    extend: {
+      height: {
+        "60vh": "60vh", // homepage-section-2
+      },
+    },
   },
   plugins: [],
 };

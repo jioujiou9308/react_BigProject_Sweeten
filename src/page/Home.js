@@ -4,7 +4,7 @@ const Home = () => {
   return (
     <>
     {/* section 02 */}
-        <section className="overflow-hidden relative bg-dark">
+        <section className="overflow-hidden h-60vh relative bg-dark">
           {/* desktop */}
           <div className="hidden md:block">
             <div className="max-w-full">
