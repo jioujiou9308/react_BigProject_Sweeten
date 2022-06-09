@@ -2,7 +2,7 @@
 
 ## useLoading
 
-[source](https://github.com/Holin5566/sweeten/blob/master/src/utils/hooks.js "Source")
+[source](https://github.com/Holin5566/sweeten/blob/master/src/utils/useLoading.js "Source")
 
 ### Example
 
