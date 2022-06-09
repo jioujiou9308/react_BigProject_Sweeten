@@ -5,7 +5,7 @@ import {
   AiOutlineHeart,
 } from "react-icons/ai";
 
-const Card = () => {
+const CardProduct = () => {
   return (
     <section class=" ">
       <div class="container">
@@ -188,4 +188,4 @@ const Card = () => {
   );
 };
 
-export default Card;
+export default CardProduct;
