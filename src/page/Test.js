@@ -1,9 +1,11 @@
 import React from "react";
-import { useLoading } from "../utils/hooks";
-const arr = [1, 2, 3];
+import { useLoading, useCollapse } from "../utils/hooks";
+import { useFavoriteState } from "../utils/hooks-redux";
+
 const Test = () => {
   const [loadingListener, runLoading] = useLoading();
-
+  const [Collapse, switchCollapse] = useCollapse();
+  const [test, setTest] = useFavoriteState();
   function setReq() {
     runLoading(() => {
       fetch("https://jsonplaceholder.typicode.com/todos/1") // fake API
@@ -13,7 +15,7 @@ const Test = () => {
     });
   }
 
-  const renderJSX = arr.map((e) => <p>{e}</p>);
+  const renderJSX = <p>render</p>;
   const loadingJSX = <p>on loading</p>;
   return (
     <>
@@ -22,6 +24,17 @@ const Test = () => {
         loadingListener(renderJSX, loadingJSX)
         /* isLoading ? loadingJSX : renderJSX */
       }
+      <button
+        onClick={() => {
+          switchCollapse.switch();
+          setTest("dispatch");
+          console.log(test);
+        }}
+      >
+        switch
+      </button>
+      {/* <h2>{courses}</h2> */}
+      <Collapse onOpen={<p>hi</p>} onClose={<p>close</p>} />
     </>
   );
 };
