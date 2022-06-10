@@ -18,9 +18,7 @@ module.exports = {
       },
       spacing: {
         "30vh": "30vh", // homepage-bg
-      },
-      zIndex: {
-        "(-1)": "-1", // homepage-bg
+        "20vh": "20vh", // homepage-mask
       },
     },
   },
