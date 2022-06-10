@@ -44,7 +44,7 @@ const CardProduct = () => {
                       售價:1000
                     </p>
                   </div>
-                  <div className="flex">
+                  <div className="flex mt-1">
                     <AiOutlineMessage className="w-[20px] h-[20px]" />
                     <AiOutlineShoppingCart className="w-[20px] h-[20px]" />
                     <AiOutlineHeart className="w-[20px] h-[20px]" />
@@ -87,7 +87,7 @@ const CardProduct = () => {
                       售價:1000
                     </p>
                   </div>
-                  <div className="flex">
+                  <div className="flex mt-1">
                     <AiOutlineMessage className="w-[20px] h-[20px]" />
                     <AiOutlineShoppingCart className="w-[20px] h-[20px]" />
                     <AiOutlineHeart className="w-[20px] h-[20px]" />
@@ -130,7 +130,7 @@ const CardProduct = () => {
                       售價:1000
                     </p>
                   </div>
-                  <div className="flex">
+                  <div className="flex mt-1">
                     <AiOutlineMessage className="w-[20px] h-[20px]" />
                     <AiOutlineShoppingCart className="w-[20px] h-[20px]" />
                     <AiOutlineHeart className="w-[20px] h-[20px]" />
@@ -173,7 +173,7 @@ const CardProduct = () => {
                       售價:1000
                     </p>
                   </div>
-                  <div className="flex">
+                  <div className="flex mt-1">
                     <AiOutlineMessage className="w-[20px] h-[20px]" />
                     <AiOutlineShoppingCart className="w-[20px] h-[20px]" />
                     <AiOutlineHeart className="w-[20px] h-[20px]" />

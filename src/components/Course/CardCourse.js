@@ -10,9 +10,10 @@ const CardCourse = () => {
   return (
     <>
       <section className="w-full m-5 bg-white lg:flex">
-        <div className="lg:w-1/2">
+        <div className=" lg:w-1/2">
           <img
-            className=""
+            // 這裡的圖片先將高度拉滿版，在使用object-cover變正常長寬
+            className="object-cover h-full"
             src={require("../IMAGE/hand.jpg")}
             alt="Background"
           />
@@ -21,7 +22,7 @@ const CardCourse = () => {
           <div className="w-full p-3 text-3xl font-medium text-center">
             星空馬卡龍
           </div>
-          <div className="flex text-xl text-center lg:w-1/2 ">
+          <div className="flex text-xl text-center lg:w-1/2">
             粉紅、粉藍、粉黃三種色彩不規則渲染
             金色、銀色星星糖片親手妝點迷幻宇宙
             每一顆都是獨一無二的夢幻星空馬卡龍
