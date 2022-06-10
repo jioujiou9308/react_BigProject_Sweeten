@@ -14,7 +14,15 @@ module.exports = {
       aside: "#FFCB9B",
       black: "#000000",
     },
-    extend: {},
+    extend: {
+      height: {
+        "60vh": "60vh", // homepage-section-2
+      },
+      spacing: {
+        "30vh": "30vh", // homepage-bg
+        "20vh": "20vh", // homepage-mask
+      },
+    },
   },
   plugins: [],
 };
