@@ -19,7 +19,7 @@ const Home = () => {
               我們不得不面對一個非常尷尬的事實我們不得不面對一個非常尷尬的事實我們不得不面對一個非常尷尬的事實我們不得不面對一個非常尷尬的事實我們不得不面對一個非常尷尬的事實我們不得
             </p>
           </div>
-          <div class="md:flex g-4 m-5 ">
+          <div class="md:flex m-5 ">
             <div class="p-5">
               <div class="flex justify-center">
                <img src={cake1} alt="..."/>
