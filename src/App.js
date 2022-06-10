@@ -4,6 +4,7 @@ import Footer from "./layout/Footer";
 import Header from "./layout/Header";
 import Main from "./layout/Main";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Card from "./components/home/Card";
 
 function App() {
   return (

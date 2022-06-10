@@ -2,6 +2,7 @@ import React from "react";
 import slider from "../images/slide1.png";
 import cake1 from "../images/section01_cake1.png";
 import Card from "../components/home/Card";
+import Login from "../components/Login";
 
 const s3Cards = [
   {
@@ -81,8 +82,8 @@ const Home = () => {
                 <p class="my-6">
                   我們不得不面對一個非常尷尬的事實我們不得不面對一個非常尷尬的事實
                 </p>
-                <div class="flex justify-center">
-                  <button class="btn-home">前往課程列表 ＞</button>
+                <div className="flex justify-center">
+                  <button className="btn-home">前往課程列表 ＞</button>
                 </div>
               </div>
             </div>
@@ -147,6 +148,7 @@ const Home = () => {
           </div>
         </div>
       </section>
+      <Login/>
     </>
   );
 };
