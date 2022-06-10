@@ -8,6 +8,7 @@ const Home = () => {
       <div>
         <img src={slider} alt="..." class="w-full"/>
       </div>
+      {/* section1 */}
       <div class="flex justify-center bg-white">
         <div class="p-5 ms-5 me-5 mt-5" style={{ width: "75%" }}>
           <div class="sec01_title">
@@ -18,14 +19,14 @@ const Home = () => {
               我們不得不面對一個非常尷尬的事實我們不得不面對一個非常尷尬的事實我們不得不面對一個非常尷尬的事實我們不得不面對一個非常尷尬的事實我們不得不面對一個非常尷尬的事實我們不得
             </p>
           </div>
-          <div class="flex g-4 ms-5 me-5">
+          <div class="md:flex g-4 m-5 ">
             <div class="p-5">
               <div class="flex justify-center">
                <img src={cake1} alt="..."/>
               </div>
               <div class="my-2">
                 <h1 class="text-center text-lg font-normal my-5">
-                  活動限定/季節限定
+                  季節限定
                 </h1>
                 <p class="my-6">
                   我們不得不面對一個非常尷尬的事實我們不得不面對一個非常尷尬的事實
