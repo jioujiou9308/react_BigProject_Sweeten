@@ -1,6 +1,6 @@
 import React from "react";
 import { useLoading } from "../utils/hooks";
-
+const arr = [1, 2, 3];
 const Test = () => {
   const [loadingListener, runLoading] = useLoading();
 
@@ -8,11 +8,12 @@ const Test = () => {
     runLoading(() => {
       fetch("https://jsonplaceholder.typicode.com/todos/1") // fake API
         .then((response) => response.json())
-        .then((json) => console.log(json));
+        .then((json) => console.log(json))
+        .catch((e) => console.log(e));
     });
   }
 
-  const renderJSX = <p>done loading</p>;
+  const renderJSX = arr.map((e) => <p>{e}</p>);
   const loadingJSX = <p>on loading</p>;
   return (
     <>
