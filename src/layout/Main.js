@@ -5,6 +5,7 @@ import Course from "../page/Course";
 import CourseDetail from "../page/CourseDetail";
 import Member from "../page/Member";
 import Product from "../page/Product";
+import ProductDetail from "../page/ProductDetail";
 import Test from "../page/Test";
 import Aside from "./Aside";
 
@@ -15,6 +16,7 @@ const Main = () => {
       <div className="w-full md:w-3/4 ">
         <Routes>
           <Route path="/product" element={<Product />} />
+          <Route path="/productDetail" element={<ProductDetail />} />
           <Route path="/test" element={<Test />} />
           <Route path="/member" element={<Member />} />
           <Route path="/course" element={<Course />} />
