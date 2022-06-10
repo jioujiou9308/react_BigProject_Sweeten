@@ -1,7 +1,14 @@
 import React from "react";
+import CardCourse from "../components/Course/CardCourse";
 
 const Course = () => {
-  return <div>Course</div>;
+  return (
+    <>
+      <CardCourse />
+      <CardCourse />
+      <CardCourse />
+    </>
+  );
 };
 
 export default Course;
