@@ -1,6 +1,7 @@
 module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
+    fontFamily: {},
     colors: {
       white: "#FCFBFB",
       primary: "#F8CDCE",
