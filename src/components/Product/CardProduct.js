@@ -7,6 +7,7 @@ import {
 
 const CardProduct = () => {
   return (
+    // FIXME class 改成 classname
     <section class=" ">
       <div class="container">
         <div class="flex flex-wrap -mx-4">
@@ -21,9 +22,9 @@ const CardProduct = () => {
               </div>
               <div class="pt-5 px-3 text-center">
                 <h3>
+                  {/* FIXME <a>加網址連結 */}
                   <a
-                    class="
-                        font-semibold
+                    class="font-semibold
                         text-dark text-xl
                         sm:text-[22px]
                         md:text-xl
@@ -31,9 +32,7 @@ const CardProduct = () => {
                         xl:text-xl
                         2xl:text-[22px]
                         mb-4
-                        block
-                       
-                        "
+                        block"
                   >
                     綠綠的蛋糕
                   </a>

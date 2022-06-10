@@ -1,8 +1,9 @@
 import React from "react";
-import { useLoading } from "../utils/hooks";
+import { useLoading, useCollapse } from "../utils/hooks";
 
 const Test = () => {
   const [loadingListener, runLoading] = useLoading();
+  const [Collapse, switchCollapse] = useCollapse();
 
   function setReq() {
     runLoading(() => {
@@ -21,6 +22,14 @@ const Test = () => {
         loadingListener(renderJSX, loadingJSX)
         /* isLoading ? loadingJSX : renderJSX */
       }
+      <button
+        onClick={() => {
+          switchCollapse.switch();
+        }}
+      >
+        switch
+      </button>
+      <Collapse onOpen={<p>hi</p>} onClose={<p>close</p>} />
     </>
   );
 };

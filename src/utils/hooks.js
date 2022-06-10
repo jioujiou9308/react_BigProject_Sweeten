@@ -1,3 +1,4 @@
 import useLoading from "./useLoading";
+import useCollapse from "./useCollapse";
 
-export { useLoading };
+export { useLoading, useCollapse };
