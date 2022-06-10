@@ -1,6 +1,7 @@
 module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
+    fontFamily: {},
     colors: {
       white: "#FCFBFB",
       primary: "#F8CDCE",
@@ -11,6 +12,7 @@ module.exports = {
       dark: "#765544",
       test: "#A9A9A9",
       aside: "#FFCB9B",
+      black: "#000000",
     },
     extend: {
       height: {
