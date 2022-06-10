@@ -42,13 +42,16 @@ const Home = () => {
               我們不得不面對一個非常尷尬的事實我們不得不面對一個非常尷尬的事實我們不得不面對一個非常尷尬的事實我們不得不面對一個非常尷尬的事實我們不得不面對一個非常尷尬的事實我們不得
             </p>
           </div>
-          <div class="md:flex g-4 m-5 ">
+          <div class="md:flex m-5 ">
             <div class="p-5">
+              <h1 className="flex justify-center text-xl font-normal mb-4 md:hidden pb-1 underline decoration-secondary underline-offset-8">
+                季節限定
+              </h1>
               <div class="flex justify-center">
                 <img src={cake1} alt="..." />
               </div>
               <div class="my-2">
-                <h1 class="text-center text-lg font-normal my-5">
+                <h1 class="md:block hidden text-center text-lg font-normal my-5">
                   季節限定
                 </h1>
                 <p class="my-6">
@@ -60,11 +63,16 @@ const Home = () => {
               </div>
             </div>
             <div class="p-5">
+              <h1 className="flex justify-center text-xl font-normal mb-4 md:hidden pb-1 underline decoration-secondary underline-offset-8">
+                經典熱銷
+              </h1>
               <div class="flex justify-center">
                 <img src={cake1} alt="..." />
               </div>
               <div class="my-2 justify-center">
-                <h1 class="text-center text-lg font-normal my-5">經典熱銷</h1>
+                <h1 class="md:block hidden text-center text-lg font-normal my-5">
+                  經典熱銷
+                </h1>
                 <p class="my-6">
                   我們不得不面對一個非常尷尬的事實我們不得不面對一個非常尷尬的事實
                 </p>
@@ -74,11 +82,16 @@ const Home = () => {
               </div>
             </div>
             <div class="p-5">
+              <h1 className="flex justify-center text-xl font-normal mb-4 md:hidden pb-1 underline decoration-secondary underline-offset-8">
+                課程介紹
+              </h1>
               <div class="flex justify-center">
                 <img src={cake1} alt="..." />
               </div>
               <div class="my-2">
-                <h1 class="text-center text-lg font-normal my-5">課程介紹</h1>
+                <h1 class="md:block hidden text-center text-lg font-normal my-5">
+                  課程介紹
+                </h1>
                 <p class="my-6">
                   我們不得不面對一個非常尷尬的事實我們不得不面對一個非常尷尬的事實
                 </p>

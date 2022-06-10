@@ -8,7 +8,7 @@ import Card from "./components/home/Card";
 
 function App() {
   return (
-    <div className="relative min-h-screen App bg-test text-dark">
+    <div className="relative min-h-screen bg-white App text-dark">
       <BrowserRouter>
         <Header />
         <Routes>
