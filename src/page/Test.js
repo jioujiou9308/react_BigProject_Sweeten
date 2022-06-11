@@ -1,9 +1,10 @@
 import React from "react";
-import { useLoading, useCollapse } from "../utils/hooks";
+import { useLoading, useCollapse, useInput } from "../utils/hooks";
 
 const Test = () => {
   const [loadingListener, runLoading] = useLoading();
   const [Collapse, switchCollapse] = useCollapse();
+  const [TheInput, getInput] = useInput();
 
   function setReq() {
     runLoading(() => {
@@ -30,6 +31,10 @@ const Test = () => {
         switch
       </button>
       <Collapse onOpen={<p>hi</p>} onClose={<p>close</p>} />
+      <TheInput
+        className=" bg-secondary"
+        onChange={() => console.log(getInput())}
+      />
     </>
   );
 };

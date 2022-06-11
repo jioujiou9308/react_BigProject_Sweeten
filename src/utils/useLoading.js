@@ -11,6 +11,7 @@ function useLoading() {
       timer = setTimeout(async () => {
         try {
           await fn();
+          // FIXME 失敗仍會 setLoadingState(false)
           setLoadingState(false); // 結束 loading
           timer = null;
         } catch (err) {
@@ -31,3 +32,5 @@ function useLoading() {
 }
 
 export default useLoading;
+
+// DEMO https://codesandbox.io/s/stoic-forest-cc0o8y?file=/src/useLoading.js
