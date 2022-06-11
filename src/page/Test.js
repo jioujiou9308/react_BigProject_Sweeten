@@ -1,39 +1,33 @@
 import React from "react";
-import { useInput, useLoading } from "../utils/hooks/hooks";
+import { useLoading } from "../utils/hooks/hooks";
 import { userLinkGoogle, userLogout } from "../utils/firebase";
+import useMultiInput from "../utils/hooks/useMultiInput";
 
 const Test = () => {
   const [WhileLoad, runLoad] = useLoading();
-  const [Acount, getAcount] = useInput();
-  const [Password, getPassword] = useInput();
-  const [Name, getName] = useInput();
-  const [Gender, getGender] = useInput();
-  const [Birth, getBirth] = useInput();
+
+  const [components, allRef] = useMultiInput(["name", "acount", "password"]);
+  const { Acount, Password } = components;
 
   return (
     <>
-      <Name className="my-1 border bg-primary" placeholder="Name" />
+      {/* // useMultiInput */}
+      <Acount className=" bg-primary" />
       <br />
-      <Acount className="my-1 border bg-primary" placeholder="Acount" />
-      <br />
-      <Password className="my-1 border bg-primary" placeholder="Password" />
-      <br />
-      <Gender className="my-1 border bg-primary" placeholder="Gender" />
-      <br />
-      <Birth className="my-1 border bg-primary" placeholder="Birth" />
+      <Password className=" bg-primary" />
       <br />
       <button
         onClick={() => {
-          console.log(getAcount.value);
-          console.log(getPassword.value);
-          console.log(getName.value);
-          console.log(getGender.value);
-          console.log(getBirth.value);
+          console.log(allRef.current);
+          console.log(allRef.get());
+          allRef.clear();
         }}
       >
-        Log
+        get
       </button>
       <br />
+
+      {/* // firebase auth */}
       <WhileLoad
         onLoad={<button className=" animate-pulse">Loading</button>}
         doneLoad={
