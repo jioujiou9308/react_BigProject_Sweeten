@@ -3,7 +3,7 @@ import { useInput, useLoading } from "../utils/hooks/hooks";
 import { userLinkGoogle, userLogout } from "../utils/firebase";
 
 const Test = () => {
-  const [WhileLoad, runLoading] = useLoading();
+  const [WhileLoad, runLoad] = useLoading();
   const [Acount, getAcount] = useInput();
   const [Password, getPassword] = useInput();
   const [Name, getName] = useInput();
@@ -39,7 +39,7 @@ const Test = () => {
         doneLoad={
           <button
             onClick={() => {
-              runLoading(userLogout, 3000);
+              runLoad(userLogout, 3000);
             }}
           >
             logout

@@ -20,14 +20,14 @@ function useLoading() {
     };
   };
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  const runLoading = useCallback(debounce(), []);
+  const runLoad = useCallback(debounce(), []);
   // state變更會刷新閉包, 用 useCallback 固定記憶體位置
 
   const WhileLoad = ({ onLoad, doneLoad }) => {
     return <>{loadingState ? onLoad : doneLoad}</>;
   };
 
-  return [WhileLoad, runLoading];
+  return [WhileLoad, runLoad];
 }
 
 export default useLoading;
