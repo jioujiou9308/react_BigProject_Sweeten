@@ -23,11 +23,11 @@ function useLoading() {
   const runLoading = useCallback(debounce(), []);
   // state變更會刷新閉包, 用 useCallback 固定記憶體位置
 
-  const loadingListener = (renderJSX, loadingJSX = <p>loading</p>) => {
-    return <>{loadingState ? loadingJSX : renderJSX}</>;
+  const WhileLoad = ({ onLoad, doneLoad }) => {
+    return <>{loadingState ? onLoad : doneLoad}</>;
   };
 
-  return [loadingListener, runLoading];
+  return [WhileLoad, runLoading];
 }
 
 export default useLoading;

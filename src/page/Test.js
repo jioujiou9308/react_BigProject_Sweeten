@@ -1,13 +1,15 @@
 import React from "react";
-import { useInput } from "../utils/hooks/hooks";
+import { useInput, useLoading } from "../utils/hooks/hooks";
+import { userLinkGoogle, userLogout } from "../utils/firebase";
 
 const Test = () => {
+  const [WhileLoad, runLoading] = useLoading();
   const [Acount, getAcount] = useInput();
   const [Password, getPassword] = useInput();
   const [Name, getName] = useInput();
   const [Gender, getGender] = useInput();
   const [Birth, getBirth] = useInput();
-  console.log(process.env);
+
   return (
     <>
       <Name className="my-1 border bg-primary" placeholder="Name" />
@@ -31,6 +33,22 @@ const Test = () => {
       >
         Log
       </button>
+      <br />
+      <WhileLoad
+        onLoad={<button className=" animate-pulse">Loading</button>}
+        doneLoad={
+          <button
+            onClick={() => {
+              runLoading(userLogout, 3000);
+            }}
+          >
+            logout
+          </button>
+        }
+      />
+
+      <br />
+      <button onClick={userLinkGoogle}>login</button>
     </>
   );
 };
