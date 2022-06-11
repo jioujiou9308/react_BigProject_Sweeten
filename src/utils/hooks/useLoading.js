@@ -11,7 +11,6 @@ function useLoading() {
       timer = setTimeout(async () => {
         try {
           await fn();
-          // FIXME 失敗仍會 setLoadingState(false)
           setLoadingState(false); // 結束 loading
           timer = null;
         } catch (err) {

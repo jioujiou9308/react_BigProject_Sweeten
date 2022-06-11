@@ -1,40 +1,36 @@
 import React from "react";
-import { useLoading, useCollapse, useInput } from "../utils/hooks";
+import { useInput } from "../utils/hooks/hooks";
 
 const Test = () => {
-  const [loadingListener, runLoading] = useLoading();
-  const [Collapse, switchCollapse] = useCollapse();
-  const [TheInput, getInput] = useInput();
-
-  function setReq() {
-    runLoading(() => {
-      fetch("https://jsonplaceholder.typicode.com/todos/1") // fake API
-        .then((response) => response.json())
-        .then((json) => console.log(json));
-    });
-  }
-
-  const renderJSX = <p>done loading</p>;
-  const loadingJSX = <p>on loading</p>;
+  const [Acount, getAcount] = useInput();
+  const [Password, getPassword] = useInput();
+  const [Name, getName] = useInput();
+  const [Gender, getGender] = useInput();
+  const [Birth, getBirth] = useInput();
+  console.log(process.env);
   return (
     <>
-      <button onClick={setReq}>sendReq</button>
-      {
-        loadingListener(renderJSX, loadingJSX)
-        /* isLoading ? loadingJSX : renderJSX */
-      }
+      <Name className="my-1 border bg-primary" placeholder="Name" />
+      <br />
+      <Acount className="my-1 border bg-primary" placeholder="Acount" />
+      <br />
+      <Password className="my-1 border bg-primary" placeholder="Password" />
+      <br />
+      <Gender className="my-1 border bg-primary" placeholder="Gender" />
+      <br />
+      <Birth className="my-1 border bg-primary" placeholder="Birth" />
+      <br />
       <button
         onClick={() => {
-          switchCollapse.switch();
+          console.log(getAcount.value);
+          console.log(getPassword.value);
+          console.log(getName.value);
+          console.log(getGender.value);
+          console.log(getBirth.value);
         }}
       >
-        switch
+        Log
       </button>
-      <Collapse onOpen={<p>hi</p>} onClose={<p>close</p>} />
-      <TheInput
-        className=" bg-secondary"
-        onChange={() => console.log(getInput())}
-      />
     </>
   );
 };
