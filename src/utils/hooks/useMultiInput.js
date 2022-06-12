@@ -5,11 +5,11 @@ const useMultiInput = (keys) => {
   // 驗證 array
   if (!Array.isArray(keys))
     throw console.error(
-      "useMultiInput : 需要一個 name 屬性的陣列以產生 <input name={name} />"
+      "useMultiInput : 需要一個包含 name 屬性的陣列以產生 <input />"
     );
 
   // 製作 input 標籤
-  const components = {};
+  const Inputs = {};
   keys.forEach((name, i) => {
     //驗證 name 格式
     if (typeof name !== "string")
@@ -17,11 +17,11 @@ const useMultiInput = (keys) => {
     if (name.match(/^[A-Za-z]+$/) == null)
       console.error(`useMultiInput : 陣列元素[${i}]包含非字母元素`);
 
-    // 首字轉換大寫
+    // 字首轉換大寫
     name = name[0].toUpperCase() + name.slice(1);
 
-    // elements[name] = function components
-    components[name] = (props) => (
+    // elements = { [name] = function Inputs, ... }
+    Inputs[name] = (props) => (
       <input
         {...{
           ...props,
@@ -49,6 +49,6 @@ const useMultiInput = (keys) => {
     }
   };
 
-  return [components, multiRef];
+  return [Inputs, multiRef];
 };
 export default useMultiInput;

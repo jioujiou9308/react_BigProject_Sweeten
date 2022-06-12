@@ -4,7 +4,7 @@ import Footer from "./layout/Footer";
 import Header from "./layout/Header";
 import Main from "./layout/Main";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { userOnChanged, auth } from "./utils/firebase";
+import { userOnChanged, auth } from "./utils/auth/";
 import { useEffect } from "react";
 
 function App() {

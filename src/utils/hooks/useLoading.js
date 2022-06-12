@@ -23,8 +23,8 @@ function useLoading() {
   const runLoad = useCallback(debounce(), []);
   // state變更會刷新閉包, 用 useCallback 固定記憶體位置
 
-  const WhileLoad = ({ onLoad, doneLoad }) => {
-    return <>{loadingState ? onLoad : doneLoad}</>;
+  const WhileLoad = ({ loading, done }) => {
+    return <>{loadingState ? loading : done}</>;
   };
 
   return [WhileLoad, runLoad];

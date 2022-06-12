@@ -1,20 +1,18 @@
 import React from "react";
-import { useLoading } from "../utils/hooks/hooks";
-import { userLinkGoogle, userLogout } from "../utils/firebase";
-import useMultiInput from "../utils/hooks/useMultiInput";
+import { userLinkGoogle, userLogout } from "../utils/auth/";
+import { useMultiInput, useLoading } from "../utils/hooks/";
 
 const Test = () => {
   const [WhileLoad, runLoad] = useLoading();
 
-  const [components, allRef] = useMultiInput(["name", "acount", "password"]);
-  const { Acount, Password } = components;
+  const [Inputs, allRef] = useMultiInput(["name", "acount", "password"]);
 
   return (
     <>
-      {/* // useMultiInput */}
-      <Acount className=" bg-primary" />
+      {/* useMultiInput */}
+      <Inputs.Acount className=" bg-primary" />
       <br />
-      <Password className=" bg-primary" />
+      <Inputs.Password className=" bg-primary" />
       <br />
       <button
         onClick={() => {
@@ -29,8 +27,8 @@ const Test = () => {
 
       {/* // firebase auth */}
       <WhileLoad
-        onLoad={<button className=" animate-pulse">Loading</button>}
-        doneLoad={
+        loading={<button className=" animate-pulse">Loading</button>}
+        done={
           <button
             onClick={() => {
               runLoad(userLogout, 3000);
