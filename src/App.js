@@ -12,12 +12,10 @@ function App() {
     userOnChanged((user) => {
       if (user) {
         // 用戶存在
-        console.log(auth.currentUser);
-        console.log("login");
+        console.log("user:", auth.currentUser.displayName);
       } else {
         // 用戶不存在
-        console.log(auth.currentUser);
-        console.log("logout");
+        console.log("user:", auth.currentUser);
       }
     });
   }, []);

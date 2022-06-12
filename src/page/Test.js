@@ -12,11 +12,14 @@ const Test = () => {
       {/* useMultiInput */}
       <Inputs.Acount className=" bg-primary" />
       <br />
-      <Inputs.Password className=" bg-primary" />
+      <Inputs.Password type="password" className=" bg-primary" />
       <br />
+      <Inputs.Name className=" bg-primary" />
       <button
         onClick={() => {
-          console.log(allRef.current);
+          // console.log("allRef.current");
+          // console.log(allRef.current);
+          console.log("allRef.get()");
           console.log(allRef.get());
           allRef.clear();
         }}
