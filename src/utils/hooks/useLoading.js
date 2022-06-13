@@ -20,14 +20,16 @@ function useLoading() {
     };
   };
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  const runLoading = useCallback(debounce(), []);
+  const runLoad = useCallback(debounce(), []);
   // state變更會刷新閉包, 用 useCallback 固定記憶體位置
 
-  const loadingListener = (renderJSX, loadingJSX = <p>loading</p>) => {
-    return <>{loadingState ? loadingJSX : renderJSX}</>;
+  const WhileLoad = ({ loading, done }) => {
+    return <>{loadingState ? loading : done}</>;
   };
 
-  return [loadingListener, runLoading];
+  return [WhileLoad, runLoad];
 }
 
 export default useLoading;
+
+// DEMO https://codesandbox.io/s/stoic-forest-cc0o8y?file=/src/useLoading.js

@@ -12,7 +12,7 @@ const s3Cards = [
     btnText: "前往宅配商品 ＞",
   },
   {
-    img: "../../images/hp-class.png",
+    img: "../../images/hp-className.png",
     title: "課程預約",
     context: "不容錯過的優質師資與精彩課程",
     btnText: "前往查看課程 ＞",
@@ -25,7 +25,8 @@ const s3Cards = [
   },
 ];
 
-const Home = () => {
+const Home = (props) => {
+  console.log(props);
   return (
     <>
       <div>
@@ -35,14 +36,14 @@ const Home = () => {
       <div className="flex justify-center bg-white">
         <div className="p-5 mt-5 ms-5 me-5" style={{ width: "75%" }}>
           <div className="sec01_title">
-            <h1 className="text-4xl font-bold text-center">
+            <h1 className="text-4xl font-bold text-center h1">
               為了您，打造精彩的甜食饗宴
             </h1>
             <p className="p-5 text-center">
               我們不得不面對一個非常尷尬的事實我們不得不面對一個非常尷尬的事實我們不得不面對一個非常尷尬的事實我們不得不面對一個非常尷尬的事實我們不得不面對一個非常尷尬的事實我們不得
             </p>
           </div>
-          <div className="m-5 md:flex ">
+          <div className="justify-center m-5 md:flex ">
             <div className="p-5">
               <h1 className="flex justify-center pb-1 mb-4 text-xl font-normal underline md:hidden decoration-secondary underline-offset-8">
                 季節限定
