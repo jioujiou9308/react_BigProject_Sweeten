@@ -5,9 +5,11 @@ const Login = () => {
     <div className="h-screen w-screen">
       <div className="flex flex-col items-center flex-1 h-full justify-center px-4 sm:px-0">
         <div
-          className="block sm:flex  rounded-lg shadow-lg w-full sm:w-3/4 lg:w-1/2 bg-white sm:mx-0 "
+          className="sm:flex rounded-lg shadow-lg w-full sm:w-3/4 lg:w-1/2 bg-white sm:mx-0 justify-between"
           style={{ height: "500px" }}
         >
+        
+          {/* login surface */}
           <div className="flex flex-col w-3/5 p-4">
             <div className="flex flex-col flex-1 justify-center mb-8">
               <h1 className="text-4xl text-center font-thin">Welcome Back</h1>
@@ -68,10 +70,12 @@ const Login = () => {
               </div>
             </div>
           </div>
-          <div className="overflow-hidden h-full">
+          
+          {/* image */}
+          <div className="hidden sm:block sm:overflow-hidden sm:h-full">
           {/* TODO - 調整一下手機板照片 */}
             <img
-              className="w-full h-full rounded-r-lg object-cover"
+              className="w-full h-full sm:rounded-r-lg object-cover transform rotate-90 sm:rotate-0"
               src={process.env.PUBLIC_URL + "/images/login/cupcakes.jpg"}
               alt=""
             />
