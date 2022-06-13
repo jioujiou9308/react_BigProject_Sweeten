@@ -26,7 +26,7 @@ function App() {
       <BrowserRouter>
         <Header />
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home item={'propsFromApp'}/>} />
           <Route path="/main/*" element={<Main />} />
         </Routes>
       </BrowserRouter>
