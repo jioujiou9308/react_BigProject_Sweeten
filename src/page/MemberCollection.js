@@ -2,7 +2,7 @@ import React from "react";
 import Member_collection_bar from "../components/memberCollection/Member_collection_bar";
 import Member_search_bar from "../components/memberCollection/Member_search_bar";
 import { AiFillHeart, AiOutlineStar } from "react-icons/ai";
-
+// FIXME 這裡要用大駝峰
 const Member_colloction = () => {
   return (
     <>
@@ -37,7 +37,9 @@ const Member_colloction = () => {
             <div>
               <p className="mb-3 p">標哥千層蛋糕</p>
               <p className="mb-3 p">800</p>
-              <button className="px-1 text-white p bg-warning">母親節特賣</button>
+              <button className="px-1 text-white p bg-warning">
+                母親節特賣
+              </button>
             </div>
 
             {/* 評分 */}
@@ -83,7 +85,9 @@ const Member_colloction = () => {
             <div>
               <p className="mb-3 p">標哥千層蛋糕</p>
               <p className="mb-3 p">800</p>
-              <button className="px-1 text-white p bg-warning">母親節特賣</button>
+              <button className="px-1 text-white p bg-warning">
+                母親節特賣
+              </button>
             </div>
 
             {/* 評分 */}
@@ -129,7 +133,9 @@ const Member_colloction = () => {
             <div>
               <p className="mb-3 p">標哥千層蛋糕</p>
               <p className="mb-3 p">800</p>
-              <button className="px-1 text-white p bg-warning">母親節特賣</button>
+              <button className="px-1 text-white p bg-warning">
+                母親節特賣
+              </button>
             </div>
 
             {/* 評分 */}

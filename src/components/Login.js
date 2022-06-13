@@ -3,7 +3,6 @@ import React from "react";
 const Login = () => {
   return (
     <div className="relative z-10 w-screen h-screen">
-      
       {/* 背景底色 */}
       <div className="absolute w-full h-full opacity-25 -z-10 bg-test"></div>
 
@@ -84,7 +83,6 @@ const Login = () => {
               alt=""
             />
           </div>
-
         </div>
       </div>
     </div>
