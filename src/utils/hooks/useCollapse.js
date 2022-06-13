@@ -16,7 +16,7 @@ const useCollapse = () => {
     off: () => {
       setIsOpen(false);
     },
-    swtich: () => {
+    switch: () => {
       setIsOpen(!isOpen);
     },
   };

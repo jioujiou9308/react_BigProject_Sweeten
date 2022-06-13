@@ -7,6 +7,27 @@ body {
   font-family: "Noto Sans TC", sans-serif;
   font-weight: 300;
 }
+@layer base {
+  .h1 {
+    @apply text-4xl font-bold;
+  }
+  .h2 {
+    @apply text-3xl font-medium;
+  }
+  .h3 {
+    @apply text-2xl font-medium;
+  }
+  .h4 {
+    @apply text-xl font-medium;
+  }
+  .p {
+    @apply text-lg;
+  }
+  .note {
+    @apply text-sm opacity-90;
+  }
+}
+
 @layer components {
   .btn-home {
     @apply py-1 px-4 bg-secondary text-white hover:bg-primary;
