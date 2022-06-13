@@ -40,7 +40,9 @@ const CardCourse = () => {
           </div>
           <div className="flex justify-between w-1/2">
             <div>
-              <p class=" text-body-color leading-relaxed text-xl">售價:1000</p>
+              <p className=" text-body-color leading-relaxed text-xl">
+                售價:1000
+              </p>
             </div>
             <div className="flex items-center">
               <AiOutlineMessage className="w-[20px] h-[20px] mr-2" />

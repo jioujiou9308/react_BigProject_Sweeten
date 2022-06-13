@@ -7,12 +7,12 @@ import {
 
 const CardProduct = () => {
   return (
-    // FIXME class 改成 classname
-    <section class=" ">
-      <div class="container">
-        <div class="flex flex-wrap -mx-4">
-          <div class="w-full md:w-1/2 xl:w-1/4 px-4">
-            <div class="bg-white rounded-lg overflow-hidden mb-10">
+    // FIXME className 改成 classname
+    <section className=" ">
+      <div className="container">
+        <div className="flex flex-wrap -mx-4">
+          <div className="w-full md:w-1/2 xl:w-1/4 px-4">
+            <div className="bg-white rounded-lg overflow-hidden mb-10">
               <div className="w-full  max-h-[250px] lg:h-[280px] overflow-hidden">
                 <img
                   className="w-full "
@@ -20,11 +20,11 @@ const CardProduct = () => {
                   alt="Background"
                 />
               </div>
-              <div class="pt-5 px-3 text-center">
+              <div className="pt-5 px-3 text-center">
                 <h3>
                   {/* FIXME <a>加網址連結 */}
                   <a
-                    class="font-semibold
+                    className="font-semibold
                         text-dark text-xl
                         sm:text-[22px]
                         md:text-xl
@@ -39,7 +39,7 @@ const CardProduct = () => {
                 </h3>
                 <div className="flex justify-between mt-2">
                   <div>
-                    <p class="text-base text-body-color leading-relaxed mb-3">
+                    <p className="text-base text-body-color leading-relaxed mb-3">
                       售價:1000
                     </p>
                   </div>
@@ -52,8 +52,8 @@ const CardProduct = () => {
               </div>
             </div>
           </div>
-          <div class="w-full md:w-1/2 xl:w-1/4 px-4">
-            <div class="bg-white rounded-lg overflow-hidden mb-10">
+          <div className="w-full md:w-1/2 xl:w-1/4 px-4">
+            <div className="bg-white rounded-lg overflow-hidden mb-10">
               <div className="w-full  max-h-[250px] lg:h-[280px] overflow-hidden">
                 <img
                   className="w-full "
@@ -61,10 +61,10 @@ const CardProduct = () => {
                   alt="Background"
                 />
               </div>
-              <div class="pt-5 px-3 text-center">
+              <div className="pt-5 px-3 text-center">
                 <h3>
                   <a
-                    class="
+                    className="
                         font-semibold
                         text-dark text-xl
                         sm:text-[22px]
@@ -82,7 +82,7 @@ const CardProduct = () => {
                 </h3>
                 <div className="flex justify-between mt-2">
                   <div>
-                    <p class="text-base text-body-color leading-relaxed mb-3">
+                    <p className="text-base text-body-color leading-relaxed mb-3">
                       售價:1000
                     </p>
                   </div>
@@ -95,8 +95,8 @@ const CardProduct = () => {
               </div>
             </div>
           </div>
-          <div class="w-full md:w-1/2 xl:w-1/4 px-4">
-            <div class="bg-white rounded-lg overflow-hidden mb-10">
+          <div className="w-full md:w-1/2 xl:w-1/4 px-4">
+            <div className="bg-white rounded-lg overflow-hidden mb-10">
               <div className="w-full  max-h-[250px] lg:h-[280px] overflow-hidden">
                 <img
                   className="w-full "
@@ -104,10 +104,10 @@ const CardProduct = () => {
                   alt="Background"
                 />
               </div>
-              <div class="pt-5 px-3 text-center">
+              <div className="pt-5 px-3 text-center">
                 <h3>
                   <a
-                    class="
+                    className="
                         font-semibold
                         text-dark text-xl
                         sm:text-[22px]
@@ -125,7 +125,7 @@ const CardProduct = () => {
                 </h3>
                 <div className="flex justify-between mt-2">
                   <div>
-                    <p class="text-base text-body-color leading-relaxed mb-3">
+                    <p className="text-base text-body-color leading-relaxed mb-3">
                       售價:1000
                     </p>
                   </div>
@@ -138,8 +138,8 @@ const CardProduct = () => {
               </div>
             </div>
           </div>
-          <div class="w-full md:w-1/2 xl:w-1/4 px-4">
-            <div class="bg-white rounded-lg overflow-hidden mb-10">
+          <div className="w-full md:w-1/2 xl:w-1/4 px-4">
+            <div className="bg-white rounded-lg overflow-hidden mb-10">
               <div className="w-full  max-h-[250px] lg:h-[280px] overflow-hidden">
                 <img
                   className="w-full "
@@ -147,10 +147,10 @@ const CardProduct = () => {
                   alt="Background"
                 />
               </div>
-              <div class="pt-5 px-3 text-center">
+              <div className="pt-5 px-3 text-center">
                 <h3>
                   <a
-                    class="
+                    className="
                         font-semibold
                         text-dark text-xl
                         sm:text-[22px]
@@ -168,7 +168,7 @@ const CardProduct = () => {
                 </h3>
                 <div className="flex justify-between mt-2">
                   <div>
-                    <p class="text-base text-body-color leading-relaxed mb-3">
+                    <p className="text-base text-body-color leading-relaxed mb-3">
                       售價:1000
                     </p>
                   </div>

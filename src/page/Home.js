@@ -11,7 +11,7 @@ const s3Cards = [
     btnText: "前往宅配商品 ＞",
   },
   {
-    img: "../../images/hp-class.png",
+    img: "../../images/hp-className.png",
     title: "課程預約",
     context: "不容錯過的優質師資與精彩課程",
     btnText: "前往查看課程 ＞",
@@ -29,74 +29,74 @@ const Home = (props) => {
   return (
     <>
       <div>
-        <img src={slider} alt="..." class="w-full" />
+        <img src={slider} alt="..." className="w-full" />
       </div>
       {/* section1 */}
-      <div class="flex justify-center bg-white">
-        <div class="p-5 ms-5 me-5 mt-5" style={{ width: "75%" }}>
-          <div class="sec01_title">
-            <h1 class="text-center text-4xl font-bold">
+      <div className="flex justify-center bg-white">
+        <div className="p-5 mt-5 ms-5 me-5" style={{ width: "75%" }}>
+          <div className="sec01_title">
+            <h1 className="text-4xl font-bold text-center h1">
               為了您，打造精彩的甜食饗宴
             </h1>
-            <p class="text-center p-5">
+            <p className="p-5 text-center">
               我們不得不面對一個非常尷尬的事實我們不得不面對一個非常尷尬的事實我們不得不面對一個非常尷尬的事實我們不得不面對一個非常尷尬的事實我們不得不面對一個非常尷尬的事實我們不得
             </p>
           </div>
-          <div class="md:flex justify-center m-5 ">
-            <div class="p-5">
+          <div className="justify-center m-5 md:flex ">
+            <div className="p-5">
               <h1 className="flex justify-center pb-1 mb-4 text-xl font-normal underline md:hidden decoration-secondary underline-offset-8">
                 季節限定
               </h1>
-              <div class="flex justify-center">
+              <div className="flex justify-center">
                 <img src={cake1} alt="..." />
               </div>
-              <div class="my-2">
-                <h1 class="md:block hidden text-center text-lg font-normal my-5">
+              <div className="my-2">
+                <h1 className="hidden my-5 text-lg font-normal text-center md:block">
                   季節限定
                 </h1>
-                <p class="my-6">
+                <p className="my-6">
                   我們不得不面對一個非常尷尬的事實我們不得不面對一個非常尷尬的事實
                 </p>
-                <div class="flex justify-center">
-                  <button class="btn-home">前往課程列表 ＞</button>
+                <div className="flex justify-center">
+                  <button className="btn-home">前往課程列表 ＞</button>
                 </div>
               </div>
             </div>
-            <div class="p-5">
+            <div className="p-5">
               <h1 className="flex justify-center pb-1 mb-4 text-xl font-normal underline md:hidden decoration-secondary underline-offset-8">
                 經典熱銷
               </h1>
-              <div class="flex justify-center">
+              <div className="flex justify-center">
                 <img src={cake1} alt="..." />
               </div>
-              <div class="my-2 justify-center">
-                <h1 class="md:block hidden text-center text-lg font-normal my-5">
+              <div className="justify-center my-2">
+                <h1 className="hidden my-5 text-lg font-normal text-center md:block">
                   經典熱銷
                 </h1>
-                <p class="my-6">
+                <p className="my-6">
                   我們不得不面對一個非常尷尬的事實我們不得不面對一個非常尷尬的事實
                 </p>
-                <div class="flex justify-center">
-                  <button class="btn-home">前往課程列表 ＞</button>
+                <div className="flex justify-center">
+                  <button className="btn-home">前往課程列表 ＞</button>
                 </div>
               </div>
             </div>
-            <div class="p-5">
+            <div className="p-5">
               <h1 className="flex justify-center pb-1 mb-4 text-xl font-normal underline md:hidden decoration-secondary underline-offset-8">
                 課程介紹
               </h1>
-              <div class="flex justify-center">
+              <div className="flex justify-center">
                 <img src={cake1} alt="..." />
               </div>
-              <div class="my-2">
-                <h1 class="md:block hidden text-center text-lg font-normal my-5">
+              <div className="my-2">
+                <h1 className="hidden my-5 text-lg font-normal text-center md:block">
                   課程介紹
                 </h1>
-                <p class="my-6">
+                <p className="my-6">
                   我們不得不面對一個非常尷尬的事實我們不得不面對一個非常尷尬的事實
                 </p>
-                <div class="flex justify-center">
-                  <button class="btn-home">前往課程列表 ＞</button>
+                <div className="flex justify-center">
+                  <button className="btn-home">前往課程列表 ＞</button>
                 </div>
               </div>
             </div>
@@ -116,9 +116,9 @@ const Home = (props) => {
           />
         </div>
         {/* mobile bg */}
-        <div class="max-w-full md:hidden">
+        <div className="max-w-full md:hidden">
           <img
-            class="h-auto max-w-full absolute bottom-0"
+            className="absolute bottom-0 h-auto max-w-full"
             src={require("../images/bg.png")}
             alt=""
           />
@@ -131,9 +131,9 @@ const Home = (props) => {
             &nbsp;&nbsp;&nbsp;打造精彩的甜食饗宴...
           </b>
         </h1>
-        <div class="mask h-1/2 md:h-full bg-gradient-to-t from-light md:bg-light md:bg-opacity-50 absolute text-center bottom-0 w-full md:right-20 lg:right-20vh md:w-1/3 lg:w-1/4 p-5">
+        <div className="absolute bottom-0 w-full p-5 text-center mask h-1/2 md:h-full bg-gradient-to-t from-light md:bg-light md:bg-opacity-50 md:right-20 lg:right-20vh md:w-1/3 lg:w-1/4">
           <div className="absolute my-auto -translate-x-1/2 bottom-5 left-1/2 md:top-1/2 md:-translate-y-1/2">
-            <p class="mb-6 whitespace-nowrap leading-7">
+            <p className="mb-6 leading-7 whitespace-nowrap">
               甜點，是生活裡的享受，
               <br className="hidden md:block" />
               是給自己溫柔地犒賞。
@@ -146,7 +146,7 @@ const Home = (props) => {
               <br className="hidden md:block" />
               都是適合吃甜點的好時光。
             </p>
-            <button class="btn-home">前往課程列表 ＞</button>
+            <button className="btn-home">前往課程列表 ＞</button>
           </div>
         </div>
         {/* </div> */}
