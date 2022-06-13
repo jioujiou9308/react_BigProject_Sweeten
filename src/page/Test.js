@@ -1,7 +1,9 @@
 import React from "react";
 import { userLinkGoogle, userLogout, userLogin, auth } from "../utils/auth/";
 import { useMultiInput, useLoading } from "../utils/hooks/";
-// const testUser = ["testtest@gmail.com", "testtest"];
+import axios from "axios";
+import { API_URL } from "../utils/config";
+
 const Test = () => {
   const [WhileLoad, runLoad] = useLoading();
 
@@ -45,15 +47,15 @@ const Test = () => {
       />
 
       <br />
+      <button onClick={userLinkGoogle}>login</button>
+      <br />
       <button
         onClick={() => {
-          userLogin("testtest@gmail.com", "testtest");
+          axios.post(API_URL + "/auth", {});
         }}
       >
-        login
+        SIGNIN
       </button>
-      <br />
-      <button onClick={userLinkGoogle}>google</button>
     </>
   );
 };
