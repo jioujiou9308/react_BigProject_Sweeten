@@ -6,8 +6,8 @@ import {
   AiOutlineStar,
   AiOutlineRight,
 } from "react-icons/ai";
-import UserComment from "../components/courseDetail/UserComment";
-import You_may_like_course from "../components/courseDetail/You_may_like_course"
+import UserComment from "../components/UserComment";
+import You_may_like_course from "../components/You_may_like_course";
 
 const CourseDetail = () => {
   return (
@@ -29,7 +29,7 @@ const CourseDetail = () => {
             <div className="border-b-2 ">
               <div className="flex justify-between mt-10">
                 <p className="h2">日光舞茶</p>
-                <AiFillHeart className="icon-xl text-secondary" />
+                <AiFillHeart className="icon-xl text-sub" />
               </div>
               <p className="mt-2 mb-5 h3">$ 1080 NTD</p>
             </div>
@@ -45,9 +45,9 @@ const CourseDetail = () => {
             {/* 數量和結帳按鈕桌機板 */}
             <div className="flex justify-between mt-8 ">
               <div className="flex">
-                <AiFillMinusCircle className="icon-lg text-secondary" />
+                <AiFillMinusCircle className="icon-lg text-sub" />
                 <p className="mx-3">1</p>
-                <AiFillPlusCircle className="icon-lg text-secondary" />
+                <AiFillPlusCircle className="icon-lg text-sub" />
               </div>
 
               <div className="flex justify-center ">
@@ -71,7 +71,7 @@ const CourseDetail = () => {
 
           {/* 愛心圖示手機板 */}
           <div className="flex justify-end">
-            <AiFillHeart className="my-3 mr-5 icon-xl text-secondary" />
+            <AiFillHeart className="my-3 mr-5 icon-xl text-sub" />
           </div>
 
           {/* 標題+價錢手機板 */}
@@ -83,9 +83,9 @@ const CourseDetail = () => {
 
           {/* 數量加減手機板 */}
           <div className="flex items-center my-5 ml-5">
-            <AiFillMinusCircle className="icon-xl text-secondary" />
+            <AiFillMinusCircle className="icon-xl text-sub" />
             <p className="mx-5">1</p>
-            <AiFillPlusCircle className="icon-xl text-secondary" />
+            <AiFillPlusCircle className="icon-xl text-sub" />
           </div>
           {/* 尺寸手機板 */}
           <div className="flex items-center justify-start ml-6">
