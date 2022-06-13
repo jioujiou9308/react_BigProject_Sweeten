@@ -2,20 +2,23 @@ import React from "react";
 
 const Login = () => {
   return (
-    <div className="h-screen w-screen">
-      <div className="flex flex-col items-center flex-1 h-full justify-center px-4 sm:px-0">
+    <div className="relative z-10 w-screen h-screen">
+      
+      {/* 背景底色 */}
+      <div className="absolute w-full h-full opacity-25 -z-10 bg-test"></div>
+
+      <div className="flex flex-col items-center justify-center flex-1 h-full px-4 sm:px-0">
         <div
-          className="sm:flex rounded-lg shadow-lg w-full sm:w-3/4 lg:w-1/2 bg-white sm:mx-0 justify-between"
+          className="block w-4/5 bg-white rounded-lg shadow-lg sm:flex sm:w-3/4 lg:w-1/2 sm:mx-0"
           style={{ height: "500px" }}
         >
-        
-          {/* login surface */}
-          <div className="flex flex-col w-3/5 p-4">
-            <div className="flex flex-col flex-1 justify-center mb-8">
-              <h1 className="text-4xl text-center font-thin">Welcome Back</h1>
+          {/* 輸入欄位 */}
+          <div className="flex flex-col w-4/5 h-full p-4 mx-auto sm:w-3/5">
+            <div className="flex flex-col justify-center flex-1 mb-8">
+              <h1 className="text-4xl font-thin text-center">Welcome Back</h1>
               <div className="w-full mt-4">
                 <form
-                  className="form-horizontal w-3/4 mx-auto"
+                  className="w-3/4 mx-auto form-horizontal"
                   method="POST"
                   action="#"
                 >
@@ -25,7 +28,6 @@ const Login = () => {
                       type="text"
                       className="flex-grow h-8 px-2 border rounded border-grey-400"
                       name="email"
-                      value=""
                       placeholder="Email"
                     />
                   </div>
@@ -33,7 +35,7 @@ const Login = () => {
                     <input
                       id="password"
                       type="password"
-                      className="flex-grow h-8 px-2 rounded border border-grey-400"
+                      className="flex-grow h-8 px-2 border rounded border-grey-400"
                       name="password"
                       required
                       placeholder="Password"
@@ -46,22 +48,25 @@ const Login = () => {
                       id="remember"
                       className="mr-2"
                     />{" "}
-                    <label for="remember" className="text-sm text-grey-dark">
+                    <label
+                      htmlFor="remember"
+                      className="text-sm text-grey-dark"
+                    >
                       Remember Me
                     </label>
                   </div>
                   <div className="flex flex-col mt-8">
                     <button
                       type="submit"
-                      className="bg-blue-500 hover:bg-blue-700 text-white text-sm font-semibold py-2 px-4 rounded"
+                      className="px-4 py-2 text-sm font-semibold text-white bg-blue-500 rounded hover:bg-blue-700"
                     >
                       Login
                     </button>
                   </div>
                 </form>
-                <div className="text-center mt-4">
+                <div className="mt-4 text-center">
                   <a
-                    className="no-underline hover:underline text-blue-dark text-xs"
+                    className="text-xs no-underline hover:underline text-blue-dark"
                     href="{{ route('password.request') }}"
                   >
                     Forgot Your Password?
@@ -70,16 +75,16 @@ const Login = () => {
               </div>
             </div>
           </div>
-          
-          {/* image */}
-          <div className="hidden sm:block sm:overflow-hidden sm:h-full">
-          {/* TODO - 調整一下手機板照片 */}
+
+          {/* 照片 */}
+          <div className="hidden h-full overflow-hidden sm:block">
             <img
-              className="w-full h-full sm:rounded-r-lg object-cover transform rotate-90 sm:rotate-0"
+              className="object-cover w-full h-full rounded-r-lg"
               src={process.env.PUBLIC_URL + "/images/login/cupcakes.jpg"}
               alt=""
             />
           </div>
+
         </div>
       </div>
     </div>
