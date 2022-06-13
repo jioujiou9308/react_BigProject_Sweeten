@@ -64,12 +64,12 @@ const Test = () => {
       >
         SIGNIN
       </button>
-      <h1 className="h1">class name: h1</h1>
-      <h2 className="h2">class name: h2</h2>
-      <h3 className="h3">class name: h3</h3>
-      <h4 className="h4">class name: h4</h4>
-      <p className="p">class name: p</p>
-      <note className="note">class name: note</note>
+      <h1 className="h1">class name: h1 // slogan</h1>
+      <h2 className="h2">class name: h2 // 頁面標題</h2>
+      <h3 className="h3">class name: h3 // 文章標題</h3>
+      <h4 className="h4">class name: h4 // 副標</h4>
+      <p className="p">class name: p // 內文</p>
+      <p className="note">class name: note //提醒</p>
       <p>{render}</p>
     </>
   );
