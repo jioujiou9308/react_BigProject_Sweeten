@@ -24,7 +24,8 @@ const s3Cards = [
   },
 ];
 
-const Home = () => {
+const Home = (props) => {
+  console.log(props);
   return (
     <>
       <div>
@@ -41,9 +42,9 @@ const Home = () => {
               我們不得不面對一個非常尷尬的事實我們不得不面對一個非常尷尬的事實我們不得不面對一個非常尷尬的事實我們不得不面對一個非常尷尬的事實我們不得不面對一個非常尷尬的事實我們不得
             </p>
           </div>
-          <div class="md:flex m-5 ">
+          <div class="md:flex justify-center m-5 ">
             <div class="p-5">
-              <h1 className="flex justify-center text-xl font-normal mb-4 md:hidden pb-1 underline decoration-secondary underline-offset-8">
+              <h1 className="flex justify-center pb-1 mb-4 text-xl font-normal underline md:hidden decoration-secondary underline-offset-8">
                 季節限定
               </h1>
               <div class="flex justify-center">
@@ -62,7 +63,7 @@ const Home = () => {
               </div>
             </div>
             <div class="p-5">
-              <h1 className="flex justify-center text-xl font-normal mb-4 md:hidden pb-1 underline decoration-secondary underline-offset-8">
+              <h1 className="flex justify-center pb-1 mb-4 text-xl font-normal underline md:hidden decoration-secondary underline-offset-8">
                 經典熱銷
               </h1>
               <div class="flex justify-center">
@@ -81,7 +82,7 @@ const Home = () => {
               </div>
             </div>
             <div class="p-5">
-              <h1 className="flex justify-center text-xl font-normal mb-4 md:hidden pb-1 underline decoration-secondary underline-offset-8">
+              <h1 className="flex justify-center pb-1 mb-4 text-xl font-normal underline md:hidden decoration-secondary underline-offset-8">
                 課程介紹
               </h1>
               <div class="flex justify-center">
@@ -107,7 +108,7 @@ const Home = () => {
       <section className="relative overflow-hidden h-60vh">
         {/* <div className=""> */}
         {/* desktop bg */}
-        <div className="max-w-full hidden md:block">
+        <div className="hidden max-w-full md:block">
           <img
             className="absolute h-auto max-w-full -bottom-30vh"
             src={require("../images/bg.png")}
@@ -123,7 +124,7 @@ const Home = () => {
           />
         </div>
         {/*  -------------------- */}
-        <h1 className="absolute top-10 left-10 md:top-3/4 md:left-14 leading-normal text-3xl lg:text-4xl">
+        <h1 className="absolute text-3xl leading-normal top-10 left-10 md:top-3/4 md:left-14 lg:text-4xl">
           <b>
             為了您，
             <br />
@@ -131,7 +132,7 @@ const Home = () => {
           </b>
         </h1>
         <div class="mask h-1/2 md:h-full bg-gradient-to-t from-light md:bg-light md:bg-opacity-50 absolute text-center bottom-0 w-full md:right-20 lg:right-20vh md:w-1/3 lg:w-1/4 p-5">
-          <div className="my-auto absolute bottom-5 left-1/2 -translate-x-1/2 md:top-1/2 md:-translate-y-1/2">
+          <div className="absolute my-auto -translate-x-1/2 bottom-5 left-1/2 md:top-1/2 md:-translate-y-1/2">
             <p class="mb-6 whitespace-nowrap leading-7">
               甜點，是生活裡的享受，
               <br className="hidden md:block" />
@@ -151,9 +152,9 @@ const Home = () => {
         {/* </div> */}
       </section>
       {/* section 03 */}
-      <section className="flex justify-center bg-white py-20 md:py-44">
+      <section className="flex justify-center py-20 bg-white md:py-44">
         <div className="flex justify-center" style={{ width: "75%" }}>
-          <div className="md:flex mx-5">
+          <div className="mx-5 md:flex">
             {s3Cards.map((card, i) => {
               return <Card key={i} card={card} />;
             })}
