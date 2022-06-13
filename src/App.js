@@ -12,13 +12,15 @@ function App() {
     userOnChanged((user) => {
       if (user) {
         // 用戶存在
-        console.log("user:", auth.currentUser.displayName);
+        console.log("login");
+        console.log("user:", !!auth.currentUser);
       } else {
         // 用戶不存在
-        console.log("user:", auth.currentUser);
+        console.log("logout");
+        console.log("user:", !!auth.currentUser);
       }
     });
-  }, []);
+  });
   return (
     <div className="relative min-h-screen bg-white App text-dark">
       <BrowserRouter>

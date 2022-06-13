@@ -1,7 +1,7 @@
 import React from "react";
-import { userLinkGoogle, userLogout } from "../utils/auth/";
+import { userLinkGoogle, userLogout, userLogin, auth } from "../utils/auth/";
 import { useMultiInput, useLoading } from "../utils/hooks/";
-
+// const testUser = ["testtest@gmail.com", "testtest"];
 const Test = () => {
   const [WhileLoad, runLoad] = useLoading();
 
@@ -15,6 +15,8 @@ const Test = () => {
       <Inputs.Password type="password" className=" bg-primary" />
       <br />
       <Inputs.Name className=" bg-primary" />
+      <br />
+
       <button
         onClick={() => {
           // console.log("allRef.current");
@@ -43,7 +45,15 @@ const Test = () => {
       />
 
       <br />
-      <button onClick={userLinkGoogle}>login</button>
+      <button
+        onClick={() => {
+          userLogin("testtest@gmail.com", "testtest");
+        }}
+      >
+        login
+      </button>
+      <br />
+      <button onClick={userLinkGoogle}>google</button>
     </>
   );
 };
