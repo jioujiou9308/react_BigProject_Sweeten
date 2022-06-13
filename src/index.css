@@ -26,6 +26,18 @@ body {
   .note {
     @apply text-sm opacity-90;
   }
+  .icon-sm {
+    @apply h-5 w-5;
+  }
+  .icon {
+    @apply h-6 w-6;
+  }
+  .icon-lg {
+    @apply h-7 w-7;
+  }
+  .icon-xl {
+    @apply h-8 w-8;
+  }
 }
 
 @layer components {

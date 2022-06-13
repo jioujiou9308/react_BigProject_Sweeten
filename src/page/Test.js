@@ -3,6 +3,7 @@ import { userLinkGoogle, userLogout, userLogin, auth } from "../utils/auth/";
 import { useMultiInput, useLoading } from "../utils/hooks/";
 import axios from "axios";
 import { API_URL } from "../utils/config";
+import { AiFillPlusCircle } from "react-icons/ai";
 
 const testUser = {
   name: "test",
@@ -36,7 +37,6 @@ const Test = () => {
         get
       </button>
       <br />
-
       {/* // firebase auth */}
       <WhileLoad
         loading={<button className=" animate-pulse">Loading</button>}
@@ -50,7 +50,6 @@ const Test = () => {
           </button>
         }
       />
-
       <br />
       <button onClick={userLinkGoogle}>login</button>
       <br />
@@ -71,6 +70,22 @@ const Test = () => {
       <p className="p">className name: p // 內文</p>
       <p className="note">className name: note //提醒</p>
       <p>{render}</p>
+      <div className="flex">
+        icon-sm
+        <AiFillPlusCircle className="icon-sm" />
+      </div>
+      <div className="flex">
+        icon
+        <AiFillPlusCircle className="icon" />
+      </div>
+      <div className="flex">
+        icon-lg
+        <AiFillPlusCircle className="icon-lg" />
+      </div>
+      <div className="flex">
+        icon-xl
+        <AiFillPlusCircle className="icon-xl" />
+      </div>
     </>
   );
 };
