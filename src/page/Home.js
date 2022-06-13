@@ -6,7 +6,7 @@ import Login from "../components/Login";
 
 const s3Cards = [
   {
-    img: "../../images/hp-express.png",
+    img: "../../images/home/session3/hp-express.png",
     title: "宅配專區",
     context: "可全台宅配商品",
     btnText: "前往宅配商品 ＞",
@@ -112,7 +112,7 @@ const Home = (props) => {
         <div className="hidden max-w-full md:block">
           <img
             className="absolute h-auto max-w-full -bottom-30vh"
-            src={require("../images/bg.png")}
+            src= {process.env.PUBLIC_URL + '/images/home/bg.png'}
             alt=""
           />
         </div>
@@ -120,7 +120,7 @@ const Home = (props) => {
         <div className="max-w-full md:hidden">
           <img
             className="absolute bottom-0 h-auto max-w-full"
-            src={require("../images/bg.png")}
+            src={`${process.env.PUBLIC_URL}/images/home/section3/bg.png`}
             alt=""
           />
         </div>
@@ -162,7 +162,7 @@ const Home = (props) => {
           </div>
         </div>
       </section>
-      <Login/>
+      <Login />
     </>
   );
 };
