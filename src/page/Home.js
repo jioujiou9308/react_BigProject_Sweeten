@@ -25,7 +25,6 @@ const s3Cards = [
 ];
 
 const Home = (props) => {
-  console.log(props);
   return (
     <>
       <div>
