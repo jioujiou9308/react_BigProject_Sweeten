@@ -29,7 +29,7 @@ const CardProduct = () => {
                         md:text-xl
                         lg:text-[22px]
                         xl:text-xl
-                        2xl:text-[22px]
+                        2xl:h3
                         mb-4
                         block"
                   >
@@ -73,7 +73,7 @@ const CardProduct = () => {
                         md:text-xl
                         lg:text-[22px]
                         xl:text-xl
-                        2xl:text-[22px]
+                        2xl:h3
                         mb-4
                         block
                         
@@ -117,7 +117,7 @@ const CardProduct = () => {
                         md:text-xl
                         lg:text-[22px]
                         xl:text-xl
-                        2xl:text-[22px]
+                        2xl:h3
                         mb-4
                         block
                       
@@ -161,7 +161,7 @@ const CardProduct = () => {
                         md:text-xl
                         lg:text-[22px]
                         xl:text-xl
-                        2xl:text-[22px]
+                        2xl:h3
                         mb-4
                         block
                         
