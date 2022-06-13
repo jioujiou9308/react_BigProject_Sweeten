@@ -5,7 +5,7 @@ import { AiOutlineRight, AiOutlineLeft } from "react-icons/ai";
 function You_may_like_course() {
   return (
     <>
-      <div className="flex justify-center pb-10">
+      <div className="flex justify-center pb-10 bg-sub">
         <AiOutlineLeft className="mt-16 text-secondary" />
         <div className="flex">
           {/* DEMO1 */}
