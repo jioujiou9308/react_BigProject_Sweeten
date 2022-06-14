@@ -13,6 +13,7 @@ module.exports = {
       test: "#A9A9A9",
       aside: "#FFCB9B",
       black: "#000000",
+      line: "#DDD0B7",
     },
     extend: {
       height: {

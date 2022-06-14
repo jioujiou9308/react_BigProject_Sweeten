@@ -2,9 +2,10 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 import About from "../page/About";
 import Course from "../page/Course";
-import CourseDetail from "../page/CourseDetail";
+import CourseDetail from "../page/CourseDetail";      
 import Member from "../page/Member";
 import MemberColloction from "../page/MemberCollection";
+import MemberInformation from "../page/MemberInformation";
 import MemberOrder from "../page/MemberOrder";
 import Product from "../page/Product";
 import ProductDetail from "../page/ProductDetail";
@@ -26,6 +27,7 @@ const Main = () => {
           <Route path="/about" element={<About />} />
           <Route path="/memberOrder" element={<MemberOrder/>} />
           <Route path="/memberCollection" element={<MemberColloction />} />
+          <Route path="/memberInformation" element={<MemberInformation/>}/>
         </Routes>
       </div>
     </main>
