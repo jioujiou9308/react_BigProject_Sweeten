@@ -8,6 +8,8 @@ import Product from "../page/Product";
 import ProductDetail from "../page/ProductDetail";
 import Test from "../page/Test";
 import Aside from "./Aside";
+import Cart from "../page/Cart";
+
 
 const Main = () => {
   return (
@@ -22,6 +24,7 @@ const Main = () => {
           <Route path="/course" element={<Course />} />
           <Route path="/courseDetail" element={<CourseDetail />} />
           <Route path="/about" element={<About />} />
+          <Route path="/cart" element={<Cart />} />
         </Routes>
       </div>
     </main>

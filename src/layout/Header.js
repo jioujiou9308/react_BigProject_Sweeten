@@ -5,9 +5,10 @@ import {
   AiOutlineUnorderedList,
   AiOutlineUserAdd,
 } from "react-icons/ai";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Header = () => {
+  const navigate = useNavigate();
   return (
     <header className="flex justify-around pt-6 pb-3 bg-white">
       <div>logo</div>
@@ -32,7 +33,7 @@ const Header = () => {
       </nav>
       <div className="flex">
         <AiOutlineSearch className="mx-1" />
-        <AiOutlineShoppingCart className="mx-1" />
+        <AiOutlineShoppingCart className="mx-1" onClick={()=>navigate("/main/cart")}/>
         <AiOutlineUserAdd className="mx-1" />
         <AiOutlineUnorderedList className="mx-1" />
       </div>
