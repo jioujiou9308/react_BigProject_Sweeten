@@ -190,7 +190,7 @@ function ProductDetail() {
               <UserComment />
             </div>
 
-            <div className="flex items-center justify-start mt-4 mb-12 ml-8 text-secondary md:hidden">
+            <div className="flex items-center justify-start mt-4 mb-12 ml-8 text-secondary md:hidden bg-sub">
               <p className="p">查看全部</p>
               <AiOutlineRight />
             </div>

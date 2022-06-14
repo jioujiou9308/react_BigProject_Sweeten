@@ -5,6 +5,7 @@ import Course from "../page/Course";
 import CourseDetail from "../page/CourseDetail";
 import Member from "../page/Member";
 import Member_colloction from "../page/MemberCollection";
+import MemberOrder from "../page/MemberOrder";
 import Product from "../page/Product";
 import ProductDetail from "../page/ProductDetail";
 import Test from "../page/Test";
@@ -24,6 +25,7 @@ const Main = () => {
           <Route path="/courseDetail" element={<CourseDetail />} />
           <Route path="/about" element={<About />} />
           <Route path="/memberCollection" element={<Member_colloction/>} />
+          <Route path="/memberOrder" element={<MemberOrder/>} />
         </Routes>
       </div>
     </main>
