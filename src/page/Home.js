@@ -2,7 +2,6 @@ import React from "react";
 import slider from "../images/slide1.png";
 import cake1 from "../images/section01_cake1.png";
 import Card from "../components/home/Card";
-import Login from "../components/Login";
 
 const s3Cards = [
   {
@@ -29,11 +28,15 @@ const Home = (props) => {
   return (
     <>
       <div>
-        <img src={slider} alt="..." className="w-full" />
+        <img
+          src={slider}
+          alt="..."
+          className="w-full max-h-[70vh] object-cover"
+        />
       </div>
       {/* section1 */}
       <div className="flex justify-center bg-white">
-        <div className="p-5 mt-5 ms-5 me-5" style={{ width: "75%" }}>
+        <div className="p-5 mx-5 mt-36" style={{ width: "75%" }}>
           <div className="sec01_title">
             <h1 className="text-4xl font-bold text-center h1">
               為了您，打造精彩的甜食饗宴
@@ -67,7 +70,7 @@ const Home = (props) => {
                 經典熱銷
               </h1>
               <div className="flex justify-center">
-                <img src={cake1} alt="..." />
+                <img src={cake1} alt="..." className=" max-h-[50vh]" />
               </div>
               <div className="justify-center my-2">
                 <h1 className="hidden my-5 text-lg font-normal text-center md:block">
@@ -111,7 +114,7 @@ const Home = (props) => {
         <div className="hidden max-w-full md:block">
           <img
             className="absolute h-auto max-w-full -bottom-30vh"
-            src= {process.env.PUBLIC_URL + '/images/home/bg.png'}
+            src={process.env.PUBLIC_URL + "/images/home/bg.png"}
             alt=""
           />
         </div>
@@ -161,7 +164,6 @@ const Home = (props) => {
           </div>
         </div>
       </section>
-      <Login />
     </>
   );
 };

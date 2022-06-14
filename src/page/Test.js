@@ -38,7 +38,16 @@ const Test = () => {
       <br />
       {/* // firebase auth */}
       <WhileLoad
-        loading={<button className=" animate-pulse">Loading</button>}
+        loading={
+          <button
+            onClick={() => {
+              runLoad(userLogout, 3000);
+            }}
+            className=" animate-pulse"
+          >
+            Loading
+          </button>
+        }
         done={
           <button
             onClick={() => {
