@@ -19,7 +19,10 @@ const CourseDetail = () => {
           <div className="w-1/2 mr-10 mt-14 ml-7">
             <img
               className="max-w-full"
-              src={process.env.PUBLIC_URL +"/images/courseDetail/course_demo_upper.png"}
+              src={
+              process.env.PUBLIC_URL +
+              "/images/courseDetail/course_demo_upper.png"
+            }
               alt=""
             />
           </div>
@@ -175,7 +178,7 @@ const CourseDetail = () => {
       </div>
       {/* 你可能也會喜歡 */}
       <div className="hidden md:my-8 md:bg-theme md:block bg-sub">
-        <p className="pt-3 pb-6 text-center">你可能也會喜歡</p>
+        <p className="pt-3 pb-6 text-center h2">你可能也會喜歡</p>
         <You_may_like_course />
       </div>
     </>

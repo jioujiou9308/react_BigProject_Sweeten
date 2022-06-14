@@ -21,7 +21,7 @@ const Member_colloction = () => {
             <div className="overflow-hidden scale-75 md:scale-100">
               <img
                 className="scale-105 "
-                src={`${process.env.PUBLIC_URL}/images/memberCollection/member_colloction.png`}
+                src={`${process.env.PUBLIC_URL}/images/memberCollectionAndOrder/member_order.png`}
                 alt=""
               />
             </div>
@@ -69,7 +69,7 @@ const Member_colloction = () => {
             <div className="overflow-hidden scale-75 md:scale-100">
               <img
                 className="scale-105 "
-                src={`${process.env.PUBLIC_URL}/images/memberCollection/member_colloction.png`}
+                src={`${process.env.PUBLIC_URL}/images/memberCollectionAndOrder/member_order.png`}
                 alt=""
               />
             </div>
@@ -117,7 +117,7 @@ const Member_colloction = () => {
             <div className="overflow-hidden scale-75 md:scale-100">
               <img
                 className="scale-105 "
-                src={`${process.env.PUBLIC_URL}/images/memberCollection/member_colloction.png`}
+                src={`${process.env.PUBLIC_URL}/images/memberCollectionAndOrder/member_order.png`}
                 alt=""
               />
             </div>
