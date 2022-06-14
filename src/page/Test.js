@@ -12,7 +12,6 @@ const testUser = {
 };
 
 const Test = () => {
-  console.log(process.env);
   const [WhileLoad, runLoad] = useLoading();
   const [Inputs, allRef] = useMultiInput(["name", "acount", "password"]);
   const [render, setRender] = useState("");
@@ -56,19 +55,19 @@ const Test = () => {
       <button
         onClick={() => {
           axios
-            .post(API_URL + "/auth", testUser)
+            .post(API_URL + "/auth/login", testUser, { withCredentials: true })
             .then((res) => console.log(res.data))
             .catch((err) => console.log(err));
         }}
       >
         SIGNIN
       </button>
-      <h1 className="h1">class name: h1 // slogan</h1>
-      <h2 className="h2">class name: h2 // 頁面標題</h2>
-      <h3 className="h3">class name: h3 // 文章標題</h3>
-      <h4 className="h4">class name: h4 // 副標</h4>
-      <p className="p">class name: p // 內文</p>
-      <p className="note">class name: note //提醒</p>
+      <h1 className="h1">className name: h1 // slogan</h1>
+      <h2 className="h2">className name: h2 // 頁面標題</h2>
+      <h3 className="h3">className name: h3 // 文章標題</h3>
+      <h4 className="h4">className name: h4 // 副標</h4>
+      <p className="p">className name: p // 內文</p>
+      <p className="note">className name: note //提醒</p>
       <p>{render}</p>
       <div className="flex">
         icon-sm

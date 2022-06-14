@@ -2,7 +2,7 @@ import React from "react";
 
 const Card = (props) => {
   const { card } = props;
-//   console.log(process.env.PUBLIC_URL + "/logo.png");
+  //   console.log(process.env.PUBLIC_URL + "/logo.png");
   return (
     <div className="flex flex-col justify-between pb-14 md:px-5 md:pb-0 text-center">
       {/* mobile h1 */}
@@ -58,7 +58,7 @@ export default Card;
 //   <div className="w-full h-auto m-auto">
 //     <img
 //       className="object-cover"
-//       src={require("../images/hp-class.png")}
+//       src={require("../images/hp-className.png")}
 //       alt="..."
 //     />
 //   </div>

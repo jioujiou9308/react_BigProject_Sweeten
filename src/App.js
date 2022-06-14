@@ -6,6 +6,7 @@ import Main from "./layout/Main";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { userOnChanged, auth } from "./utils/auth/";
 import { useEffect } from "react";
+import Login from "./components/Login";
 
 function App() {
   useEffect(() => {
@@ -26,8 +27,9 @@ function App() {
       <BrowserRouter>
         <Header />
         <Routes>
-          <Route path="/" element={<Home item={'propsFromApp'}/>} />
+          <Route path="/" element={<Home />} />
           <Route path="/main/*" element={<Main />} />
+          <Route path="/login" element={<Login />} />
         </Routes>
       </BrowserRouter>
       <Footer />

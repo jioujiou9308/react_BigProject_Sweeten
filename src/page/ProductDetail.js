@@ -7,7 +7,7 @@ import {
   AiOutlineRight,
 } from "react-icons/ai";
 import UserComment from "../components/courseDetail/UserComment";
-import You_may_like_product from "../components/productDetail/You_may_like_product"
+import You_may_like_product from "../components/productDetail/You_may_like_product";
 
 function ProductDetail() {
   return (
@@ -90,7 +90,10 @@ function ProductDetail() {
         <div className="mx-8 md:hidden">
           <img
             className="max-w-full px-8 pt-10 mb-8"
-            src={process.env.PUBLIC_URL + "/images/productDetail/product_demo1_upper.png"}
+            src={
+              process.env.PUBLIC_URL +
+              "/images/productDetail/product_demo1_upper.png"
+            }
             alt=""
           />
 
@@ -152,7 +155,9 @@ function ProductDetail() {
 
             <div>
               <h2 className="ml-2 md:ml-0 h2">過敏原：</h2>
-              <p className="text-justify p">我們不得不面對一個非常尷尬的事實。</p>
+              <p className="text-justify p">
+                我們不得不面對一個非常尷尬的事實。
+              </p>
             </div>
           </div>
 
@@ -200,6 +205,7 @@ function ProductDetail() {
       {/* 你可能也會喜歡 */}
       <div className="hidden md:my-8 md:bg-theme md:block">
         <p className="pt-3 pb-6 text-center h2">你可能也會喜歡</p>
+        {/* FIXME 要用大駝峰 */}
         <You_may_like_product />
       </div>
     </>
