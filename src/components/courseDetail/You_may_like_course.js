@@ -12,7 +12,7 @@ function You_may_like_course() {
           <div>
             <div className="w-5/6 mx-auto overflow-hidden">
               <img
-                src={`${process.env.PUBLIC_URL}/images/courseDetail/course_demo_lower.png`}
+                src={process.env.PUBLIC_URL+`/images/courseDetail/course_demo_lower.png`}
                 alt=""
               />
             </div>

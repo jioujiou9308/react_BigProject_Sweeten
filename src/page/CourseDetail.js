@@ -7,12 +7,12 @@ import {
   AiOutlineRight,
 } from "react-icons/ai";
 import UserComment from "../components/courseDetail/UserComment";
-import You_may_like_course from "../components/courseDetail/You_may_like_course"
+import You_may_like_course from "../components/courseDetail/You_may_like_course";
 
 const CourseDetail = () => {
   return (
     <>
-      <div className="bg-white ">
+      <div className="bg-white pb-60">
         {/* 桌機板DEMO */}
         <div className="hidden md:flex">
           {/* demo大圖(左側)桌機板 */}
@@ -20,9 +20,9 @@ const CourseDetail = () => {
             <img
               className="max-w-full"
               src={
-              process.env.PUBLIC_URL +
-              "/images/courseDetail/course_demo_upper.png"
-            }
+                process.env.PUBLIC_URL +
+                "/images/courseDetail/course_demo_upper.png"
+              }
               alt=""
             />
           </div>
@@ -68,7 +68,10 @@ const CourseDetail = () => {
         <div className="mx-8 md:hidden">
           <img
             className="max-w-full px-8 pt-10 mb-8"
-            src={process.env.PUBLIC_URL +"/images/courseDetail/course_demo_upper.png"}
+            src={
+              process.env.PUBLIC_URL +
+              "/images/courseDetail/course_demo_upper.png"
+            }
             alt=""
           />
 
@@ -131,7 +134,9 @@ const CourseDetail = () => {
 
             <div>
               <h2 className="ml-2 md:ml-0 h3">過敏原：</h2>
-              <p className="text-justify p">我們不得不面對一個非常尷尬的事實。</p>
+              <p className="text-justify p">
+                我們不得不面對一個非常尷尬的事實。
+              </p>
             </div>
           </div>
 
@@ -171,13 +176,13 @@ const CourseDetail = () => {
 
             <div className="flex items-center justify-start mt-4 mb-12 ml-8 text-secondary md:hidden">
               <p className="p">查看全部</p>
-              <AiOutlineRight className="icon-xl"/>
+              <AiOutlineRight className="icon-xl" />
             </div>
           </div>
         </div>
       </div>
       {/* 你可能也會喜歡 */}
-      <div className="hidden md:my-8 md:bg-theme md:block bg-sub">
+      <div className="absolute bottom-[240px] hidden w-screen right-0 md:my-8 md:bg-theme md:block bg-sub">
         <p className="pt-3 pb-6 text-center h2">你可能也會喜歡</p>
         <You_may_like_course />
       </div>
