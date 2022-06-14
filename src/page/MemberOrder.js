@@ -12,14 +12,14 @@ function MemberOrder() {
         <div className="mb-6">
           <Member_search_bar />
         </div>
-        <div className="pt-2 mx-3 text-right border-b ">
+        <div className="pt-2 mx-5 text-right border-b ">
           <h2>訂單 # 123456</h2>
         </div>
         {/* 兩兩一組ㄉdiv */}
         <div className="md:flex">
           {/* DEMO1 */}
-          <div className="flex items-center justify-start mx-3 border-b md:w-1/2">
-            <div className="overflow-hidden scale-75">
+          <div className="flex items-center justify-start p-5 border-b md:w-1/2">
+            <div className="mr-2 overflow-hidden">
               <img
                 className="scale-105 "
                 src={`${process.env.PUBLIC_URL}/images/memberCollectionAndOrder/member_order.png`}
@@ -27,7 +27,7 @@ function MemberOrder() {
               />
             </div>
 
-            <div className="mr-3">
+            <div className="mx-3">
               <p>商品</p>
               <p className="my-2">數量</p>
               <p>價格</p>
@@ -40,9 +40,9 @@ function MemberOrder() {
             </div>
           </div>
 
-          {/* DEMO 2 */}
-          <div className="flex items-center justify-start mx-3 border-b md:w-1/2">
-            <div className="overflow-hidden scale-75">
+          {/* DEMO2 */}
+          <div className="flex items-center justify-start p-5 border-b md:w-1/2">
+            <div className="mr-2 overflow-hidden">
               <img
                 className="scale-105 "
                 src={`${process.env.PUBLIC_URL}/images/memberCollectionAndOrder/member_order.png`}
@@ -50,7 +50,7 @@ function MemberOrder() {
               />
             </div>
 
-            <div className="mr-3">
+            <div className="mx-3">
               <p>商品</p>
               <p className="my-2">數量</p>
               <p>價格</p>
