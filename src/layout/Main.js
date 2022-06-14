@@ -10,7 +10,6 @@ import Test from "../page/Test";
 import Aside from "./Aside";
 import Cart from "../page/Cart";
 
-
 const Main = () => {
   return (
     <main className="container flex flex-wrap justify-around py-12 mx-auto max-w-7xl">
