@@ -13,15 +13,15 @@ function hookMaker(sliceName, key, action) {
   };
 }
 
-// NOTE render
+// NOTE render slice
 export const useCourseState = hookMaker("render", "courseList", updateCourse);
 export const useProductState = hookMaker(
   "render",
   "productList",
   updateProduct
 );
-//NOTE user
 
+//NOTE user slice
 export const useUserState = hookMaker("user", "user", updateUser);
 export const useCartState = hookMaker("user", "cart", updateCart);
 export const useFavoriteState = hookMaker("user", "favorite", updateFavorite);

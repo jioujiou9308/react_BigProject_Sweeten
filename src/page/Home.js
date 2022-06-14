@@ -111,7 +111,7 @@ const Home = (props) => {
         <div className="hidden max-w-full md:block">
           <img
             className="absolute h-auto max-w-full -bottom-30vh"
-            src= {process.env.PUBLIC_URL + '/images/home/bg.png'}
+            src={process.env.PUBLIC_URL + "/images/home/bg.png"}
             alt=""
           />
         </div>
@@ -161,7 +161,6 @@ const Home = (props) => {
           </div>
         </div>
       </section>
-      <Login />
     </>
   );
 };
