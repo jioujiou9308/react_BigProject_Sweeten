@@ -1,46 +1,43 @@
 import React, { useState } from "react";
-
+import {
+  AiOutlinePlus,
+  AiOutlineMinus,
+  AiOutlineHeart,
+  AiOutlineDelete,
+} from "react-icons/ai";
 function Index() {
   const [show, setShow] = useState(false);
   return (
     <>
-      <div
-        className="fixed w-full h-full overflow-x-hidden overflow-y-auto bg-black bg-opacity-90"
-        id="chec-div"
-      >
-        <div
-          className="absolute right-0 z-10 w-full h-full overflow-x-hidden transition duration-700 ease-in-out transform translate-x-0"
-          id="checkout"
-        >
-          <div className="flex flex-col justify-end md:flex-row" id="cart">
-            <div
-              className="w-full h-screen py-8 pl-4 pr-10 overflow-x-hidden overflow-y-auto bg-white lg:w-1/2 md:pl-10 md:pr-4 md:py-12"
-              id="scroll"
-            >
-              <p className="pt-3 text-5xl font-black leading-10 text-gray-800">
+      
+        <div className="">
+          {/* bag & summary */}
+          <div className="flex flex-col lg:flex-row" id="cart">
+            {/* bag column */}
+            <div className="p-8 bg-white lg:w-2/3 md:p-12"
+              id="scroll">
+              <p className="h2 font-black">
                 Bag
               </p>
+              {/* each item div */}
               <div className="items-center py-8 border-t border-gray-200 md:flex mt-14">
-                <div className="w-1/4">
+                <div className="md:w-1/4 w-full">
                   <img
                     src="https://cdn.tuk.dev/assets/templates/e-commerce-kit/bestSeller3.png"
                     alt=""
-                    className="object-cover object-center w-full h-full"
+                    className="object-cover object-center w-full max-h-40"
                   />
                 </div>
                 <div className="md:pl-3 md:w-3/4">
-                  <p className="pt-4 text-xs leading-3 text-gray-800 md:pt-0">
-                    RF293
-                  </p>
                   <div className="flex items-center justify-between w-full pt-1">
-                    <p className="text-base font-black leading-none text-gray-800">
+                    <p className="font-black">
                       North wolf bag
                     </p>
-                    <select className="px-1 py-2 mr-6 border border-gray-200 focus:outline-none">
-                      <option>01</option>
-                      <option>02</option>
-                      <option>03</option>
-                    </select>
+                    <div className="flex items-center">
+                      <AiOutlineMinus />
+                      <p className="text-lg p-3">1</p>
+                      <AiOutlinePlus />
+                    </div>
                   </div>
                   <p className="pt-2 text-xs leading-3 text-gray-600">
                     Height: 10 inches
@@ -52,41 +49,35 @@ function Index() {
                     Composition: 100% calf leather
                   </p>
                   <div className="flex items-center justify-between pt-5 pr-6">
-                    <div className="flex itemms-center">
-                      <p className="text-xs leading-3 text-gray-800 underline cursor-pointer">
-                        Add to favorites
-                      </p>
-                      <p className="pl-5 text-xs leading-3 text-red-500 underline cursor-pointer">
-                        Remove
-                      </p>
+                    <div className="flex">
+                      <AiOutlineHeart />
+                      <AiOutlineDelete />
                     </div>
-                    <p className="text-base font-black leading-none text-gray-800">
+                    <p className="text-base font-black  ">
                       $9,000
                     </p>
                   </div>
                 </div>
               </div>
+              {/* 第二個item******************************* */}
               <div className="items-center py-8 border-t border-gray-200 md:flex">
-                <div className="w-1/4">
+                <div className="md:w-1/4 w-full">
                   <img
                     src="https://cdn.tuk.dev/assets/templates/e-commerce-kit/bestSeller2.png"
                     alt=""
-                    className="object-cover object-center w-full h-full"
+                    className="object-cover object-center w-full max-h-40"
                   />
                 </div>
-                <div className="w-full md:pl-3 md:w-3/4">
-                  <p className="pt-4 text-xs leading-3 text-gray-800 md:pt-0">
-                    RF293
-                  </p>
+                <div className="md:pl-3 md:w-3/4">
                   <div className="flex items-center justify-between w-full pt-1">
-                    <p className="text-base font-black leading-none text-gray-800">
+                    <p className="font-black">
                       Luxe Signature Ring
                     </p>
-                    <select className="px-1 py-2 mr-6 border border-gray-200 focus:outline-none">
-                      <option>01</option>
-                      <option>02</option>
-                      <option>03</option>
-                    </select>
+                    <div className="flex items-center">
+                      <AiOutlineMinus />
+                      <p className="text-lg p-3">1</p>
+                      <AiOutlinePlus />
+                    </div>
                   </div>
                   <p className="pt-2 text-xs leading-3 text-gray-600">
                     Height: 10 inches
@@ -98,41 +89,40 @@ function Index() {
                     Composition: 100% calf leather
                   </p>
                   <div className="flex items-center justify-between pt-5 pr-6">
-                    <div className="flex itemms-center">
-                      <p className="text-xs leading-3 text-gray-800 underline cursor-pointer">
+                    <div className="flex items-center">
+                      
+                      <p className="text-xs leading-3  underline cursor-pointer">
                         Add to favorites
                       </p>
                       <p className="pl-5 text-xs leading-3 text-red-500 underline cursor-pointer">
                         Remove
                       </p>
                     </div>
-                    <p className="text-base font-black leading-none text-gray-800">
+                    <p className="text-base font-black  ">
                       $9,000
                     </p>
                   </div>
                 </div>
               </div>
-              <div className="items-center py-8 border-t border-b border-gray-200 md:flex">
-                <div className="w-1/4 h-full">
+              {/* third oneeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee */}
+              <div className="items-center py-8 border-t border-gray-200 md:flex">
+                <div className="md:w-1/4 w-full">
                   <img
                     src="https://cdn.tuk.dev/assets/templates/e-commerce-kit/bestSeller1.png"
                     alt=""
-                    className="object-cover object-center w-full h-full"
+                    className="object-cover object-center w-full max-h-40"
                   />
                 </div>
-                <div className="w-full md:pl-3 md:w-3/4">
-                  <p className="pt-4 text-xs leading-3 text-gray-800 md:pt-0">
-                    RF293
-                  </p>
+                <div className="md:pl-3 md:w-3/4">
                   <div className="flex items-center justify-between w-full pt-1">
-                    <p className="text-base font-black leading-none text-gray-800">
-                      Luxe Signature Shoes
+                    <p className="font-black">
+                      Luxe Signature Ring
                     </p>
-                    <select className="px-1 py-2 mr-6 border border-gray-200 focus:outline-none">
-                      <option>01</option>
-                      <option>02</option>
-                      <option>03</option>
-                    </select>
+                    <div className="flex items-center">
+                      <AiOutlineMinus />
+                      <p className="text-lg p-3">1</p>
+                      <AiOutlinePlus />
+                    </div>
                   </div>
                   <p className="pt-2 text-xs leading-3 text-gray-600">
                     Height: 10 inches
@@ -144,67 +134,65 @@ function Index() {
                     Composition: 100% calf leather
                   </p>
                   <div className="flex items-center justify-between pt-5 pr-6">
-                    <div className="flex itemms-center">
-                      <p className="text-xs leading-3 text-gray-800 underline cursor-pointer">
+                    <div className="flex items-center">
+                      
+                      <p className="text-xs leading-3  underline cursor-pointer">
                         Add to favorites
                       </p>
                       <p className="pl-5 text-xs leading-3 text-red-500 underline cursor-pointer">
                         Remove
                       </p>
                     </div>
-                    <p className="text-base font-black leading-none text-gray-800">
+                    <p className="text-base font-black  ">
                       $9,000
                     </p>
                   </div>
                 </div>
               </div>
             </div>
-            <div className="w-full h-full bg-gray-100 md:w-1/3 xl:w-1/4">
-              <div className="flex flex-col justify-between py-20 overflow-y-auto md:h-screen px-14">
+            {/* Summary column */}
+              <div className="bg-secondary lg:w-1/4 flex flex-col justify-between m-8 p-8 max-h-[30rem]">
+                {/* 明細上半部 */}
                 <div>
-                  <p className="text-4xl font-black leading-9 text-gray-800">
+                  <p className="h2 font-black">
                     Summary
                   </p>
-                  <div className="flex items-center justify-between pt-16">
-                    <p className="text-base leading-none text-gray-800">
+                  <div className="flex justify-between pt-16">
+                    <p className="">
                       Subtotal
                     </p>
-                    <p className="text-base leading-none text-gray-800">
+                    <p className="">
                       $9,000
                     </p>
                   </div>
-                  <div className="flex items-center justify-between pt-5">
-                    <p className="text-base leading-none text-gray-800">
+                  <div className="flex justify-between pt-5">
+                    <p className="">
                       Shipping
                     </p>
-                    <p className="text-base leading-none text-gray-800">$30</p>
+                    <p className="">$30</p>
                   </div>
-                  <div className="flex items-center justify-between pt-5">
-                    <p className="text-base leading-none text-gray-800">Tax</p>
-                    <p className="text-base leading-none text-gray-800">$35</p>
+                  <div className="flex justify-between pt-5">
+                    <p className="">Tax</p>
+                    <p className="">$35</p>
                   </div>
                 </div>
+                {/* 明細下半部 總計 */}
                 <div>
                   <div className="flex items-center justify-between pt-20 pb-6 lg:pt-5">
-                    <p className="text-2xl leading-normal text-gray-800">
+                    <p className="text-2xl leading-normal ">
                       Total
                     </p>
-                    <p className="text-2xl font-bold leading-normal text-right text-gray-800">
+                    <p className="text-2xl font-bold leading-normal text-right ">
                       $10,240
                     </p>
                   </div>
-                  <button
-                    onClick={() => setShow(!show)}
-                    className="w-full py-5 text-base leading-none text-white bg-gray-800 border border-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800"
-                  >
+                  <button className="w-full py-2 text-white border hover:bg-primary">
                     Checkout
                   </button>
                 </div>
               </div>
-            </div>
           </div>
         </div>
-      </div>
 
       <style>
         {` /* width */
