@@ -21,13 +21,13 @@ const CourseDetail = () => {
               className="max-w-full"
               src={
                 process.env.PUBLIC_URL +
-                "/images/courseDetail/course_demo_upper.png"
+                "/images/courseDetial/course_demo_upper.png"
               }
               alt=""
             />
           </div>
           {/* DEMO右欄 桌機板*/}
-          <div className="w-1/2 mr-10">
+          <div className="w-1/2 mr-7">
             {/* 桌機板標題和副標字體+愛心 */}
             <div className="border-b-2 ">
               <div className="flex justify-between mt-10">
@@ -40,7 +40,7 @@ const CourseDetail = () => {
             {/* 右欄尺寸桌機板 */}
             <p className="mt-4 mb-2 p">尺寸</p>
             {/* 尺寸按鈕桌機板  小字尺寸*/}
-            <button className="mr-5 size-btn-desk p">6吋</button>
+            <button className="mr-4 size-btn-desk p">6吋</button>
 
             <p className="mt-5 p">商品參與的優惠活動</p>
             <p className="mt-2 text-center w-28 bg-primary p">父親節特惠</p>
@@ -54,10 +54,10 @@ const CourseDetail = () => {
               </div>
 
               <div className="flex justify-center ">
-                <button className="px-3 py-1 ml-5 pborder-2 border-sub">
+                <button className="px-3 py-1 p ml-4 pborder-2 border-sub">
                   加入購物車
                 </button>
-                <button className="px-3 ml-5 text-white border-2 p border-warning bg-warning">
+                <button className="px-3 ml-4 text-white border-2 p border-warning bg-warning">
                   立即購買
                 </button>
               </div>
@@ -70,7 +70,7 @@ const CourseDetail = () => {
             className="max-w-full px-8 pt-10 mb-8"
             src={
               process.env.PUBLIC_URL +
-              "/images/courseDetail/course_demo_upper.png"
+              "/images/courseDetial/course_demo_upper.png"
             }
             alt=""
           />

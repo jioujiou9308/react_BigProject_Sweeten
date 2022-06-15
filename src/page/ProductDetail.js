@@ -87,7 +87,7 @@ function ProductDetail() {
           </div>
         </div>
         {/* 展示圖手機板 */}
-        <div className="mx-8 md:hidden">
+        <div className="mx-4 md:hidden">
           <img
             className="max-w-full px-8 pt-10 mb-8"
             src={
@@ -105,8 +105,8 @@ function ProductDetail() {
           {/* 標題+價錢手機板 */}
           <div className="flex justify-between px-2">
             {/* 手機板標題字體ㄉclassname */}
-            <p className="h1">倉石乳酪蛋糕</p>
-            <p className="h2">$ 1200 NTD</p>
+            <p className="h2">倉石乳酪蛋糕</p>
+            <p className="h3">$ 1200 NTD</p>
           </div>
 
           {/* 數量加減手機板 */}

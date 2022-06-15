@@ -12,28 +12,25 @@ function You_may_like_course() {
           <div>
             <div className="w-5/6 mx-auto overflow-hidden">
               <img
-                src={process.env.PUBLIC_URL+`/images/courseDetail/course_demo_lower.png`}
+                src={process.env.PUBLIC_URL+'/images/courseDetial/course_demo_lower.png'}
                 alt=""
               />
             </div>
-            <div className="w-5/6 mx-auto text-center">
+            <div className="w-5/6  mx-auto text-center">
               <p className="py-1 text-white p bg-secondary">加入購物車</p>
               <p className="p">葡萄柚蛋糕</p>
               <p className="note">$ 900</p>
             </div>
           </div>
-          {/* DEMO2 */}
+          {/* DEMO2*/}
           <div>
             <div className="w-5/6 mx-auto overflow-hidden">
               <img
-                src={
-                  process.env.PUBLIC_URL +
-                  "/images/courseDetail/course_demo_lower.png"
-                }
+                src={process.env.PUBLIC_URL+'/images/courseDetial/course_demo_lower.png'}
                 alt=""
               />
             </div>
-            <div className="w-5/6 mx-auto text-center">
+            <div className="w-5/6  mx-auto text-center">
               <p className="py-1 text-white p bg-secondary">加入購物車</p>
               <p className="p">葡萄柚蛋糕</p>
               <p className="note">$ 900</p>

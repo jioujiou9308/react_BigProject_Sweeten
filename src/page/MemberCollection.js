@@ -17,7 +17,7 @@ const Member_colloction = () => {
         <div className="pt-8 bg-white md:pt-0 md:px-10">
           <h2 className="hidden py-2 border-b h2 md:block">我的收藏</h2>
           {/* 圖片 備註 評分愛心 1*/}
-          <div className="flex items-center px-0 py-1 border-b md:py-6 md:justify-between md:px-8">
+          <div className="flex items-center px-0 py-1 border-b md:py-6 justify-around md:px-8">
             <div className="overflow-hidden">
               <img
                 className="scale-105 "
@@ -65,7 +65,7 @@ const Member_colloction = () => {
           </div>
 
           {/* 圖片 備註 評分愛心 2*/}
-          <div className="flex items-center px-0 py-1 border-b md:py-6 md:justify-between md:px-8">
+          <div className="flex items-center px-0 py-1 border-b md:py-6 justify-around md:px-8">
             <div className="overflow-hidden">
               <img
                 className="scale-105 "
@@ -113,7 +113,7 @@ const Member_colloction = () => {
           </div>
 
           {/* 圖片 備註 評分愛心 2*/}
-          <div className="flex items-center px-0 py-1 border-b md:py-6 md:justify-between md:px-8">
+          <div className="flex items-center px-0 py-1 border-b md:py-6 justify-around md:px-8">
             <div className="overflow-hidden ">
               <img
                 className="scale-105 "
