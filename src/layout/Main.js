@@ -11,6 +11,7 @@ import Product from "../page/Product";
 import ProductDetail from "../page/ProductDetail";
 import Test from "../page/Test";
 import Aside from "./Aside";
+import CustomerService from "../page/CustomerService";
 
 const Main = () => {
   return (
@@ -28,6 +29,7 @@ const Main = () => {
           <Route path="/memberOrder" element={<MemberOrder/>} />
           <Route path="/memberCollection" element={<MemberColloction />} />
           <Route path="/memberInformation" element={<MemberInformation/>}/>
+          <Route path="/customerService" element={<CustomerService/>}/>
         </Routes>
       </div>
     </main>
