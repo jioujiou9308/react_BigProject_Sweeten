@@ -7,6 +7,15 @@ import {
 } from "react-icons/ai";
 import { Link } from "react-router-dom";
 
+const linkText = ["首頁", "測驗", "產品", "課程", "關於我們"];
+const linkPath = [
+  "/",
+  "/main/test",
+  "/main/product",
+  "/main/course",
+  "/main/about",
+];
+
 const Header = () => {
   return (
     <header className="fixed top-0 z-50 w-full pt-3 pb-3 bg-white ">
@@ -22,21 +31,11 @@ const Header = () => {
         <div>logo</div>
         <nav>
           <ul className="flex p">
-            <li className="mx-2">
-              <Link to="/">首頁</Link>
-            </li>
-            <li className="mx-2">
-              <Link to="/main/test">測驗</Link>
-            </li>
-            <li className="mx-2">
-              <Link to="main/product">產品</Link>
-            </li>
-            <li className="mx-2">
-              <Link to="main/course">課程</Link>
-            </li>
-            <li className="mx-2">
-              <Link to="main/about">關於我們</Link>
-            </li>
+            {linkText.map((text, i) => (
+              <li className="mx-2">
+                <Link to={linkPath[i]}>{text}</Link>
+              </li>
+            ))}
           </ul>
         </nav>
       </div>

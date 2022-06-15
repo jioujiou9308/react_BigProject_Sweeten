@@ -51,8 +51,6 @@ CREATE TABLE `product` (
   `price` int,
   `description` varchar(255),
   `express_id` int,
-  `address` varchar(255),
-  `payment` varchar(255),
   `created_at` datetime
 );
 
@@ -102,7 +100,14 @@ CREATE TABLE `order_info` (
   `user_id` int,
   `coupon_id` int DEFAULT 0,
   `order_status_id` int,
+  `address` varchar(255),
+  `payment_id` int,
   `timestamp` timestamp
+);
+
+CREATE TABLE `payment` (
+  `id` int PRIMARY KEY AUTO_INCREMENT,
+  `name` varchar(255)
 );
 
 CREATE TABLE `coupon` (
@@ -153,6 +158,8 @@ ALTER TABLE `order_info` ADD FOREIGN KEY (`user_id`) REFERENCES `user` (`id`);
 ALTER TABLE `order_info` ADD FOREIGN KEY (`coupon_id`) REFERENCES `coupon` (`id`);
 
 ALTER TABLE `order_info` ADD FOREIGN KEY (`order_status_id`) REFERENCES `order_status` (`id`);
+
+ALTER TABLE `order_info` ADD FOREIGN KEY (`payment_id`) REFERENCES `payment` (`id`);
 
 ALTER TABLE `coupon_category` ADD FOREIGN KEY (`coupon_id`) REFERENCES `coupon` (`id`);
 
