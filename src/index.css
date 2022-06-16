@@ -7,10 +7,7 @@ html,
 body {
   height: 100%;
 }
-body {
-  font-family: "Noto Sans TC", sans-serif;
-  font-weight: 300;
-}
+
 @layer base {
   .h1 {
     @apply text-4xl font-bold;

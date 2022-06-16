@@ -1,4 +1,5 @@
 import React from "react";
+import { Input, Button, Checkbox } from "@material-tailwind/react";
 
 const Login = () => {
   return (
@@ -22,31 +23,26 @@ const Login = () => {
                   action="#"
                 >
                   <div className="flex flex-col mt-4">
-                    <input
+                    <Input
                       id="email"
                       type="text"
                       className="flex-grow h-8 px-2 border rounded border-grey-400"
                       name="email"
-                      placeholder="Email"
+                      label="email"
                     />
                   </div>
                   <div className="flex flex-col mt-4">
-                    <input
+                    <Input
                       id="password"
                       type="password"
                       className="flex-grow h-8 px-2 border rounded border-grey-400"
                       name="password"
+                      label="password"
                       required
-                      placeholder="Password"
                     />
                   </div>
                   <div className="flex items-center mt-4">
-                    <input
-                      type="checkbox"
-                      name="remember"
-                      id="remember"
-                      className="mr-2"
-                    />{" "}
+                    <Checkbox type="checkbox" name="remember" id="remember" />
                     <label
                       htmlFor="remember"
                       className="text-sm text-grey-dark"
@@ -55,12 +51,12 @@ const Login = () => {
                     </label>
                   </div>
                   <div className="flex flex-col mt-8">
-                    <button
+                    <Button
                       type="submit"
                       className="px-4 py-2 text-sm font-semibold text-white bg-blue-500 rounded hover:bg-blue-700"
                     >
                       Login
-                    </button>
+                    </Button>
                   </div>
                 </form>
                 <div className="mt-4 text-center">

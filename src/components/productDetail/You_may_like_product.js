@@ -5,13 +5,13 @@ import { AiOutlineRight, AiOutlineLeft } from "react-icons/ai";
 function You_may_like() {
   return (
     <>
-      <div className="flex justify-center pb-10 bg-sub">
+      <div className="flex justify-center pb-10 ">
         <AiOutlineLeft className="mt-16 icon-xl text-secondary" />
         <div className="flex">
           {/* DEMO1 */}
           <div className="mx-4 ">
             <div className="h-32 overflow-hidden w-36">
-              <img src={process.env.PUBLIC_URL +"/images/You_may_like_product/product_demo1_lower.png"} alt="" />
+              <img src={process.env.PUBLIC_URL +"/images/productDetail/product_demo1_lower.png"} alt="" />
             </div>
             <div className="text-center w-36">
               <p className="py-1 text-white p bg-secondary note-words">
@@ -24,7 +24,7 @@ function You_may_like() {
           {/* DEMO 2 */}
           <div className="mx-4 ">
             <div className="h-32 overflow-hidden w-36">
-              <img src={process.env.PUBLIC_URL +"/images/You_may_like_product/product_demo1_lower.png"} alt="" />
+              <img src={process.env.PUBLIC_URL +"/images/productDetail/product_demo1_lower.png"} alt="" />
             </div>
             <div className="text-center w-36">
               <p className="py-1 text-white p bg-secondary note-words">
@@ -37,7 +37,7 @@ function You_may_like() {
           {/* DEMO3 */}
           <div className="mx-4 ">
             <div className="h-32 overflow-hidden w-36">
-              <img src={process.env.PUBLIC_URL +"/images/You_may_like_product/product_demo1_lower.png"} alt="" />
+              <img src={process.env.PUBLIC_URL +"/images/productDetail/product_demo1_lower.png"} alt="" />
             </div>
             <div className="text-center w-36">
               <p className="py-1 text-white p bg-secondary note-words">
@@ -50,7 +50,7 @@ function You_may_like() {
           {/* DEMO 4 */}
           <div className="mx-4 ">
             <div className="h-32 overflow-hidden w-36">
-              <img src={process.env.PUBLIC_URL +"/images/You_may_like_product/product_demo1_lower.png"} alt="" />
+              <img src={process.env.PUBLIC_URL +"/images/productDetail/product_demo1_lower.png"} alt="" />
             </div>
             <div className="text-center w-36">
               <p className="py-1 text-white p bg-secondary note-words">

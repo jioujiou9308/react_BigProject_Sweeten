@@ -15,8 +15,12 @@ module.exports = withMT({
       test: "#A9A9A9",
       aside: "#FFCB9B",
       black: "#000000",
+      line: "#DDD0B7",
     },
     extend: {
+      fontFamily: {
+        "press-start": ["Noto Sans TC", "sans-serif"],
+      },
       height: {
         "60vh": "60vh", // homepage-section-2
       },

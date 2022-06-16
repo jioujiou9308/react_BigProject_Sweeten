@@ -5,12 +5,15 @@ import Course from "../page/Course";
 import CourseDetail from "../page/CourseDetail";
 import Member from "../page/Member";
 import MemberColloction from "../page/MemberCollection";
+import MemberInformation from "../page/MemberInformation";
+import MemberOrder from "../page/MemberOrder";
 import Product from "../page/Product";
 import ProductDetail from "../page/ProductDetail";
 import Test from "../page/Test";
 import Aside from "./Aside";
 import Cart from "../page/Cart";
 import Login from "../components/Login";
+import CustomerService from "../page/CustomerService";
 
 const Main = () => {
   return (
@@ -28,6 +31,10 @@ const Main = () => {
           <Route path="/cart" element={<Cart />} />
           <Route path="/memberCollection" element={<MemberColloction />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/memberOrder" element={<MemberOrder />} />
+          <Route path="/memberCollection" element={<MemberColloction />} />
+          <Route path="/memberInformation" element={<MemberInformation />} />
+          <Route path="/customerService" element={<CustomerService />} />
         </Routes>
       </div>
     </main>
