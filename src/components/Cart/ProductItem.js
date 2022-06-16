@@ -75,11 +75,11 @@ function ProductItem(props) {
           <div className="flex items-center justify-between pt-4">
             <div className="flex">
               <div className="flex items-center mr-5">
-                <AiOutlineHeart className="text-xl" />
+                <AiOutlineHeart className="icon" />
                 收藏
               </div>
               <div className="flex items-center"  onClick={removeItem}>
-                <AiOutlineDelete className="text-xl" />
+                <AiOutlineDelete className="icon" />
                 刪除
               </div>
             </div>
