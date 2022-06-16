@@ -28,6 +28,20 @@ module.exports = withMT({
         "30vh": "30vh", // homepage-bg
         "20vh": "20vh", // homepage-mask
       },
+      // keyframes: {
+      //   headerOpen: {
+      //     "0%": { height: "5rem" },
+      //     "100%": { height: "13rem" },
+      //   },
+      //   headerClose: {
+      //     "0%": { height: "13rem" },
+      //     "100%": { height: "5rem" },
+      //   },
+      // },
+      // animation: {
+      //   headerOpen: "headerOpen 1s ease-in-out forwards",
+      //   headerClose: "headerClose 1s  ease-in-out forwards",
+      // },
     },
   },
   plugins: [],

@@ -19,8 +19,8 @@ import CheckOut from "../page/CheckOut";
 const Main = () => {
   return (
     <main className="flex flex-wrap justify-center pt-32 pb-12 mx-auto">
-      <Aside />
-      <div className="w-full md:w-3/4 max-w-7xl">
+      {/* <Aside /> */}
+      <div className="w-full max-w-5xl md:w-3/4">
         <Routes>
           <Route path="/product" element={<Product />} />
           <Route path="/productDetail" element={<ProductDetail />} />
