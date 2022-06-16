@@ -7,9 +7,19 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { userOnChanged, auth } from "./utils/auth/";
 import { useEffect } from "react";
 import Login from "./components/Login";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 function App() {
+  //AOS初始化
+    useEffect(() => {
+      AOS.init();
+      AOS.refresh();
+    }, []);
+    
   useEffect(() => {
+    
+    
     userOnChanged((user) => {
       if (user) {
         // 用戶存在

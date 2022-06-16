@@ -7,7 +7,8 @@ import {
   AiOutlineRight,
 } from "react-icons/ai";
 import UserComment from "../components/courseDetail/UserComment";
-import You_may_like_course from "../components/courseDetail/You_may_like_course";
+import YouMayLikeCourse from "../components/courseDetail/YouMayLikeCourse";
+
 
 const CourseDetail = () => {
   return (
@@ -54,7 +55,7 @@ const CourseDetail = () => {
               </div>
 
               <div className="flex justify-center ">
-                <button className="px-3 py-1 p ml-4 pborder-2 border-sub">
+                <button className="px-3 py-1 ml-4 p pborder-2 border-sub">
                   加入購物車
                 </button>
                 <button className="px-3 ml-4 text-white border-2 p border-warning bg-warning">
@@ -182,9 +183,9 @@ const CourseDetail = () => {
         </div>
       </div>
       {/* 你可能也會喜歡 */}
-      <div className="absolute bottom-[240px] hidden w-screen right-0 md:my-8 md:bg-theme md:block bg-sub">
+      <div className="px-10 absolute bottom-[240px] hidden w-screen right-0 my-8 bg-theme md:block bg-sub">
         <p className="pt-3 pb-6 text-center h2">你可能也會喜歡</p>
-        <You_may_like_course />
+        <YouMayLikeCourse/>
       </div>
     </>
   );

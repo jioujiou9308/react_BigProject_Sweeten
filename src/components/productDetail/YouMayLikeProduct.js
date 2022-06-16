@@ -2,7 +2,7 @@ import React from "react";
 import { AiOutlineRight, AiOutlineLeft } from "react-icons/ai";
 
 //TODO 會被aside擋住，無法滿版
-function You_may_like() {
+function YouMayLikeProduct() {
   return (
     <>
       <div className="flex justify-center pb-10 ">
@@ -67,4 +67,4 @@ function You_may_like() {
   );
 }
 
-export default You_may_like;
+export default YouMayLikeProduct;
