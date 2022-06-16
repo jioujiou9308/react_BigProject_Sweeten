@@ -9,6 +9,7 @@ import ProductDetail from "../page/ProductDetail";
 import Test from "../page/Test";
 import Aside from "./Aside";
 import Cart from "../page/Cart";
+import CheckOut from "../page/CheckOut";
 
 const Main = () => {
   return (
@@ -24,6 +25,7 @@ const Main = () => {
           <Route path="/courseDetail" element={<CourseDetail />} />
           <Route path="/about" element={<About />} />
           <Route path="/cart" element={<Cart />} />
+          <Route path="/checkOut" element={<CheckOut />} />
         </Routes>
       </div>
     </main>

@@ -1,7 +1,9 @@
 import React from 'react';
+import { useNavigate } from "react-router-dom";
 
 function Summary(props) {
   const { totalNumber, totalPrice } = props;
+  const navigate = useNavigate();
 
   return (
     <>
@@ -54,7 +56,7 @@ function Summary(props) {
                   ${totalPrice}
                 </p>
               </div>
-              <button className="w-full py-2 text-white border hover:bg-primary">
+              <button className="w-full py-2 text-white border hover:bg-primary" onClick={()=>navigate("/main/checkOut")}>
                 Checkout
               </button>
             </div>
