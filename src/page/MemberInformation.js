@@ -1,4 +1,5 @@
 import React from "react";
+import { Button } from "@material-tailwind/react";
 
 function MemberInformation() {
   return (
@@ -7,7 +8,7 @@ function MemberInformation() {
         <h1 className="py-2 border-b-2 border-line h2 ">我的檔案</h1>
 
         {/* 讓桌機板可以flexdiv */}
-        <div className="flex justify-center md:justify-around mt-10">
+        <div className="flex justify-center mt-10 md:justify-around">
           <div>
             <div className="flex ">
               {/* 條列ㄉtitle */}
@@ -31,7 +32,7 @@ function MemberInformation() {
                   <p className="hidden md:block p">編輯</p>
                 </div>
 
-                <div className="flex justify-between pb-1 mb-3 border-b  border-line">
+                <div className="flex justify-between pb-1 mb-3 border-b border-line">
                   <p className="pr-20">abc******@gmail.com</p>
                   <p className="hidden md:block p">編輯</p>
                 </div>
@@ -42,7 +43,7 @@ function MemberInformation() {
                 </div>
 
                 
-                  <div className="pb-1 mb-3 border-b border-line flex items-center justify-around">                   
+                  <div className="flex items-center justify-around pb-1 mb-3 border-b border-line">                   
                     <input type="radio" />
                     <label>男性</label>
 
@@ -69,13 +70,12 @@ function MemberInformation() {
               </div>
             </div>
             <div className="text-center">
-              <button className="px-4 py-1 md:mt-20 text-white border-line h3 bg-dark">
-                儲存設定
-              </button>
+            <Button variant="filled"  className="px-4 py-1 text-white rounded-none md:mt-20 border-line h3 bg-dark"> <span className="p">儲存設定</span> </Button>
+              
             </div>
           </div>
           {/* 桌機板中間ㄉ桿桿 */}
-<div className="border border-line hidden md:block"></div>
+<div className="hidden border border-line md:block"></div>
           {/* 桌機板使用者圖片 */}
           <div className="hidden md:block ">
             <div className="">
@@ -90,7 +90,7 @@ function MemberInformation() {
             </div>
 
             <div className="text-center p">
-              <button className="border border-line px-4 mt-4">選擇圖片</button>
+            <Button variant="filled"  className="mt-4 border rounded-none border-line"><span className="text-line p">選擇圖片</span> </Button>
               <p className="mt-4">檔案大小 : 最大3MB</p>
               <p>檔案格式 : JPG, PNG</p>
             </div>

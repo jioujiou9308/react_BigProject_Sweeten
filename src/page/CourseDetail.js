@@ -247,10 +247,10 @@ const CourseDetail = () => {
                   <p className="hidden md:block p">(6則評論)</p>
                 </div>
               </div>
-
+              
               <div className="items-center hidden md:w-2/5 md:justify-end md:flex text-secondary">
                 <p className="p">查看全部</p>
-                <AiOutlineRight className="pt-2" />
+                <AiOutlineRight className="pt-2 icon-l" />
               </div>
             </div>
 
@@ -262,11 +262,11 @@ const CourseDetail = () => {
               <UserComment />
               <UserComment />
             </div>
-
-            <div className="flex items-center justify-start mt-4 mb-12 ml-8 text-secondary md:hidden">
+            <Button variant="text"><div className="flex items-center justify-start mt-4 mb-12 ml-8 text-secondary md:hidden">
               <p className="p">查看全部</p>
-              <AiOutlineRight className="icon-xl" />
-            </div>
+              <AiOutlineRight className="icon-l" />
+            </div></Button>
+            
           </div>
         </div>
       </div>
