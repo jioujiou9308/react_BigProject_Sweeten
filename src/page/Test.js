@@ -12,7 +12,6 @@ const testUser = {
 };
 
 const Test = () => {
-  console.log(process.env);
   const [WhileLoad, runLoad] = useLoading();
   const [Inputs, allRef] = useMultiInput(["name", "acount", "password"]);
   const [render, setRender] = useState("");
@@ -36,10 +35,20 @@ const Test = () => {
       >
         get
       </button>
+
       <br />
       {/* // firebase auth */}
       <WhileLoad
-        loading={<button className=" animate-pulse">Loading</button>}
+        loading={
+          <button
+            onClick={() => {
+              runLoad(userLogout, 3000);
+            }}
+            className=" animate-pulse"
+          >
+            Loading
+          </button>
+        }
         done={
           <button
             onClick={() => {
@@ -56,7 +65,7 @@ const Test = () => {
       <button
         onClick={() => {
           axios
-            .post(API_URL + "/auth", testUser)
+            .post(API_URL + "/auth/login", testUser, { withCredentials: true })
             .then((res) => console.log(res.data))
             .catch((err) => console.log(err));
         }}
