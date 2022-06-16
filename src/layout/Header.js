@@ -32,7 +32,7 @@ const Header = () => {
         <nav>
           <ul className="flex p">
             {linkText.map((text, i) => (
-              <li className="mx-2">
+              <li key={text} className="mx-2">
                 <Link to={linkPath[i]}>{text}</Link>
               </li>
             ))}
