@@ -7,7 +7,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { userOnChanged, auth } from "./utils/auth/";
 import { useEffect } from "react";
 import Login from "./components/Login";
-import Modal from "./components/Modal";
 
 function App() {
   useEffect(() => {
@@ -34,7 +33,6 @@ function App() {
         </Routes>
       </BrowserRouter>
       <Footer />
-      <Modal />
     </div>
   );
 }
