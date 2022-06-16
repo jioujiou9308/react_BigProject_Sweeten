@@ -11,7 +11,7 @@ import YouMayLikeProduct from "../components/productDetail/YouMayLikeProduct";
 import { Button } from "@material-tailwind/react";
 //import material tailwind ㄉ button
 
-const product = [
+const products = [
   {
     id: 1,
     name: "倉石乳酪蛋糕",
@@ -36,6 +36,10 @@ function ProductDetail() {
 
   return (
     <>
+    {/* 還沒寫完!!! */}
+    {products.map((product, i)=>{
+      
+    })}
       <div className="bg-white ">
         {/* 桌機板DEMO */}
         <div className="hidden md:flex">
