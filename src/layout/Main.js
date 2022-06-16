@@ -12,7 +12,7 @@ import Aside from "./Aside";
 
 const Main = () => {
   return (
-    <main className="container flex flex-wrap justify-around pt-32 pb-12 mx-auto max-w-7xl">
+    <main className="flex flex-wrap justify-around pt-32 pb-12 mx-auto max-w-7xl">
       <Aside />
       <div className="w-full max-w-5xl md:w-3/4 ">
         <Routes>
