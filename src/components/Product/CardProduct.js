@@ -150,9 +150,10 @@ const CardProduct = () => {
                   alt="Background"
                 />
               </div>
-              <div className ="px-3 pt-5 text-center">
+              <div className="px-3 pt-5 text-center">
                 <h3>
-                  <a href="/"
+                  <a
+                    href="/"
                     className="font-semibold
                         text-dark text-xl
                         sm:text-[22px]

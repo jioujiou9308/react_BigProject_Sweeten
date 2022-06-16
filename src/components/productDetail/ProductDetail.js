@@ -6,8 +6,8 @@ import {
   AiOutlineStar,
   AiOutlineRight,
 } from "react-icons/ai";
-import UserComment from "../components/courseDetail/UserComment";
-import You_may_like_product from "../components/productDetail/You_may_like_product";
+import UserComment from "../components/UserComment";
+import You_may_like from "../components/You_may_like_product";
 
 function ProductDetail() {
   return (
@@ -53,7 +53,7 @@ function ProductDetail() {
             <div className="border-b-2 ">
               <div className="flex justify-between mt-10">
                 <p className="h1">倉石乳酪蛋糕</p>
-                <AiFillHeart className="icon-xl text-secondary" />
+                <AiFillHeart className="icon-xl text-sub" />
               </div>
               <p className="mt-2 mb-5 h2">$ 1200 NTD</p>
             </div>
@@ -70,9 +70,9 @@ function ProductDetail() {
             {/* 數量和結帳按鈕桌機板 */}
             <div className="flex justify-between mt-8 ">
               <div className="flex">
-                <AiFillMinusCircle className="icon-lg text-secondary" />
+                <AiFillMinusCircle className="icon-lg text-sub" />
                 <p className="mx-5">1</p>
-                <AiFillPlusCircle className="icon-lg text-secondary" />
+                <AiFillPlusCircle className="icon-lg text-sub" />
               </div>
 
               <div className="flex justify-center ">
@@ -90,16 +90,13 @@ function ProductDetail() {
         <div className="mx-8 md:hidden">
           <img
             className="max-w-full px-8 pt-10 mb-8"
-            src={
-              process.env.PUBLIC_URL +
-              "/images/productDetail/product_demo1_upper.png"
-            }
+            src={process.env.PUBLIC_URL + "/images/productDetail/product_demo1_upper.png"}
             alt=""
           />
 
           {/* 愛心圖示手機板 */}
           <div className="flex justify-end">
-            <AiFillHeart className="my-3 mr-5 icon-xl text-secondary" />
+            <AiFillHeart className="my-3 mr-5 icon-xl text-sub" />
           </div>
 
           {/* 標題+價錢手機板 */}
@@ -111,9 +108,9 @@ function ProductDetail() {
 
           {/* 數量加減手機板 */}
           <div className="flex items-center my-5 ml-5">
-            <AiFillMinusCircle className="icon-xl text-secondary" />
+            <AiFillMinusCircle className="icon-xl text-sub" />
             <p className="mx-5">1</p>
-            <AiFillPlusCircle className="icon-xl text-secondary" />
+            <AiFillPlusCircle className="icon-xl text-sub" />
           </div>
           {/* 尺寸手機板 */}
           <div className="flex items-center justify-start ml-6">
@@ -155,9 +152,7 @@ function ProductDetail() {
 
             <div>
               <h2 className="ml-2 md:ml-0 h2">過敏原：</h2>
-              <p className="text-justify p">
-                我們不得不面對一個非常尷尬的事實。
-              </p>
+              <p className="text-justify p">我們不得不面對一個非常尷尬的事實。</p>
             </div>
           </div>
 
@@ -205,8 +200,7 @@ function ProductDetail() {
       {/* 你可能也會喜歡 */}
       <div className="hidden md:my-8 md:bg-theme md:block">
         <p className="pt-3 pb-6 text-center h2">你可能也會喜歡</p>
-        {/* FIXME 要用大駝峰 */}
-        <You_may_like_product />
+        <You_may_like />
       </div>
     </>
   );
