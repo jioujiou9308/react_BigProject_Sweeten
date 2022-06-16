@@ -14,6 +14,7 @@ import Aside from "./Aside";
 import Cart from "../page/Cart";
 import Login from "../components/Login";
 import CustomerService from "../page/CustomerService";
+import CheckOut from "../page/CheckOut";
 
 const Main = () => {
   return (
@@ -29,6 +30,7 @@ const Main = () => {
           <Route path="/courseDetail" element={<CourseDetail />} />
           <Route path="/about" element={<About />} />
           <Route path="/cart" element={<Cart />} />
+          <Route path="/checkOut" element={<CheckOut />} />
           <Route path="/memberCollection" element={<MemberColloction />} />
           <Route path="/login" element={<Login />} />
           <Route path="/memberOrder" element={<MemberOrder />} />

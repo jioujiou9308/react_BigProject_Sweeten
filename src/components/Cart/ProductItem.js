@@ -49,7 +49,7 @@ function ProductItem(props) {
         </div>
       </div> */}
       {/* each item div */}
-      <div className="items-center py-8 border-t border-gray-200 md:flex mt-14">
+      <div className="items-center py-8 border-t md:flex mt-14">
         <div className="w-full md:w-1/4">
           <img
              src={image} 
