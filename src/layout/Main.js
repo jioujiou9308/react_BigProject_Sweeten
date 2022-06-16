@@ -14,9 +14,9 @@ import Login from "../components/Login";
 
 const Main = () => {
   return (
-    <main className="flex flex-wrap justify-around pt-32 pb-12 mx-auto max-w-7xl">
+    <main className="flex flex-wrap justify-center pt-32 pb-12 mx-auto">
       <Aside />
-      <div className="w-full max-w-5xl md:w-3/4 ">
+      <div className="w-full md:w-3/4 max-w-7xl">
         <Routes>
           <Route path="/product" element={<Product />} />
           <Route path="/productDetail" element={<ProductDetail />} />

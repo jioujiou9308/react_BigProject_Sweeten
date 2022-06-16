@@ -23,7 +23,7 @@ function App() {
     });
   });
   return (
-    <div className="relative min-h-screen bg-white pt-36 App text-dark">
+    <div className="relative min-h-screen bg-white App text-dark">
       <BrowserRouter>
         <Header />
         <Routes>
