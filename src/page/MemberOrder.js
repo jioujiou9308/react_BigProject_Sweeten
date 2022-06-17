@@ -2,24 +2,29 @@ import React from "react";
 import Member_collection_bar from "../components/memberCollection/Member_collection_bar";
 import Member_search_bar from "../components/memberCollection/Member_search_bar";
 
+
+
 function MemberOrder() {
   // 假資料
   const products = [
     {
       id: 1,
       name: "標哥千層蛋糕",
+      img: `${process.env.PUBLIC_URL}/images/memberCollectionAndOrder/member_order1.png`,
       count: 4,
       price: 500,
     },
     {
       id: 2,
       name: "蜂蜜蛋糕",
+      img: `${process.env.PUBLIC_URL}/images/memberCollectionAndOrder/member_order2.png`,
       count: 5,
       price: 400,
     },
     {
       id: 3,
       name: "大麻蛋糕",
+      img: `${process.env.PUBLIC_URL}/images/memberCollectionAndOrder/member_order3.png`,
       count: 2,
       price: 750,
     },
@@ -38,14 +43,14 @@ function MemberOrder() {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2">
           {products.map((product, i) => {
-            const { id, name, count, price } = product;
+            const { id, name, img, count, price } = product;
             return (
               <>
                 <div className="flex items-center justify-start p-5 border-b ">
                   <div className="mr-2 overflow-hidden">
                     <img
                       className="scale-105 "
-                      src={`${process.env.PUBLIC_URL}/images/memberCollectionAndOrder/member_order.png`}
+                      src={img}
                       alt=""
                     />
                   </div>

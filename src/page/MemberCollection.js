@@ -9,18 +9,21 @@ const Member_colloction = () => {
     {
       id: 1,
       name: "標哥千層蛋糕",
+      img: `${process.env.PUBLIC_URL}/images/memberCollectionAndOrder/member_order1.png`,
       price: 500,
       score: 4,
     },
     {
       id: 2,
       name: "蜂蜜蛋糕",
+      img: `${process.env.PUBLIC_URL}/images/memberCollectionAndOrder/member_order2.png`,
       price: 500,
       score: 5,
     },
     {
       id: 3,
       name: "大麻蛋糕",
+      img: `${process.env.PUBLIC_URL}/images/memberCollectionAndOrder/member_order3.png`,
       price: 750,
       score: 2,
     },
@@ -38,7 +41,7 @@ const Member_colloction = () => {
           <h2 className="hidden py-2 border-b h2 md:block">我的收藏</h2>
 
           {products.map((product, i) => {
-            const { id, name, price, score } = product;
+            const { id, name,img, price, score } = product;
             return (
               <>
                 {/* 圖片 備註 評分愛心 1*/}
@@ -46,7 +49,7 @@ const Member_colloction = () => {
                   <div className="overflow-hidden ">
                     <img
                       className=""
-                      src={`${process.env.PUBLIC_URL}/images/memberCollectionAndOrder/member_order.png`}
+                      src={img}
                       alt=""
                     />
                   </div>
