@@ -1,6 +1,8 @@
 CREATE TABLE `user` (
   `id` int PRIMARY KEY,
   `full_name` varchar(255),
+  `emailv` varchar(255),
+  `password` varchar(255),
   `birthday` date,
   `gender_id` int,
   `country_id` int,
