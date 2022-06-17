@@ -22,7 +22,7 @@ const subPage = {
     ["/"],
     ["/main/course", "/main/product", "/"],
     [
-      "/main/member",
+      "/main/member/information",
       "/main/collection",
       "/main/member/order",
       "/main/member/collection",
