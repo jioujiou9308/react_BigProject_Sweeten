@@ -1,6 +1,7 @@
 import React from "react";
-import CardProduct from "../components/Product/CardProduct";
-import Pagination from "../components/Product/Pagination";
+import CardProduct from "../components/product/CardProduct";
+import Pagination from "../components/product/Pagination";
+import TabBar from "../components/product/Tabs";
 
 const Product = () => {
   return (
@@ -8,6 +9,7 @@ const Product = () => {
       <>
         {/* card list  */}
         <div className="flex flex-wrap ">
+          <TabBar />
           <CardProduct />
         </div>
         <Pagination />

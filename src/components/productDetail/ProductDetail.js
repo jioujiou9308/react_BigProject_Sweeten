@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   AiFillHeart,
   AiFillPlusCircle,
@@ -6,37 +6,12 @@ import {
   AiOutlineStar,
   AiOutlineRight,
 } from "react-icons/ai";
-import UserComment from "../components/courseDetail/UserComment";
-import YouMayLikeProduct from "../components/productDetail/YouMayLikeProduct";
-import { Button } from "@material-tailwind/react";
-//import material tailwind ㄉ button
-
-const products = [
-  {
-    id: 1,
-    name: "倉石乳酪蛋糕",
-    price: 1200,
-    description:
-      "我們不得不面對一個非常尷尬的事實，那就是，對於甜點，我們不能不去想，卻也不能走火入魔。我們要學會站在別人的角度思考。",
-  },
-  {
-    id: 2,
-    name: "蜂蜜蛋糕",
-    price: 700,
-    description:
-      "我們不得不面對一個非常尷尬的事實，那就是，對於甜點，我們不能不去想，卻也不能走火入魔。我們要學會站在別人的角度思考。",
-  },
-];
+import UserComment from "../components/UserComment";
+import You_may_like from "../components/You_may_like_product";
 
 function ProductDetail() {
-  const [selectedItem, setSelectedItem] = useState();
-  const sizes = ["6吋", "8吋"];
-  const [count, setCount] = useState(2);
-  const [favClick, setFavClick] = useState(false);
-
   return (
     <>
-      
       <div className="bg-white ">
         {/* 桌機板DEMO */}
         <div className="hidden md:flex">
@@ -76,22 +51,9 @@ function ProductDetail() {
           <div className="w-3/5 mr-10">
             {/* 桌機板標題和副標字體+愛心 */}
             <div className="border-b-2 ">
-              <div className="flex items-center justify-between mt-10">
+              <div className="flex justify-between mt-10">
                 <p className="h1">倉石乳酪蛋糕</p>
-                {/* FIXME rounded-full 也無法變完全圓*/}
-                <Button
-                  variant="outlined"
-                  className="border rounded-full select-none border-line text-line"
-                  onClick={() => {
-                    setFavClick(!favClick);
-                  }}
-                >
-                  <AiFillHeart
-                    className={`icon-xl select-none rounded-full ${
-                      favClick && "text-secondary"
-                    }`}
-                  />
-                </Button>
+                <AiFillHeart className="icon-xl text-sub" />
               </div>
               <p className="mt-2 mb-5 h2">$ 1200 NTD</p>
             </div>
@@ -99,22 +61,8 @@ function ProductDetail() {
             {/* 右欄尺寸桌機板 */}
             <p className="mt-4 mb-2 p">尺寸</p>
             {/* 尺寸按鈕桌機板  小字尺寸*/}
-            {sizes.map((v, i) => {
-              return (
-                <button
-                  className={`mr-5 size-btn-desk ${
-                    selectedItem === v ? "bg-sub" : ""
-                  }`}
-                  onClick={() => {
-                    setSelectedItem(v);
-                  }}
-                >
-                  {v}
-                </button>
-              );
-            })}
-            {/* <button className="mr-5 size-btn-desk">6吋</button>
-            <button className="size-btn-desk bg-light">8吋</button> */}
+            <button className="mr-5 size-btn-desk">6吋</button>
+            <button className="size-btn-desk bg-light">8吋</button>
 
             <p className="mt-5 p">商品參與的優惠活動</p>
             <p className="w-24 mt-2 text-center p bg-primary">父親節特惠</p>
@@ -122,113 +70,53 @@ function ProductDetail() {
             {/* 數量和結帳按鈕桌機板 */}
             <div className="flex justify-between mt-8 ">
               <div className="flex">
-                <AiFillMinusCircle
-                  className="icon-lg text-secondary"
-                  onClick={() => {
-                    if (count > 1) {
-                      setCount(count - 1);
-                    }
-                  }}
-                />
-                <p className="mx-3">{count}</p>
-                <AiFillPlusCircle
-                  className="icon-lg text-secondary"
-                  onClick={() => {
-                    setCount(count + 1);
-                  }}
-                />
+                <AiFillMinusCircle className="icon-lg text-sub" />
+                <p className="mx-5">1</p>
+                <AiFillPlusCircle className="icon-lg text-sub" />
               </div>
 
               <div className="flex justify-center ">
-                <Button
-                  className="border-2 rounded-none border-sub"
-                  variant="outlined"
-                >
-                  <span className="text-black p">加入購物車</span>
-                </Button>
-
-                <Button
-                  className="ml-3 text-white border-2 rounded-none border-warning bg-warning"
-                  variant="filled"
-                >
-                  <span className="p">立即購買</span>
-                </Button>
+                <button className="px-4 py-1 ml-5 border-2 p border-sub">
+                  加入購物車
+                </button>
+                <button className="px-4 ml-5 text-white border-2 p border-warning bg-warning">
+                  立即購買
+                </button>
               </div>
             </div>
           </div>
         </div>
         {/* 展示圖手機板 */}
-        <div className="mx-4 md:hidden">
+        <div className="mx-8 md:hidden">
           <img
             className="max-w-full px-8 pt-10 mb-8"
-            src={
-              process.env.PUBLIC_URL +
-              "/images/productDetail/product_demo1_upper.png"
-            }
+            src={process.env.PUBLIC_URL + "/images/productDetail/product_demo1_upper.png"}
             alt=""
           />
 
           {/* 愛心圖示手機板 */}
-          <div className="flex justify-end my-4">
-            {/* FIXME rounded-full 也無法變完全圓*/}
-            <Button
-              variant="outlined"
-              className="rounded-full select-none text-line border-line"
-              onClick={() => {
-                setFavClick(!favClick);
-              }}
-            >
-              <AiFillHeart
-                className={`icon-xl select-none rounded-full ${
-                  favClick && "text-secondary"
-                }`}
-              />
-            </Button>
+          <div className="flex justify-end">
+            <AiFillHeart className="my-3 mr-5 icon-xl text-sub" />
           </div>
 
           {/* 標題+價錢手機板 */}
           <div className="flex justify-between px-2">
             {/* 手機板標題字體ㄉclassname */}
-            <p className="h2">倉石乳酪蛋糕</p>
-            <p className="h3">$ 1200 NTD</p>
+            <p className="h1">倉石乳酪蛋糕</p>
+            <p className="h2">$ 1200 NTD</p>
           </div>
 
           {/* 數量加減手機板 */}
           <div className="flex items-center my-5 ml-5">
-            <AiFillMinusCircle
-              className="icon-xl text-secondary"
-              onClick={() => {
-                if (count > 1) {
-                  setCount(count - 1);
-                }
-              }}
-            />
-            <p className="mx-5">{count}</p>
-            <AiFillPlusCircle
-              className="icon-xl text-secondary"
-              onClick={() => {
-                setCount(count + 1);
-              }}
-            />
+            <AiFillMinusCircle className="icon-xl text-sub" />
+            <p className="mx-5">1</p>
+            <AiFillPlusCircle className="icon-xl text-sub" />
           </div>
           {/* 尺寸手機板 */}
           <div className="flex items-center justify-start ml-6">
             <p className="p">尺寸</p>
-
-            {sizes.map((v, i) => {
-              return (
-                <button
-                  className={`ml-5 size-btn-desk ${
-                    selectedItem === v ? "bg-sub" : ""
-                  }`}
-                  onClick={() => {
-                    setSelectedItem(v);
-                  }}
-                >
-                  {v}
-                </button>
-              );
-            })}
+            <button className="ml-5 size-btn-desk">6吋</button>
+            <button className="ml-5 size-btn-desk bg-light">8吋</button>
           </div>
 
           <h2 className="my-5 p">商品參與的優惠活動</h2>
@@ -236,26 +124,12 @@ function ProductDetail() {
 
           {/* 加入購物車按鈕手機板 */}
           <div className="flex justify-between my-6">
-            <Button
-              className="px-4 py-1 border-2 rounded-none border-sub"
-              variant="outlined"
-            >
-              {" "}
-              <span className="text-black p">加入購物車</span>
-            </Button>
-
-            <Button
-              className="px-4 text-white border-2 rounded-none border-warning bg-warning"
-              variant="filled"
-            >
-              <span className="p">立即購買</span>
-            </Button>
-            {/* <button className="px-8 py-2 border-2 p md:px-4 md:py-1 border-sub">
+            <button className="px-8 py-2 border-2 p md:px-4 md:py-1 border-sub">
               加入購物車
             </button>
             <button className="px-8 text-white border-2 p md:px-6 border-warning bg-warning">
               立即購買
-            </button> */}
+            </button>
           </div>
         </div>
         {/* 商品說明&評論區桌機板+手機板 */}
@@ -278,9 +152,7 @@ function ProductDetail() {
 
             <div>
               <h2 className="ml-2 md:ml-0 h2">過敏原：</h2>
-              <p className="text-justify p">
-                我們不得不面對一個非常尷尬的事實。
-              </p>
+              <p className="text-justify p">我們不得不面對一個非常尷尬的事實。</p>
             </div>
           </div>
 
@@ -318,7 +190,7 @@ function ProductDetail() {
               <UserComment />
             </div>
 
-            <div className="flex items-center justify-start mt-4 mb-12 ml-8 text-secondary md:hidden ">
+            <div className="flex items-center justify-start mt-4 mb-12 ml-8 text-secondary md:hidden">
               <p className="p">查看全部</p>
               <AiOutlineRight />
             </div>
@@ -326,10 +198,9 @@ function ProductDetail() {
         </div>
       </div>
       {/* 你可能也會喜歡 */}
-      <div className="hidden my-8 bg-sub md:block">
+      <div className="hidden my-8 md:block bg-sub">
         <p className="pt-3 pb-6 text-center h2">你可能也會喜歡</p>
-
-        <YouMayLikeProduct />
+        <You_may_like />
       </div>
     </>
   );
