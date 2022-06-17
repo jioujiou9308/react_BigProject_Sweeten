@@ -1,5 +1,7 @@
 import React from "react";
-
+import {
+  AiFillWindows,
+} from "react-icons/ai";
 import Card from "../components/home/Card";
 
 const s3Cards = [
@@ -26,6 +28,7 @@ const s3Cards = [
 const Home = (props) => {
   return (
     <>
+    
       <div className="relative">
         <img
           src={`${process.env.PUBLIC_URL}images/home/slide1.png`}
@@ -36,6 +39,63 @@ const Home = (props) => {
           <h1 className="h4 md:h1">Sweeten Up Your Life</h1>
           <p className="text-xs md:p">Sweeten Up Your LifeSweeten Up Your LifeSweeten Up Your Life</p>
           <button className="p-1 mt-2 text-xs md:p-3 bg-secondary">Explore</button>
+        </div>
+      </div>
+      {/* section0.5 */}
+      <div className="flex p-5">
+        {/* 左 */}
+        <div className="w-1/2">
+          {/* 上 */}
+          <div className="w-2/3 p-3">
+            <h1 className="text-4xl font-bold h1">精彩的甜食饗宴</h1>
+            <p>我們不得不面對一個非常尷尬的事實我們不得不面對一個非常尷尬的事實我們不得不面對一個非常尷尬的事實我們不得不面對一個非常尷尬</p>
+          </div>
+          {/* 下1 */}
+          <div className="flex">
+            <div className="flex">
+              <span className="">
+                <AiFillWindows className="text-5xl"/>
+              </span>
+              <div>
+                <h1 className="h4">有機食材</h1>
+                <p className="">面對一個非常尷尬的事實我們不得不</p>
+              </div>
+            </div>
+            <div className="flex">
+              <span className="">
+                <AiFillWindows className="text-5xl"/>
+              </span>
+              <div>
+                <h1 className="h4">有機食材</h1>
+                <p className="">面對一個非常尷尬的事實我們不得不</p>
+              </div>
+            </div>
+          </div>
+          {/* 下2 */}
+          <div className="flex">
+            <div className="flex">
+              <span className="">
+                <AiFillWindows className="text-5xl"/>
+              </span>
+              <div>
+                <h1 className="h4">有機食材</h1>
+                <p className="">面對一個非常尷尬的事實我們不得不</p>
+              </div>
+            </div>
+            <div className="flex">
+              <span className="">
+                <AiFillWindows className="text-5xl"/>
+              </span>
+              <div>
+                <h1 className="h4">有機食材</h1>
+                <p className="">面對一個非常尷尬的事實我們不得不</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        {/* 右圖 */}
+        <div className="w-1/2">
+          <img src={`${process.env.PUBLIC_URL}images/home/slide1.png`} alt=""/>
         </div>
       </div>
       {/* section1 */}
