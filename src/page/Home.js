@@ -1,6 +1,5 @@
 import React from "react";
-import slider from "../images/slide1.png";
-import cake1 from "../images/section01_cake1.png";
+
 import Card from "../components/home/Card";
 
 const s3Cards = [
@@ -29,9 +28,9 @@ const Home = (props) => {
     <>
       <div>
         <img
-          src={slider}
+          src={`${process.env.PUBLIC_URL}images/home/slide1.png`}
           alt="..."
-          className="w-full max-h-[70vh] object-cover"
+          className="w-full"
         />
       </div>
       {/* section1 */}
@@ -51,7 +50,10 @@ const Home = (props) => {
                 季節限定
               </h1>
               <div className="flex justify-center">
-                <img src={cake1} alt="..." />
+                <img
+                  src={`${process.env.PUBLIC_URL}/images/home/section01_cake1.png`}
+                  alt="..."
+                />
               </div>
               <div className="my-2">
                 <h1 className="hidden my-5 text-lg font-normal text-center md:block">
@@ -70,7 +72,10 @@ const Home = (props) => {
                 經典熱銷
               </h1>
               <div className="flex justify-center">
-                <img src={cake1} alt="..." className=" max-h-[50vh]" />
+                <img
+                  src={`${process.env.PUBLIC_URL}/images/home/section01_cake1.png`}
+                  alt="..."
+                />
               </div>
               <div className="justify-center my-2">
                 <h1 className="hidden my-5 text-lg font-normal text-center md:block">
@@ -89,7 +94,10 @@ const Home = (props) => {
                 課程介紹
               </h1>
               <div className="flex justify-center">
-                <img src={cake1} alt="..." />
+                <img
+                  src={`${process.env.PUBLIC_URL}/images/home/section01_cake1.png`}
+                  alt="..."
+                />
               </div>
               <div className="my-2">
                 <h1 className="hidden my-5 text-lg font-normal text-center md:block">

@@ -154,8 +154,7 @@ const CardProduct = () => {
                 <h3>
                   <a
                     href="/"
-                    className="
-                        font-semibold
+                    className="font-semibold
                         text-dark text-xl
                         sm:text-[22px]
                         md:text-xl
@@ -163,16 +162,14 @@ const CardProduct = () => {
                         xl:text-xl
                         2xl:h3
                         mb-4
-                        block
-                        
-                        "
+                        block"
                   >
                     綠綠的蛋糕
                   </a>
                 </h3>
                 <div className="flex justify-between mt-2">
                   <div>
-                    <p className="mb-3 text-base leading-relaxed text-body-color">
+                    <p className="mb-3 text-baseleading-relaxed text-body-color">
                       售價:1000
                     </p>
                   </div>
