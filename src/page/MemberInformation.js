@@ -14,7 +14,7 @@ function MemberInformation() {
               {/* 條列ㄉtitle */}
               <div className="flex justify-center mt-3 ">
                 <div className="mr-5 h4">
-                  <h3  className="mb-4 text-right"  >暱稱</h3>
+                  <h3 className="mb-4 text-right">暱稱</h3>
                   <h3 className="mb-4 text-right">姓名</h3>
                   <h3 className="mb-4 text-right">E-mail</h3>
                   <h3 className="mb-4 text-right">手機號碼</h3>
@@ -23,27 +23,26 @@ function MemberInformation() {
                 </div>
 
                 <div className="p">
-                <div className="flex justify-between pb-1 mb-2 border-b border-line">
-                  <p className="pr-20">中壢李姓選民</p>
-                  <p className="hidden md:block p">編輯</p>
-                </div>
-                <div className="flex justify-between pb-1 mb-3 border-b border-line">
-                  <p className="pr-20">李選民</p>
-                  <p className="hidden md:block p">編輯</p>
-                </div>
+                  <div className="flex justify-between pb-1 mb-2 border-b border-line">
+                    <p className="pr-20">中壢李姓選民</p>
+                    <p className="hidden md:block p">編輯</p>
+                  </div>
+                  <div className="flex justify-between pb-1 mb-3 border-b border-line">
+                    <p className="pr-20">李選民</p>
+                    <p className="hidden md:block p">編輯</p>
+                  </div>
 
-                <div className="flex justify-between pb-1 mb-3 border-b border-line">
-                  <p className="pr-20">abc******@gmail.com</p>
-                  <p className="hidden md:block p">編輯</p>
-                </div>
+                  <div className="flex justify-between pb-1 mb-3 border-b border-line">
+                    <p className="pr-20">abc******@gmail.com</p>
+                    <p className="hidden md:block p">編輯</p>
+                  </div>
 
-                <div className="flex justify-between pb-1 mb-3 border-b border-line">
-                  <p className="pr-20">*******801</p>
-                  <p className="hidden md:block p">編輯</p>
-                </div>
+                  <div className="flex justify-between pb-1 mb-3 border-b border-line">
+                    <p className="pr-20">*******801</p>
+                    <p className="hidden md:block p">編輯</p>
+                  </div>
 
-                
-                  <div className="flex items-center justify-around pb-1 mb-3 border-b border-line">                   
+                  <div className="flex items-center justify-around pb-1 mb-3 border-b border-line">
                     <input type="radio" />
                     <label>男性</label>
 
@@ -65,17 +64,20 @@ function MemberInformation() {
                     </select>
                   </div>
                 </div>
-
-                
               </div>
             </div>
             <div className="text-center">
-            <Button variant="filled"  className="px-4 py-1 text-white rounded-none md:mt-20 border-line h3 bg-dark"> <span className="p">儲存設定</span> </Button>
-              
+              <Button
+                variant="filled"
+                className="px-4 py-1 text-white rounded-none shadow-sub hover:shadow-sub md:mt-20 border-line h3 bg-dark"
+              >
+                {" "}
+                <span className="p ">儲存設定</span>{" "}
+              </Button>
             </div>
           </div>
           {/* 桌機板中間ㄉ桿桿 */}
-<div className="hidden border border-line md:block"></div>
+          <div className="hidden border border-line md:block"></div>
           {/* 桌機板使用者圖片 */}
           <div className="hidden md:block ">
             <div className="">
@@ -90,9 +92,15 @@ function MemberInformation() {
             </div>
 
             <div className="text-center p">
-            <Button variant="filled"  className="mt-4 bg-white border rounded-none border-line"><span className="text-line p">選擇圖片</span> </Button>
-              <p className="mt-4">檔案大小 : 最大3MB</p>
-              <p>檔案格式 : JPG, PNG</p>
+              <Button
+                variant="filled"
+                size="sm"
+                className="mt-4 bg-white border rounded-none shadow-sub hover:shadow-sub border-line"
+              >
+                <span className="text-dark">選擇圖片</span>{" "}
+              </Button>
+              <p className="mt-4 note">檔案大小 : 最大3MB</p>
+              <p className="note">檔案格式 : JPG, PNG</p>
             </div>
           </div>
         </div>

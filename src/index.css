@@ -44,4 +44,7 @@
   .btn-home {
     @apply py-1 px-4 bg-secondary text-white hover:bg-primary;
   }
+  .orientation-upright {
+    text-orientation: upright;
+  }
 }
