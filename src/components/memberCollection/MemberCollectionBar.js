@@ -7,7 +7,7 @@ import {
   TabPanel,
 } from "@material-tailwind/react";
 
-function Member_collection_bar() {
+function MemberCollectionBar() {
   const data = [
     {
       label: "收藏",
@@ -52,4 +52,4 @@ function Member_collection_bar() {
   );
 }
 
-export default Member_collection_bar;
+export default MemberCollectionBar;

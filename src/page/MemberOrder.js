@@ -1,7 +1,6 @@
 import React from "react";
-import Member_collection_bar from "../components/memberCollection/Member_collection_bar";
-import Member_search_bar from "../components/memberCollection/Member_search_bar";
-
+import MemberCollectionBar from "../components/memberCollection/MemberCollectionBar";
+import MemberSearchBar from "../components/memberCollection/MemberSearchBar";
 
 
 function MemberOrder() {
@@ -33,10 +32,10 @@ function MemberOrder() {
     <>
       <div className="bg-white">
         <div className="mb-4 ">
-          <Member_collection_bar />
+          <MemberCollectionBar />
         </div>
         <div className="mb-6">
-          <Member_search_bar />
+          <MemberSearchBar />
         </div>
         <div className="pt-2 mx-5 text-right border-b ">
           <h2>訂單 # 123456</h2>

@@ -3,7 +3,7 @@ import { AiOutlineSearch } from "react-icons/ai";
 import { Input,Button } from "@material-tailwind/react";
 
 
-function Member_search_bar() {
+function MemberSearchBar() {
   return (
     <>
       <div className="px-3">
@@ -17,4 +17,4 @@ function Member_search_bar() {
   );
 }
 
-export default Member_search_bar;
+export default MemberSearchBar;

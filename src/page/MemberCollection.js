@@ -1,6 +1,6 @@
 import React from "react";
-import Member_collection_bar from "../components/memberCollection/Member_collection_bar";
-import Member_search_bar from "../components/memberCollection/Member_search_bar";
+import MemberCollectionBar from '../components/memberCollection/MemberCollectionBar'
+import MemberSearchBar from '../components/memberCollection/MemberSearchBar'
 import { AiFillHeart, AiOutlineStar } from "react-icons/ai";
 // FIXME 這裡要用大駝峰
 const Member_colloction = () => {
@@ -32,10 +32,10 @@ const Member_colloction = () => {
     <>
       <div className="mx-2 md:mx-0 ">
         <div className="mb-4 ">
-          <Member_collection_bar />
+          <MemberCollectionBar />
         </div>
         <div className="mb-6">
-          <Member_search_bar />
+          <MemberSearchBar />
         </div>
         <div className="pt-8 bg-white md:pt-0 md:px-10">
           <h2 className="hidden py-2 border-b h2 md:block">我的收藏</h2>
