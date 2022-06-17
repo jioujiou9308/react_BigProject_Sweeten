@@ -10,7 +10,6 @@ import MemberOrder from "../page/MemberOrder";
 import Product from "../page/Product";
 import ProductDetail from "../page/ProductDetail";
 import Test from "../page/Test";
-import Aside from "./Aside";
 import Cart from "../page/Cart";
 import Login from "../components/Login";
 import CustomerService from "../page/CustomerService";
@@ -22,20 +21,20 @@ const Main = () => {
       {/* <Aside /> */}
       <div className="w-full max-w-5xl md:w-3/4">
         <Routes>
+          <Route path="/login" element={<Login />} />
           <Route path="/product" element={<Product />} />
-          <Route path="/productDetail" element={<ProductDetail />} />
+          <Route path="/product/detail" element={<ProductDetail />} />
           <Route path="/test" element={<Test />} />
           <Route path="/member" element={<Member />} />
+          <Route path="/member/order" element={<MemberOrder />} />
+          <Route path="/member/collection" element={<MemberColloction />} />
+          <Route path="/member/information" element={<MemberInformation />} />
           <Route path="/course" element={<Course />} />
-          <Route path="/courseDetail" element={<CourseDetail />} />
+          <Route path="/course/detail" element={<CourseDetail />} />
           <Route path="/about" element={<About />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/checkOut" element={<CheckOut />} />
-          <Route path="/memberCollection" element={<MemberColloction />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/memberOrder" element={<MemberOrder />} />
-          <Route path="/memberCollection" element={<MemberColloction />} />
-          <Route path="/memberInformation" element={<MemberInformation />} />
+
           <Route path="/customerService" element={<CustomerService />} />
         </Routes>
       </div>
