@@ -22,7 +22,8 @@ const Header = () => {
       <div className="flex flex-wrap justify-between mx-auto max-w-7xl">
         <div className="flex justify-end w-full mb-2">
           <AiOutlineSearch className="mx-1 icon-sm" />
-          <AiOutlineShoppingCart className="mx-1 icon-sm" />
+          <Link to="/main/cart">
+          <AiOutlineShoppingCart className="mx-1 icon-sm" /></Link>
           <Link to="/login">
             <AiOutlineUserAdd className="mx-1 icon-sm" />
           </Link>
