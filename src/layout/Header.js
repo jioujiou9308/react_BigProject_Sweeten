@@ -41,8 +41,8 @@ const Header = () => {
 
   return (
     <motion.header
-      className={`fixed top-0 z-50 w-full min-w-[370px] h-[5rem]  pt-4 pb-3 overflow-hidden  bg-white shadow`}
-      animate={{ height: isOpen ? "15rem" : "5rem" }}
+      className={`fixed top-0 z-50 w-full min-w-[370px] h-[6rem]  pt-4 pb-3 overflow-hidden  bg-white shadow`}
+      animate={{ height: isOpen ? "16rem" : "6rem" }}
       transition={{ duration: 0.3 }}
     >
       <div className="mx-auto max-w-7xl">
@@ -76,12 +76,12 @@ const Header = () => {
         {/* menu */}
         <div className="flex justify-end my-1" onClick={toggle}>
           {pageTitle.map((title, mainIdx) => (
-            <div key={title} className="mt-2 ">
+            <div key={title} className="">
               <button
                 variant="text"
                 size="sm"
                 color="pink"
-                className={`note  cursor-pointer md:p relative md:-top-7 px-3 py-1 rounded-none hover:border-b-2 border-primary ${
+                className={`note  cursor-pointer md:p relative md:-top-6 px-3 py-1 rounded-none border-b-2 border-white hover:border-primary ${
                   title === current && active
                 }`}
               >
