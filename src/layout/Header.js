@@ -13,13 +13,13 @@ import { motion } from "framer-motion";
 const pageTitle = ["首頁", "商城", "會員專區", "關於我們"];
 const subPage = {
   title: [
-    [],
+    ["首頁"],
     ["體驗課程", "手作烘培", "即期良品"],
     ["會員檔案", "優惠碼", "訂單查詢", "蒐藏清單"],
     ["品牌故事", "會員制度", "宅配須知"],
   ],
   path: [
-    [],
+    ["/"],
     ["/main/course", "/main/product", "/"],
     [
       "/main/member",
@@ -43,7 +43,7 @@ const Header = () => {
     <motion.header
       className={`fixed top-0 z-50 w-full min-w-[370px] h-[5rem]  pt-4 pb-3 overflow-hidden  bg-white shadow`}
       animate={{ height: isOpen ? "15rem" : "5rem" }}
-      transition={{ duration: 0.5 }}
+      transition={{ duration: 0.3 }}
     >
       <div className="mx-auto max-w-7xl">
         {/* logo & icons */}
@@ -77,16 +77,16 @@ const Header = () => {
         <div className="flex justify-end my-1" onClick={toggle}>
           {pageTitle.map((title, mainIdx) => (
             <div key={title} className="mt-2 ">
-              <buntton
+              <button
                 variant="text"
                 size="sm"
                 color="pink"
-                className={`note md:p relative md:-top-7 px-3 py-1 rounded-none hover:border-b-2 border-primary ${
+                className={`note  cursor-pointer md:p relative md:-top-7 px-3 py-1 rounded-none hover:border-b-2 border-primary ${
                   title === current && active
                 }`}
               >
                 <span className="px-2 font-bold md:p text-dark ">{title}</span>
-              </buntton>
+              </button>
               <div className="flex flex-col text-center note">
                 {subPage.title[mainIdx].map((title, subIdx) => (
                   <Button

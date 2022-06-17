@@ -11,12 +11,11 @@ import { useEffect } from "react";
 
 function App() {
   //AOS初始化
-    useEffect(() => {
-      AOS.init();
-      AOS.refresh();
-    }, []);
-    
-  
+  useEffect(() => {
+    AOS.init();
+    AOS.refresh();
+  }, []);
+
   return (
     <div className="relative min-h-screen bg-white App text-dark">
       <BrowserRouter>
