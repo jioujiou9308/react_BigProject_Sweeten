@@ -36,10 +36,7 @@ function ProductDetail() {
 
   return (
     <>
-    {/* 還沒寫完!!! */}
-    {products.map((product, i)=>{
       
-    })}
       <div className="bg-white ">
         {/* 桌機板DEMO */}
         <div className="hidden md:flex">
@@ -84,7 +81,7 @@ function ProductDetail() {
                 {/* FIXME rounded-full 也無法變完全圓*/}
                 <Button
                   variant="outlined"
-                  className="rounded-full select-none "
+                  className="border rounded-full select-none border-line text-line"
                   onClick={() => {
                     setFavClick(!favClick);
                   }}
@@ -147,7 +144,7 @@ function ProductDetail() {
                   className="border-2 rounded-none border-sub"
                   variant="outlined"
                 >
-                  <span className="p">加入購物車</span>
+                  <span className="text-black p">加入購物車</span>
                 </Button>
 
                 <Button
@@ -175,18 +172,18 @@ function ProductDetail() {
           <div className="flex justify-end my-4">
             {/* FIXME rounded-full 也無法變完全圓*/}
             <Button
-                  variant="outlined"
-                  className="rounded-full select-none "
-                  onClick={() => {
-                    setFavClick(!favClick);
-                  }}
-                >
-                  <AiFillHeart
-                    className={`icon-xl select-none rounded-full ${
-                      favClick && "text-secondary"
-                    }`}
-                  />
-                </Button>
+              variant="outlined"
+              className="rounded-full select-none text-line border-line"
+              onClick={() => {
+                setFavClick(!favClick);
+              }}
+            >
+              <AiFillHeart
+                className={`icon-xl select-none rounded-full ${
+                  favClick && "text-secondary"
+                }`}
+              />
+            </Button>
           </div>
 
           {/* 標題+價錢手機板 */}
@@ -244,7 +241,7 @@ function ProductDetail() {
               variant="outlined"
             >
               {" "}
-              <span className="p">加入購物車</span>
+              <span className="text-black p">加入購物車</span>
             </Button>
 
             <Button

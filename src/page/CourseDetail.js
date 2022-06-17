@@ -40,7 +40,7 @@ const CourseDetail = () => {
                 <p className="h2">日光舞茶</p>
                 <Button
                   variant="outlined"
-                  className="rounded-full select-none "
+                  className="rounded-full select-none text-line border-line"
                   onClick={() => {
                     setFavClick(!favClick);
                   }}
@@ -99,7 +99,7 @@ const CourseDetail = () => {
                   className="border-2 rounded-none border-sub"
                   variant="outlined"
                 >
-                  <span className="">加入購物車</span>
+                  <span className="text-black">加入購物車</span>
                 </Button>
 
                 <Button
@@ -124,10 +124,10 @@ const CourseDetail = () => {
           />
 
           {/* 愛心圖示手機板 */}
-          <div className="flex justify-end">
+          <div className="flex justify-end mb-3">
           <Button
                   variant="outlined"
-                  className="rounded-full select-none "
+                  className="rounded-full select-none border-line text-line"
                   onClick={() => {
                     setFavClick(!favClick);
                   }}
@@ -191,7 +191,7 @@ const CourseDetail = () => {
               className="border-2 rounded-none border-sub"
               variant="outlined"
             >
-              <span className="p">加入購物車</span>
+              <span className="text-black p">加入購物車</span>
             </Button>
 
             <Button

@@ -90,7 +90,7 @@ function MemberInformation() {
             </div>
 
             <div className="text-center p">
-            <Button variant="filled"  className="mt-4 border rounded-none border-line"><span className="text-line p">選擇圖片</span> </Button>
+            <Button variant="filled"  className="mt-4 bg-white border rounded-none border-line"><span className="text-line p">選擇圖片</span> </Button>
               <p className="mt-4">檔案大小 : 最大3MB</p>
               <p>檔案格式 : JPG, PNG</p>
             </div>
