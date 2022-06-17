@@ -9,8 +9,6 @@ const Product = () => {
         {/* card list  */}
         <div className="flex flex-wrap ">
           <CardProduct />
-          <CardProduct />
-          <CardProduct />
         </div>
         <Pagination />
       </>
