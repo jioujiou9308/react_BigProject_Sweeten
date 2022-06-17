@@ -26,12 +26,17 @@ const s3Cards = [
 const Home = (props) => {
   return (
     <>
-      <div>
+      <div className="relative">
         <img
           src={`${process.env.PUBLIC_URL}images/home/slide1.png`}
           alt="..."
-          className="w-full"
+          className="w-full "
         />
+        <div className="absolute w-1/2 p-5 md:w-1/3 bg-primary/50 left-5 top-5 md:top-20">
+          <h1 className="h4 md:h1">Sweeten Up Your Life</h1>
+          <p className="text-xs md:p">Sweeten Up Your LifeSweeten Up Your LifeSweeten Up Your Life</p>
+          <button className="p-1 mt-2 text-xs md:p-3 bg-secondary">Explore</button>
+        </div>
       </div>
       {/* section1 */}
       <div className="flex justify-center bg-white">
