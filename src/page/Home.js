@@ -459,24 +459,14 @@ const Home = (props) => {
       </div>
 
       {/* 訂閱 */}
-      <div className="py-16 mx-4 2xl:mx-auto 2xl:container">
-        <div className="relative flex items-center justify-center w-full ">
+      <div className="pt-20 lg:py-32">
+        <div className="relative flex items-center justify-center w-full">
           <img
-            src="https://i.ibb.co/4sYZ8gC/img-2.png"
-            alt="dining"
-            className="absolute z-0 hidden w-full h-full xl:block"
+            src={`${process.env.PUBLIC_URL}/images/home/subscribe.jpg`}
+            alt=""
+            className="absolute z-0 object-cover w-full h-full xl:block"
           />
-          <img
-            src="https://i.ibb.co/bbS3J9C/pexels-max-vakhtbovych-6301182-1.png"
-            alt="dining"
-            className="absolute z-0 hidden w-full h-full sm:block xl:hidden"
-          />
-          <img
-            src="https://i.ibb.co/JKkzGDs/pexels-max-vakhtbovych-6301182-1.png"
-            alt="dining"
-            className="absolute z-0 w-full h-full sm:hidden "
-          />
-          <div className="relative z-40 flex flex-col items-center justify-center w-full px-4 py-10 bg-gray-800 bg-opacity-80 md:my-16 lg:py-16 md:mx-24 md:px-12">
+          <div className="relative z-40 flex flex-col items-center justify-center w-full px-4 py-10 bg-dark bg-opacity-70 md:my-16 lg:py-16 md:mx-24 md:px-12">
             <h1 className="text-4xl font-semibold leading-9 text-center text-white">
               Don’t miss out!
             </h1>
@@ -499,7 +489,7 @@ const Home = (props) => {
       </div>
 
       {/* 照片牆 */}
-      <div className="flex flex-col items-center justify-center py-20 bg-gray-50">
+      <div className="hidden lg:py-20 lg:justify-center lg:items-center lg:flex-col lg:flex bg-gray-50">
         <div className="w-11/12 xl:w-1/2">
           <h1
             tabIndex={0}
@@ -517,111 +507,118 @@ const Home = (props) => {
             Lorem Ipsum is simply dummy text of the printing
           </h2>
         </div>
-        <div className="flex flex-wrap items-start px-4 mt-4 2xl:px-20 lg:px-12">
+
+        <div className="flex flex-wrap items-start justify-center px-4 mt-4 2xl:px-20 lg:px-12">
+          {/* 左上 */}
           <div className="mt-24">
             <div className="flex items-end ">
               <img
                 tabIndex={0}
-                src="https://i.ibb.co/kBgtHK6/Rectangle-5.png"
-                alt="girl with blue background"
-                className="w-20 h-20 mr-6 rounded-lg"
+                src={`${process.env.PUBLIC_URL}/images/home/cookie.jpg`}
+                alt=""
+                className="object-cover w-20 h-20 mr-6 rounded-lg"
               />
               <img
                 tabIndex={0}
-                src="https://i.ibb.co/9nLBtjx/Rectangle-3.png"
-                alt="guy winking"
-                className="w-48 rounded-lg h-36"
+                src={`${process.env.PUBLIC_URL}/images/home/mango.jpg`}
+                alt=""
+                className="object-cover w-48 rounded-lg h-36"
               />
             </div>
             <div className="flex items-center justify-end my-6">
               <img
                 tabIndex={0}
-                src="https://i.ibb.co/jRbF1KF/Rectangle-4.png"
-                alt="guy smiling"
+                src={`${process.env.PUBLIC_URL}/images/home/lemon.jpg`}
+                alt=""
+                className="w-64 rounded-lg"
               />
             </div>
             <div className="flex items-start">
               <img
                 tabIndex={0}
-                src="https://i.ibb.co/Sf4Q94L/Rectangle-6.png"
-                alt="girl with bluw background"
-                className="w-48 h-48 rounded-lg"
+                src={`${process.env.PUBLIC_URL}/images/home/handMake.jpg`}
+                alt=""
+                className="object-cover w-48 h-48 rounded-lg"
               />
               <img
                 tabIndex={0}
-                src="https://i.ibb.co/fnNqJrx/Rectangle-7.png"
-                alt="guy with glasses"
+                src={`${process.env.PUBLIC_URL}/images/home/flower.jpg`}
+                alt=""
                 className="flex-shrink-0 object-cover w-20 h-20 ml-6 rounded-lg object-fit"
               />
             </div>
           </div>
+
+          {/* 右上 */}
           <div className="mt-32 ml-6">
             <img
               tabIndex={0}
-              src="https://i.ibb.co/LSxy7fy/Rectangle-9.png"
-              className="rounded-lg w-72 h-80"
-              alt="guy with sunglasses"
+              src={`${process.env.PUBLIC_URL}/images/home/strawberry.jpg`}
+              className="object-cover rounded-lg w-72 h-80"
+              alt=""
             />
             <div className="flex items-start mt-6">
               <img
                 tabIndex={0}
-                src="https://i.ibb.co/X8PKD3q/Rectangle-8.png"
-                alt="girl  laughing"
-                className="w-48 h-48 rounded-lg"
+                src={`${process.env.PUBLIC_URL}/images/home/macha.jpg`}
+                alt=""
+                className="object-cover w-48 h-48 rounded-lg"
               />
               <img
                 tabIndex={0}
-                src="https://i.ibb.co/2Yj51CY/Rectangle-13.png"
-                alt="guy with glasses"
-                className="object-cover w-20 h-20 ml-6 rounded-lg object-fit"
+                src={`${process.env.PUBLIC_URL}/images/home/strCakeRoll.jpg`}
+                alt=""
+                className="object-cover w-20 h-20 mt-8 ml-6 rounded-lg"
               />
             </div>
           </div>
+
+          {/* 下 */}
           <div className="ml-6 mt-14">
             <div className="lg:flex ">
               <div>
                 <img
                   tabIndex={0}
-                  src="https://i.ibb.co/bWGVSkP/Rectangle-10.png"
-                  alt="group of friends"
-                  className="object-center rounded-lg w-96 h-72 object-fit"
+                  src={`${process.env.PUBLIC_URL}/images/home/store.jpg`}
+                  alt=""
+                  className="object-cover rounded-lg w-96 h-72 object-fit"
                 />
               </div>
               <div>
                 <div className="flex ml-6">
                   <img
                     tabIndex={0}
-                    src="https://i.ibb.co/80jvpSv/Rectangle-16.png"
-                    className="w-20 h-20 rounded-lg mt-14"
-                    alt="man"
+                    src={`${process.env.PUBLIC_URL}/images/home/taro.jpg`}
+                    className="object-cover w-20 h-20 rounded-lg mt-14"
+                    alt=""
                   />
                   <img
                     tabIndex={0}
-                    src="https://i.ibb.co/6PR2Y74/Rectangle-15.png"
-                    className="w-20 h-24 ml-6 rounded-lg"
-                    alt="woman"
+                    src={`${process.env.PUBLIC_URL}/images/home/chocoMarka.jpg`}
+                    className="object-cover w-20 h-24 ml-6 rounded-lg"
+                    alt=""
                   />
                 </div>
                 <img
                   tabIndex={0}
-                  src="https://i.ibb.co/M5rvjhk/Rectangle-14.png"
-                  alt="boy with blonde hair"
-                  className="w-48 h-32 mt-6 ml-6 rounded-lg"
+                  src={`${process.env.PUBLIC_URL}/images/home/make.jpg`}
+                  alt=""
+                  className="object-cover w-48 h-32 mt-6 ml-6 rounded-lg"
                 />
               </div>
             </div>
             <div className="flex mt-6">
               <img
                 tabIndex={0}
-                className="w-48 h-48 rounded-lg"
-                src="https://i.ibb.co/GPpMsbr/Rectangle-12.png"
-                alt="young girl with red hair"
+                className="object-cover w-48 h-48 rounded-lg"
+                src={`${process.env.PUBLIC_URL}/images/home/ingredient.jpg`}
+                alt=""
               />
               <img
                 tabIndex={0}
-                className="h-56 ml-6 rounded-lg w-72"
-                src="https://i.ibb.co/VBcgkVL/Rectangle-11.png"
-                alt="young girl with red hair"
+                className="object-cover h-56 ml-6 rounded-lg w-72"
+                src={`${process.env.PUBLIC_URL}/images/home/lesson.jpg`}
+                alt=""
               />
             </div>
           </div>
