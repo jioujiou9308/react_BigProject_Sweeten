@@ -8,10 +8,10 @@ import {
 const OnceCarkProduct = () => {
   return (
     <>
-      <div className="p-3 mb-2 md:w-1/2 lg:w-1/3 xl:w-1/4">
+      <div className="p-3 mb-2 md:w-1/3">
         <div className="flex flex-col items-center justify-center mr-1 ">
           <img
-            className="object-cover w-full rounded-md h-72 xl:h-80"
+            className="object-cover w-full rounded-none h-54"
             src="/images/course/hand.jpg"
             alt="T-Shirt"
           />
@@ -27,7 +27,7 @@ const OnceCarkProduct = () => {
             </div>
           </div>
 
-          <button className="flex items-center justify-center w-full px-2 py-2 mt-4 font-medium tracking-wide text-white capitalize transition-colors duration-200 transform rounded-md bg-dark hover:bg-gray-700 focus:outline-none focus:bg-gray-700">
+          <button className="flex items-center justify-center w-full px-2 py-2 mt-4 font-medium tracking-wide text-white capitalize transition-colors duration-200 transform rounded-none bg-dark hover:bg-gray-700 focus:outline-none focus:bg-gray-700">
             <span className="mx-1">Add to cart</span>
           </button>
         </div>
