@@ -11,6 +11,7 @@ import Product from "../page/Product";
 import ProductDetail from "../page/ProductDetail";
 import Test from "../page/Test";
 import Cart from "../page/Cart";
+import Signup from "../page/Signup";
 import Login from "../components/Login";
 import CustomerService from "../page/CustomerService";
 import CheckOut from "../page/CheckOut";
@@ -33,6 +34,7 @@ const Main = () => {
           <Route path="/course/detail" element={<CourseDetail />} />
           <Route path="/about" element={<About />} />
           <Route path="/cart" element={<Cart />} />
+          <Route path="/signup" element={<Signup />} />
           <Route path="/checkOut" element={<CheckOut />} />
 
           <Route path="/customerService" element={<CustomerService />} />

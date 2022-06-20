@@ -4,106 +4,114 @@ import { Button } from "@material-tailwind/react";
 function MemberInformation() {
   return (
     <>
-      <div className="px-2 ">
-        <h1 className="py-2 border-b-2 border-line h2 ">我的檔案</h1>
-
-        {/* 讓桌機板可以flexdiv */}
-        <div className="flex justify-center mt-10 md:justify-around">
-          <div>
-            <div className="flex ">
-              {/* 條列ㄉtitle */}
-              <div className="flex justify-center mt-3 ">
-                <div className="mr-5 h4">
-                  <h3 className="mb-4 text-right">暱稱</h3>
-                  <h3 className="mb-4 text-right">姓名</h3>
-                  <h3 className="mb-4 text-right">E-mail</h3>
-                  <h3 className="mb-4 text-right">手機號碼</h3>
-                  <h3 className="mb-4 text-right">性別</h3>
-                  <h3 className="mb-4 text-right">生日</h3>
-                </div>
-
-                <div className="p">
-                  <div className="flex justify-between pb-1 mb-2 border-b border-line">
-                    <p className="pr-20">中壢李姓選民</p>
-                    <p className="hidden md:block p">編輯</p>
+      <div className="px-2">
+        <h2 className="h2 py-2 border-b-2 border-line">我的檔案</h2>
+          <div className="flex mt-10 justify-around mx-1">
+              <form>
+                <div class="md:flex md:items-center mb-2">
+                  <div class="md:w-1/4">
+                    <label class="block text-gray-500 md:text-right mb-1 md:mb-0 pr-4" for="inline-full-name">
+                      暱稱
+                    </label>
                   </div>
-                  <div className="flex justify-between pb-1 mb-3 border-b border-line">
-                    <p className="pr-20">李選民</p>
-                    <p className="hidden md:block p">編輯</p>
-                  </div>
-
-                  <div className="flex justify-between pb-1 mb-3 border-b border-line">
-                    <p className="pr-20">abc******@gmail.com</p>
-                    <p className="hidden md:block p">編輯</p>
-                  </div>
-
-                  <div className="flex justify-between pb-1 mb-3 border-b border-line">
-                    <p className="pr-20">*******801</p>
-                    <p className="hidden md:block p">編輯</p>
-                  </div>
-
-                  <div className="flex items-center justify-around pb-1 mb-3 border-b border-line">
-                    <input type="radio" />
-                    <label>男性</label>
-
-                    <input type="radio" />
-                    <label>女性</label>
-
-                    <input type="radio" />
-                    <label>其他</label>
-                  </div>
-                  <div className="flex justify-around">
-                    <select name="" id="">
-                      <option value="">1995</option>
-                    </select>
-                    <select name="" id="">
-                      <option value="">5月</option>
-                    </select>
-                    <select name="" id="">
-                      <option value="">5</option>
-                    </select>
+                  <div class="flex items-center border-b border-line py-2">
+                    <input class="w-full text-gray-700 mr-3 py-1 px-2 " type="text" placeholder="Jane Doe" aria-label="Full name" />
+                    <button class="flex-shrink-0 text-sm py-1 px-2 hover:text-teal-900" type="button">
+                      編輯
+                    </button>
                   </div>
                 </div>
-              </div>
-            </div>
-            <div className="text-center">
-              <Button
-                variant="filled"
-                className="px-4 py-1 text-white rounded-none shadow-sub hover:shadow-sub md:mt-20 border-line h3 bg-dark"
-              >
-                {" "}
-                <span className="p ">儲存設定</span>{" "}
-              </Button>
+                <div class="md:flex md:items-center mb-2">
+                  <div class="md:w-1/4">
+                    <label class="block text-gray-500 md:text-right mb-1 md:mb-0 pr-4" for="inline-full-name">
+                      姓名
+                    </label>
+                  </div>
+                  <div class="flex items-center border-b border-line py-2">
+                    <input class="w-full text-gray-700 mr-3 py-1 px-2" type="text" placeholder="Jane Doe" aria-label="Full name" />
+                    <button class="flex-shrink-0 text-sm py-1 px-2 hover:text-teal-900" type="button">
+                      編輯
+                    </button>
+                  </div>
+                </div>
+                <div class="md:flex md:items-center mb-2">
+                  <div class="md:w-1/4">
+                    <label class="block text-gray-500 md:text-right mb-1 md:mb-0 pr-4" for="inline-full-name">
+                      E-mail
+                    </label>
+                  </div>
+                  <div class="flex items-center border-b border-line py-2">
+                    <input class="text-gray-700 mr-3 py-1 px-2" type="text" placeholder="Jane Doe" aria-label="Full name" />
+                    <button class="flex-shrink-0 text-sm py-1 px-2 hover:text-teal-900" type="button">
+                      編輯
+                    </button>
+                  </div>
+                </div>
+                <div class="md:flex md:items-center mb-2">
+                  <div class="md:w-1/4">
+                    <label class="block text-gray-500 md:text-right mb-1 md:mb-0 pr-4" for="inline-full-name">
+                      手機號碼
+                    </label>
+                  </div>
+                  <div class="flex items-center border-b border-line py-2">
+                    <input class="w-full text-gray-700 mr-3 py-1 px-2" type="text" placeholder="Jane Doe" aria-label="Full name" />
+                    <button class="flex-shrink-0 text-sm py-1 px-2 hover:text-teal-900" type="button">
+                      編輯
+                    </button>
+                  </div>
+                </div>
+                <div class="md:flex md:items-center mb-2">
+                  <div class="md:w-1/4">
+                    <label class="block text-gray-500 md:text-right mb-1 md:mb-0 pr-4" for="inline-full-name">
+                      性別
+                    </label>
+                  </div>
+                  <div class="flex items-center border-b border-line py-2">
+                    <input class="w-full text-gray-700 mr-3 py-1 px-2" type="text" placeholder="Jane Doe" aria-label="Full name" />
+                    <button class="flex-shrink-0 text-sm py-1 px-2 hover:text-teal-900" type="button">
+                      編輯
+                    </button>
+                  </div>
+                </div>
+                <div class="md:flex md:items-center mb-2">
+                  <div class="md:w-1/4">
+                    <label class="block text-gray-500 md:text-right mb-1 md:mb-0 pr-4" for="inline-full-name">
+                      生日
+                    </label>
+                  </div>
+                  <div class="flex items-center border-b border-line py-2">
+                    <input class="w-full text-gray-700 mr-3 py-1 px-2" type="text" placeholder="Jane Doe" aria-label="Full name" />
+                    <button class="flex-shrink-0 text-sm py-1 px-2 hover:text-teal-900" type="button">
+                      編輯
+                    </button>
+                  </div>
+                </div>
+                <div className="text-center">
+                  <button class="text-center bg-dark text-white font-bold py-2 px-4" type="button">
+                      儲存設定
+                  </button>
+                </div>
+              </form>
+            {/* 桌機板中間的桿桿 */}
+            <div className="hidden border border-line md:block"></div>
+            {/* 桌機版使用者圖片 */}
+            <div className="hidden md:block">
+              <div>
+                <img
+                  className="mx-auto"
+                  src={process.env.PUBLIC_URL + "/images/memberCollectionAndOrder/user_pic.png"}
+                  alt=""
+                />
+                </div>
+                <div className="text-center p">
+                  <button size="sm" className="mt-4 bg-white border blorder-line px-1">
+                    <span className="text-dark">選擇圖片</span>
+                  </button>
+                  <p className="mt-4 note">檔案大小：最大3MB</p>
+                  <p className="note">檔案格式：JPG, PNG</p>
+                </div>
             </div>
           </div>
-          {/* 桌機板中間ㄉ桿桿 */}
-          <div className="hidden border border-line md:block"></div>
-          {/* 桌機板使用者圖片 */}
-          <div className="hidden md:block ">
-            <div className="">
-              <img
-                className="mx-auto"
-                src={
-                  process.env.PUBLIC_URL +
-                  "/images/memberCollectionAndOrder/user_pic.png"
-                }
-                alt=""
-              />
-            </div>
-
-            <div className="text-center p">
-              <Button
-                variant="filled"
-                size="sm"
-                className="mt-4 bg-white border rounded-none shadow-sub hover:shadow-sub border-line"
-              >
-                <span className="text-dark">選擇圖片</span>{" "}
-              </Button>
-              <p className="mt-4 note">檔案大小 : 最大3MB</p>
-              <p className="note">檔案格式 : JPG, PNG</p>
-            </div>
-          </div>
-        </div>
       </div>
     </>
   );
