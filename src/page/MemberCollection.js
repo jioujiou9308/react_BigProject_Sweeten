@@ -1,6 +1,6 @@
 import React from "react";
-import Member_collection_bar from "../components/memberCollection/Member_collection_bar";
-import Member_search_bar from "../components/memberCollection/Member_search_bar";
+import MemberCollectionBar from '../components/memberCollection/MemberCollectionBar'
+import MemberSearchBar from '../components/memberCollection/MemberSearchBar'
 import { AiFillHeart, AiOutlineStar } from "react-icons/ai";
 // FIXME 這裡要用大駝峰
 const Member_colloction = () => {
@@ -9,18 +9,21 @@ const Member_colloction = () => {
     {
       id: 1,
       name: "標哥千層蛋糕",
+      img: `${process.env.PUBLIC_URL}/images/memberCollectionAndOrder/member_order1.png`,
       price: 500,
       score: 4,
     },
     {
       id: 2,
       name: "蜂蜜蛋糕",
+      img: `${process.env.PUBLIC_URL}/images/memberCollectionAndOrder/member_order2.png`,
       price: 500,
       score: 5,
     },
     {
       id: 3,
       name: "大麻蛋糕",
+      img: `${process.env.PUBLIC_URL}/images/memberCollectionAndOrder/member_order3.png`,
       price: 750,
       score: 2,
     },
@@ -29,16 +32,16 @@ const Member_colloction = () => {
     <>
       <div className="mx-2 md:mx-0 ">
         <div className="mb-4 ">
-          <Member_collection_bar />
+          <MemberCollectionBar />
         </div>
         <div className="mb-6">
-          <Member_search_bar />
+          <MemberSearchBar />
         </div>
         <div className="pt-8 bg-white md:pt-0 md:px-10">
           <h2 className="hidden py-2 border-b h2 md:block">我的收藏</h2>
 
           {products.map((product, i) => {
-            const { id, name, price, score } = product;
+            const { id, name,img, price, score } = product;
             return (
               <>
                 {/* 圖片 備註 評分愛心 1*/}
@@ -46,7 +49,7 @@ const Member_colloction = () => {
                   <div className="overflow-hidden ">
                     <img
                       className=""
-                      src={`${process.env.PUBLIC_URL}/images/memberCollectionAndOrder/member_order.png`}
+                      src={img}
                       alt=""
                     />
                   </div>
