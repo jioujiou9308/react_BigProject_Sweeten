@@ -1,5 +1,5 @@
 import React from "react";
-import { AiFillWindows } from "react-icons/ai";
+import { GiFlour, GiTeacher, GiCardboardBoxClosed, GiHealing } from 'react-icons/gi';
 import Card from "../components/home/Card";
 
 const s3Cards = [
@@ -26,81 +26,139 @@ const s3Cards = [
 const Home = (props) => {
   return (
     <>
-      <div className="relative">
-        <img
-          src={`${process.env.PUBLIC_URL}images/home/slide1.png`}
-          alt="..."
-          className="w-full "
-        />
-        <div className="absolute w-1/2 p-5 md:w-1/3 bg-primary/50 left-5 top-5 md:top-20">
-          <h1 className="h4 md:h1">Sweeten Up Your Life</h1>
-          <p className="text-xs md:p">
-            Sweeten Up Your LifeSweeten Up Your LifeSweeten Up Your Life
-          </p>
-          <button className="p-1 mt-2 text-xs md:p-3 bg-secondary">
-            Explore
-          </button>
+      {/* 輪播 */}
+      <div className="">
+        <div className="w-full py-9 md:pb-12 lg:pb-24">
+          <div className="relative">
+            {/* 大中小各一張圖檔 */}
+            <img
+              src="https://i.ibb.co/q5k5j57/bench-accounting-nvzv-OPQW0gc-unsplash-1-1.png"
+              alt="A work table with house plants"
+              className="hidden w-full h-full lg:block"
+            />
+            <img
+              src="https://i.ibb.co/94jQFsV/bench-accounting-nvzv-OPQW0gc-unsplash-1-1.png"
+              alt="A work table with house plants"
+              className="hidden w-full h-full sm:block lg:hidden"
+            />
+            <img
+              src="https://i.ibb.co/cJz8LZ2/bench-accounting-nvzv-OPQW0gc-unsplash-1-1.png"
+              alt="A work table with house plants"
+              className="w-full h-full sm:hidden"
+            />
+
+            <div className="absolute top-0 left-0 z-10 flex flex-col items-start mx-4 sm:mx-0 mt-36 sm:mt-0 sm:py-20 md:py-28 lg:py-20 xl:py-28 sm:pl-14 sm:justify-start">
+              <h1 className="text-4xl font-semibold sm:text-5xl lg:text-6xl sm:w-8/12">
+                Minimalist Furniture Design
+              </h1>
+              <p className="mt-4 text-base sm:mt-5 sm:w-5/12">
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry.
+              </p>
+              <button className="hidden px-8 py-4 mt-8 font-medium border text-secondary sm:flex hover:bg-primary">
+                Explore
+              </button>
+            </div>
+            <button className="absolute bottom-0 flex items-center justify-center w-full py-3 mt-8 text-base font-medium sm:hidden text-secondary sm:flex hover:bg-primary">
+              Explore
+            </button>
+          </div>
         </div>
       </div>
-      {/* section0.5 */}
-      <div className="p-5 md:flex">
-        {/* 左 */}
-        <div className="md:w-1/2">
-          {/* 上 */}
-          <div className="p-3 md:w-2/3">
-            <h1 className="text-4xl font-bold h1">精彩的甜食饗宴</h1>
-            <p>
-              我們不得不面對一個非常尷尬的事實我們不得不面對一個非常尷尬的事實我們不得不面對一個非常尷尬的事實我們不得不面對一個非常尷尬
-            </p>
+
+      {/* 特色 */}
+      <div className="overflow-y-hidden">
+        <div className="px-4 py-12 xl:mx-auto xl:container xl:px-20 md:px-6">
+          <div className="items-center justify-center lg:flex lg:space-x-12 2xl:space-x-6">
+            <div className>
+              <p className="text-3xl font-extrabold leading-9 lg:text-4xl">
+                Why choose us
+              </p>
+              <p className="w-full mt-4 text-lg leading-7 xl:w-7/12">
+                Whether article spirits new her covered hastily sitting her.
+                Money witty books nor son add
+              </p>
+              <div className="w-full mt-6 lg:hidden lg:w-3/5 xl:w-3/5 lg:mt-0">
+                <img
+                  src={`${process.env.PUBLIC_URL}images/home/slide1.png`}
+                  alt="..."
+                  className="object-fill object-center w-full h-full obejct-fit"
+                />
+              </div>
+              <div className="grid gap-6 mt-6 md:mt-10 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 lg:mt-6 2xl:mt-12">
+                <div className="flex items-center">
+                  <div className="relative w-16 h-16">
+                    <div className="z-20 flex items-center justify-center flex-shrink-0 w-16 h-16 mt-2 mr-3 ">
+                      <GiHealing  className="text-5xl " />
+                    </div>
+                  </div>
+                  <div className="flex flex-col items-start pt-8 ml-6">
+                    <h2 className="text-lg font-semibold leading-4">
+                      有機食材
+                    </h2>
+                    <p className="mt-2 text-base leading-6 text-gray-600 lg:w-40 2xl:w-52">
+                      Whether article spirits new her covered.
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-center">
+                  <div className="relative w-16 h-16">
+                    <div className="z-20 flex items-center justify-center flex-shrink-0 w-16 h-16 mt-2 mr-3 ">
+                    <GiFlour  className="text-5xl " />
+                    </div>
+                  </div>
+                  <div className="flex flex-col items-start pt-8 ml-6">
+                    <h2 className="text-lg font-semibold leading-4 text-gray-800">
+                      天然酵母
+                    </h2>
+                    <p className="mt-2 text-base leading-6 text-gray-600 lg:w-40 2xl:w-52">
+                      Whether article spirits new her covered.
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-center">
+                  <div className="relative w-16 h-16">
+                    <div className="z-20 flex items-center justify-center flex-shrink-0 w-16 h-16 mt-2 mr-3 ">
+                    <GiCardboardBoxClosed  className="text-5xl " />
+                    </div>
+                  </div>
+                  <div className="flex flex-col items-start pt-8 ml-6">
+                    <h2 className="text-lg font-semibold leading-4 text-gray-800">
+                      客製化包裝
+                    </h2>
+                    <p className="mt-2 text-base leading-6 text-gray-600 lg:w-40 2xl:w-52">
+                      Whether article spirits new her covered.
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-center">
+                  <div className="relative w-16 h-16">
+                    <div className="z-20 flex items-center justify-center flex-shrink-0 w-16 h-16 mt-2 mr-3 ">
+                    <GiTeacher className="text-5xl " />
+                    </div>
+                  </div>
+                  <div className="flex flex-col items-start pt-8 ml-6">
+                    <h2 className="text-lg font-semibold leading-4 text-gray-800">
+                      獨創課程
+                    </h2>
+                    <p className="mt-2 text-base leading-6 text-gray-600 lg:w-40 2xl:w-52">
+                      Whether article spirits new her covered.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="hidden w-full mt-6 lg:block lg:w-3/5 xl:w-3/5 lg:mt-0">
+              <img
+                  src={`${process.env.PUBLIC_URL}images/home/section01_cake1.png`}
+                  alt="..."
+                  className="object-fill object-center w-full h-full obejct-fit"
+                />
+            </div>
           </div>
-          {/* 下1 */}
-          <div className="md:flex">
-            <div className="flex">
-              <span className="">
-                <AiFillWindows className="text-5xl" />
-              </span>
-              <div>
-                <h1 className="h4">有機食材</h1>
-                <p className="">面對一個非常尷尬的事實我們不得不</p>
-              </div>
-            </div>
-            <div className="flex">
-              <span className="">
-                <AiFillWindows className="text-5xl" />
-              </span>
-              <div>
-                <h1 className="h4">有機食材</h1>
-                <p className="">面對一個非常尷尬的事實我們不得不</p>
-              </div>
-            </div>
-          </div>
-          {/* 下2 */}
-          <div className="md:flex">
-            <div className="flex">
-              <span className="">
-                <AiFillWindows className="text-5xl" />
-              </span>
-              <div>
-                <h1 className="h4">有機食材</h1>
-                <p className="">面對一個非常尷尬的事實我們不得不</p>
-              </div>
-            </div>
-            <div className="flex">
-              <span className="">
-                <AiFillWindows className="text-5xl" />
-              </span>
-              <div>
-                <h1 className="h4">有機食材</h1>
-                <p className="">面對一個非常尷尬的事實我們不得不</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        {/* 右圖 */}
-        <div className="w-1/2">
-          <img src={`${process.env.PUBLIC_URL}images/home/slide1.png`} alt="" />
         </div>
       </div>
+  
       {/* section1 */}
       <div className="flex justify-center bg-white">
         <div className="p-5 mx-5 mt-36" style={{ width: "75%" }}>
@@ -243,7 +301,7 @@ const Home = (props) => {
 
       {/* vertion 2 */}
       {/* 輪播 */}
-      <div className="dark:bg-gray-900">
+      {/* <div className="dark:bg-gray-900">
         <div className="container mx-auto py-9 md:py-12 lg:py-24">
           <div className="relative mx-4">
             <img
@@ -279,10 +337,10 @@ const Home = (props) => {
             </button>
           </div>
         </div>
-      </div>
+      </div>*/}
 
       {/* 特色 */}
-      <div className="overflow-y-hidden">
+      {/* <div className="overflow-y-hidden">
         <div className="px-4 py-12 xl:mx-auto xl:container xl:px-20 md:px-6">
           <div className="items-center justify-center lg:flex lg:space-x-12 2xl:space-x-6">
             <div className>
@@ -384,7 +442,7 @@ const Home = (props) => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
 
       {/* 產品 */}
       <div className="px-4 2xl:mx-auto 2xl:container lg:py-16 lg:px-40 xl:px-20 md:py-12 md:px-6 py-9">
