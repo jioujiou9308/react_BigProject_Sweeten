@@ -1,43 +1,111 @@
-import React from "react";
 import { AiOutlineRight, AiOutlineLeft } from "react-icons/ai";
+import React, { useRef, useState } from "react";
+// Import Swiper React components
+import { Swiper, SwiperSlide } from "swiper/react";
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+import "../../styles.css";
+
+// import required modules
+import { Pagination, Navigation } from "swiper";
+
+//假資料們
+const courses = [
+  {
+    id: 1,
+    img: process.env.PUBLIC_URL + "/images/courseDetial/course_demo_lower.png",
+  },
+  {
+    id: 2,
+    img: process.env.PUBLIC_URL + "/images/courseDetial/course_demo_lower.png",
+  },
+  {
+    id: 3,
+    img: process.env.PUBLIC_URL + "/images/courseDetial/course_demo_lower.png",
+  },
+  {
+    id: 4,
+    img: process.env.PUBLIC_URL + "/images/courseDetial/course_demo_lower.png",
+  },
+];
 
 //TODO 會被aside擋住，無法滿版
 function YouMayLikeCourse() {
   return (
     <>
       <div className="flex justify-center pb-10 bg-sub">
-        <AiOutlineLeft className="mt-16 icon-xl text-secondary" />
-        <div className="flex">
-          {/* DEMO1 */}
-          <div>
-            <div className="w-5/6 mx-auto overflow-hidden">
+        <Swiper
+          slidesPerView={3}
+          spaceBetween={30}
+          slidesPerGroup={3}
+          loop={true}
+          loopFillGroupWithBlank={true}
+          pagination={{
+            clickable: true,
+          }}
+          navigation={true}
+          modules={[Pagination, Navigation]}
+          className="mySwiper"
+        >
+          <SwiperSlide>
+            <div className="scale-75 bg-sub">
+              {" "}
               <img
-                src={process.env.PUBLIC_URL+'/images/courseDetial/course_demo_lower.png'}
-                alt=""
-              />
+                src={
+                  process.env.PUBLIC_URL +
+                  "/images/courseDetial/course_demo_lower.png"
+                }
+              ></img>
             </div>
-            <div className="w-5/6 mx-auto text-center">
-              <p className="py-1 text-white p bg-secondary">加入購物車</p>
-              <p className="p">葡萄柚蛋糕</p>
-              <p className="note">$ 900</p>
-            </div>
-          </div>
-          {/* DEMO2*/}
-          <div>
-            <div className="w-5/6 mx-auto overflow-hidden">
+          </SwiperSlide>
+          <SwiperSlide>
+            <div className="scale-75 bg-sub">
+              {" "}
               <img
-                src={process.env.PUBLIC_URL+'/images/courseDetial/course_demo_lower.png'}
-                alt=""
-              />
+                src={
+                  process.env.PUBLIC_URL +
+                  "/images/courseDetial/course_demo_lower.png"
+                }
+              ></img>
             </div>
-            <div className="w-5/6 mx-auto text-center">
-              <p className="py-1 text-white p bg-secondary">加入購物車</p>
-              <p className="p">葡萄柚蛋糕</p>
-              <p className="note">$ 900</p>
+          </SwiperSlide>
+          <SwiperSlide>
+            <div className="scale-75 bg-sub">
+              {" "}
+              <img
+                src={
+                  process.env.PUBLIC_URL +
+                  "/images/courseDetial/course_demo_lower.png"
+                }
+              ></img>
             </div>
-          </div>
-        </div>
-        <AiOutlineRight className="mt-16 icon-xl text-secondary" />
+          </SwiperSlide>
+          <SwiperSlide>
+            <div className="scale-75 bg-sub">
+              {" "}
+              <img
+                src={
+                  process.env.PUBLIC_URL +
+                  "/images/courseDetial/course_demo_lower.png"
+                }
+              ></img>
+            </div>
+          </SwiperSlide>
+          <SwiperSlide>
+            <div className="scale-75 bg-sub">
+              {" "}
+              <img
+                src={
+                  process.env.PUBLIC_URL +
+                  "/images/courseDetial/course_demo_lower.png"
+                }
+              ></img>
+            </div>
+          </SwiperSlide>
+        </Swiper>
       </div>
     </>
   );
