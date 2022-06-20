@@ -68,7 +68,7 @@ const Home = (props) => {
                 Explore
               </button>
             </div>
-            <button className="absolute bottom-0 flex items-center justify-center w-full py-3 mt-8 text-base font-medium sm:hidden text-secondary sm:flex hover:bg-primary">
+            <button className="absolute bottom-0 flex items-center justify-center w-full py-3 mt-8 text-base font-medium sm:hidden text-secondary hover:bg-primary">
               Explore
             </button>
           </div>
@@ -87,13 +87,6 @@ const Home = (props) => {
                 Whether article spirits new her covered hastily sitting her.
                 Money witty books nor son add
               </p>
-              <div className="w-full mt-6 lg:hidden lg:w-3/5 xl:w-3/5 lg:mt-0">
-                <img
-                  src={`${process.env.PUBLIC_URL}images/home/slide1.png`}
-                  alt="..."
-                  className="object-fill object-center w-full h-full obejct-fit"
-                />
-              </div>
               <div className="grid gap-6 mt-6 md:mt-10 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 lg:mt-6 2xl:mt-12">
                 <div className="flex items-center">
                   <div className="relative w-16 h-16">
@@ -378,7 +371,7 @@ const Home = (props) => {
           Frequently Asked Questions
         </h2>
         <div className="flex flex-col items-start justify-start mt-4 md:justify-between md:items-start md:flex-row">
-          <div className="">
+          <div>
             <p className="text-base font-normal leading-6 text-gray-600 lg:w-8/12 md:w-9/12">
               Here are few of the most frequently asked questions by our
               valueable customers
