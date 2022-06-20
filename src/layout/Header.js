@@ -16,7 +16,7 @@ const subPage = {
     ["首頁"],
     ["體驗課程", "手作烘培", "即期良品"],
     ["會員檔案", "優惠碼", "訂單查詢", "蒐藏清單"],
-    ["品牌故事", "會員制度", "宅配須知"],
+    ["品牌故事", "會員制度", "宅配須知", "聯絡客服"],
   ],
   path: [
     ["/"],
@@ -27,7 +27,7 @@ const subPage = {
       "/main/member/order",
       "/main/member/collection",
     ],
-    ["/main/about", "/", "/"],
+    ["/main/about", "/", "/", "/main/customerService"],
   ],
 };
 
