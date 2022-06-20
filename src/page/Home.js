@@ -547,7 +547,7 @@ const Home = (props) => {
       </div>
 
       {/* 照片牆 */}
-      <div className="hidden lg:py-20 lg:justify-center lg:items-center lg:flex-col lg:flex bg-gray-50">
+      <div className="py-20 justify-center items-center flex-col flex bg-gray-50">
         <div className="w-11/12 xl:w-1/2">
           <h1
             tabIndex={0}
@@ -608,7 +608,7 @@ const Home = (props) => {
           </div>
 
           {/* 右上 */}
-          <div className="mt-32 ml-6">
+          <div className="mt-7 md:mt-32 ml-6">
             <img
               tabIndex={0}
               src={`${process.env.PUBLIC_URL}/images/home/strawberry.jpg`}
@@ -632,7 +632,7 @@ const Home = (props) => {
           </div>
 
           {/* 下 */}
-          <div className="ml-6 mt-14">
+          <div className="hidden lg:block lg:ml-6 lg:mt-14">
             <div className="lg:flex ">
               <div>
                 <img
