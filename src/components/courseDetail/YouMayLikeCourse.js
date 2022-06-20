@@ -36,10 +36,10 @@ const courses = [
 function YouMayLikeCourse() {
   return (
     <>
-      <div className="flex justify-center pb-10 bg-sub">
+      <div className="flex justify-center bg-sub">
         <Swiper
           slidesPerView={3}
-          spaceBetween={30}
+          spaceBetween={20}
           slidesPerGroup={3}
           loop={true}
           loopFillGroupWithBlank={true}
@@ -56,7 +56,7 @@ function YouMayLikeCourse() {
           return (
             <>
               <SwiperSlide>
-            <div className="scale-75 bg-sub">
+            <div className="pb-12 scale-75 bg-sub">
               <img
                 src={
                   img

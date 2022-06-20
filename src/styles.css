@@ -49,15 +49,19 @@ body {
 .swiper-button-prev,
 .swiper-button-next {
   color: #f39898;
+  transform: translateY(-30px);
 }
 
 .swiper-pagination {
-  transform: translateY();
+  
 }
 
 .swiper-slide {
   background: #fad2bc;
+  
 }
 .swiper-pagination-bullet-active {
   background: #f39898;
 }
+
+
