@@ -40,18 +40,6 @@ const Header = () => {
   const toggle = () => setOpen(!isOpen);
 
   return (
-<<<<<<< HEAD
-    <header className="fixed top-0 z-50 w-full pt-3 pb-3 bg-white ">
-      <div className="flex flex-wrap justify-between mx-auto max-w-7xl">
-        <div className="flex justify-end w-full mb-2">
-          <AiOutlineSearch className="mx-1 icon-sm" />
-          <Link to="/main/cart">
-          <AiOutlineShoppingCart className="mx-1 icon-sm" /></Link>
-          <Link to="/login">
-            <AiOutlineUserAdd className="mx-1 icon-sm" />
-          </Link>
-          <AiOutlineUnorderedList className="mx-1 icon-sm" />
-=======
     <motion.header
       className={`fixed top-0 z-50 w-full min-w-[370px] h-[6rem]  pt-4 pb-3 overflow-hidden  bg-white shadow`}
       animate={{ height: isOpen ? "16rem" : "6rem" }}
@@ -115,7 +103,6 @@ const Header = () => {
               </div>
             </div>
           ))}
->>>>>>> master
         </div>
       </div>
     </motion.header>
