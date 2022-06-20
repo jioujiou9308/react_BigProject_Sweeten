@@ -13,8 +13,6 @@ const Product = () => {
         <div className="flex flex-wrap ">
           <TabBar />
           <CardProduct />
-          <CardProduct />
-          <CardProduct />
         </div>
         <Pagination />
         <button

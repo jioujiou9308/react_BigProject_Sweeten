@@ -4,7 +4,7 @@ import Member_search_bar from "../components/Member_search_bar";
 import Tag from "../components/Tag";
 import { AiFillHeart, AiOutlineStar } from "react-icons/ai";
 
-const Member_colloction = () => {
+const MemberColloction = () => {
   return (
     <>
       <div className="mx-2 md:mx-0 ">
@@ -160,4 +160,4 @@ const Member_colloction = () => {
   );
 };
 
-export default Member_colloction;
+export default MemberColloction;
