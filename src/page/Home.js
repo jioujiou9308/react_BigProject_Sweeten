@@ -42,16 +42,16 @@ const Home = (props) => {
         </div>
       </div>
       {/* section0.5 */}
-      <div className="flex p-5">
+      <div className="p-5 md:flex">
         {/* 左 */}
-        <div className="w-1/2">
+        <div className="md:w-1/2">
           {/* 上 */}
-          <div className="w-2/3 p-3">
+          <div className="p-3 md:w-2/3">
             <h1 className="text-4xl font-bold h1">精彩的甜食饗宴</h1>
             <p>我們不得不面對一個非常尷尬的事實我們不得不面對一個非常尷尬的事實我們不得不面對一個非常尷尬的事實我們不得不面對一個非常尷尬</p>
           </div>
           {/* 下1 */}
-          <div className="flex">
+          <div className="md:flex">
             <div className="flex">
               <span className="">
                 <AiFillWindows className="text-5xl"/>
@@ -72,7 +72,7 @@ const Home = (props) => {
             </div>
           </div>
           {/* 下2 */}
-          <div className="flex">
+          <div className="md:flex">
             <div className="flex">
               <span className="">
                 <AiFillWindows className="text-5xl"/>
