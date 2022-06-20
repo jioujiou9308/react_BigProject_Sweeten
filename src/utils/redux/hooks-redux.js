@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from "react-redux";
-import { updateCourse, updateProduct } from "../../redux/renderSlice";
-import { updateUser, updateCart, updateFavorite } from "../../redux/userSlice";
+import { updateCourse, updateProduct } from "./renderSlice";
+import { updateUser, updateCart, updateFavorite } from "./userSlice";
 
 function hookMaker(sliceName, key, action) {
   return () => {

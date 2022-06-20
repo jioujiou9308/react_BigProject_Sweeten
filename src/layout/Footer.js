@@ -14,7 +14,9 @@ const Footer = () => {
             />
           </div>
           <div className="flex justify-center">
-            <p className="mx-1 my-1 font-medium">其他相關平台</p>
+            <p className="mx-1 my-1 font-medium">
+              <span>其他相關平台</span>
+            </p>
             <FaFacebook className="mx-1 icon-lg" />
             <FaInstagram className="mx-1 icon-lg" />
             <FaTwitter className="mx-1 icon-lg" />

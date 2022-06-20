@@ -198,7 +198,7 @@ function ProductDetail() {
         </div>
       </div>
       {/* 你可能也會喜歡 */}
-      <div className="hidden md:my-8 md:bg-theme md:block">
+      <div className="hidden my-8 md:block bg-sub">
         <p className="pt-3 pb-6 text-center h2">你可能也會喜歡</p>
         <You_may_like />
       </div>
