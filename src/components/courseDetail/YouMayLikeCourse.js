@@ -50,61 +50,25 @@ function YouMayLikeCourse() {
           modules={[Pagination, Navigation]}
           className="mySwiper"
         >
-          <SwiperSlide>
+
+        {courses.map((course, i)=>{
+          const {id, img} = course;
+          return (
+            <>
+              <SwiperSlide>
             <div className="scale-75 bg-sub">
-              {" "}
               <img
                 src={
-                  process.env.PUBLIC_URL +
-                  "/images/courseDetial/course_demo_lower.png"
+                  img
                 }
               ></img>
             </div>
           </SwiperSlide>
-          <SwiperSlide>
-            <div className="scale-75 bg-sub">
-              {" "}
-              <img
-                src={
-                  process.env.PUBLIC_URL +
-                  "/images/courseDetial/course_demo_lower.png"
-                }
-              ></img>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="scale-75 bg-sub">
-              {" "}
-              <img
-                src={
-                  process.env.PUBLIC_URL +
-                  "/images/courseDetial/course_demo_lower.png"
-                }
-              ></img>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="scale-75 bg-sub">
-              {" "}
-              <img
-                src={
-                  process.env.PUBLIC_URL +
-                  "/images/courseDetial/course_demo_lower.png"
-                }
-              ></img>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="scale-75 bg-sub">
-              {" "}
-              <img
-                src={
-                  process.env.PUBLIC_URL +
-                  "/images/courseDetial/course_demo_lower.png"
-                }
-              ></img>
-            </div>
-          </SwiperSlide>
+            </>
+          )
+        })}
+          
+         
         </Swiper>
       </div>
     </>
