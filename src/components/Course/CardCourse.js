@@ -9,15 +9,16 @@ import {
 const CardCourse = () => {
   return (
     <>
-      <section className="w-full my-5 px-3 bg-white lg:max-h-[240px] lg:flex  overflow-hidden  ">
+      <section className="w-full my-5 px-3 bg-white lg:max-h-[240px] lg:flex   overflow-hidden  ">
         <div className=" lg:w-1/2">
           <img
             // 這裡的圖片先將高度拉滿版，在使用object-cover變正常長寬
             className="object-contain "
-            src={require("../IMAGE/hand.jpg")}
+            src="/images/course/hand.jpg"
             alt="Background"
           />
         </div>
+        {/* TODO 粗體 , 字行 */}
         <div className="flex flex-col items-center justify-between lg:w-1/2">
           <div className="font-medium text-center h3">星空馬卡龍</div>
           <div className="flex text-center p lg:w-3/4 ">
