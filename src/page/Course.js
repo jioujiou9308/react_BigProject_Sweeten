@@ -48,7 +48,7 @@ const Course = () => {
         return (
           <>
             <CardCourse id={id} name={name} img={img} description={description} price={price} duration={duration} index={i}
-            />
+             />
             <div className="border-b-2 border-b-primary"></div>
           </>
         );
