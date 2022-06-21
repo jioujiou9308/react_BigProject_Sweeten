@@ -5,6 +5,7 @@ import Pagination from "../components/product/Pagination";
 // import TabBar from "../components/product/Tabs";
 
 const Product = () => {
+  const [productState, setProduct] = useProductState();
   return (
     <>
     <div className="md:flex">

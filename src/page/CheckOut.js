@@ -1,5 +1,6 @@
 import React from "react";
-import { AiOutlineArrowDown, AiOutlineArrowUp } from "react-icons/ai";
+import CitySelector from "../components/tw-city-selector/tw-city-selector";
+
 
 function Index() {
   return (
@@ -40,7 +41,9 @@ function Index() {
               />
             </div>
             <div className="pt-3">
-              <label className="text-xs">地址</label>
+               <CitySelector/> 
+            </div>
+            <div className="pt-2">
               <input
                 type="text"
                 className="w-full h-6 py-4 pl-2 text-sm focus:outline-none"
@@ -52,7 +55,9 @@ function Index() {
           <div className="py-5">
             <span className="block p">收件人資料</span>
             <div className="py-2">
-                <input type="checkbox" class="mr-2" />
+                <input type="radio" class="mr-2" onClick={
+                    ()=>{}
+                }/>
                 <label className="text-sm">同訂購人資訊</label>
             </div>
             <div className="grid grid-cols-2 gap-2">
@@ -76,22 +81,24 @@ function Index() {
               </div>
             </div>
             <div className="pt-3">
-              <label className="text-xs">姓名</label>
+              <label className="text-xs ">姓名</label>
               <input
                 type="text"
                 className="w-full h-6 py-4 pl-2 text-sm focus:outline-none"
                 placeholder="請輸入真實全名"
               />
             </div>
-
             <div className="pt-3">
-              <label className="text-xs">地址</label>
+               <CitySelector/> 
+            </div>
+            <div className="pt-2">
               <input
                 type="text"
                 className="w-full h-6 py-4 pl-2 text-sm focus:outline-none"
                 placeholder="請輸入詳細地址"
               />
             </div>
+            
           </div>
         </div>
 
@@ -135,7 +142,7 @@ function Index() {
             <label className="text-xs">Name on Card</label>
             <input
               type="text"
-              className="w-full h-6 py-4 text-sm focus:outline-none"
+              className="w-full h-6 py-4 pl-2 text-sm focus:outline-none"
               placeholder="Giga Tamarashvili"
             />
           </div>
@@ -144,7 +151,7 @@ function Index() {
             <label className="text-xs">Card Number</label>
             <input
               type="text"
-              className="w-full h-6 py-4 text-sm focus:outline-none"
+              className="w-full h-6 py-4 pl-2 text-sm focus:outline-none"
               placeholder="****     ****      ****      ****"
             />
           </div>
@@ -155,12 +162,12 @@ function Index() {
               <div className="grid grid-cols-2 gap-2">
                 <input
                   type="text"
-                  className="w-full h-6 py-4 text-sm focus:outline-none"
+                  className="w-full h-6 py-4 pl-2 text-sm focus:outline-none"
                   placeholder="mm"
                 />
                 <input
                   type="text"
-                  className="w-full h-6 py-4 text-sm focus:outline-none"
+                  className="w-full h-6 py-4 pl-2 text-sm focus:outline-none"
                   placeholder="yyyy"
                 />
               </div>
@@ -170,7 +177,7 @@ function Index() {
               <label className="text-xs">CVV</label>
               <input
                 type="text"
-                className="w-full h-6 py-4 text-sm focus:outline-none"
+                className="w-full h-6 py-4 pl-2 text-sm focus:outline-none"
                 placeholder="XXX"
               />
             </div>
