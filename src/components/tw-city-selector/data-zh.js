@@ -881,5 +881,5 @@ const postData = {
 };
 export default postData;
 
-const townships = postData.districts.map((arr) => arr[0]);
-const postcodes = postData.districts.map((arr) => arr[1]);
+// const townships = postData.districts.map((arr) => arr[0]);
+// const postcodes = postData.districts.map((arr) => arr[1]);

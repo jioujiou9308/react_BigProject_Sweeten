@@ -15,7 +15,16 @@ function CitySelector() {
 
   return (
     <>
-      <h1 className="pt-2 text-xs">郵遞區號</h1>
+      <h1 className="pt-2 text-xs">地址</h1>
+    <div className="flex">
+      <div className="w-10 h-6 p-1 mr-2 text-xs text-center bg-white ">
+        {county !== '' &&
+          counties.indexOf(county) > -1 &&
+          postcodes[counties.indexOf(county)] &&
+          postcodes[counties.indexOf(county)][
+            townships[counties.indexOf(county)].indexOf(township)
+          ]}
+      </div>
       <select
         className="p-1 mr-2 text-xs"
         value={county}
@@ -53,15 +62,7 @@ function CitySelector() {
             );
           })}
       </select>
-      <p>
-        郵遞區號：
-        {county !== '' &&
-          counties.indexOf(county) > -1 &&
-          postcodes[counties.indexOf(county)] &&
-          postcodes[counties.indexOf(county)][
-            townships[counties.indexOf(county)].indexOf(township)
-          ]}
-      </p>
+    </div>  
     </>
   );
 }
