@@ -1,5 +1,10 @@
-import React from "react";
-import { GiFlour, GiTeacher, GiCardboardBoxClosed, GiHealing } from 'react-icons/gi';
+import React, { useState } from "react";
+import {
+  GiFlour,
+  GiTeacher,
+  GiCardboardBoxClosed,
+  GiHealing,
+} from "react-icons/gi";
 import Card from "../components/home/Card";
 
 const s3Cards = [
@@ -24,10 +29,14 @@ const s3Cards = [
 ];
 
 const Home = (props) => {
+  const [show, setShow] = useState(false);
+  const [show2, setShow2] = useState(false);
+  const [show3, setShow3] = useState(false);
+  const [show4, setShow4] = useState(false);
   return (
     <>
       {/* 輪播 */}
-      <div className="">
+      <div className="pt-20 ">
         <div className="w-full py-9 md:pb-12 lg:pb-24">
           <div className="relative">
             {/* 大中小各一張圖檔 */}
@@ -59,7 +68,7 @@ const Home = (props) => {
                 Explore
               </button>
             </div>
-            <button className="absolute bottom-0 flex items-center justify-center w-full py-3 mt-8 text-base font-medium sm:hidden text-secondary sm:flex hover:bg-primary">
+            <button className="absolute bottom-0 flex items-center justify-center w-full py-3 mt-8 text-base font-medium sm:hidden text-secondary hover:bg-primary">
               Explore
             </button>
           </div>
@@ -78,18 +87,11 @@ const Home = (props) => {
                 Whether article spirits new her covered hastily sitting her.
                 Money witty books nor son add
               </p>
-              <div className="w-full mt-6 lg:hidden lg:w-3/5 xl:w-3/5 lg:mt-0">
-                <img
-                  src={`${process.env.PUBLIC_URL}images/home/slide1.png`}
-                  alt="..."
-                  className="object-fill object-center w-full h-full obejct-fit"
-                />
-              </div>
               <div className="grid gap-6 mt-6 md:mt-10 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 lg:mt-6 2xl:mt-12">
                 <div className="flex items-center">
                   <div className="relative w-16 h-16">
                     <div className="z-20 flex items-center justify-center flex-shrink-0 w-16 h-16 mt-2 mr-3 ">
-                      <GiHealing  className="text-5xl " />
+                      <GiHealing className="text-5xl " />
                     </div>
                   </div>
                   <div className="flex flex-col items-start pt-8 ml-6">
@@ -104,7 +106,7 @@ const Home = (props) => {
                 <div className="flex items-center">
                   <div className="relative w-16 h-16">
                     <div className="z-20 flex items-center justify-center flex-shrink-0 w-16 h-16 mt-2 mr-3 ">
-                    <GiFlour  className="text-5xl " />
+                      <GiFlour className="text-5xl " />
                     </div>
                   </div>
                   <div className="flex flex-col items-start pt-8 ml-6">
@@ -119,7 +121,7 @@ const Home = (props) => {
                 <div className="flex items-center">
                   <div className="relative w-16 h-16">
                     <div className="z-20 flex items-center justify-center flex-shrink-0 w-16 h-16 mt-2 mr-3 ">
-                    <GiCardboardBoxClosed  className="text-5xl " />
+                      <GiCardboardBoxClosed className="text-5xl " />
                     </div>
                   </div>
                   <div className="flex flex-col items-start pt-8 ml-6">
@@ -134,7 +136,7 @@ const Home = (props) => {
                 <div className="flex items-center">
                   <div className="relative w-16 h-16">
                     <div className="z-20 flex items-center justify-center flex-shrink-0 w-16 h-16 mt-2 mr-3 ">
-                    <GiTeacher className="text-5xl " />
+                      <GiTeacher className="text-5xl " />
                     </div>
                   </div>
                   <div className="flex flex-col items-start pt-8 ml-6">
@@ -150,17 +152,93 @@ const Home = (props) => {
             </div>
             <div className="hidden w-full mt-6 lg:block lg:w-3/5 xl:w-3/5 lg:mt-0">
               <img
-                  src={`${process.env.PUBLIC_URL}images/home/section01_cake1.png`}
-                  alt="..."
-                  className="object-fill object-center w-full h-full obejct-fit"
-                />
+                src={`${process.env.PUBLIC_URL}images/home/section01_cake1.png`}
+                alt="..."
+                className="object-fill object-center w-full h-full obejct-fit"
+              />
             </div>
           </div>
         </div>
       </div>
-  
+
       {/* section1 */}
-      <div className="flex justify-center bg-white">
+
+      <section className="px-4 py-8 lg:px-20 md:px-6 md:py-12">
+        <div className="items-center justify-between lg:flex">
+          <div className="mt-8 lg:w-7/12 lg:mt-0">
+            <div className="w-full h-full bg-red-200">
+              <img
+                // src="https://i.ibb.co/cbyDY74/pexels-max-vakhtbovych-6782351-1-1.png"
+                src="./images/home/section1-1.jpg"
+                alt="apartment design"
+                className="hidden w-full sm:block "
+              />
+
+              <img
+                src="./images/home/section1-1.jpg"
+                alt="apartment design"
+                className="block w-full sm:hidden"
+              />
+            </div>
+            <div className="grid gap-6 mt-4 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 lg:gap-8 lg:mt-8 md:mt-6">
+              <img
+                src="./images/home/section1-2.jpg"
+                className="w-full "
+                alt="kitchen"
+              />
+              <img
+                src="./images/home/section1-3.jpg"
+                className="w-full"
+                alt="sitting room"
+              />
+            </div>
+          </div>
+          <div className="lg:w-1/3">
+            <h1 className="text-4xl font-semibold leading-9 text-gray-800">
+              Indoor Interiors
+            </h1>
+            <p className="mt-4 text-base leading-6 text-gray-600">
+              Get inspired by our curated selection of luxiwood interiors. We
+              hope get inspired to have luxiwood interior yourself. You’ll find
+              tips here where you can buy a lot of cool furniture.
+            </p>
+            <button
+              aria-label="view catalogue"
+              className="flex items-center mt-6 text-base font-semibold leading-none text-gray-800 focus:ring-2 focus:ring-offset-2 focus:ring-gray-700 focus:outline-none md:mt-8 hover:underline"
+            >
+              View Catalogue
+              <svg
+                className="mt-1 ml-2"
+                width="12"
+                height="8"
+                viewBox="0 0 12 8"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M1.33325 4H10.6666"
+                  stroke="#1F2937"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <path
+                  d="M8 6.66667L10.6667 4"
+                  stroke="#1F2937"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <path
+                  d="M8 1.33398L10.6667 4.00065"
+                  stroke="#1F2937"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </section>
+      {/* <div className="flex justify-center bg-white">
         <div className="p-5 mx-5 mt-36" style={{ width: "75%" }}>
           <div className="sec01_title">
             <h1 className="text-4xl font-bold text-center h1">
@@ -239,7 +317,7 @@ const Home = (props) => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
 
       {/* section 02 */}
       <section className="relative overflow-hidden h-60vh">
@@ -288,6 +366,240 @@ const Home = (props) => {
         </div>
         {/* </div> */}
       </section>
+      <div className="px-4 2xl:container 2xl:mx-auto md:py-12 lg:px-20 md:px-6 py-9">
+        <h2 className="text-3xl font-semibold leading-9 text-gray-800 lg:text-4xl lg:leading-9 md:leading-7">
+          Frequently Asked Questions
+        </h2>
+        <div className="flex flex-col items-start justify-start mt-4 md:justify-between md:items-start md:flex-row">
+          <div>
+            <p className="text-base font-normal leading-6 text-gray-600 lg:w-8/12 md:w-9/12">
+              Here are few of the most frequently asked questions by our
+              valueable customers
+            </p>
+          </div>
+        </div>
+        <div className="flex flex-col mt-8 md:flex-row md:space-x-8 md:mt-16">
+          <div className="w-full mt-10 md:w-7/12 lg:w-8/12 md:mt-0 sm:mt-14">
+            {/* <!-- Shipping Section --> */}
+            <div>
+              <div className="flex items-center justify-between cursor-pointer ">
+                <h3 className="text-xl font-semibold leading-5 text-gray-800 ">
+                  TITLE
+                </h3>
+                <button
+                  aria-label="too"
+                  className="cursor-pointer focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800"
+                  onClick={() => setShow(!show)}
+                >
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 20 20"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      className={show ? "hidden" : "block"}
+                      d="M10 4.1665V15.8332"
+                      stroke="#1F2937"
+                      strokeWidth="1.25"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                    <path
+                      d="M4.16602 10H15.8327"
+                      stroke="#1F2937"
+                      strokeWidth="1.25"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </button>
+              </div>
+              <p
+                className={
+                  "font-normal text-base leading-6 text-gray-600 mt-4 w-11/12 " +
+                  (show ? "block" : "hidden")
+                }
+              >
+                We are covering every major country worldwide. The shipment
+                leaves from US as it is our headquarter. Some extra information
+                you probably need to add here so that the customer is clear of
+                their wanted expectations.
+              </p>
+            </div>
+
+            <hr className="bg-gray-200 my-7" />
+
+            {/* <!-- Returns Section --> */}
+            <div>
+              <div className="flex items-center justify-between cursor-pointer ">
+                <h3 className="text-xl font-semibold leading-5 text-gray-800 ">
+                  TITLE
+                </h3>
+                <button
+                  aria-label="too"
+                  className="cursor-pointer focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800"
+                  onClick={() => setShow2(!show2)}
+                >
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 20 20"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      className={show2 ? "hidden" : "block"}
+                      d="M10 4.1665V15.8332"
+                      stroke="#1F2937"
+                      strokeWidth="1.25"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                    <path
+                      d="M4.16602 10H15.8327"
+                      stroke="#1F2937"
+                      strokeWidth="1.25"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </button>
+              </div>
+              <p
+                className={
+                  "font-normal text-base leading-6 text-gray-600 mt-4 w-11/12 " +
+                  (show2 ? "block" : "hidden")
+                }
+              >
+                We are covering every major country worldwide. The shipment
+                leaves from US as it is our headquarter. Some extra information
+                you probably need to add here so that the customer is clear of
+                their wanted expectations.
+              </p>
+            </div>
+
+            <hr className="bg-gray-200 my-7" />
+
+            {/* <!-- Exchange Section --> */}
+
+            <div>
+              <div className="flex items-center justify-between cursor-pointer ">
+                <h3 className="text-xl font-semibold leading-5 text-gray-800 ">
+                  TITLE
+                </h3>
+                <button
+                  aria-label="too"
+                  className="cursor-pointer focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800"
+                  onClick={() => setShow3(!show3)}
+                >
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 20 20"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      className={show3 ? "hidden" : "block"}
+                      d="M10 4.1665V15.8332"
+                      stroke="#1F2937"
+                      strokeWidth="1.25"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                    <path
+                      d="M4.16602 10H15.8327"
+                      stroke="#1F2937"
+                      strokeWidth="1.25"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </button>
+              </div>
+              <p
+                className={
+                  "font-normal text-base leading-6 text-gray-600 mt-4 w-11/12 " +
+                  (show3 ? "block" : "hidden")
+                }
+              >
+                We are covering every major country worldwide. The shipment
+                leaves from US as it is our headquarter. Some extra information
+                you probably need to add here so that the customer is clear of
+                their wanted expectations.
+              </p>
+            </div>
+
+            <hr className="bg-gray-200 my-7" />
+
+            {/* Tracking Section */}
+
+            <div>
+              <div className="flex items-center justify-between cursor-pointer ">
+                <h3 className="text-xl font-semibold leading-5 text-gray-800 ">
+                  TITLE
+                </h3>
+                <button
+                  aria-label="too"
+                  className="cursor-pointer focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800"
+                  onClick={() => setShow4(!show4)}
+                >
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 20 20"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      className={show4 ? "hidden" : "block"}
+                      d="M10 4.1665V15.8332"
+                      stroke="#1F2937"
+                      strokeWidth="1.25"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                    <path
+                      d="M4.16602 10H15.8327"
+                      stroke="#1F2937"
+                      strokeWidth="1.25"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </button>
+              </div>
+              <p
+                className={
+                  "font-normal text-base leading-6 text-gray-600 mt-4 w-11/12 " +
+                  (show4 ? "blcok" : "hidden")
+                }
+              >
+                We are covering every major country worldwide. The shipment
+                leaves from US as it is our headquarter. Some extra information
+                you probably need to add here so that the customer is clear of
+                their wanted expectations.
+              </p>
+            </div>
+
+            <hr className="bg-gray-200 my-7" />
+          </div>
+          <div className="w-full md:w-5/12 lg:w-4/12">
+            <img
+              src="https://i.ibb.co/8bCs73h/pexels-ron-lach-8128069-1.png"
+              alt="Img of Glass bottle"
+              className="hidden w-full md:block"
+            />
+            <img
+              src="https://i.ibb.co/gZMfQJq/pexels-ron-lach-8128069-1-1.png"
+              alt="Img of Glass bottle"
+              className="block w-full md:hidden "
+            />
+          </div>
+        </div>
+      </div>
       {/* section 03 */}
       <section className="flex justify-center py-20 bg-white md:py-44">
         <div className="flex justify-center" style={{ width: "75%" }}>
@@ -547,7 +859,7 @@ const Home = (props) => {
       </div>
 
       {/* 照片牆 */}
-      <div className="py-20 justify-center items-center flex-col flex bg-gray-50">
+      <div className="flex flex-col items-center justify-center py-20 bg-gray-50">
         <div className="w-11/12 xl:w-1/2">
           <h1
             tabIndex={0}
@@ -608,7 +920,7 @@ const Home = (props) => {
           </div>
 
           {/* 右上 */}
-          <div className="mt-7 md:mt-32 ml-6">
+          <div className="ml-6 mt-7 md:mt-32">
             <img
               tabIndex={0}
               src={`${process.env.PUBLIC_URL}/images/home/strawberry.jpg`}

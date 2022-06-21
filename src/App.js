@@ -8,6 +8,7 @@ import Login from "./components/Login";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
+import LoginModal from "./components/Dialog/LoginModal";
 
 function App() {
   //AOS初始化
@@ -27,6 +28,7 @@ function App() {
         </Routes>
       </BrowserRouter>
       <Footer />
+      <LoginModal />
     </div>
   );
 }

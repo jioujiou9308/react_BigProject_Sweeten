@@ -257,10 +257,7 @@ const CourseDetail = () => {
             {/* 評論區 下半部使用者 */}
             <div className="">
               <UserComment />
-              <UserComment />
-              <UserComment />
-              <UserComment />
-              <UserComment />
+              
             </div>
             <Button variant="text"><div className="flex items-center justify-start mt-4 mb-12 ml-8 text-secondary md:hidden">
               <p className="p">查看全部</p>
