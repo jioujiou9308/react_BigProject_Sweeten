@@ -1,10 +1,12 @@
 import React from "react";
 import { AiFillFilter } from "react-icons/ai";
 
+
+
 function Filter() {
   return (
     <>
-      <div className="w-full p-5 rounded-none shadow md:w-1/3 bg-sub">
+      <div className="w-full p-5 rounded-none shadow md:w-1/3 ">
         {/* filter&clear filter */}
         <div className="flex items-center justify-center p-1 bg-dark">
           <p className="pr-2 text-center text-white p">篩選 </p>
@@ -53,6 +55,14 @@ function Filter() {
             </select>
           </div>
         </div>
+
+        <div className="flex-wrap justify-between hidden pt-5 md:flex">
+        <p className="px-3 py-1 mb-2 text-white p bg-dark">蛋糕</p>
+        <p className="px-3 py-1 mb-2 text-white p bg-dark">餅乾</p>
+        <p className="px-3 py-1 mb-2 text-white p bg-dark">蛋塔</p>
+        <p className="px-3 py-1 mb-2 text-white p bg-dark">禮盒</p>
+        <p className="px-3 py-1 mb-2 text-white p bg-dark">冰品</p>
+      </div>
       </div>
     </>
   );

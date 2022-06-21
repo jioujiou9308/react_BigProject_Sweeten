@@ -5,21 +5,22 @@ import {
   AiOutlineHeart,
 } from "react-icons/ai";
 
-const OnceCarkProduct = () => {
+const OnceCarkProduct = (props) => {
+  const {id, name, price, img} = props;
   return (
     <>
       <div className="p-3 mb-2 md:w-1/3">
         <div className="flex flex-col items-center justify-center mr-1 ">
           <img
             className="object-cover w-full rounded-none h-54"
-            src="/images/course/hand.jpg"
+            src={img}
             alt="T-Shirt"
           />
           <h4 className="mt-2 text-lg font-medium text-gray-700 dark:text-gray-200">
-            馬卡龍蛋糕
+            {name}
           </h4>
           <div className="flex justify-around w-full">
-            <div className="text-blue-500 ">$500</div>
+            <div className="text-blue-500 ">${price}</div>
             <div className="flex items-center">
               <AiOutlineMessage />
               <AiOutlineShoppingCart />
