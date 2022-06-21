@@ -30,7 +30,7 @@ function MemberCollectionBar() {
         <h2 className="px-12 md:px-16 h2">評論</h2>
       </div> */}
       <div className="px-3">
-        <Tabs value="html">
+        <Tabs value="favorit_product">
         <TabsHeader>
           {data.map(({ label, value }) => (
             <Tab key={value} value={value}>
