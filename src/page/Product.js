@@ -1,6 +1,6 @@
 import React from "react";
-import CardProduct from "../components/Product/CardProduct";
-import Pagination from "../components/Product/Pagination";
+import CardProduct from "../components/product/CardProduct";
+import Pagination from "../components/product/Pagination";
 
 const Product = () => {
   return (
