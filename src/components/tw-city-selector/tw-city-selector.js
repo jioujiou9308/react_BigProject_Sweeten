@@ -1,24 +1,23 @@
 import { useState } from "react";
+import dataZh from "./data-zh";
+console.log(dataZh);
 
 function CitySelector() {
   // 範例縣市區域資料
-  const counties = ['台北市', '桃園市'];
+  const counties = ["台北市", "桃園市"];
   const townships = [
-    ['中正區', '大同區', '中山區'],
-    ['中壢區', '平鎮區', '龍潭區'],
+    ["中正區", "大同區", "中山區"],
+    ["中壢區", "平鎮區", "龍潭區"],
   ];
   const postcodes = [
-    ['100', '103', '104'],
-    ['320', '324', '325'],
+    ["100", "103", "104"],
+    ["320", "324", "325"],
   ];
-
- console.log([postcodes[0][2]])
-
   // 記錄陣列被選中的索引值，預設值為-1相等於"請選擇"
   // countries與townships的索引值為相匹配
   // 例如countries選中'台北市'時，索引值為0,此時下個下拉選單的值為 townships[0]
-  const [county, setCounty] = useState('');
-  const [township, setTownship] = useState('');
+  const [county, setCounty] = useState("");
+  const [township, setTownship] = useState("");
 
   return (
     <>
@@ -28,13 +27,13 @@ function CitySelector() {
         value={county}
         onChange={(e) => {
           setCounty(e.target.value);
-          setTownship('');
+          setTownship("");
         }}
       >
         <option value="">請選擇縣市</option>
         {counties.map((v, i) => {
           return (
-            <option key={i} value={i}>
+            <option key={i} value={v}>
               {v}
             </option>
           );
@@ -49,7 +48,8 @@ function CitySelector() {
       >
         <option value="">請選擇區域</option>
         {/* 確保counties.indexOf(country)回傳必有索引值，否則會發生錯誤 */}
-        {county !== '' &&
+        {console.log(county)}
+        {county !== "" &&
           counties.indexOf(county) > -1 &&
           townships[counties.indexOf(county)] &&
           townships[counties.indexOf(county)].map((v, i) => {
@@ -62,7 +62,7 @@ function CitySelector() {
       </select>
       <p>
         郵遞區號：
-        {county !== '' &&
+        {county !== "" &&
           counties.indexOf(county) > -1 &&
           postcodes[counties.indexOf(county)] &&
           postcodes[counties.indexOf(county)][

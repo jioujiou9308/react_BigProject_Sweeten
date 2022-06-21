@@ -1,6 +1,9 @@
 import React from "react";
 import { useMultiInput } from "../utils/hooks/";
 import { AiFillPlusCircle } from "react-icons/ai";
+import axios from "axios";
+import { API_URL } from "../utils/config";
+import { useState } from "react";
 
 // const testUser = {
 //   name: "test",
@@ -10,6 +13,7 @@ import { AiFillPlusCircle } from "react-icons/ai";
 
 const Test = () => {
   const [Inputs, allRef] = useMultiInput(["name", "acount", "password"]);
+
   return (
     <>
       {/* useMultiInput */}
@@ -30,9 +34,24 @@ const Test = () => {
       >
         get
       </button>
-
       <br />
-      {/* // firebase auth */}
+
+      {/* ecpay */}
+      <button>綠界</button>
+      <form action={`${API_URL}/auth/pay`} method="POST" className="border ">
+        <div>
+          <p>{"-form action-> server -redirect-> ecpay -redirect-> local"}</p>
+          <p>
+            信用卡號：4311-9522-2222-2222 <br />
+            有效日期：大於今日
+            <br /> 安全碼：222
+          </p>
+        </div>
+        <button>
+          <span className="border rounded h3">結帳</span>
+        </button>
+      </form>
+      <br />
 
       <h1 className="h1">className name: h1 // slogan</h1>
       <h2 className="h2">className name: h2 // 頁面標題</h2>

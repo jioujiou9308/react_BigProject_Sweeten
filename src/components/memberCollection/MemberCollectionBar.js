@@ -30,24 +30,23 @@ function MemberCollectionBar() {
         <h2 className="px-12 md:px-16 h2">評論</h2>
       </div> */}
       <div className="px-3">
-        <Tabs value="html">
-        <TabsHeader>
-          {data.map(({ label, value }) => (
-            <Tab key={value} value={value}>
-              {label}
-            </Tab>
-          ))}
-        </TabsHeader>
-        <TabsBody>
-          {data.map(({ value, desc }) => (
-            <TabPanel key={value} value={value}>
-              {desc}
-            </TabPanel>
-          ))}
-        </TabsBody>
-      </Tabs>
+        <Tabs value="favorit_product">
+          <TabsHeader>
+            {data.map(({ label, value }) => (
+              <Tab key={value} value={value}>
+                {label}
+              </Tab>
+            ))}
+          </TabsHeader>
+          <TabsBody>
+            {data.map(({ value, desc }) => (
+              <TabPanel key={value} value={value}>
+                {desc}
+              </TabPanel>
+            ))}
+          </TabsBody>
+        </Tabs>
       </div>
-      
     </>
   );
 }
