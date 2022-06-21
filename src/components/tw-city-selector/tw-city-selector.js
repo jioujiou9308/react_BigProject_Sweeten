@@ -1,18 +1,11 @@
 import { useState } from "react";
+import postData from "./data-zh"
 
 function CitySelector() {
-  // 範例縣市區域資料
-  const counties = ['台北市', '桃園市'];
-  const townships = [
-    ['中正區', '大同區', '中山區'],
-    ['中壢區', '平鎮區', '龍潭區'],
-  ];
-  const postcodes = [
-    ['100', '103', '104'],
-    ['320', '324', '325'],
-  ];
-
- console.log([postcodes[0][2]])
+  // 引入縣市區域資料
+  const counties = postData.counties;
+  const townships = postData.districts.map((arr) => arr[0]);
+  const postcodes = postData.districts.map((arr) => arr[1]);
 
   // 記錄陣列被選中的索引值，預設值為-1相等於"請選擇"
   // countries與townships的索引值為相匹配
@@ -34,7 +27,7 @@ function CitySelector() {
         <option value="">請選擇縣市</option>
         {counties.map((v, i) => {
           return (
-            <option key={i} value={i}>
+            <option key={i} value={v}>
               {v}
             </option>
           );
