@@ -1,5 +1,5 @@
 import useLoading from "./useLoading";
-import useCollapse from "./useCollapse";
+import useModal from "./useModal";
 import useMultiInput from "./useMultiInput";
 
-export { useLoading, useCollapse, useMultiInput };
+export { useLoading, useModal, useMultiInput };
