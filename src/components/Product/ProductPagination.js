@@ -1,6 +1,6 @@
 import React from "react";
 
-const Pagination = () => {
+const ProductPagination = () => {
   return (
     <div>
       <ul className="flex justify-center">
@@ -34,4 +34,4 @@ const Pagination = () => {
   );
 };
 
-export default Pagination;
+export default ProductPagination;

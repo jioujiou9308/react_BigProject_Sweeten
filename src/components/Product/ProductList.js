@@ -1,5 +1,5 @@
 import React from "react";
-import OneCardProduct from "./OneCardProduct";
+import ProductCard from "./ProductCard";
 
 const products = [
   {
@@ -28,13 +28,15 @@ const products = [
   },
 ];
 
-const CardProduct = () => {
+const ProductList = () => {
   return (
     <>
       <section className="bg-white dark:bg-gray-900">
         <div className="container px-6 py-8 mx-auto">
           <div className="flex items-center justify-between px-3 text-sm tracking-widest uppercase">
-            <p className="text-gray-500 dark:text-gray-300">{products.length} Items</p>
+            <p className="text-gray-500 dark:text-gray-300">
+              {products.length} Items
+            </p>
             <div className="flex items-center">
               <p className="text-gray-500 dark:text-gray-300">Sort</p>
               <select className="font-medium text-gray-700 bg-transparent dark:text-gray-500 focus:outline-none">
@@ -48,10 +50,10 @@ const CardProduct = () => {
           <div className="flex flex-wrap">
             {products.map((product, i) => {
               const { id, name, price, img } = product;
-              return <OneCardProduct id={id} name={name} price={price} img={img}/>;
-            
+              return (
+                <ProductCard id={id} name={name} price={price} img={img} />
+              );
             })}
-            
           </div>
         </div>
       </section>
@@ -59,4 +61,4 @@ const CardProduct = () => {
   );
 };
 
-export default CardProduct;
+export default ProductList;

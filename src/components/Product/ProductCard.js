@@ -5,7 +5,7 @@ import {
   AiOutlineHeart,
 } from "react-icons/ai";
 //1
-const OnceCarkProduct = (props) => {
+const ProductCard = (props) => {
   const { id, name, price, img } = props;
   return (
     <>
@@ -37,4 +37,4 @@ const OnceCarkProduct = (props) => {
   );
 };
 
-export default OnceCarkProduct;
+export default ProductCard;

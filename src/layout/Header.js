@@ -22,7 +22,7 @@ const subPage = {
   ],
   path: [
     ["/"],
-    ["/main/course", "/main/product", "/"],
+    ["/main/course", "/main/product", "/main/expireProduct"],
     [
       "/main/member/information",
       "/main/collection",
