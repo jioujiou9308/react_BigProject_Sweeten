@@ -4,9 +4,9 @@ import {
   AiOutlineShoppingCart,
   AiOutlineHeart,
 } from "react-icons/ai";
-
+//1
 const OnceCarkProduct = (props) => {
-  const {id, name, price, img} = props;
+  const { id, name, price, img } = props;
   return (
     <>
       <div className="p-3 mb-2 md:w-1/3">
