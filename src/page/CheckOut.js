@@ -41,6 +41,9 @@ function Index() {
               />
             </div>
             <div className="pt-3">
+               <CitySelector/> 
+            </div>
+            <div className="pt-3">
               <label className="text-xs">地址</label>
               <input
                 type="text"
