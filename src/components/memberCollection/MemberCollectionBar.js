@@ -6,6 +6,7 @@ import {
   Tab,
   TabPanel,
 } from "@material-tailwind/react";
+import { motion } from "framer-motion"
 
 function MemberCollectionBar() {
   const data = [
@@ -46,6 +47,8 @@ function MemberCollectionBar() {
           ))}
         </TabsBody>
       </Tabs>
+
+      
       </div>
       
     </>

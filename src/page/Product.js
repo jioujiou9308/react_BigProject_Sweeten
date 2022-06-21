@@ -3,22 +3,23 @@ import CardProduct from "../components/product/CardProduct";
 import Filter from "../components/product/Filter";
 import Pagination from "../components/product/Pagination";
 // import TabBar from "../components/product/Tabs";
+import { motion } from "framer-motion";
+// import { useState } from "react";
+
 
 const Product = () => {
   // const [productState, setProduct] = useProductState();
   return (
     <>
-    <div className="md:flex">
-      {/* filter section */}
-      <Filter/>
+      <div className="md:flex">
+        {/* filter section */}
+        <Filter />
 
-      {/* card list  */}
-      <div className="flex flex-wrap ">
-     
-        <CardProduct />
+        {/* card list  */}
+        <div className="flex flex-wrap ">
+          <CardProduct />
+        </div>
       </div>
-    </div>
-  
      
       <Pagination />
     </>
