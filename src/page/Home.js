@@ -368,13 +368,12 @@ const Home = (props) => {
       </section>
       <div className="px-4 2xl:container 2xl:mx-auto md:py-12 lg:px-20 md:px-6 py-9">
         <h2 className="text-3xl font-semibold leading-9 text-gray-800 lg:text-4xl lg:leading-9 md:leading-7">
-          Frequently Asked Questions
+          Q & A
         </h2>
         <div className="flex flex-col items-start justify-start mt-4 md:justify-between md:items-start md:flex-row">
           <div>
             <p className="text-base font-normal leading-6 text-gray-600 lg:w-8/12 md:w-9/12">
-              Here are few of the most frequently asked questions by our
-              valueable customers
+              任何有關 SWEETEN 相關的問題，可以先到這裡看看
             </p>
           </div>
         </div>
@@ -384,7 +383,7 @@ const Home = (props) => {
             <div>
               <div className="flex items-center justify-between cursor-pointer ">
                 <h3 className="text-xl font-semibold leading-5 text-gray-800 ">
-                  TITLE
+                  宅配問題
                 </h3>
                 <button
                   aria-label="too"
@@ -416,17 +415,62 @@ const Home = (props) => {
                   </svg>
                 </button>
               </div>
-              <p
+              <div
                 className={
                   "font-normal text-base leading-6 text-gray-600 mt-4 w-11/12 " +
                   (show ? "block" : "hidden")
                 }
               >
-                We are covering every major country worldwide. The shipment
-                leaves from US as it is our headquarter. Some extra information
-                you probably need to add here so that the customer is clear of
-                their wanted expectations.
-              </p>
+                <p className="mb-3">
+                  Q: 請問有宅配嗎?
+                  <br />
+                  A: 我們與黑貓宅急便配合，全台灣(本島)都有提供宅配服務
+                  (離島因配送的穩定度不佳，故不提供宅配服務)
+                </p>
+                <hr />
+                <p className="my-3">
+                  Q: 請問訂了多久會到?
+                  <br />
+                  A:
+                  結帳頁面可以選您想要收到的日期；週一至週六都有配送，週日休息。
+                </p>
+                <hr />
+                <p className="my-3">
+                  Q: 請問需幾天前預訂?
+                  <br />
+                  A:
+                  一般時期約3~4天前預訂；熱門日期會提前開放預購，約14~60天前預訂。
+                </p>
+                <hr />
+                <p className="my-3">
+                  Q: 請問配送當天幾點會到?
+                  <br />
+                  A: 結帳頁面可以指定時段：13點前 /
+                  14-18點，如果當日包裹太多有時會小小遲到一下，還請大家體諒
+                </p>
+                <hr />
+                <p className="my-3">
+                  Q: 請問可以送到飯店 / 餐廳嗎?
+                  <br />
+                  A: 可以，收件資料請幫我們填寫飯店 /
+                  餐廳的地址&電話，及留下您的聯絡資料；另外請先通知飯店/餐廳人員幫忙代收包裹；若飯店
+                  / 餐廳有休息時段，請先確認該時段有人收件，包裹才會順利送達
+                </p>
+                <hr />
+                <p className="my-3">
+                  Q: 請問可以送到超商嗎?
+                  <br />
+                  A: 可以的!，請來電洽詢:03-1234567
+                </p>
+                <hr />
+                <p className="my-3">
+                  Q: 請問宅配甜點會不會撞壞呢?
+                  <br />
+                  A: 甜點本身:
+                  從研發開始，就有把宅配穩定度考量進去，避免使用容易在運送中受傷的元素；外包裝:包裝盒、宅配紙箱都有經過特殊尺寸卡榫設計，減低運送時的晃動程度；商品販售前，都會經過無數次宅配穩定度的測試。若收到後，真的發生受傷情形，請立即拍照跟我們聯絡，SWEETEN
+                  將火速幫您處理
+                </p>
+              </div>
             </div>
 
             <hr className="bg-gray-200 my-7" />
@@ -435,7 +479,7 @@ const Home = (props) => {
             <div>
               <div className="flex items-center justify-between cursor-pointer ">
                 <h3 className="text-xl font-semibold leading-5 text-gray-800 ">
-                  TITLE
+                  甜點食用及保存問題
                 </h3>
                 <button
                   aria-label="too"
@@ -467,17 +511,34 @@ const Home = (props) => {
                   </svg>
                 </button>
               </div>
-              <p
+              <div
                 className={
                   "font-normal text-base leading-6 text-gray-600 mt-4 w-11/12 " +
                   (show2 ? "block" : "hidden")
                 }
               >
-                We are covering every major country worldwide. The shipment
-                leaves from US as it is our headquarter. Some extra information
-                you probably need to add here so that the customer is clear of
-                their wanted expectations.
-              </p>
+                <p className="mb-3">
+                  Q: 甜點收到後可以放多久?
+                  <br />
+                  A: 低溫蛋糕: 冷凍7天/ 冷藏3天。；常溫蛋糕: 10天；餅乾:
+                  30天。甜點開封後，建議盡速食用完畢
+                </p>
+                <hr />
+                <p className="my-3">
+                  Q: 蛋糕要怎麼保存?
+                  <br />
+                  A: 蛋糕收到後請放置冷藏或冷凍保存，冷凍保存:7天 /
+                  蛋糕食用前需冷藏退冰，6吋蛋糕冷藏6~48小時內為最佳品嘗時機!
+                  食用前請先預留退冰時間
+                </p>
+                <hr />
+                <p className="my-3">
+                  Q: 蛋糕要怎麼切才會美美的?
+                  <br />
+                  A: 請拿金屬的刀子，於爐子 /
+                  打火機等火源上輕微加溫後，切下去的蛋糕剖面會非常俐落
+                </p>
+              </div>
             </div>
 
             <hr className="bg-gray-200 my-7" />
@@ -487,7 +548,7 @@ const Home = (props) => {
             <div>
               <div className="flex items-center justify-between cursor-pointer ">
                 <h3 className="text-xl font-semibold leading-5 text-gray-800 ">
-                  TITLE
+                  門市自取問題
                 </h3>
                 <button
                   aria-label="too"
@@ -519,17 +580,25 @@ const Home = (props) => {
                   </svg>
                 </button>
               </div>
-              <p
+              <div
                 className={
                   "font-normal text-base leading-6 text-gray-600 mt-4 w-11/12 " +
                   (show3 ? "block" : "hidden")
                 }
               >
-                We are covering every major country worldwide. The shipment
-                leaves from US as it is our headquarter. Some extra information
-                you probably need to add here so that the customer is clear of
-                their wanted expectations.
-              </p>
+                <p className="mb-3">
+                  Q: 請問有實體門市嗎?
+                  <br />
+                  A: 有的，和手作 DIY 課程的地址相同，位於中華路二段 55 號
+                </p>
+                <hr />
+                <p className="my-3">
+                  Q: 請問自取時間?
+                  <br />
+                  A:
+                  週一至週五，上午11點~下午6點；若時間不剛好或希望假日自取，歡迎來電洽詢另約時間(03-1234567)
+                </p>
+              </div>
             </div>
 
             <hr className="bg-gray-200 my-7" />
@@ -539,7 +608,7 @@ const Home = (props) => {
             <div>
               <div className="flex items-center justify-between cursor-pointer ">
                 <h3 className="text-xl font-semibold leading-5 text-gray-800 ">
-                  TITLE
+                  其他
                 </h3>
                 <button
                   aria-label="too"
@@ -571,17 +640,27 @@ const Home = (props) => {
                   </svg>
                 </button>
               </div>
-              <p
+              <div
                 className={
                   "font-normal text-base leading-6 text-gray-600 mt-4 w-11/12 " +
                   (show4 ? "blcok" : "hidden")
                 }
               >
-                We are covering every major country worldwide. The shipment
-                leaves from US as it is our headquarter. Some extra information
-                you probably need to add here so that the customer is clear of
-                their wanted expectations.
-              </p>
+                <p className="mb-3">
+                  Q: 請問可以客製化嗎?寫字?
+                  <br />
+                  A: 較不建議! 因蛋糕食材質地關係，寫字上去後，配送途中容易糊掉!
+                  我們有小卡片，若有需要的話，可以在訂購時留言備註，到時候會附上卡片寫上您的祝福。
+                </p>
+                <hr />
+                <p className="my-3">
+                  Q: 請問蛋糕、塔、派等商品有附盤叉 / 蠟燭嗎?
+                  <br />
+                  A: 蛋糕、塔、派等商品 1 顆都會附上 1 組餐具(蛋糕刀X1+盤叉X6)；
+                  蠟燭有的，請於訂購時，在留言備註欄位幫我們填寫您要的蠟燭 (問號
+                  / 數字)。(有留言才會附上)
+                </p>
+              </div>
             </div>
 
             <hr className="bg-gray-200 my-7" />
@@ -618,8 +697,11 @@ const Home = (props) => {
             服務項目
           </h1>
           <p className="mt-4 text-base leading-6 text-center text-gray-600 sm:w-96 md:w-9/12 lg:w-7/12">
-            SWEETEN 除了提供美味的經典商品外，秉持環保的原則推出即期品特賣專區供客人選擇。<br/>
-            我們也推出一系列的甜點手作 DIY 課程，提供舒適且完善的設備及新鮮的材料，讓來店體驗的大朋友小朋友可以玩得開心，也吃得開心
+            SWEETEN
+            除了提供美味的經典商品外，秉持環保的原則推出即期品特賣專區供客人選擇。
+            <br />
+            我們也推出一系列的甜點手作 DIY
+            課程，提供舒適且完善的設備及新鮮的材料，讓來店體驗的大朋友小朋友可以玩得開心，也吃得開心
           </p>
         </div>
         <div className="grid grid-cols-1 gap-4 mt-6 md:grid-cols-1 lg:grid-cols-3 xl:grid-cols-3 lg:gap-x-8 md:gap-6 lg:mt-12 md:mt-9">
@@ -629,8 +711,7 @@ const Home = (props) => {
               className="w-full h-full object-cover max-h-96 max-w-lg"
               alt=""
             />
-            <div className="w-full h-full bg-dark absolute opacity-60">
-            </div>
+            <div className="w-full h-full bg-dark absolute opacity-60"></div>
             <div className="absolute top-0 flex flex-col items-center justify-between h-full py-10 w-11/12">
               <div className="flex flex-col items-center pt-12 h-full w-4/5">
                 <h2 className="text-2xl font-semibold leading-normal text-center text-white xl:px-10 md:px-2 px-7">
@@ -653,8 +734,7 @@ const Home = (props) => {
               className="w-full h-full object-cover max-h-96 max-w-lg"
               alt=""
             />
-            <div className="w-full h-full bg-dark absolute opacity-60">
-            </div>
+            <div className="w-full h-full bg-dark absolute opacity-60"></div>
             <div className="absolute top-0 flex flex-col items-center justify-between h-full py-10 w-11/12">
               <div className="flex flex-col items-center pt-12 h-full w-4/5">
                 <h2 className="text-2xl font-semibold leading-7 text-center text-white xl:px-10 md:px-2 px-7 lg:leading-7">
@@ -677,8 +757,7 @@ const Home = (props) => {
               className="w-full h-full object-cover max-h-96 max-w-lg"
               alt=""
             />
-            <div className="w-full h-full bg-dark absolute opacity-60">
-            </div>
+            <div className="w-full h-full bg-dark absolute opacity-60"></div>
             <div className="absolute top-0 flex flex-col items-center justify-between h-full py-10 w-11/12">
               <div className="flex flex-col items-center pt-12 h-full w-4/5">
                 <h2 className="text-2xl font-semibold leading-normal text-center text-white xl:px-10 md:px-2 px-7 sm:w-auto">
