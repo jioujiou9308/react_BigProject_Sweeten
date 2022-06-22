@@ -7,7 +7,7 @@ const OnceCarkProduct = (props) => {
   const [product, serProduct] = useProductState();
   return (
     <>
-      <div className="p-3 mb-2 md:w-1/3">
+      <div className=" mb-6  w-[15rem]">
         <div className="flex flex-col items-center justify-center mr-1 ">
           <img
             className="object-cover w-full rounded-sm h-[15rem]"
