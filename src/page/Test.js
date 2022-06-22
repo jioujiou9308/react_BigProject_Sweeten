@@ -4,6 +4,7 @@ import { AiFillPlusCircle } from "react-icons/ai";
 import axios from "axios";
 import { API_URL } from "../utils/config";
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 // const testUser = {
 //   name: "test",
@@ -13,9 +14,22 @@ import { useState } from "react";
 
 const Test = () => {
   const [Inputs, allRef] = useMultiInput(["name", "acount", "password"]);
+  const [x, setX] = useState(0);
+  const [rotate, setRotate] = useState("0deg");
 
   return (
     <>
+      <motion.div
+        className="w-10 bg-black"
+        initial={{ x: 0, rotate: 0 }}
+        animate={{ x, rotate }}
+        onClick={() => {
+          setX(x + 100);
+          setRotate("180deg");
+        }}
+      >
+        div
+      </motion.div>
       {/* useMultiInput */}
       <Inputs.Acount className=" bg-primary" />
       <br />

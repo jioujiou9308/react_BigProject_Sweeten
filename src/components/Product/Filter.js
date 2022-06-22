@@ -5,16 +5,16 @@ import { Button } from "@material-tailwind/react";
 function Filter() {
   return (
     <>
-      <div className="w-full p-5 rounded-none shadow md:w-1/3 ">
+      <div className="w-full p-5 rounded-sm shadow-md md:w-1/3 h-max border-line">
         {/* filter&clear filter */}
-        <div className="flex items-center p-1 border-b-2">
+        <div className="flex items-center p-1 border-b-2 border-line">
           <p className="pr-2 p">篩選 </p>
           <AiFillFilter />
         </div>
 
         <div>
           {/* 各類選項 */}
-          <div className="grid grid-cols-1 gap-4 mt-4">
+          <div className="grid grid-cols-1 gap-4 mt-4 ">
             <select className="w-full px-4 py-3 text-sm bg-gray-100 border-transparent rounded-none focus:border-gray-500 focus:bg-white focus:ring-0">
               <option value="">價格範圍</option>
               <option value="for-rent ">100以下</option>
