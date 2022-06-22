@@ -1,4 +1,4 @@
-export default {
+const postData = {
   // 縣市
   counties: [
     "台北市",
@@ -879,3 +879,7 @@ export default {
     ],
   ],
 };
+export default postData;
+
+// const townships = postData.districts.map((arr) => arr[0]);
+// const postcodes = postData.districts.map((arr) => arr[1]);

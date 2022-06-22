@@ -7,6 +7,8 @@ import {
   TabPanel,
 } from "@material-tailwind/react";
 
+import { useState } from "react";
+
 function MemberCollectionBar() {
   const data = [
     {

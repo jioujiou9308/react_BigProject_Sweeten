@@ -43,8 +43,7 @@ function Index() {
             <div className="pt-3">
                <CitySelector/> 
             </div>
-            <div className="pt-3">
-              <label className="text-xs">地址</label>
+            <div className="pt-2">
               <input
                 type="text"
                 className="w-full h-6 py-4 pl-2 text-sm focus:outline-none"
@@ -56,7 +55,9 @@ function Index() {
           <div className="py-5">
             <span className="block p">收件人資料</span>
             <div className="py-2">
-                <input type="checkbox" class="mr-2" />
+                <input type="radio" class="mr-2" onClick={
+                    ()=>{}
+                }/>
                 <label className="text-sm">同訂購人資訊</label>
             </div>
             <div className="grid grid-cols-2 gap-2">
@@ -80,7 +81,7 @@ function Index() {
               </div>
             </div>
             <div className="pt-3">
-              <label className="text-xs">姓名</label>
+              <label className="text-xs ">姓名</label>
               <input
                 type="text"
                 className="w-full h-6 py-4 pl-2 text-sm focus:outline-none"
@@ -90,8 +91,7 @@ function Index() {
             <div className="pt-3">
                <CitySelector/> 
             </div>
-            <div className="pt-3">
-              <label className="text-xs">詳細地址</label>
+            <div className="pt-2">
               <input
                 type="text"
                 className="w-full h-6 py-4 pl-2 text-sm focus:outline-none"
