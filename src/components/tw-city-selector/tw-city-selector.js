@@ -15,7 +15,7 @@ function CitySelector() {
 
   return (
     <>
-      <h1 className="pt-2 text-xs">地址</h1>
+      <h1 className="pt-2 mb-1 text-xs">地址</h1>
     <div className="flex">
       <div className="w-10 h-6 p-1 mr-2 text-xs text-center bg-white ">
         {county !== '' &&
