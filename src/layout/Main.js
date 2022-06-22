@@ -18,9 +18,9 @@ import ExpireProduct from "../page/ExpireProduct";
 
 const Main = () => {
   return (
-    <main className="flex flex-wrap justify-center pt-32 pb-12 mx-auto ">
+    <main className="flex flex-wrap justify-center pb-12 mx-auto pt-36 ">
       {/* <Aside /> */}
-      <div className="w-full p-8 bg-white shadow max-w-7xl md:w-3/4">
+      <div className="relative w-full p-8 bg-white shadow max-w-7xl ">
         <Routes>
           <Route path="/login" element={<Login />} />
           <Route path="/product" element={<Product />} />

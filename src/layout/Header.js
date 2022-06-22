@@ -50,7 +50,7 @@ const Header = () => {
     >
       <div className="mx-auto max-w-7xl">
         {/* logo & icons */}
-        <div className="flex flex-wrap justify-between mx-auto ">
+        <div className="flex flex-wrap justify-between pl-2 mx-auto ">
           <img
             onClick={() => {
               navigate("/");
