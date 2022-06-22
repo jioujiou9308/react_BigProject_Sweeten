@@ -2,7 +2,6 @@ import React from "react";
 import CardProduct from "../components/product/CardProduct";
 import Filter from "../components/product/Filter";
 import Pagination from "../components/product/Pagination";
-// import TabBar from "../components/product/Tabs";
 import { motion } from "framer-motion";
 // import { useState } from "react";
 

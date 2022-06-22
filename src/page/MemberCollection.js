@@ -8,6 +8,7 @@ import {
   AiOutlineShoppingCart,
   AiOutlineDelete,
 } from "react-icons/ai";
+import { Button } from "@material-tailwind/react";
 
 // 假資料
 const products = [
@@ -39,9 +40,9 @@ const star = (score) => {
   const arr = [];
   for (let i = 0; i < 5; i++) {
     if (i < score) {
-      arr.push(<AiFillStar className="icon"/>);
+      arr.push(<AiFillStar className="icon-sm"/>);
     } else {
-      arr.push(<AiOutlineStar className="icon" />);
+      arr.push(<AiOutlineStar className="icon-sm" />);
     }
   }
   return arr;
@@ -51,10 +52,10 @@ const MemberColloction = () => {
   return (
     <>
       <div className="mx-2 md:mx-0 ">
-        <div className="mb-4 ">
+        <div className="">
           <MemberCollectionBar />
         </div>
-        <div className="mb-6">
+        <div className="my-6">
           <MemberSearchBar />
         </div>
         <div className="pt-8 bg-white md:pt-0 md:px-10">
@@ -95,15 +96,13 @@ const MemberColloction = () => {
 
                   {/* 移除&購買 */}
                   <div className="flex-col ml-4 ">
-                    <div className="flex items-center p-1 text-white bg-warning md:px-5">
-                      <button className="pr-1 md:p">立即購買</button>
-                      <AiOutlineShoppingCart className="icon-sm" />
-                    </div>
+                  <Button size = "sm"   className="flex items-center mb-3 rounded-sm md:p bg-warning">立即購買 <AiOutlineShoppingCart className="icon-sm" /></Button>
+                     
 
-                    <div className="flex items-center p-1 mt-5 text-white bg-warning md:px-5 ">
-                      <button className="pr-1 md:p">移除收藏</button>
-                      <AiOutlineDelete className="icon-sm" />
-                    </div>
+                    
+                      <Button size = "sm" color='amber' variant="outlined" className="rounded-sm md:p"><span className="flex items-center ">移除收藏 <AiOutlineDelete className="icon-sm" /></span> </Button>
+                     
+                    
                   </div>
                 </div>
               </>
