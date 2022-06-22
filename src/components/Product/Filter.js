@@ -78,7 +78,12 @@ function Filter() {
         </div>
 
         {open == true ? (
-          <div className="grid grid-cols-1 gap-4 mt-4">
+          <div
+            className="grid grid-cols-1 gap-4 mt-4 "
+            data-aos="fade-down"
+            data-aos-easing="ease-in-out"
+            data-aos-duration="500"
+          >
             <select className="w-full px-4 py-3 text-sm bg-gray-100 border-transparent rounded-none focus:border-gray-500 focus:bg-white focus:ring-0">
               <option value="">價格範圍</option>
               <option value="for-rent ">100以下</option>
