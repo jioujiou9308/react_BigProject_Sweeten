@@ -8,9 +8,9 @@ function Filter() {
     <>
       <div className="w-full p-5 rounded-none shadow md:w-1/3 ">
         {/* filter&clear filter */}
-        <div className="flex items-center justify-center p-1 bg-dark">
-          <p className="pr-2 text-center text-white p">篩選 </p>
-          <AiFillFilter className="text-white"/>
+        <div className="flex items-center justify-center p-1 border-b">
+          <p className="pr-2 text-center text-dark p">篩選 </p>
+          <AiFillFilter className=""/>
         </div>
 
         <div>
