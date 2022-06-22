@@ -14,7 +14,7 @@ function Filter() {
 
         <div>
           {/* 各類選項 */}
-          <div className="grid grid-cols-1 gap-4 mt-4">
+          <div className="grid grid-cols-1 gap-4 mt-4 border-b-2 border-line">
             <select className="w-full px-4 py-3 text-sm bg-gray-100 border-transparent rounded-none focus:border-gray-500 focus:bg-white focus:ring-0">
               <option value="">價格範圍</option>
               <option value="for-rent ">100以下</option>
@@ -54,7 +54,7 @@ function Filter() {
         </div>
 
         <div className="flex-wrap justify-around hidden pt-5 md:flex">
-          <Button variant="outlined" color="brown" size="sm">
+          {/* <Button variant="outlined" color="brown" size="sm">
             蛋糕
           </Button>{" "}
           <Button variant="outlined" color="brown" size="sm">
@@ -71,7 +71,7 @@ function Filter() {
           </Button>{" "}
           <Button variant="outlined" color="brown" size="sm">
             蛋糕
-          </Button>
+          </Button> */}
           {/* <p className="px-3 py-1 mb-2 text-white p bg-dark">餅乾</p>
           <p className="px-3 py-1 mb-2 text-white p bg-dark">蛋塔</p>
           <p className="px-3 py-1 mb-2 text-white p bg-dark">禮盒</p>
