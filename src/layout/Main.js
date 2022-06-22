@@ -17,9 +17,9 @@ import CheckOut from "../page/CheckOut";
 
 const Main = () => {
   return (
-    <main className="flex flex-wrap justify-center pt-32 pb-12 mx-auto">
+    <main className="flex flex-wrap justify-center pb-12 mx-auto pt-36 ">
       {/* <Aside /> */}
-      <div className="w-full max-w-5xl md:w-3/4">
+      <div className="relative w-full p-8 bg-white shadow max-w-7xl ">
         <Routes>
           <Route path="/login" element={<Login />} />
           <Route path="/product" element={<Product />} />

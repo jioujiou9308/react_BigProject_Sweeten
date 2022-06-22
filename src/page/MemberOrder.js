@@ -1,6 +1,8 @@
 import React from "react";
-import MemberCollectionBar from "../components/memberCollection/MemberCollectionBar";
+
 import MemberSearchBar from "../components/memberCollection/MemberSearchBar";
+import MemberOrderBar from "../components/memberOrder/MemberOrderBar";
+import OrderDetail from "../components/memberOrder/OrderDetail";
 
 
 function MemberOrder() {
@@ -32,12 +34,12 @@ function MemberOrder() {
     <>
       <div className="bg-white">
         <div className="mb-4 ">
-          <MemberCollectionBar />
+          <MemberOrderBar />
         </div>
         <div className="mb-6">
           <MemberSearchBar />
         </div>
-        <div className="pt-2 mx-5 text-right border-b ">
+        <div className="pt-2 mx-5 text-right border-b h2">
           <h2>訂單 # 123456</h2>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2">
@@ -70,6 +72,7 @@ function MemberOrder() {
             );
           })}
         </div>
+        <OrderDetail/>
       </div>
     </>
   );

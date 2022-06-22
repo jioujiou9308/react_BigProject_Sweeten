@@ -2,6 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { useState } from "react";
 
+
 function MemberCollectionBar() {
   const [x, setX] = useState(0);
 
