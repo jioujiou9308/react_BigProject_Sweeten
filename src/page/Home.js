@@ -601,7 +601,7 @@ const Home = (props) => {
         </div>
       </div>
       {/* section 03 */}
-      <section className="flex justify-center py-20 bg-white md:py-44">
+      {/* <section className="flex justify-center py-20 bg-white md:py-44">
         <div className="flex justify-center" style={{ width: "75%" }}>
           <div className="mx-5 md:flex">
             {s3Cards.map((card, i) => {
@@ -609,218 +609,89 @@ const Home = (props) => {
             })}
           </div>
         </div>
-      </section>
-
-      {/* vertion 2 */}
-      {/* 輪播 */}
-      {/* <div className="dark:bg-gray-900">
-        <div className="container mx-auto py-9 md:py-12 lg:py-24">
-          <div className="relative mx-4">
-            <img
-              src="https://i.ibb.co/q5k5j57/bench-accounting-nvzv-OPQW0gc-unsplash-1-1.png"
-              alt="A work table with house plants"
-              className="hidden w-full h-full lg:block"
-            />
-            <img
-              src="https://i.ibb.co/94jQFsV/bench-accounting-nvzv-OPQW0gc-unsplash-1-1.png"
-              alt="A work table with house plants"
-              className="hidden w-full h-full sm:block lg:hidden"
-            />
-            <img
-              src="https://i.ibb.co/cJz8LZ2/bench-accounting-nvzv-OPQW0gc-unsplash-1-1.png"
-              alt="A work table with house plants"
-              className="w-full h-full sm:hidden"
-            />
-
-            <div className="absolute top-0 left-0 z-10 flex flex-col items-start mx-4 sm:mx-0 mt-36 sm:mt-0 sm:py-20 md:py-28 lg:py-20 xl:py-28 sm:pl-14 sm:justify-start">
-              <h1 className="text-4xl font-semibold text-gray-800 sm:text-5xl lg:text-6xl sm:w-8/12">
-                Minimalist Furniture Design
-              </h1>
-              <p className="mt-4 text-base leading-normal text-gray-800 sm:mt-5 sm:w-5/12">
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry.
-              </p>
-              <button className="hidden px-8 py-4 mt-8 text-base font-medium text-white bg-gray-800 sm:flex focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 hover:bg-gray-700">
-                Explore
-              </button>
-            </div>
-            <button className="absolute bottom-0 flex items-center justify-center w-full py-4 mt-8 text-base font-medium text-white bg-gray-800 sm:hidden dark:bg-white dark:text-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 hover:bg-gray-700">
-              Explore
-            </button>
-          </div>
-        </div>
-      </div>*/}
-
-      {/* 特色 */}
-      {/* <div className="overflow-y-hidden">
-        <div className="px-4 py-12 xl:mx-auto xl:container xl:px-20 md:px-6">
-          <div className="items-center justify-center lg:flex lg:space-x-12 2xl:space-x-6">
-            <div className>
-              <p className="text-3xl font-extrabold leading-9 text-gray-800 lg:text-4xl">
-                Why choose us
-              </p>
-              <p className="w-full mt-4 text-lg leading-7 text-gray-600 xl:w-7/12">
-                Whether article spirits new her covered hastily sitting her.
-                Money witty books nor son add
-              </p>
-              <div className="w-full mt-6 lg:hidden lg:w-3/5 xl:w-3/5 lg:mt-0">
-                <img
-                  src="https://i.ibb.co/SKLJ7WX/austin-distel-jp-Hw8ndw-J-Q-unsplash-1.png"
-                  alt="ongoing meeting"
-                  className="object-fill object-center w-full h-full obejct-fit"
-                />
-              </div>
-              <div className="grid gap-6 mt-6 md:mt-10 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 lg:mt-6 2xl:mt-12">
-                <div className="flex items-center">
-                  <div className="relative w-16 h-16">
-                    <div className="z-20 flex items-center justify-center flex-shrink-0 w-16 h-16 mt-2 mr-3 ">
-                      <img
-                        src="https://tuk-cdn.s3.amazonaws.com/can-uploader/feature_6_Svg1.svg"
-                        alt="clock"
-                      />
-                    </div>
-                  </div>
-                  <div className="flex flex-col items-start pt-8 ml-6">
-                    <h2 className="text-lg font-semibold leading-4 text-gray-800">
-                      Time Prompt
-                    </h2>
-                    <p className="mt-2 text-base leading-6 text-gray-600 lg:w-40 2xl:w-52">
-                      Whether article spirits new her covered.
-                    </p>
-                  </div>
-                </div>
-                <div className="flex items-center">
-                  <div className="relative w-16 h-16">
-                    <div className="z-20 flex items-center justify-center flex-shrink-0 w-16 h-16 mt-2 mr-3 ">
-                      <img
-                        src="https://tuk-cdn.s3.amazonaws.com/can-uploader/feature_6_Svg2.svg"
-                        alt="Friendly"
-                      />
-                    </div>
-                  </div>
-                  <div className="flex flex-col items-start pt-8 ml-6">
-                    <h2 className="text-lg font-semibold leading-4 text-gray-800">
-                      User Friendly
-                    </h2>
-                    <p className="mt-2 text-base leading-6 text-gray-600 lg:w-40 2xl:w-52">
-                      Whether article spirits new her covered.
-                    </p>
-                  </div>
-                </div>
-                <div className="flex items-center">
-                  <div className="relative w-16 h-16">
-                    <div className="z-20 flex items-center justify-center flex-shrink-0 w-16 h-16 mt-2 mr-3 ">
-                      <img
-                        src="https://tuk-cdn.s3.amazonaws.com/can-uploader/feature_6_Svg3.svg"
-                        alt="Creative"
-                      />
-                    </div>
-                  </div>
-                  <div className="flex flex-col items-start pt-8 ml-6">
-                    <h2 className="text-lg font-semibold leading-4 text-gray-800">
-                      Creative Ideas
-                    </h2>
-                    <p className="mt-2 text-base leading-6 text-gray-600 lg:w-40 2xl:w-52">
-                      Whether article spirits new her covered.
-                    </p>
-                  </div>
-                </div>
-                <div className="flex items-center">
-                  <div className="relative w-16 h-16">
-                    <div className="z-20 flex items-center justify-center flex-shrink-0 w-16 h-16 mt-2 mr-3 ">
-                      <img
-                        src="https://tuk-cdn.s3.amazonaws.com/can-uploader/feature_6_Svg4.svg"
-                        alt="Achievments"
-                      />
-                    </div>
-                  </div>
-                  <div className="flex flex-col items-start pt-8 ml-6">
-                    <h2 className="text-lg font-semibold leading-4 text-gray-800">
-                      Achievments
-                    </h2>
-                    <p className="mt-2 text-base leading-6 text-gray-600 lg:w-40 2xl:w-52">
-                      Whether article spirits new her covered.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="hidden w-full mt-6 lg:block lg:w-3/5 xl:w-3/5 lg:mt-0">
-              <img
-                src="https://i.ibb.co/SKLJ7WX/austin-distel-jp-Hw8ndw-J-Q-unsplash-1.png"
-                alt="ongoing meeting"
-                className="object-fill object-center w-full h-full obejct-fit"
-              />
-            </div>
-          </div>
-        </div>
-      </div> */}
+      </section> */}
 
       {/* 產品 */}
-      <div className="px-4 2xl:mx-auto 2xl:container lg:py-16 lg:px-40 xl:px-20 md:py-12 md:px-6 py-9">
+      <div className="px-4 2xl:mx-auto 2xl:container lg:py-16 lg:px-24 xl:px-20 md:py-12 md:px-6 py-9">
         <div className="flex flex-col items-center justify-center">
           <h1 className="text-4xl font-semibold leading-9 text-gray-800">
-            Latest Blog
+            服務項目
           </h1>
-          <p className="mt-4 text-base leading-6 text-center text-gray-600 sm:w-96 md:w-9/12 lg:w-5/12">
-            If you're looking for random paragraphs, you've come to the right
-            place. When a random word or a random sentence isn't quite enough
+          <p className="mt-4 text-base leading-6 text-center text-gray-600 sm:w-96 md:w-9/12 lg:w-7/12">
+            SWEETEN 除了提供美味的經典商品外，秉持環保的原則推出即期品特賣專區供客人選擇。<br/>
+            我們也推出一系列的甜點手作 DIY 課程，提供舒適且完善的設備及新鮮的材料，讓來店體驗的大朋友小朋友可以玩得開心，也吃得開心
           </p>
         </div>
-        <div className="grid grid-cols-1 gap-4 mt-6 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 lg:gap-x-8 md:gap-6 lg:mt-12 md:mt-9">
+        <div className="grid grid-cols-1 gap-4 mt-6 md:grid-cols-1 lg:grid-cols-3 xl:grid-cols-3 lg:gap-x-8 md:gap-6 lg:mt-12 md:mt-9">
           <div className="relative flex items-center justify-center">
-            <img src="https://i.ibb.co/kqt7S1z/img-1.png" alt="chair" />
-            <div className="absolute top-0 flex flex-col items-center justify-between h-full py-10 w-80 md:w-80 lg:w-80 xl:w-96">
-              <div className="flex flex-col items-center justify-center h-full">
+            <img
+              src={`${process.env.PUBLIC_URL}/images/home/toProduct.jpg`}
+              className="w-full h-full object-cover max-h-96 max-w-lg"
+              alt=""
+            />
+            <div className="w-full h-full bg-dark absolute opacity-60">
+            </div>
+            <div className="absolute top-0 flex flex-col items-center justify-between h-full py-10 w-11/12">
+              <div className="flex flex-col items-center pt-12 h-full w-4/5">
                 <h2 className="text-2xl font-semibold leading-normal text-center text-white xl:px-10 md:px-2 px-7">
-                  The history of wood
+                  經典商品
                 </h2>
                 <p className="mt-4 text-base leading-normal text-center text-white xl:px-10 md:px-2 px-7">
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry
+                  各式經典甜品一應俱全
                 </p>
               </div>
-              <div className="w-full px-4 md:w-auto">
-                <button className="w-full px-12 py-4 text-base font-medium leading-none text-center text-gray-800 transition duration-150 bg-white hover:bg-gray-300 focus:outline-none">
-                  Read more
+              <div className="px-4 w-2/3 md:w-auto whitespace-nowrap">
+                <button className="w-full px-11 py-4 text-base font-medium leading-none text-center text-gray-800 transition duration-150 bg-white hover:bg-gray-300 focus:outline-none">
+                  前往查看商品
                 </button>
               </div>
             </div>
           </div>
           <div className="relative flex items-center justify-center">
-            <img src="https://i.ibb.co/w04zsMJ/img-2.png" alt="chair" />
-            <div className="absolute top-0 flex flex-col items-center justify-between h-full py-10 w-80 md:w-80 lg:w-80 xl:w-96">
-              <div className="flex flex-col items-center justify-center h-full">
+            <img
+              src={`${process.env.PUBLIC_URL}/images/home/expire.jpg`}
+              className="w-full h-full object-cover max-h-96 max-w-lg"
+              alt=""
+            />
+            <div className="w-full h-full bg-dark absolute opacity-60">
+            </div>
+            <div className="absolute top-0 flex flex-col items-center justify-between h-full py-10 w-11/12">
+              <div className="flex flex-col items-center pt-12 h-full w-4/5">
                 <h2 className="text-2xl font-semibold leading-7 text-center text-white xl:px-10 md:px-2 px-7 lg:leading-7">
-                  Minimimalism and modern day architecture
+                  即期良品
                 </h2>
                 <p className="mt-4 text-base leading-normal text-center text-white xl:px-10 md:px-2 px-7">
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry
+                  環保愛地球，希望減少糧食浪費的情況發生
                 </p>
               </div>
-              <div className="w-full px-4 md:w-auto">
-                <button className="w-full px-12 py-4 text-base font-medium leading-none text-center text-gray-800 transition duration-150 bg-white hover:bg-gray-300 focus:outline-none">
-                  Read more
+              <div className="px-4 w-2/3 md:w-auto whitespace-nowrap">
+                <button className="w-full px-8 py-4 text-base font-medium leading-none text-center text-gray-800 transition duration-150 bg-white hover:bg-gray-300 focus:outline-none">
+                  前往即期品專區
                 </button>
               </div>
             </div>
           </div>
           <div className="relative flex items-center justify-center">
-            <img src="https://i.ibb.co/3ctkDMB/img-3.png" alt="chair" />
-            <div className="absolute top-0 flex flex-col items-center justify-between h-full py-10 w-80 md:w-80 lg:w-80 xl:w-96">
-              <div className="flex flex-col items-center justify-center h-full">
+            <img
+              src={`${process.env.PUBLIC_URL}/images/home/makeCake.jpg`}
+              className="w-full h-full object-cover max-h-96 max-w-lg"
+              alt=""
+            />
+            <div className="w-full h-full bg-dark absolute opacity-60">
+            </div>
+            <div className="absolute top-0 flex flex-col items-center justify-between h-full py-10 w-11/12">
+              <div className="flex flex-col items-center pt-12 h-full w-4/5">
                 <h2 className="text-2xl font-semibold leading-normal text-center text-white xl:px-10 md:px-2 px-7 sm:w-auto">
-                  Layout setting and mood
+                  手作烘焙課程
                 </h2>
                 <p className="mt-4 text-base leading-normal text-center text-white xl:px-10 md:px-2 px-7">
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry
+                  ​沒有嚴肅的課程，只有提供舒適的環境、專業的設備讓您沈浸在充滿樂趣的甜點
+                  DIY 活動！
                 </p>
               </div>
-              <div className="w-full px-4 md:w-auto">
-                <button className="w-full px-12 py-4 text-base font-medium leading-none text-center text-gray-800 transition duration-150 bg-white hover:bg-gray-300 focus:outline-none">
-                  Read more
+              <div className="px-4 w-2/3 md:w-auto whitespace-nowrap">
+                <button className="w-full px-11 py-4 text-base font-medium leading-none text-center text-gray-800 transition duration-150 bg-white hover:bg-gray-300 focus:outline-none">
+                  前往查看課程
                 </button>
               </div>
             </div>
@@ -838,20 +709,18 @@ const Home = (props) => {
           />
           <div className="relative z-40 flex flex-col items-center justify-center w-full px-4 py-10 bg-dark bg-opacity-70 md:my-16 lg:py-16 md:mx-24 md:px-12">
             <h1 className="text-4xl font-semibold leading-9 text-center text-white">
-              Don’t miss out!
+              訂閱我們
             </h1>
             <p className="mt-6 text-base leading-normal text-center text-white">
-              Subscribe to your newsletter to stay in the loop. Our newsletter
-              is sent once in <br />a week on every friday so subscribe to get
-              latest news and updates.
+              訂閱電子報獲取最新產品及優惠資訊
             </p>
             <div className="flex flex-col items-center w-full mt-12 space-y-4 border-white sm:border sm:flex-row lg:w-5/12 sm:space-y-0">
               <input
-                className="w-full p-4 text-base font-medium leading-none text-white placeholder-white bg-transparent border border-white sm:border-transparent focus:outline-none"
-                placeholder="Email Address"
+                className="w-full p-3 text-base font-medium leading-none text-white placeholder-white bg-transparent border border-white sm:border-transparent focus:outline-none"
+                placeholder="Email"
               />
-              <button className="w-full px-6 py-4 bg-white border border-white focus:outline-none focus:ring-offset-2 focus:ring sm:border-transparent sm:w-auto hover:bg-opacity-75">
-                Subscribe
+              <button className="w-full px-9 py-3 bg-white border border-white focus:outline-none focus:ring-offset-2 focus:ring sm:border-transparent sm:w-auto hover:bg-opacity-75 whitespace-nowrap">
+                訂閱
               </button>
             </div>
           </div>
@@ -863,18 +732,17 @@ const Home = (props) => {
         <div className="w-11/12 xl:w-1/2">
           <h1
             tabIndex={0}
-            className="text-6xl font-bold text-center text-gray-800 2xl:leading-10 leading-0"
+            className="text-5xl font-bold text-center text-gray-800 2xl:leading-10 leading-0"
           >
-            Touching hundreds of lives
+            共同創造美好回憶
           </h1>
           <h2
             role="contentinfo"
             tabIndex={0}
-            className="mt-5 text-base leading-normal text-center text-gray-600"
+            className="mt-8 text-base leading-normal text-center text-gray-600"
           >
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            Lorem Ipsum is simply dummy text of the printing
+            SWEETEN
+            希望除了甜點的美味之外，也能在每個重要的時刻陪伴大家留下最有溫度的記憶。
           </h2>
         </div>
 

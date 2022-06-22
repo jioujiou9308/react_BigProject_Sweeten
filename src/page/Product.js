@@ -1,7 +1,7 @@
 import React from "react";
-import CardProduct from "../components/product/CardProduct";
-import Pagination from "../components/product/Pagination";
-import TabBar from "../components/product/Tabs";
+import CardProduct from "../components/Product/CardProduct";
+import Pagination from "../components/Product/Pagination";
+import TabBar from "../components/Product/Tabs";
 import { useProductState } from "../utils/redux/hooks-redux";
 
 const Product = () => {
