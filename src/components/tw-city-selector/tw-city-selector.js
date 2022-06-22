@@ -15,7 +15,7 @@ function CitySelector() {
 
   return (
     <>
-      <h1 className="pt-2 text-xs">地址</h1>
+      <h1 className="pt-2 mb-1 text-xs">地址</h1>
       <div className="flex">
         <div className="w-10 h-6 p-1 mr-2 text-xs text-center bg-white ">
           {county !== "" &&
@@ -51,7 +51,6 @@ function CitySelector() {
         >
           <option value="">請選擇區域</option>
           {/* 確保counties.indexOf(country)回傳必有索引值，否則會發生錯誤 */}
-          {console.log(county)}
           {county !== "" &&
             counties.indexOf(county) > -1 &&
             townships[counties.indexOf(county)] &&

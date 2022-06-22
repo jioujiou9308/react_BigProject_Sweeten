@@ -52,8 +52,11 @@ const Test = () => {
 
       {/* ecpay */}
       <button>綠界</button>
-      <form action={`${API_URL}/auth/pay`} method="POST" className="border ">
+      <form action={`${API_URL}/ecpay`} method="POST" className="border ">
         <div>
+          <input type="text" name="TotalAmount" placeholder="總價錢" />
+          <input type="text" name="TradeDesc" placeholder="描述" />
+          <input type="text" name="ItemName" placeholder="商品名#分隔" />
           <p>{"-form action-> server -redirect-> ecpay -redirect-> local"}</p>
           <p>
             信用卡號：4311-9522-2222-2222 <br />

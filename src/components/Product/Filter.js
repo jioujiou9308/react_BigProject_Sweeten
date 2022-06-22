@@ -6,16 +6,16 @@ import { AiFillFilter } from "react-icons/ai";
 function Filter() {
   return (
     <>
-      <div className="w-full p-5 rounded-none shadow md:w-1/3 ">
+       <div className="w-full md:pr-5 md:border-r rounded-sm min-w-[15rem] lg:w-1/4 h-max border-line">
         {/* filter&clear filter */}
-        <div className="flex items-center justify-center p-1 border-b">
-          <p className="pr-2 text-center text-dark p">篩選 </p>
-          <AiFillFilter className=""/>
+        <div className="flex items-center p-1 border-b-2 border-line">
+          <p className="pr-2 p">篩選 </p>
+          <AiFillFilter />
         </div>
 
         <div>
           {/* 各類選項 */}
-          <div className="grid grid-cols-1 gap-4 mt-4">
+          <div className="grid grid-cols-1 gap-4 mt-4 border-b-2 border-line">
             <select className="w-full px-4 py-3 text-sm bg-gray-100 border-transparent rounded-none focus:border-gray-500 focus:bg-white focus:ring-0">
               <option value="">價格範圍</option>
               <option value="for-rent ">100以下</option>
@@ -56,13 +56,30 @@ function Filter() {
           </div>
         </div>
 
-        <div className="flex-wrap justify-between hidden pt-5 md:flex">
-        <p className="px-3 py-1 mb-2 text-white p bg-dark">蛋糕</p>
-        <p className="px-3 py-1 mb-2 text-white p bg-dark">餅乾</p>
-        <p className="px-3 py-1 mb-2 text-white p bg-dark">蛋塔</p>
-        <p className="px-3 py-1 mb-2 text-white p bg-dark">禮盒</p>
-        <p className="px-3 py-1 mb-2 text-white p bg-dark">冰品</p>
-      </div>
+        <div className="flex-wrap justify-around hidden pt-5 md:flex">
+          {/* <Button variant="outlined" color="brown" size="sm">
+            蛋糕
+          </Button>{" "}
+          <Button variant="outlined" color="brown" size="sm">
+            蛋糕
+          </Button>{" "}
+          <Button variant="outlined" color="brown" size="sm">
+            蛋糕
+          </Button>{" "}
+          <Button variant="outlined" color="brown" size="sm">
+            蛋糕
+          </Button>{" "}
+          <Button variant="outlined" color="brown" size="sm">
+            蛋糕
+          </Button>{" "}
+          <Button variant="outlined" color="brown" size="sm">
+            蛋糕
+          </Button> */}
+          {/* <p className="px-3 py-1 mb-2 text-white p bg-dark">餅乾</p>
+          <p className="px-3 py-1 mb-2 text-white p bg-dark">蛋塔</p>
+          <p className="px-3 py-1 mb-2 text-white p bg-dark">禮盒</p>
+          <p className="px-3 py-1 mb-2 text-white p bg-dark">冰品</p> */}
+        </div>
       </div>
     </>
   );
