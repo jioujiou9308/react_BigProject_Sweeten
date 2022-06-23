@@ -90,10 +90,10 @@ const Home = (props) => {
         <div className="px-4 py-12 xl:mx-auto xl:container xl:px-20 md:px-6">
           <div className="relative items-center justify-center lg:flex lg:space-x-12 2xl:space-x-6">
             <div className="text-center ">
-              <p className="absolute px-5 text-6xl font-bold -translate-y-1/2 translate-x-1/3 opacity-30 ">
-                SWEETEN
-              </p>
-              <p className="text-3xl font-bold leading-9 lg:text-4xl">
+              <p className="relative text-3xl font-bold leading-9 lg:text-4xl">
+                <p className="absolute px-5 text-2xl font-bold -translate-x-1/2 -translate-y-full left-1/2 opacity-30 ">
+                  SWEETEN
+                </p>
                 我們的堅持
               </p>
               <p className="w-full mx-auto mt-4 text-lg leading-7 xl:w-7/12">
