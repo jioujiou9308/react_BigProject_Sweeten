@@ -50,6 +50,9 @@ const Test = () => {
         get
       </button>
       <br />
+      <form action="l6" method="post">
+        <button>submit</button>
+      </form>
 
       {/* ecpay */}
       <button>綠界</button>
