@@ -6,7 +6,7 @@ function MemberOrderBar() {
   const [x, setX] = useState(0);
   return (
     <>
-      <div className="grid grid-cols-5 px-6 h4">
+      <div className="grid grid-cols-5 bg-white md:px-6 md:h4">
         <div
           className="pb-2 text-center"
           onClick={() => {
