@@ -8,9 +8,9 @@ function Index() {
   return (
     <>
       {/* contact & credit card */}
-      <div className="p-10 border-t md:pl-0 md:flex mt-14">
+      <div className="p-10 border-t mt-14">
         {/* 訂購資訊 */}
-        <div className="p-5 mb-10 md:mr-10 bg-primary">
+        <div className="p-5 mb-10 bg-primary">
           <div className="pb-5 border-b">
             <span className="block pb-3 font-medium h3">訂購資訊</span>
             <span className="block p">訂購人資料</span>
@@ -55,27 +55,27 @@ function Index() {
             {/* 付款方式 */}
             <div className="pt-3">
               <label className="block text-xs">付款方式</label>
-              <div className="flex">
+              <div className="md:flex">
+                  <div className="py-2 mr-5">
+                    <input type="radio" className="mr-2" onClick={
+                        ()=>{}
+                    }/>
+                    <label className="text-sm">線上刷卡</label>
+                  </div>
+                  <div className="py-2 mr-5">
+                    <input type="radio" className="mr-2" onClick={
+                        ()=>{}
+                    }/>
+                    <label className="text-sm">轉帳匯款</label>
+                  </div>
                 <div className="py-2 mr-5">
-                  <input type="radio" class="mr-2" onClick={
-                      ()=>{}
-                  }/>
-                  <label className="text-sm">線上刷卡</label>
-                </div>
-                <div className="py-2 mr-5">
-                  <input type="radio" class="mr-2" onClick={
-                      ()=>{}
-                  }/>
-                  <label className="text-sm">轉帳匯款</label>
-                </div>
-                <div className="py-2 mr-5">
-                  <input type="radio" class="mr-2" onClick={
+                  <input type="radio" className="mr-2" onClick={
                       ()=>{}
                   }/>
                   <label className="text-sm">超商取貨付款</label>
                 </div>
                 <div className="py-2 mr-5">
-                  <input type="radio" class="mr-2" onClick={
+                  <input type="radio" className="mr-2" onClick={
                       ()=>{}
                   }/>
                   <label className="text-sm">超商代碼繳費</label>
@@ -88,33 +88,34 @@ function Index() {
             {/* 配送方式 */}
             <div className="pt-3">
               <label className="block text-xs">配送方式</label>
-              <div className="flex">
+              <div className="md:flex">
                 <div className="py-2 mr-5">
-                  <input type="radio" class="mr-2" onClick={
+                  <input type="radio" className="mr-2" onClick={
                       ()=>{}
                   }/>
                   <label className="text-sm">門市自取</label>
                 </div>
                 <div className="py-2 mr-5">
-                  <input type="radio" class="mr-2" onClick={
+                  <input type="radio" className="mr-2" onClick={
                       ()=>{}
                   }/>
                   <label className="text-sm">超商取件</label>
                 </div>
                 <div className="py-2 mr-5">
-                  <input type="radio" class="mr-2" onClick={
+                  <input type="radio" className="mr-2" onClick={
                       ()=>{}
                   }/>
                   <label className="text-sm">宅配到府</label>
                 </div>
               </div>
             </div>
+            
           </div>
           {/* 收件資訊 */}
           <div className="py-5">
             <span className="block p">收件人資料</span>
             <div className="py-2 ">
-                <input type="radio" class="mr-2" onClick={
+                <input type="radio" className="mr-2" onClick={
                     ()=>{}
                 }/>
                 <label className="text-sm">同訂購人資訊</label>
@@ -157,11 +158,13 @@ function Index() {
                 placeholder="請輸入詳細地址"
               />
             </div>
-            
           </div>
+          <button className="w-full py-2 text-white border hover:bg-secondary" onClick={()=>{}}>
+                確認付款
+          </button>
         </div>
 
-        {/* 信用卡 */}
+        {/* 信用卡
         <div className="p-5 overflow-visible md:mr-10 bg-primary">
           <span className="block pb-3 font-medium h3">Card Details</span>
 
@@ -245,7 +248,7 @@ function Index() {
           <button className="w-full py-2 text-white border hover:bg-secondary">
             Submit Order
           </button>
-        </div>
+        </div> */}
       </div>
     </>
   );

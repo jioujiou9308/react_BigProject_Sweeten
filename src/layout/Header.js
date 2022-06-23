@@ -42,6 +42,9 @@ const Header = () => {
   const dispatch = useDispatch();
   const toggle = () => setOpen(!isOpen);
   const handleOpen = () => dispatch(openLogin());
+  const handleNavigate = (path) => () => {
+    navigate(path);
+  };
   return (
     <motion.header
       className={`fixed top-0 z-50 w-full min-w-[370px] h-[6rem]  pt-4 pb-3 overflow-hidden  bg-white shadow`}
@@ -95,10 +98,9 @@ const Header = () => {
                     variant="text"
                     className="px-0 py-1 rounded-none"
                     key={title}
+                    onClick={handleNavigate(subPage.path[mainIdx][subIdx])}
                   >
-                    <Link to={subPage.path[mainIdx][subIdx]}>
-                      <p className="my-1 text-dark">{title}</p>
-                    </Link>
+                    <p className="my-1 text-dark">{title}</p>
                   </Button>
                 ))}
               </div>
