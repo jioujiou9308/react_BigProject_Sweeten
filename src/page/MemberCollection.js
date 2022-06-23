@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import MemberCollectionBar from "../components/memberCollection/MemberCollectionBar";
 import MemberSearchBar from "../components/memberCollection/MemberSearchBar";
 import {
@@ -9,6 +9,8 @@ import {
   AiOutlineDelete,
 } from "react-icons/ai";
 import { Button } from "@material-tailwind/react";
+import UserCommentCard from "../components/memberCollection/UserCommentCard";
+
 
 // 假資料
 const products = [
@@ -24,7 +26,7 @@ const products = [
     name: "蜂蜜蛋糕",
     img: `${process.env.PUBLIC_URL}/images/memberCollectionAndOrder/member_order2.png`,
     price: 500,
-    score: '-',
+    score: "-",
   },
   {
     id: 3,
@@ -40,7 +42,7 @@ const star = (score) => {
   const arr = [];
   for (let i = 0; i < 5; i++) {
     if (i < score) {
-      arr.push(<AiFillStar className="icon-sm"/>);
+      arr.push(<AiFillStar className="icon-sm" />);
     } else {
       arr.push(<AiOutlineStar className="icon-sm" />);
     }
@@ -49,11 +51,12 @@ const star = (score) => {
 };
 
 const MemberColloction = () => {
+  const [isOn, setIsOn] = useState()
   return (
     <>
       <div className="mx-2 md:mx-0 ">
         <div className="">
-          <MemberCollectionBar />
+          <MemberCollectionBar isOn={isOn} setIsOn={setIsOn}/>
         </div>
         <div className="my-6">
           <MemberSearchBar />
@@ -89,26 +92,37 @@ const MemberColloction = () => {
 
                   {/* 評分 */}
                   <div className="hidden text-center md:block mx-18 ">
-                    <p className="note">{score == '-' ? '尚未評價':'評價'}</p>
+                    <p className="note">{score == "-" ? "尚未評價" : "評價"}</p>
                     <h2 className="my-2 h3">{score}/5</h2>
                     <div className="flex">{star(score)}</div>
                   </div>
 
                   {/* 移除&購買 */}
                   <div className="flex-col ml-4 ">
-                  <Button size = "sm"   className="flex items-center mb-3 rounded-sm md:p bg-warning">立即購買 <AiOutlineShoppingCart className="icon-sm" /></Button>
-                     
+                    <Button
+                      size="sm"
+                      className="flex items-center mb-3 rounded-sm md:p bg-warning"
+                    >
+                      立即購買 <AiOutlineShoppingCart className="icon-sm" />
+                    </Button>
 
-                    
-                      <Button size = "sm" color='amber' variant="outlined" className="rounded-sm md:p"><span className="flex items-center ">移除收藏 <AiOutlineDelete className="icon-sm" /></span> </Button>
-                     
-                    
+                    <Button
+                      size="sm"
+                      color="amber"
+                      variant="outlined"
+                      className="rounded-sm md:p"
+                    >
+                      <span className="flex items-center ">
+                        移除收藏 <AiOutlineDelete className="icon-sm" />
+                      </span>{" "}
+                    </Button>
                   </div>
                 </div>
               </>
             );
           })}
         </div>
+        <UserCommentCard  isOn={isOn} setIsOn={setIsOn}/>
       </div>
     </>
   );

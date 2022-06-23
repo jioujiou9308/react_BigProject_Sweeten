@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 
 import MemberSearchBar from "../components/memberCollection/MemberSearchBar";
 import MemberOrderBar from "../components/memberOrder/MemberOrderBar";
-import OrderDetail from "../components/memberOrder/OrderDetail";
 import OrderItems from "../components/memberOrder/OrderItems";
+
 
 
 function MemberOrder() {
@@ -31,6 +31,7 @@ function MemberOrder() {
       price: 750,
     },
   ];
+  
  
   return (
     <>
