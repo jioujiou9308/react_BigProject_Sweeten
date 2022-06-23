@@ -94,13 +94,26 @@ const Home = (props) => {
 
       {/* 特色 */}
       <div className="overflow-y-hidden">
+        <img
+          src="./images/home/cake007.png"
+          className="absolute left-0 h-[30vw] -translate-x-1/2 "
+          alt=""
+        />
+        <img
+          src="./images/home/cake007.png"
+          className="absolute right-0 h-[30vw] translate-x-1/2"
+          alt=""
+        />
         <div className="px-4 py-12 xl:mx-auto xl:container xl:px-20 md:px-6">
-          <div className="items-center justify-center lg:flex lg:space-x-12 2xl:space-x-6">
-            <div className>
-              <p className="text-3xl font-extrabold leading-9 lg:text-4xl">
-                Why choose us
+          <div className="relative items-center justify-center lg:flex lg:space-x-12 2xl:space-x-6">
+            <div className="text-center ">
+              <p className="relative text-3xl font-bold leading-9 lg:text-4xl">
+                <p className="absolute px-5 text-2xl font-bold -translate-x-1/2 -translate-y-full left-1/2 opacity-30 ">
+                  SWEETEN
+                </p>
+                我們的堅持
               </p>
-              <p className="w-full mt-4 text-lg leading-7 xl:w-7/12">
+              <p className="w-full mx-auto mt-4 text-lg leading-7 xl:w-7/12">
                 Whether article spirits new her covered hastily sitting her.
                 Money witty books nor son add
               </p>
@@ -167,11 +180,14 @@ const Home = (props) => {
                 </div>
               </div>
             </div>
-            <div className="hidden w-full mt-6 lg:block lg:w-3/5 xl:w-3/5 lg:mt-0">
+            <div className="relative z-10 hidden max-w-[20rem] shadow h-[50vh] mt-6 lg:block lg:w-3/5 xl:w-3/5 lg:mt-0">
+              <p className="absolute top-0 text-4xl font-bold opacity-50 -translate-y-3/4 -z-10 ">
+                SWEETEN食甜
+              </p>
               <img
-                src={`${process.env.PUBLIC_URL}images/home/section01_cake1.png`}
+                src={`./images/home/lesson.jpg`}
                 alt="..."
-                className="object-fill object-center w-full h-full obejct-fit"
+                className="object-cover object-center w-full h-full "
               />
             </div>
           </div>

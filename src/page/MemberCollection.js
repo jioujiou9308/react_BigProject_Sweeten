@@ -1,6 +1,6 @@
 import React from "react";
-import MemberCollectionBar from '../components/memberCollection/MemberCollectionBar'
-import MemberSearchBar from '../components/memberCollection/MemberSearchBar'
+import MemberCollectionBar from "../components/memberCollection/MemberCollectionBar";
+import MemberSearchBar from "../components/memberCollection/MemberSearchBar";
 import { AiFillHeart, AiOutlineStar } from "react-icons/ai";
 // FIXME 這裡要用大駝峰
 const Member_colloction = () => {
@@ -41,17 +41,13 @@ const Member_colloction = () => {
           <h2 className="hidden py-2 border-b h2 md:block">我的收藏</h2>
 
           {products.map((product, i) => {
-            const { id, name,img, price, score } = product;
+            const { id, name, img, price, score } = product;
             return (
               <>
                 {/* 圖片 備註 評分愛心 1*/}
                 <div className="flex items-center justify-around px-0 py-1 border-b md:py-6 md:px-8">
                   <div className="overflow-hidden ">
-                    <img
-                      className=""
-                      src={img}
-                      alt=""
-                    />
+                    <img className="" src={img} alt="" />
                   </div>
                   {/* 商品價格活動 */}
 

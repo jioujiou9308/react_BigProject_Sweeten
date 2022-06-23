@@ -27,7 +27,7 @@ const OnlineHelp = () => {
     return () => {
       socket.off("support");
     };
-  }, []);
+  }, [dispatch]);
 
   return (
     <>
