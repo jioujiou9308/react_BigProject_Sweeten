@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import {
   GiFlour,
   GiTeacher,
@@ -6,6 +6,11 @@ import {
   GiHealing,
 } from "react-icons/gi";
 import Card from "../components/home/Card";
+
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "../components/home/styles.css";
+import { Autoplay,} from "swiper";
 
 const s3Cards = [
   {
@@ -35,44 +40,56 @@ const Home = (props) => {
   const [show4, setShow4] = useState(false);
   return (
     <>
-      {/* 輪播 */}
-      <div className="pt-20 ">
-        <div className="w-full py-9 md:pb-12 lg:pb-24">
-          <div className="relative">
-            {/* 大中小各一張圖檔 */}
-            <img
-              src="https://i.ibb.co/q5k5j57/bench-accounting-nvzv-OPQW0gc-unsplash-1-1.png"
-              alt="A work table with house plants"
-              className="hidden w-full h-full lg:block"
-            />
-            <img
-              src="https://i.ibb.co/94jQFsV/bench-accounting-nvzv-OPQW0gc-unsplash-1-1.png"
-              alt="A work table with house plants"
-              className="hidden w-full h-full sm:block lg:hidden"
-            />
-            <img
-              src="https://i.ibb.co/cJz8LZ2/bench-accounting-nvzv-OPQW0gc-unsplash-1-1.png"
-              alt="A work table with house plants"
-              className="w-full h-full sm:hidden"
-            />
-
-            <div className="absolute top-0 left-0 z-10 flex flex-col items-start mx-4 sm:mx-0 mt-36 sm:mt-0 sm:py-20 md:py-28 lg:py-20 xl:py-28 sm:pl-14 sm:justify-start">
-              <h1 className="text-4xl font-semibold sm:text-5xl lg:text-6xl sm:w-8/12">
-                Minimalist Furniture Design
-              </h1>
-              <p className="mt-4 text-base sm:mt-5 sm:w-5/12">
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry.
-              </p>
-              <button className="hidden px-8 py-4 mt-8 font-medium border text-secondary sm:flex hover:bg-primary">
-                Explore
-              </button>
-            </div>
-            <button className="absolute bottom-0 flex items-center justify-center w-full py-3 mt-8 text-base font-medium sm:hidden text-secondary hover:bg-primary">
-              Explore
-            </button>
+      <div className="w-full pt-20">
+          {/* 輪播 */}
+          <div className="h-80 lg:h-96">
+            <Swiper
+                loop={true}
+                autoplay={{
+                  delay: 2000,
+                  disableOnInteraction: false,
+                }}
+                modules={[Autoplay]}
+                className="mySwiper"
+              >
+                <SwiperSlide><img
+                          src={`${process.env.PUBLIC_URL}/images/home/banner1.jpeg`}
+                          alt="..." 
+                        /></SwiperSlide>
+                <SwiperSlide><img
+                          src={`${process.env.PUBLIC_URL}/images/home/banner2.jpeg`}
+                          alt="..."
+                        /></SwiperSlide>
+                <SwiperSlide><img
+                          src={`${process.env.PUBLIC_URL}/images/home/banner3.jpeg`}
+                          alt="..."
+                        /></SwiperSlide>
+                <SwiperSlide><img
+                          src={`${process.env.PUBLIC_URL}/images/home/banner4.jpeg`}
+                          alt="..."
+                        /></SwiperSlide>
+                <SwiperSlide><img
+                          src={`${process.env.PUBLIC_URL}/images/home/banner5.jpeg`}
+                          alt="..."
+                        /></SwiperSlide>
+                <SwiperSlide><img
+                          src={`${process.env.PUBLIC_URL}/images/home/banner6.jpeg`}
+                          alt="..."
+                        /></SwiperSlide>
+                <SwiperSlide><img
+                          src={`${process.env.PUBLIC_URL}/images/home/banner7.jpeg`}
+                          alt="..."
+                        /></SwiperSlide>
+                <SwiperSlide><img
+                          src={`${process.env.PUBLIC_URL}/images/home/banner8.jpeg`}
+                          alt="..."
+                        /></SwiperSlide>
+                <SwiperSlide><img
+                          src={`${process.env.PUBLIC_URL}/images/home/banner9.jpeg`}
+                          alt="..."
+                        /></SwiperSlide>
+              </Swiper>
           </div>
-        </div>
       </div>
 
       {/* 特色 */}
@@ -708,12 +725,12 @@ const Home = (props) => {
           <div className="relative flex items-center justify-center">
             <img
               src={`${process.env.PUBLIC_URL}/images/home/toProduct.jpg`}
-              className="w-full h-full object-cover max-h-96 max-w-lg"
+              className="object-cover w-full h-full max-w-lg max-h-96"
               alt=""
             />
-            <div className="w-full h-full bg-dark absolute opacity-60"></div>
-            <div className="absolute top-0 flex flex-col items-center justify-between h-full py-10 w-11/12">
-              <div className="flex flex-col items-center pt-12 h-full w-4/5">
+            <div className="absolute w-full h-full bg-dark opacity-60"></div>
+            <div className="absolute top-0 flex flex-col items-center justify-between w-11/12 h-full py-10">
+              <div className="flex flex-col items-center w-4/5 h-full pt-12">
                 <h2 className="text-2xl font-semibold leading-normal text-center text-white xl:px-10 md:px-2 px-7">
                   經典商品
                 </h2>
@@ -721,8 +738,8 @@ const Home = (props) => {
                   各式經典甜品一應俱全
                 </p>
               </div>
-              <div className="px-4 w-2/3 md:w-auto whitespace-nowrap">
-                <button className="w-full px-11 py-4 text-base font-medium leading-none text-center text-gray-800 transition duration-150 bg-white hover:bg-gray-300 focus:outline-none">
+              <div className="w-2/3 px-4 md:w-auto whitespace-nowrap">
+                <button className="w-full py-4 text-base font-medium leading-none text-center text-gray-800 transition duration-150 bg-white px-11 hover:bg-gray-300 focus:outline-none">
                   前往查看商品
                 </button>
               </div>
@@ -731,12 +748,12 @@ const Home = (props) => {
           <div className="relative flex items-center justify-center">
             <img
               src={`${process.env.PUBLIC_URL}/images/home/expire.jpg`}
-              className="w-full h-full object-cover max-h-96 max-w-lg"
+              className="object-cover w-full h-full max-w-lg max-h-96"
               alt=""
             />
-            <div className="w-full h-full bg-dark absolute opacity-60"></div>
-            <div className="absolute top-0 flex flex-col items-center justify-between h-full py-10 w-11/12">
-              <div className="flex flex-col items-center pt-12 h-full w-4/5">
+            <div className="absolute w-full h-full bg-dark opacity-60"></div>
+            <div className="absolute top-0 flex flex-col items-center justify-between w-11/12 h-full py-10">
+              <div className="flex flex-col items-center w-4/5 h-full pt-12">
                 <h2 className="text-2xl font-semibold leading-7 text-center text-white xl:px-10 md:px-2 px-7 lg:leading-7">
                   即期良品
                 </h2>
@@ -744,7 +761,7 @@ const Home = (props) => {
                   環保愛地球，希望減少糧食浪費的情況發生
                 </p>
               </div>
-              <div className="px-4 w-2/3 md:w-auto whitespace-nowrap">
+              <div className="w-2/3 px-4 md:w-auto whitespace-nowrap">
                 <button className="w-full px-8 py-4 text-base font-medium leading-none text-center text-gray-800 transition duration-150 bg-white hover:bg-gray-300 focus:outline-none">
                   前往即期品專區
                 </button>
@@ -754,12 +771,12 @@ const Home = (props) => {
           <div className="relative flex items-center justify-center">
             <img
               src={`${process.env.PUBLIC_URL}/images/home/makeCake.jpg`}
-              className="w-full h-full object-cover max-h-96 max-w-lg"
+              className="object-cover w-full h-full max-w-lg max-h-96"
               alt=""
             />
-            <div className="w-full h-full bg-dark absolute opacity-60"></div>
-            <div className="absolute top-0 flex flex-col items-center justify-between h-full py-10 w-11/12">
-              <div className="flex flex-col items-center pt-12 h-full w-4/5">
+            <div className="absolute w-full h-full bg-dark opacity-60"></div>
+            <div className="absolute top-0 flex flex-col items-center justify-between w-11/12 h-full py-10">
+              <div className="flex flex-col items-center w-4/5 h-full pt-12">
                 <h2 className="text-2xl font-semibold leading-normal text-center text-white xl:px-10 md:px-2 px-7 sm:w-auto">
                   手作烘焙課程
                 </h2>
@@ -768,8 +785,8 @@ const Home = (props) => {
                   DIY 活動！
                 </p>
               </div>
-              <div className="px-4 w-2/3 md:w-auto whitespace-nowrap">
-                <button className="w-full px-11 py-4 text-base font-medium leading-none text-center text-gray-800 transition duration-150 bg-white hover:bg-gray-300 focus:outline-none">
+              <div className="w-2/3 px-4 md:w-auto whitespace-nowrap">
+                <button className="w-full py-4 text-base font-medium leading-none text-center text-gray-800 transition duration-150 bg-white px-11 hover:bg-gray-300 focus:outline-none">
                   前往查看課程
                 </button>
               </div>
@@ -798,7 +815,7 @@ const Home = (props) => {
                 className="w-full p-3 text-base font-medium leading-none text-white placeholder-white bg-transparent border border-white sm:border-transparent focus:outline-none"
                 placeholder="Email"
               />
-              <button className="w-full px-9 py-3 bg-white border border-white focus:outline-none focus:ring-offset-2 focus:ring sm:border-transparent sm:w-auto hover:bg-opacity-75 whitespace-nowrap">
+              <button className="w-full py-3 bg-white border border-white px-9 focus:outline-none focus:ring-offset-2 focus:ring sm:border-transparent sm:w-auto hover:bg-opacity-75 whitespace-nowrap">
                 訂閱
               </button>
             </div>

@@ -57,25 +57,25 @@ function Index() {
               <label className="block text-xs">付款方式</label>
               <div className="md:flex">
                   <div className="py-2 mr-5">
-                    <input type="radio" class="mr-2" onClick={
+                    <input type="radio" className="mr-2" onClick={
                         ()=>{}
                     }/>
                     <label className="text-sm">線上刷卡</label>
                   </div>
                   <div className="py-2 mr-5">
-                    <input type="radio" class="mr-2" onClick={
+                    <input type="radio" className="mr-2" onClick={
                         ()=>{}
                     }/>
                     <label className="text-sm">轉帳匯款</label>
                   </div>
                 <div className="py-2 mr-5">
-                  <input type="radio" class="mr-2" onClick={
+                  <input type="radio" className="mr-2" onClick={
                       ()=>{}
                   }/>
                   <label className="text-sm">超商取貨付款</label>
                 </div>
                 <div className="py-2 mr-5">
-                  <input type="radio" class="mr-2" onClick={
+                  <input type="radio" className="mr-2" onClick={
                       ()=>{}
                   }/>
                   <label className="text-sm">超商代碼繳費</label>
@@ -90,19 +90,19 @@ function Index() {
               <label className="block text-xs">配送方式</label>
               <div className="md:flex">
                 <div className="py-2 mr-5">
-                  <input type="radio" class="mr-2" onClick={
+                  <input type="radio" className="mr-2" onClick={
                       ()=>{}
                   }/>
                   <label className="text-sm">門市自取</label>
                 </div>
                 <div className="py-2 mr-5">
-                  <input type="radio" class="mr-2" onClick={
+                  <input type="radio" className="mr-2" onClick={
                       ()=>{}
                   }/>
                   <label className="text-sm">超商取件</label>
                 </div>
                 <div className="py-2 mr-5">
-                  <input type="radio" class="mr-2" onClick={
+                  <input type="radio" className="mr-2" onClick={
                       ()=>{}
                   }/>
                   <label className="text-sm">宅配到府</label>
@@ -115,7 +115,7 @@ function Index() {
           <div className="py-5">
             <span className="block p">收件人資料</span>
             <div className="py-2 ">
-                <input type="radio" class="mr-2" onClick={
+                <input type="radio" className="mr-2" onClick={
                     ()=>{}
                 }/>
                 <label className="text-sm">同訂購人資訊</label>

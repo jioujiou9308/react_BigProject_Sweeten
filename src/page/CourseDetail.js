@@ -183,7 +183,7 @@ const CourseDetail = () => {
               );
             })}
           </div>
-
+          
           <h2 className="my-5 p">商品參與的優惠活動</h2>
           <p className="mt-2 text-center p w-28 bg-primary">父親節特惠</p>
 
@@ -195,7 +195,6 @@ const CourseDetail = () => {
             >
               <span className="text-black p">加入購物車</span>
             </Button>
-
             <Button
               className="ml-3 text-white border-2 rounded-none border-warning bg-warning"
               variant="filled"
