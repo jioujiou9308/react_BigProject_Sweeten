@@ -11,7 +11,6 @@ import Product from "../page/Product";
 import ProductDetail from "../page/ProductDetail";
 import Test from "../page/Test";
 import Cart from "../page/Cart";
-import Login from "../components/Login";
 import CustomerService from "../page/CustomerService";
 import CheckOut from "../page/CheckOut";
 
@@ -21,7 +20,6 @@ const Main = () => {
       {/* <Aside /> */}
       <div className="relative w-full p-8 bg-white shadow max-w-screen-2xl ">
         <Routes>
-          <Route path="/login" element={<Login />} />
           <Route path="/product" element={<Product />} />
           <Route path="/product/detail" element={<ProductDetail />} />
           <Route path="/test" element={<Test />} />
