@@ -1,5 +1,5 @@
-import OrderList from "../components/Cart/OrderList";
-import Summary from "../components/Cart/Summary";
+import OrderList from "../components/cart/OrderList";
+import Summary from "../components/cart/Summary";
 import { useState } from "react";
 
 const products = [
