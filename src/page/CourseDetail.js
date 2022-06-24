@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   AiFillHeart,
   AiFillPlusCircle,
@@ -10,12 +10,16 @@ import UserComment from "../components/courseDetail/UserComment";
 import YouMayLikeCourse from "../components/courseDetail/YouMayLikeCourse";
 import { Button } from "@material-tailwind/react";
 import { useState } from "react";
+import axios from "axios";
+import { API_URL } from "../utils/config";
 
 const CourseDetail = () => {
   const [selectedItem, setSelectedItem] = useState();
   const dates = ["6月", "8月"];
   const [count, setCount] = useState(2);
   const [favClick, setFavClick] = useState(false);
+
+ 
   return (
     <>
       <div className="bg-white pb-60">
@@ -57,22 +61,22 @@ const CourseDetail = () => {
 
             <div className="flex items-center">
               {/* 右欄尺寸桌機板 */}
-            <p className="m-4 ml-0 p">課程日期</p>
-            {/* 尺寸按鈕桌機板  小字尺寸*/}
-            {dates.map((v, i) => {
-              return (
-                <button
-                  className={`mr-5 px-2 py-1 size-btn-desk ${
-                    selectedItem === v ? "bg-sub" : ""
-                  }`}
-                  onClick={() => {
-                    setSelectedItem(v);
-                  }}
-                >
-                  {v}
-                </button>
-              );
-            })}
+              <p className="m-4 ml-0 p">課程日期</p>
+              {/* 尺寸按鈕桌機板  小字尺寸*/}
+              {dates.map((v, i) => {
+                return (
+                  <button
+                    className={`mr-5 px-2 py-1 size-btn-desk ${
+                      selectedItem === v ? "bg-sub" : ""
+                    }`}
+                    onClick={() => {
+                      setSelectedItem(v);
+                    }}
+                  >
+                    {v}
+                  </button>
+                );
+              })}
             </div>
 
             <p className="mt-5 p">商品參與的優惠活動</p>
@@ -183,7 +187,7 @@ const CourseDetail = () => {
               );
             })}
           </div>
-          
+
           <h2 className="my-5 p">商品參與的優惠活動</h2>
           <p className="mt-2 text-center p w-28 bg-primary">父親節特惠</p>
 
