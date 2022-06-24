@@ -1,5 +1,7 @@
 import React from "react";
-import { Button } from "@material-tailwind/react";
+
+import TextField from "@mui/material/TextField";
+import {Input,Button} from "@material-tailwind/react";
 
 function MemberInformation() {
   return (
@@ -8,86 +10,92 @@ function MemberInformation() {
         <h2 className="h2 py-2 border-b-2 border-line">我的檔案</h2>
           <div className="flex mt-10 justify-around mx-1">
               <form>
-                <div class="md:flex md:items-center mb-2">
-                  <div class="md:w-1/4">
-                    <label class="block text-gray-500 md:text-right mb-1 md:mb-0 pr-4" for="inline-full-name">
+                <div className="md:flex md:items-center mb-2">
+                  <div className="md:w-1/4">
+                    <label className="block mb-1 md:mb-0 pr-4" for="inline-full-name">
                       暱稱
                     </label>
                   </div>
-                  <div class="flex items-center border-b border-line py-2">
-                    <input class="w-full text-gray-700 mr-3 py-1 px-2 " type="text" placeholder="Jane Doe" aria-label="Full name" />
-                    <button class="flex-shrink-0 text-sm py-1 px-2 hover:text-teal-900" type="button">
+                  <div className="flex items-center border-b border-line py-2">
+                    <input className="w-full mr-3 py-1 px-3 " type="text" placeholder="Jane Doe" aria-label="Full name" />
+                    {/* <button className="flex-shrink-0 text-sm py-1 px-2 hover:text-teal-900" type="button">
                       編輯
-                    </button>
+                    </button> */}
                   </div>
                 </div>
-                <div class="md:flex md:items-center mb-2">
-                  <div class="md:w-1/4">
-                    <label class="block text-gray-500 md:text-right mb-1 md:mb-0 pr-4" for="inline-full-name">
+                <div className="md:flex md:items-center mb-2">
+                  <div className="md:w-1/4">
+                    <label className="block mb-1 md:mb-0 pr-4" for="inline-full-name">
                       姓名
                     </label>
                   </div>
-                  <div class="flex items-center border-b border-line py-2">
-                    <input class="w-full text-gray-700 mr-3 py-1 px-2" type="text" placeholder="Jane Doe" aria-label="Full name" />
-                    <button class="flex-shrink-0 text-sm py-1 px-2 hover:text-teal-900" type="button">
+                  <div className="flex items-center border-b border-line py-2">
+                    <input className="w-full text-gray-700 mr-3 py-1 px-2" type="text" placeholder="Jane Doe" aria-label="Full name" />
+                    {/* <button className="flex-shrink-0 text-sm py-1 px-2 hover:text-teal-900" type="button">
                       編輯
-                    </button>
+                    </button> */}
                   </div>
                 </div>
-                <div class="md:flex md:items-center mb-2">
-                  <div class="md:w-1/4">
-                    <label class="block text-gray-500 md:text-right mb-1 md:mb-0 pr-4" for="inline-full-name">
+                <div className="md:flex md:items-center mb-2">
+                  <div className="md:w-1/4">
+                    <label className="block mb-1 md:mb-0 pr-4" for="inline-full-name">
                       E-mail
                     </label>
                   </div>
-                  <div class="flex items-center border-b border-line py-2">
-                    <input class="text-gray-700 mr-3 py-1 px-2" type="text" placeholder="Jane Doe" aria-label="Full name" />
-                    <button class="flex-shrink-0 text-sm py-1 px-2 hover:text-teal-900" type="button">
+                  <div className="flex items-center border-b border-line py-2">
+                    <input className="mr-3 py-1 px-2" type="text" placeholder="Jane Doe" aria-label="Full name" />
+                    {/* <button className="flex-shrink-0 text-sm py-1 px-2 hover:text-teal-900" type="button">
                       編輯
-                    </button>
+                    </button> */}
                   </div>
                 </div>
-                <div class="md:flex md:items-center mb-2">
-                  <div class="md:w-1/4">
-                    <label class="block text-gray-500 md:text-right mb-1 md:mb-0 pr-4" for="inline-full-name">
+                <div className="md:flex md:items-center mb-2">
+                  <div className="md:w-1/4">
+                    <label className="block mb-1 md:mb-0" for="inline-full-name">
                       手機號碼
                     </label>
                   </div>
-                  <div class="flex items-center border-b border-line py-2">
-                    <input class="w-full text-gray-700 mr-3 py-1 px-2" type="text" placeholder="Jane Doe" aria-label="Full name" />
-                    <button class="flex-shrink-0 text-sm py-1 px-2 hover:text-teal-900" type="button">
+                  <div className="flex items-center border-b border-line py-2">
+                    <input className="w-full mr-6 py-1 px-2 mx-2" type="text" placeholder="Jane Doe" aria-label="Full name" />
+                    {/* <button className="flex-shrink-0 text-sm py-1 px-2 hover:text-teal-900" type="button">
                       編輯
-                    </button>
+                    </button> */}
                   </div>
                 </div>
-                <div class="md:flex md:items-center mb-2">
-                  <div class="md:w-1/4">
-                    <label class="block text-gray-500 md:text-right mb-1 md:mb-0 pr-4" for="inline-full-name">
+                <div className="md:flex md:items-center mb-2">
+                  <div className="md:w-1/4">
+                    <label className="block mb-1 md:mb-0 pr-6" for="inline-full-name">
                       性別
                     </label>
                   </div>
-                  <div class="flex items-center border-b border-line py-2">
-                    <input class="w-full text-gray-700 mr-3 py-1 px-2" type="text" placeholder="Jane Doe" aria-label="Full name" />
-                    <button class="flex-shrink-0 text-sm py-1 px-2 hover:text-teal-900" type="button">
+                  <div className="flex items-center border-b border-line py-2 mt-2">
+                    <div class="flex items-center mr-6">
+                      <input id="radio" type="radio" value="" name="colored-radio" className=""/>
+                      <label for="radio" class="ml-2 text-sm font-normal">男</label>
+                    </div>
+                    <div class="flex items-center mr-6">
+                      <input id="radio" type="radio" value="" name="colored-radio" className=""/>
+                      <label for="radio" class="ml-2 text-sm font-normal">女</label>
+                    </div>
+                     <div class="flex items-center mr-6">
+                      <input id="adio" type="radio" value="" name="colored-radio" className=""/>
+                      <label for="radio" class="ml-2 text-sm font-normal">不想說</label>
+                    </div>
+                    {/* <button className="flex-shrink-0 text-sm py-1 px-2 hover:text-teal-900" type="button">
                       編輯
-                    </button>
+                    </button> */}
                   </div>
                 </div>
-                <div class="md:flex md:items-center mb-2">
-                  <div class="md:w-1/4">
-                    <label class="block text-gray-500 md:text-right mb-1 md:mb-0 pr-4" for="inline-full-name">
+                <div className="md:flex md:items-center">
+                  <div className="md:w-1/4">
+                    <label className="block mb-1 md:mb-0" for="inline-full-name">
                       生日
                     </label>
                   </div>
-                  <div class="flex items-center border-b border-line py-2">
-                    <input class="w-full text-gray-700 mr-3 py-1 px-2" type="text" placeholder="Jane Doe" aria-label="Full name" />
-                    <button class="flex-shrink-0 text-sm py-1 px-2 hover:text-teal-900" type="button">
-                      編輯
-                    </button>
-                  </div>
+                  <Input variant="standard"  placeholder="" />
                 </div>
                 <div className="text-center">
-                  <button class="text-center bg-dark text-white font-bold py-2 px-4" type="button">
+                  <button class="text-center bg-dark text-white font-bold py-2 px-4 mt-8" type="button">
                       儲存設定
                   </button>
                 </div>
