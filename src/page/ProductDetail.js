@@ -245,7 +245,7 @@ function ProductDetail() {
             </Button>
 
             <Button
-              className="px-4 text-white border-2 rounded-none border-warning bg-warning"
+              className="px-4 text-white border-2 rounded-none shadow-primary border-warning bg-warning"
               variant="filled"
             >
               <span className="p">立即購買</span>
@@ -312,10 +312,7 @@ function ProductDetail() {
             {/* 評論區 下半部使用者 */}
             <div className="">
               <UserComment />
-              <UserComment />
-              <UserComment />
-              <UserComment />
-              <UserComment />
+             
             </div>
 
             <div className="flex items-center justify-start mt-4 mb-12 ml-8 text-secondary md:hidden ">

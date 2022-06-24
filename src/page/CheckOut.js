@@ -1,18 +1,21 @@
 import React from "react";
-import { AiOutlineArrowDown, AiOutlineArrowUp } from "react-icons/ai";
+import CitySelector from "../components/tw-city-selector/tw-city-selector";
+{/* import { Radio } from "@material-tailwind/react";
+import { BiRadioCircleMarked,BiRadioCircle } from "react-icons/bi"; */}
+
 
 function Index() {
   return (
     <>
       {/* contact & credit card */}
-      <div className="p-10 border-t md:pl-0 md:flex mt-14">
+      <div className="p-10 border-t mt-14">
         {/* 訂購資訊 */}
-        <div className="p-5 mb-10 md:mr-10 bg-primary">
+        <div className="p-5 mb-10 bg-primary">
           <div className="pb-5 border-b">
             <span className="block pb-3 font-medium h3">訂購資訊</span>
             <span className="block p">訂購人資料</span>
             <div className="grid grid-cols-2 gap-2">
-              <label className="pt-2 text-xs">姓名</label>
+              <label className="pt-2 mb-1 text-xs">姓名</label>
               <label className="pt-2 text-xs">電話</label>
             </div>
             <div className="grid grid-cols-2 gap-2">
@@ -32,31 +35,93 @@ function Index() {
               </div>
             </div>
             <div className="pt-3">
-              <label className="text-xs">姓名</label>
+              <label className="text-xs">信箱</label>
               <input
                 type="text"
                 className="w-full h-6 py-4 pl-2 text-sm focus:outline-none"
-                placeholder="請輸入真實全名"
+                placeholder="請輸入電子郵件"
               />
             </div>
             <div className="pt-3">
-              <label className="text-xs">地址</label>
+               <CitySelector/> 
+            </div>
+            <div className="pt-2">
               <input
                 type="text"
                 className="w-full h-6 py-4 pl-2 text-sm focus:outline-none"
                 placeholder="請輸入詳細地址"
               />
             </div>
+            {/* 付款方式 */}
+            <div className="pt-3">
+              <label className="block text-xs">付款方式</label>
+              <div className="md:flex">
+                  <div className="py-2 mr-5">
+                    <input type="radio" className="mr-2" onClick={
+                        ()=>{}
+                    }/>
+                    <label className="text-sm">線上刷卡</label>
+                  </div>
+                  <div className="py-2 mr-5">
+                    <input type="radio" className="mr-2" onClick={
+                        ()=>{}
+                    }/>
+                    <label className="text-sm">轉帳匯款</label>
+                  </div>
+                <div className="py-2 mr-5">
+                  <input type="radio" className="mr-2" onClick={
+                      ()=>{}
+                  }/>
+                  <label className="text-sm">超商取貨付款</label>
+                </div>
+                <div className="py-2 mr-5">
+                  <input type="radio" className="mr-2" onClick={
+                      ()=>{}
+                  }/>
+                  <label className="text-sm">超商代碼繳費</label>
+                </div>
+              </div>
+              {/* <Radio color="pink"   className="text-sm"/> */}
+              {/* <BiRadioCircleMarked className="text-xl"/>
+              <BiRadioCircle   className="text-xl" onClick={()=>{}}/> */}
+            </div>
+            {/* 配送方式 */}
+            <div className="pt-3">
+              <label className="block text-xs">配送方式</label>
+              <div className="md:flex">
+                <div className="py-2 mr-5">
+                  <input type="radio" className="mr-2" onClick={
+                      ()=>{}
+                  }/>
+                  <label className="text-sm">門市自取</label>
+                </div>
+                <div className="py-2 mr-5">
+                  <input type="radio" className="mr-2" onClick={
+                      ()=>{}
+                  }/>
+                  <label className="text-sm">超商取件</label>
+                </div>
+                <div className="py-2 mr-5">
+                  <input type="radio" className="mr-2" onClick={
+                      ()=>{}
+                  }/>
+                  <label className="text-sm">宅配到府</label>
+                </div>
+              </div>
+            </div>
+            
           </div>
           {/* 收件資訊 */}
           <div className="py-5">
             <span className="block p">收件人資料</span>
-            <div className="py-2">
-                <input type="checkbox" class="mr-2" />
+            <div className="py-2 ">
+                <input type="radio" className="mr-2" onClick={
+                    ()=>{}
+                }/>
                 <label className="text-sm">同訂購人資訊</label>
             </div>
             <div className="grid grid-cols-2 gap-2">
-              <label className="pt-2 text-xs">姓名</label>
+              <label className="pt-2 mb-1 text-xs">姓名</label>
               <label className="pt-2 text-xs">電話</label>
             </div>
             <div className="grid grid-cols-2 gap-2">
@@ -76,16 +141,17 @@ function Index() {
               </div>
             </div>
             <div className="pt-3">
-              <label className="text-xs">姓名</label>
+              <label className="text-xs ">信箱</label>
               <input
                 type="text"
                 className="w-full h-6 py-4 pl-2 text-sm focus:outline-none"
-                placeholder="請輸入真實全名"
+                placeholder="請輸入電子郵件"
               />
             </div>
-
             <div className="pt-3">
-              <label className="text-xs">地址</label>
+               <CitySelector/> 
+            </div>
+            <div className="pt-2">
               <input
                 type="text"
                 className="w-full h-6 py-4 pl-2 text-sm focus:outline-none"
@@ -93,9 +159,12 @@ function Index() {
               />
             </div>
           </div>
+          <button className="w-full py-2 text-white border hover:bg-secondary" onClick={()=>{}}>
+                確認付款
+          </button>
         </div>
 
-        {/* 信用卡 */}
+        {/* 信用卡
         <div className="p-5 overflow-visible md:mr-10 bg-primary">
           <span className="block pb-3 font-medium h3">Card Details</span>
 
@@ -135,7 +204,7 @@ function Index() {
             <label className="text-xs">Name on Card</label>
             <input
               type="text"
-              className="w-full h-6 py-4 text-sm focus:outline-none"
+              className="w-full h-6 py-4 pl-2 text-sm focus:outline-none"
               placeholder="Giga Tamarashvili"
             />
           </div>
@@ -144,7 +213,7 @@ function Index() {
             <label className="text-xs">Card Number</label>
             <input
               type="text"
-              className="w-full h-6 py-4 text-sm focus:outline-none"
+              className="w-full h-6 py-4 pl-2 text-sm focus:outline-none"
               placeholder="****     ****      ****      ****"
             />
           </div>
@@ -155,12 +224,12 @@ function Index() {
               <div className="grid grid-cols-2 gap-2">
                 <input
                   type="text"
-                  className="w-full h-6 py-4 text-sm focus:outline-none"
+                  className="w-full h-6 py-4 pl-2 text-sm focus:outline-none"
                   placeholder="mm"
                 />
                 <input
                   type="text"
-                  className="w-full h-6 py-4 text-sm focus:outline-none"
+                  className="w-full h-6 py-4 pl-2 text-sm focus:outline-none"
                   placeholder="yyyy"
                 />
               </div>
@@ -170,7 +239,7 @@ function Index() {
               <label className="text-xs">CVV</label>
               <input
                 type="text"
-                className="w-full h-6 py-4 text-sm focus:outline-none"
+                className="w-full h-6 py-4 pl-2 text-sm focus:outline-none"
                 placeholder="XXX"
               />
             </div>
@@ -179,7 +248,7 @@ function Index() {
           <button className="w-full py-2 text-white border hover:bg-secondary">
             Submit Order
           </button>
-        </div>
+        </div> */}
       </div>
     </>
   );

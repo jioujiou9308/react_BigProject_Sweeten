@@ -12,12 +12,6 @@ const socket = io("http://localhost:8001", {
   },
 });
 
-function Message(side, msg) {
-  this.side = side;
-  this.msg = [msg];
-}
-const initMsg = new Message("official", "親愛的用戶您好，請描述您遇到的問題。");
-
 // log = [ {side:str, msg:str[]}, {side:str, msg:str[]} ]
 
 const OnlineHelp = () => {
@@ -30,7 +24,11 @@ const OnlineHelp = () => {
     socket.on("support", (res) => {
       dispatch(sendMsg(res));
     });
-  }, []);
+    return () => {
+      socket.off("support");
+    };
+  }, [dispatch]);
+
   return (
     <>
       <div className="mt-5 border-b-2 border-line">

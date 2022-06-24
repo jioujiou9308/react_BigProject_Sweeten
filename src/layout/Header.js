@@ -9,6 +9,8 @@ import { Button } from "@material-tailwind/react";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { useDispatch } from "react-redux/es/exports";
+import { openLogin } from "../utils/redux/modalSlice";
 
 const pageTitle = ["首頁", "商城", "會員專區", "關於我們"];
 const subPage = {
@@ -37,8 +39,12 @@ const active = "border-b-2 ";
 const Header = () => {
   const [isOpen, setOpen] = useState(false);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const toggle = () => setOpen(!isOpen);
-
+  const handleOpen = () => dispatch(openLogin());
+  const handleNavigate = (path) => () => {
+    navigate(path);
+  };
   return (
     <motion.header
       className={`fixed top-0 z-50 w-full min-w-[370px] h-[6rem]  pt-4 pb-3 overflow-hidden  bg-white shadow`}
@@ -47,7 +53,7 @@ const Header = () => {
     >
       <div className="mx-auto max-w-7xl">
         {/* logo & icons */}
-        <div className="flex flex-wrap justify-between mx-auto ">
+        <div className="flex flex-wrap justify-between pl-2 mx-auto ">
           <img
             onClick={() => {
               navigate("/");
@@ -63,9 +69,7 @@ const Header = () => {
               <Link to="/main/cart">
                 <AiOutlineShoppingCart className="mx-1 icon-sm" />
               </Link>
-              <Link to="/login">
-                <AiOutlineUserAdd className="mx-1 icon-sm" />
-              </Link>
+              <AiOutlineUserAdd className="mx-1 icon-sm" onClick={handleOpen} />
               <AiOutlineUnorderedList
                 className="mx-1 icon-sm"
                 onClick={toggle}
@@ -94,10 +98,9 @@ const Header = () => {
                     variant="text"
                     className="px-0 py-1 rounded-none"
                     key={title}
+                    onClick={handleNavigate(subPage.path[mainIdx][subIdx])}
                   >
-                    <Link to={subPage.path[mainIdx][subIdx]}>
-                      <p className="my-1 text-dark">{title}</p>
-                    </Link>
+                    <p className="my-1 text-dark">{title}</p>
                   </Button>
                 ))}
               </div>

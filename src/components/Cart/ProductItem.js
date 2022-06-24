@@ -6,7 +6,7 @@ import {
 } from "react-icons/ai";
 
 function ProductItem(props) {
-  const { id, name, size, flavor, categroy, count, image, price, setCount, removeItem } = props;
+  const { name, size, flavor, count, image, price, setCount, removeItem } = props;
 
   return (
     <>

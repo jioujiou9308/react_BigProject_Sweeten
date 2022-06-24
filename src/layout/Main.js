@@ -5,9 +5,8 @@ import Course from "../page/Course";
 import CourseDetail from "../page/CourseDetail";
 import Member from "../page/Member";
 import MemberColloction from "../page/MemberCollection";
-import MemberInformation2 from "../page/MemberInformation2";
-import MemberInformation from "../page/MemberInformation";
-import Signup2 from "../page/Signup2";
+import MemberInformation2 from "../page/MemberInformation";
+import MemberInformation from "../page/MemberInformation2";
 import MemberOrder from "../page/MemberOrder";
 import Product from "../page/Product";
 import ProductDetail from "../page/ProductDetail";
@@ -20,9 +19,9 @@ import CheckOut from "../page/CheckOut";
 
 const Main = () => {
   return (
-    <main className="flex flex-wrap justify-center pt-32 pb-12 mx-auto">
+    <main className="flex flex-wrap justify-center pb-12 mx-auto pt-36 ">
       {/* <Aside /> */}
-      <div className="w-full max-w-5xl md:w-3/4">
+      <div className="relative w-full p-8 bg-white shadow max-w-screen-2xl ">
         <Routes>
           <Route path="/login" element={<Login />} />
           <Route path="/product" element={<Product />} />
@@ -38,7 +37,6 @@ const Main = () => {
           <Route path="/about" element={<About />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/signup" element={<Signup />} />
-          <Route path="/signup2" element={<Signup2 />} />
           <Route path="/checkOut" element={<CheckOut />} />
           <Route path="/customerService" element={<CustomerService />} />
         </Routes>

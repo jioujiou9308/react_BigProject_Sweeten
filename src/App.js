@@ -8,6 +8,9 @@ import Login from "./components/Login";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
+import LoginModal from "./components/Dialog/LoginModal";
+
+// TODO 註冊 關於 上下架 訂單 課程 即期品
 
 function App() {
   //AOS初始化
@@ -17,7 +20,7 @@ function App() {
   }, []);
 
   return (
-    <div className="relative min-h-screen bg-white App text-dark">
+    <div className="relative min-h-screen bg-[#f6f6f6] App text-dark">
       <BrowserRouter>
         <Header />
         <Routes>
@@ -27,6 +30,7 @@ function App() {
         </Routes>
       </BrowserRouter>
       <Footer />
+      <LoginModal />
     </div>
   );
 }
