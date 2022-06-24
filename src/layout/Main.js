@@ -1,7 +1,8 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import About from "../page/About";
-import Course from "../page/Course";
+// import Course from "../page/Course";
+import Course from "../page/Course_ex";
 import CourseDetail from "../page/CourseDetail";
 import Member from "../page/Member";
 import MemberColloction from "../page/MemberCollection";
@@ -30,7 +31,9 @@ const Main = () => {
           <Route path="/member/order" element={<MemberOrder />} />
           <Route path="/member/collection" element={<MemberColloction />} />
           <Route path="/member/information" element={<MemberInformation />} />
+          {/* <Route path="/course" element={<Course />} /> */}
           <Route path="/course" element={<Course />} />
+
           <Route path="/course/detail" element={<CourseDetail />} />
           <Route path="/about" element={<About />} />
           <Route path="/cart" element={<Cart />} />
