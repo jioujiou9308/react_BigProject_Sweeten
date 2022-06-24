@@ -77,7 +77,7 @@ function Filter() {
           <AiFillFilter className="icon-sm" />
         </div>
         <div className="overflow-hidden ">
-          {open == true ? (
+          {open === true ? (
             <div
               className="grid grid-cols-1 gap-4 mt-4 "
               data-aos="fade-down"

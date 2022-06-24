@@ -11,7 +11,6 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "../components/home/styles.css";
 import { Autoplay } from "swiper";
-
 const s3Cards = [
   {
     img: "../../images/home/session3/hp-express.png",
@@ -53,58 +52,31 @@ const Home = (props) => {
             className="mySwiper"
           >
             <SwiperSlide>
-              <img
-                src={`${process.env.PUBLIC_URL}/images/home/banner1.jpeg`}
-                alt="..."
-              />
+              <img src={`/images/home/banner1.jpeg`} alt="..." />
             </SwiperSlide>
             <SwiperSlide>
-              <img
-                src={`${process.env.PUBLIC_URL}/images/home/banner2.jpeg`}
-                alt="..."
-              />
+              <img src={`/images/home/banner2.jpeg`} alt="..." />
             </SwiperSlide>
             <SwiperSlide>
-              <img
-                src={`${process.env.PUBLIC_URL}/images/home/banner3.jpeg`}
-                alt="..."
-              />
+              <img src={`/images/home/banner3.jpeg`} alt="..." />
             </SwiperSlide>
             <SwiperSlide>
-              <img
-                src={`${process.env.PUBLIC_URL}/images/home/banner4.jpeg`}
-                alt="..."
-              />
+              <img src={`/images/home/banner4.jpeg`} alt="..." />
             </SwiperSlide>
             <SwiperSlide>
-              <img
-                src={`${process.env.PUBLIC_URL}/images/home/banner5.jpeg`}
-                alt="..."
-              />
+              <img src={`/images/home/banner5.jpeg`} alt="..." />
             </SwiperSlide>
             <SwiperSlide>
-              <img
-                src={`${process.env.PUBLIC_URL}/images/home/banner6.jpeg`}
-                alt="..."
-              />
+              <img src={`/images/home/banner6.jpeg`} alt="..." />
             </SwiperSlide>
             <SwiperSlide>
-              <img
-                src={`${process.env.PUBLIC_URL}/images/home/banner7.jpeg`}
-                alt="..."
-              />
+              <img src={`/images/home/banner7.jpeg`} alt="..." />
             </SwiperSlide>
             <SwiperSlide>
-              <img
-                src={`${process.env.PUBLIC_URL}/images/home/banner8.jpeg`}
-                alt="..."
-              />
+              <img src={`/images/home/banner8.jpeg`} alt="..." />
             </SwiperSlide>
             <SwiperSlide>
-              <img
-                src={`${process.env.PUBLIC_URL}/images/home/banner9.jpeg`}
-                alt="..."
-              />
+              <img src={`/images/home/banner9.jpeg`} alt="..." />
             </SwiperSlide>
           </Swiper>
         </div>
