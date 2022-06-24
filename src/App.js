@@ -8,7 +8,6 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
 import LoginModal from "./components/Dialog/LoginModal";
-import { motion } from "framer-motion";
 
 // TODO 註冊 關於 上下架 訂單 課程 即期品
 
@@ -30,7 +29,6 @@ function App() {
       </BrowserRouter>
       <Footer />
       <LoginModal />
-      <motion.div drag>123</motion.div>
     </div>
   );
 }

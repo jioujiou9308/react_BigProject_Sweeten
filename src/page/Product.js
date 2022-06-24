@@ -10,7 +10,6 @@ import MenuTag from "../components/menuTag/MenuTag";
 // import TabBar from "../components/product/Tabs";
 
 const Product = () => {
-  
   // const [productState, setProduct] = useProductState();
   return (
     <>
