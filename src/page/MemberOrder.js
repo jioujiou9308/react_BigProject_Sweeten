@@ -2,11 +2,15 @@ import React, { useState } from "react";
 
 import MemberSearchBar from "../components/memberCollection/MemberSearchBar";
 import MemberOrderBar from "../components/memberOrder/MemberOrderBar";
+import NotPaid from "../components/memberOrder/NotPaid";
+import NotDelivered from "../components/memberOrder/NotDelivered";
 import OrderItems from "../components/memberOrder/OrderItems";
-
-
+import NotReceived from "../components/memberOrder/NotReceived";
+import Completed from "../components/memberOrder/Completed";
 
 function MemberOrder() {
+  const step = ["全部", "待付款", "待出貨", "待收貨", "完成"]
+  const [barStep, setBarStep] = useState(1)
   // 假資料
   const products = [
     {
@@ -31,13 +35,14 @@ function MemberOrder() {
       price: 750,
     },
   ];
-  
- 
+
+
+
   return (
     <>
       <div className="bg-white">
         <div className="mb-6">
-          <MemberOrderBar />
+          <MemberOrderBar setBarStep={setBarStep} step={step}/>
         </div>
         <div className="mb-6">
           <MemberSearchBar />
@@ -51,21 +56,22 @@ function MemberOrder() {
             const { id, name, img, count, price } = product;
             return (
               <>
-                
                 <div className="mt-10 shadow-md md:flex">
-                <OrderItems
-                  id={id}
-                  name={name}
-                  img={img}
-                  count={count}
-                  price={price}
-                />
+                  <OrderItems
+                    id={id}
+                    name={name}
+                    img={img}
+                    count={count}
+                    price={price}
+                  />
+                  <NotPaid />
+                  <NotDelivered />
+                  <NotReceived />
+                  <Completed />
                 </div>
               </>
             );
           })}
-
-          
         </div>
       </div>
     </>
