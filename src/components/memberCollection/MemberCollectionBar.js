@@ -3,8 +3,9 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 
 
-function MemberCollectionBar() {
+function MemberCollectionBar(props) {
   const [x, setX] = useState(0);
+  const {isOn, setIsOn} = props;
 
   return (
     <>
@@ -13,6 +14,7 @@ function MemberCollectionBar() {
           className="pb-2 text-center"
           onClick={() => {
             setX(0);
+            setIsOn(1)
           }}
         >
           <p>收藏</p>
@@ -20,6 +22,7 @@ function MemberCollectionBar() {
         <div
           onClick={() => {
             setX("100%");
+            setIsOn(2)
           }}
         >
           <p className="pb-2 text-center">評論</p>

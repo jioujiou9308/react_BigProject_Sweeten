@@ -51,7 +51,7 @@ const star = (score) => {
 };
 
 const MemberColloction = () => {
-  const [isOn, setIsOn] = useState()
+  const [isOn, setIsOn] = useState(1)
   return (
     <>
       <div className="mx-2 md:mx-0 ">
@@ -62,9 +62,12 @@ const MemberColloction = () => {
           <MemberSearchBar />
         </div>
         <div className="pt-8 bg-white md:pt-0 md:px-10">
-          <h2 className="hidden py-2 border-b h2 md:block">我的收藏</h2>
+        
+          <h2 className="hidden py-2 border-b h2 md:block">{isOn==1?'我的收藏':'商品評論'}</h2>
 
-          {products.map((product, i) => {
+
+{isOn == 1&&(
+  products.map((product, i) => {
             const { id, name, img, price, score } = product;
             return (
               <>
@@ -120,9 +123,12 @@ const MemberColloction = () => {
                 </div>
               </>
             );
-          })}
+          })
+)}
+          
         </div>
-        <UserCommentCard  isOn={isOn} setIsOn={setIsOn}/>
+        {isOn == 2 && (<UserCommentCard  isOn={isOn} setIsOn={setIsOn}/>)}
+        
       </div>
     </>
   );
