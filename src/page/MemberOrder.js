@@ -9,8 +9,8 @@ import NotReceived from "../components/memberOrder/NotReceived";
 import Completed from "../components/memberOrder/Completed";
 
 function MemberOrder() {
-  const step = ["全部", "待付款", "待出貨", "待收貨", "完成"]
-  const [barStep, setBarStep] = useState(1)
+  const step = ["全部", "待付款", "待出貨", "待收貨", "完成"];
+  const [barStep, setBarStep] = useState(0);
   // 假資料
   const products = [
     {
@@ -36,43 +36,73 @@ function MemberOrder() {
     },
   ];
 
-
-
   return (
     <>
       <div className="bg-white">
         <div className="mb-6">
-          <MemberOrderBar setBarStep={setBarStep} step={step}/>
+          <MemberOrderBar setBarStep={setBarStep} step={step} />
         </div>
         <div className="mb-6">
           <MemberSearchBar />
         </div>
-        <div className="pt-2 mx-5 text-left border-b h2">
-          <h2>我的訂單</h2>
-        </div>
 
-        <div className="mb-10">
-          {products.map((product, i) => {
-            const { id, name, img, count, price } = product;
-            return (
-              <>
-                <div className="mt-10 shadow-md md:flex">
-                  <OrderItems
-                    id={id}
-                    name={name}
-                    img={img}
-                    count={count}
-                    price={price}
-                  />
-                  <NotPaid />
-                  <NotDelivered />
-                  <NotReceived />
-                  <Completed />
-                </div>
-              </>
-            );
-          })}
-        </div>
+        {barStep == 0 && (
+          <>
+            <div className="pt-2 mx-5 text-left border-b h2">
+              <h2>我的訂單</h2>
+            </div>
+            <div className="mb-10">
+              {products.map((product, i) => {
+                const { id, name, img, count, price } = product;
+                return (
+                  <>
+                    <div className="mt-10 shadow-md md:flex">
+                      <OrderItems
+                        id={id}
+                        name={name}
+                        img={img}
+                        count={count}
+                        price={price}
+                      />
+                    </div>
+                  </>
+                );
+              })}
+            </div>
+          </>
+        )}
+        {barStep == 1 && (
+          <>
+            <div className="pt-2 mx-5 text-left border-b h2">
+              <h2>待付款項目</h2>
+            </div>{" "}
+            <NotPaid />
+          </>
+        )}
+        {barStep == 2 && (
+          <>
+            <div className="pt-2 mx-5 text-left border-b h2">
+              <h2>待出貨項目</h2>
+            </div>{" "}
+            <NotDelivered />
+          </>
+        )}
+        {barStep == 3 && (
+          <>
+            <div className="pt-2 mx-5 text-left border-b h2">
+              <h2>待收貨項目</h2>
+            </div>{" "}
+            <NotReceived />
+          </>
+        )}
+        {barStep == 4 && (
+          <>
+            <div className="pt-2 mx-5 text-left border-b h2">
+              <h2>完成項目</h2>
+            </div>{" "}
+            <Completed />
+          </>
+        )}
       </div>
     </>
   );
