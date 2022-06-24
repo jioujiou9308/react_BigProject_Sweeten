@@ -12,21 +12,19 @@ const CardCourse_ex = () => {
             alt=""
           />
 
-          <div className="absolute z-30 text-center text-white -translate-x-1/2 -translate-y-1/2 bg-black md:p-3 md:w-1/2 w-3/7 left-1/2 b-0 rounded-2xl md:left-1/3">
-            <div className="h1">Best Weight Loss Programs for 2022</div>
+          <div className="absolute z-30 w-5/6 text-center text-white -translate-x-1/2 bg-black top-1/2 left-1/2 rounded-2xl md:w-2/3 md:left-1/3">
+            <div className="h4">Best Weight Loss Programs for 2022</div>
             <div className="p">
-              {" "}
               Auctor eu augue ut lectus arcu. Sit amet tellus cras adipiscing.
-              Malesuada proin libero nunc consequat interdum. Urna porttitor
-              rhoncus dolor purus non enim praesent elementum.
             </div>
           </div>
-          <div className="absolute right-0 z-0 w-2/4 h-[1000px] translate-x-1/4 bg-light-blue-600 top-1/2"></div>
-          <div className="absolute right-0 w-4/5 mt-8 text-right text-white -translate-x-5 h4">
-            <div>Vivamus arcu felis bibendum</div>
-            <div>Habitant morbi tristique senectus</div>
-            <div>Sapien eget mi proin sed libero</div>
-            <div>Et ultrices neque ornare aenean</div>
+          <div className="absolute left-1/2 -translate-x-1/2 z-0 w-3/4   h-[1000px]  bg-light-blue-600 top-1/2"></div>
+          <div className="absolute w-2/3 mt-16 text-white -translate-x-1/2 left-1/2 p">
+            {/* right-0 w-4/5 mt-8 -translate-x-5 h4 */}
+            <div>1. 安全的美食</div>
+            <div>2. 專業的訓練</div>
+            <div>3. 高級又平價的食材</div>
+            <div>4. 豐富有趣的內容</div>
           </div>
         </div>
         <div className="w-4/5 m-auto h-96 "></div>
@@ -53,7 +51,7 @@ const CardCourse_ex = () => {
             </div>
           </div>
         </div>
-        <CourseSwiper className="w-2/3" />
+        <CourseSwiper className="" />
       </div>
     </>
   );
