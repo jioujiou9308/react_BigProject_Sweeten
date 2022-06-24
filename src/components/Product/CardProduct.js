@@ -2,6 +2,7 @@ import React from "react";
 import OneCardProduct from "./OneCardProduct";
 import { useProductState } from "../../utils/redux/hooks-redux";
 
+
 const products = [
   {
     id: 1,
@@ -31,6 +32,7 @@ const products = [
 
 const CardProduct = () => {
   const [product, setProduct] = useProductState();
+ 
   return (
     <>
       <section className="bg-white">
