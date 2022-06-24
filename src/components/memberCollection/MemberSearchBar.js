@@ -8,7 +8,8 @@ function MemberSearchBar() {
     <>
       <div className="px-3">
         <Input
-          color="pink"
+        className="text-dark"
+          color="deep-orange"
           label="你可以透過訂單編號、商品名稱搜索"
           icon={<AiOutlineSearch className="mr-4 icon" />}
         />
