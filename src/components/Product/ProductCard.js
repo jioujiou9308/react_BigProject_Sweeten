@@ -1,10 +1,12 @@
 import React from "react";
 import { AiOutlineMessage, AiOutlineHeart } from "react-icons/ai";
+import { useNavigate } from "react-router-dom";
 import { useProductState } from "../../utils/redux/hooks-redux";
 
 const ProductCard = (props) => {
   const { id, name, price, img } = props;
   const [product, serProduct] = useProductState();
+  const navigate = useNavigate()
   return (
     <>
       <div className=" mb-6 mx-1 xl:w-[13rem]">
@@ -13,6 +15,9 @@ const ProductCard = (props) => {
             className="object-cover w-full rounded-sm h-[15rem]"
             src={img}
             alt="T-Shirt"
+            onClick={()=>{
+              navigate('/main/product/detail')
+            }}
           />
           <div className="flex items-center justify-end w-full mt-2">
             <h4 className="w-full text-lg font-medium dark:text-gray-200">

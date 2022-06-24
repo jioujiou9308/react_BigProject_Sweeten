@@ -5,6 +5,8 @@ import axios from "axios";
 import { API_URL } from "../utils/config";
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { useCartState } from "../utils/redux/hooks-redux";
+import { useRef } from "react";
 
 // const testUser = {
 //   name: "test",
@@ -16,6 +18,7 @@ const Test = () => {
   const [Inputs, allRef] = useMultiInput(["name", "acount", "password"]);
   const [x, setX] = useState(0);
   const [rotate, setRotate] = useState("0deg");
+  const photoRef = useRef();
 
   return (
     <>
@@ -49,6 +52,9 @@ const Test = () => {
         get
       </button>
       <br />
+      <form action="l6" method="post">
+        <button>submit</button>
+      </form>
 
       {/* ecpay */}
       <button>綠界</button>
@@ -66,6 +72,24 @@ const Test = () => {
         </div>
         <button>
           <span className="border rounded h3">結帳</span>
+        </button>
+      </form>
+      <br />
+      <form action={`${API_URL}/product/photo`}>
+        <input name="photo" type="file" ref={photoRef} />
+        <button
+          onClick={(e) => {
+            e.preventDefault();
+            let formData = new FormData();
+            formData.append("photo", photoRef.current.files[0]);
+            console.log(photoRef.current.files[0]);
+            axios
+              .post(`${API_URL}/product/photo`, formData)
+              .then((res) => console.log(res))
+              .catch((e) => console.log(e));
+          }}
+        >
+          送出
         </button>
       </form>
       <br />

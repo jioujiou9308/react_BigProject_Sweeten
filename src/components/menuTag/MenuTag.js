@@ -16,7 +16,7 @@ const MenuTag = () => {
           size="sm"
           className={`p-1 mx-2 text-white rounded-b-none bg-secondary shadow-none `}
           initial={{ y: 5 }}
-          animate={{ y: initButtonY[i] }}
+          animate={{ y: 5 }}
           whileHover={{ y: 0 }}
         >
           {title}
