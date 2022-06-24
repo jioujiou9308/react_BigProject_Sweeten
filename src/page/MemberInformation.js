@@ -32,7 +32,7 @@ const MemberInformation = () => {
             formDate.append('email', member.email);
             formDate.append('phohe', member.phone);
             formDate.append('photo', member.photo);
-            let response = axios.post(`${API_URL/MemberInformation2, formDate}`);
+            let response = axios.post(`${API_URL/MemberInformation, formDate}`);
         } catch (e) {
             console.error(e);
         }
