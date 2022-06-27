@@ -6,7 +6,7 @@ import { API_URL } from "../../utils/config";
 const UserComment = () => {
 
 
-  const [comment, setComment] = useState();
+  const [comment, setComment] = useState([]);
   useEffect(() => {
     let getComment = async () => {
       let response = await axios.get(API_URL + "/product/comment/product/1");
