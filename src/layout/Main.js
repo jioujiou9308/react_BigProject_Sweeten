@@ -2,7 +2,7 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 import About from "../page/About";
 // import Course from "../page/Course";
-import Course from "../page/Course_ex";
+import Course from "../page/Course";
 import CourseDetail from "../page/CourseDetail";
 import Member from "../page/Member";
 import MemberColloction from "../page/MemberCollection";

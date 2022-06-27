@@ -1,51 +1,49 @@
 import React, { useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { EffectCoverflow, Pagination } from "swiper";
+
 import "swiper/css";
-import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
+import "swiper/css/navigation";
+
 import "./SwiperStyles.css";
 
-const CourseSwiper = () => {
+import { Pagination, Navigation } from "swiper";
+
+const CourseSwiper = (props) => {
+  const { lessons, setSwipe } = props;
+  console.log(lessons);
+
   return (
     <>
       <Swiper
-        effect={"coverflow"}
-        grabCursor={true}
-        centeredSlides={true}
-        slidesPerView={"auto"}
-        coverflowEffect={{
-          rotate: 20,
-          stretch: 0,
-          depth: 100,
-          modifier: 1,
-          slideShadows: true,
+        slidesPerView={3}
+        spaceBetween={30}
+        slidesPerGroup={3}
+        loop={true}
+        loopFillGroupWithBlank={true}
+        pagination={{
+          clickable: true,
         }}
-        pagination={true}
-        modules={[EffectCoverflow, Pagination]}
+        navigation={true}
+        modules={[Pagination, Navigation]}
         className="mySwiper"
       >
         <SwiperSlide>
-          <img src={"/images/product/green.jpg"} />
+          <img src={"/images/course/hand.jpg"} alt="" />
         </SwiperSlide>
-        <SwiperSlide>
-          <img src={"/images/product/green.jpg"} />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src={"/images/product/green.jpg"} />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src={"/images/product/green.jpg"} />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src={"/images/product/green.jpg"} />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src={"/images/product/green.jpg"} />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src={"/images/product/green.jpg"} />
-        </SwiperSlide>
+        {lessons.map((lesson) => {
+          return (
+            <SwiperSlide
+              onClick={() => {
+                setSwipe(lesson.id);
+              }}
+            >
+              {lesson.name}
+              <br />
+              {lesson.description}
+            </SwiperSlide>
+          );
+        })}
       </Swiper>
     </>
   );
