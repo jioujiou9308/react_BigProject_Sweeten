@@ -8,7 +8,7 @@ import Login from "./components/Login";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
-import LoginModal from "./components/Dialog/LoginModal";
+import LoginModal from "./components/dialog/LoginModal";
 
 // TODO 註冊 關於 上下架 訂單 課程 即期品
 
