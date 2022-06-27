@@ -11,6 +11,8 @@ import { motion } from "framer-motion";
 import MenuTag from "../components/menuTag/MenuTag";
 // import TabBar from "../components/product/Tabs";
 
+
+//TODO: comment和照片ㄉAPI還沒串
 const Product = () => {
   
   const [products, setProducts] = useState([]);

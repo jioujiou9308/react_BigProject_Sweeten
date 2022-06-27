@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   AiFillHeart,
   AiFillPlusCircle,
@@ -10,6 +10,8 @@ import UserComment from "../components/courseDetail/UserComment";
 import YouMayLikeProduct from "../components/productDetail/YouMayLikeProduct";
 import { Button } from "@material-tailwind/react";
 //import material tailwind ㄉ button
+import { API_URL } from "../utils/config";
+import axios from "axios";
 
 const products = [
   {
@@ -33,11 +35,26 @@ function ProductDetail() {
   const sizes = ["6吋", "8吋"];
   const [count, setCount] = useState(2);
   const [favClick, setFavClick] = useState(false);
+  const [productDetail, setProductDetail] = useState([]);
+
+  useEffect(() => {
+    let getProductDetail = async () => {
+      let response = await axios.get(API_URL + "/product/1");
+      setProductDetail(response.data);
+      console.log(response.data);
+    };
+    getProductDetail();
+
+  }, []);
 
   return (
     <>
-      
-      <div className="bg-white ">
+    {
+      productDetail.map((v,i)=>{
+        const {id, name, price, description, express_id, created_at}=v
+        return(
+          <>
+           <div className="bg-white ">
         {/* 桌機板DEMO */}
         <div className="hidden md:flex">
           {/* demo大圖(左側)桌機板 */}
@@ -77,7 +94,7 @@ function ProductDetail() {
             {/* 桌機板標題和副標字體+愛心 */}
             <div className="border-b-2 ">
               <div className="flex items-center justify-between mt-10">
-                <p className="h1">倉石乳酪蛋糕</p>
+                <p className="h1">{name}</p>
                 {/* FIXME rounded-full 也無法變完全圓*/}
                 <Button
                   variant="outlined"
@@ -93,7 +110,7 @@ function ProductDetail() {
                   />
                 </Button>
               </div>
-              <p className="mt-2 mb-5 h2">$ 1200 NTD</p>
+              <p className="mt-2 mb-5 h2">$ {price} NTD</p>
             </div>
 
             {/* 右欄尺寸桌機板 */}
@@ -189,8 +206,8 @@ function ProductDetail() {
           {/* 標題+價錢手機板 */}
           <div className="flex justify-between px-2">
             {/* 手機板標題字體ㄉclassname */}
-            <p className="h2">倉石乳酪蛋糕</p>
-            <p className="h3">$ 1200 NTD</p>
+            <p className="h2">{name}</p>
+            <p className="h3">$ {price} NTD</p>
           </div>
 
           {/* 數量加減手機板 */}
@@ -265,21 +282,21 @@ function ProductDetail() {
             <div className="mb-4">
               <h2 className="ml-2 h2 md:ml-0">商品說明：</h2>
               <p className="text-justify p">
-                我們不得不面對一個非常尷尬的事實，那就是，對於甜點，我們不能不去想，卻也不能走火入魔。我們要學會站在別人的角度思考。
+                {description}
               </p>
             </div>
 
             <div className="mb-4">
               <h2 className="m-2 h2 md:ml-0">成分：</h2>
               <p className="text-justify p">
-                我們不得不面對一個非常尷尬的事實，那就是，對於甜點，我們不能不去想，卻也不能走火入魔。我們要學會站在別人的角度思考。
+              {description}
               </p>
             </div>
 
             <div>
               <h2 className="ml-2 md:ml-0 h2">過敏原：</h2>
               <p className="text-justify p">
-                我們不得不面對一個非常尷尬的事實。
+              {description}
               </p>
             </div>
           </div>
@@ -312,7 +329,6 @@ function ProductDetail() {
             {/* 評論區 下半部使用者 */}
             <div className="">
               <UserComment />
-             
             </div>
 
             <div className="flex items-center justify-start mt-4 mb-12 ml-8 text-secondary md:hidden ">
@@ -321,7 +337,12 @@ function ProductDetail() {
             </div>
           </div>
         </div>
-      </div>
+      </div> 
+          </>
+        )
+      })
+    }
+      
       {/* 你可能也會喜歡 */}
       <div className="hidden my-8 bg-sub md:block">
         <p className="pt-3 pb-6 text-center h2">你可能也會喜歡</p>
