@@ -1,3 +1,3 @@
-export const API_URL = process.env.REACT_APP_SERVER_HOST + "/api";
+export const API_URL = "http://localhost:8001/api";
 export const POST_CONFIG = {};
 export const PUBLIC = process.env.PUBLIC_URL;

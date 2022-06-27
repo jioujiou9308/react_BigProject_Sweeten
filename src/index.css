@@ -4,10 +4,14 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;500;700;900&display=swap");
 
+img {
+  border-radius: 0.25rem;
+}
 @layer base {
   .body {
     min-width: 370px;
   }
+
   .h1 {
     @apply text-4xl font-bold;
   }
@@ -48,6 +52,3 @@
     text-orientation: upright;
   }
 }
-
-
-
