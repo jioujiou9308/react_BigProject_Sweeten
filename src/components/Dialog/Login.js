@@ -1,7 +1,14 @@
 import React from "react";
 import { Input, Button, Checkbox } from "@material-tailwind/react";
+import { openLogin, openSignup } from "../../utils/redux/modalSlice";
+import { useDispatch } from "react-redux/es/exports";
 
 const Login = () => {
+  const dispatch = useDispatch();
+  const handleOpen = () => {
+    dispatch(openSignup());
+    dispatch(openLogin());
+  };
   return (
     <div
       className="block w-full bg-white rounded-lg shadow-lg sm:flex sm:mx-0"
@@ -52,12 +59,23 @@ const Login = () => {
               </div>
             </form>
             <div className="mt-4 text-center">
-              <a
-                className="text-xs no-underline hover:underline text-blue-dark"
-                href="{{ route('password.request') }}"
-              >
-                Forgot Your Password?
-              </a>
+              <p>
+                <a
+                  className="text-xs no-underline hover:underline text-blue-dark"
+                  href="{{ route('password.request') }}"
+                >
+                  忘記帳密
+                </a>
+              </p>
+              <p>
+                <a
+                  className="text-xs no-underline hover:underline text-blue-dark"
+                  href="#1"
+                  onClick={handleOpen}
+                >
+                  註冊用戶
+                </a>
+              </p>
             </div>
           </div>
         </div>

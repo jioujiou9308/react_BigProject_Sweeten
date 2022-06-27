@@ -177,7 +177,7 @@ const Home = (props) => {
                       <h2 className="text-lg font-semibold leading-4">
                         {Feature.title}
                       </h2>
-                      <p className="mt-2 text-base leading-6 text-gray-600 lg:w-40 2xl:w-52">
+                      <p className="mt-2 text-base leading-6 lg:w-40 2xl:w-52">
                         {Feature.content}
                       </p>
                     </div>
@@ -228,23 +228,23 @@ const Home = (props) => {
               />
             </div>
           </div>
-          <div className=" relative lg:w-1/3 p-3">
-            <div className=" border-2 border-line absolute -translate-x-1/4 -translate-y-[20%] w-[150%] h-[150%]"></div>
-            <h1 className=" relative text-4xl font-semibold leading-9 text-gray-800">
+          <div className="py-10 relative lg:w-1/3 lg:p-3">
+            <div className=" lg:border-2 border-line absolute -translate-x-1/4 -translate-y-[20%] w-[150%] h-[150%]"></div>
+            <h1 className=" relative text-4xl font-semibold leading-9">
               <p className="absolute text-2xl font-bold -translate-y-full opacity-30 ">
                 SWEETEN
               </p>
               Indoor Interiors
               <hr className=" border-line border-b-2" />
             </h1>
-            <p className="mt-4 text-base leading-6 text-gray-600">
+            <p className="mt-4 text-base leading-6 ">
               Get inspired by our curated selection of luxiwood interiors. We
               hope get inspired to have luxiwood interior yourself. You’ll find
               tips here where you can buy a lot of cool furniture.
             </p>
             <button
               aria-label="view catalogue"
-              className="flex items-center mt-6 text-base font-semibold leading-none text-gray-800 focus:ring-2 focus:ring-offset-2 focus:ring-gray-700 focus:outline-none md:mt-8 hover:underline"
+              className="flex items-center mt-6 text-base font-semibold leading-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-700 focus:outline-none md:mt-8 hover:underline"
             >
               View Catalogue
               <svg
@@ -278,25 +278,23 @@ const Home = (props) => {
           </div>
         </div>
       </section>
-      <div className="px-4 2xl:container 2xl:mx-auto md:py-12 lg:px-20 md:px-6 py-9">
-        <h2 className="text-3xl font-semibold leading-9 text-gray-800 lg:text-4xl lg:leading-9 md:leading-7">
+      <section className="px-4 2xl:container 2xl:mx-auto md:py-12 lg:px-20 md:px-6 py-9">
+        <h2 className="text-3xl font-semibold leading-9 lg:text-4xl lg:leading-9 md:leading-7">
           Q & A
         </h2>
         <div className="flex flex-col items-start justify-start mt-4 md:justify-between md:items-start md:flex-row">
           <div>
-            <p className="text-base font-normal leading-6 text-gray-600 lg:w-8/12 md:w-9/12">
+            <p className="text-base font-normal leading-6 lg:w-8/12 md:w-9/12">
               任何有關 SWEETEN 相關的問題，可以先到這裡看看
             </p>
           </div>
         </div>
-        <div className="flex flex-col mt-8 md:flex-row md:space-x-8 md:mt-16">
+        <div className="flex  flex-col mt-8 md:flex-row md:space-x-8 md:mt-16">
           <div className="w-full mt-10 md:w-7/12 lg:w-8/12 md:mt-0 sm:mt-14">
             {/* <!-- Shipping Section --> */}
             <div>
               <div className="flex items-center justify-between cursor-pointer ">
-                <h3 className="text-xl font-semibold leading-5 text-gray-800 ">
-                  宅配問題
-                </h3>
+                <h3 className="text-xl font-semibold leading-5 ">宅配問題</h3>
                 <button
                   aria-label="too"
                   className="cursor-pointer focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800"
@@ -329,7 +327,7 @@ const Home = (props) => {
               </div>
               <div
                 className={
-                  "font-normal text-base leading-6 text-gray-600 mt-4 w-11/12 " +
+                  "font-normal text-base leading-6 mt-4 w-11/12 " +
                   (show ? "block" : "hidden")
                 }
               >
@@ -390,7 +388,7 @@ const Home = (props) => {
             {/* <!-- Returns Section --> */}
             <div>
               <div className="flex items-center justify-between cursor-pointer ">
-                <h3 className="text-xl font-semibold leading-5 text-gray-800 ">
+                <h3 className="text-xl font-semibold leading-5 ">
                   甜點食用及保存問題
                 </h3>
                 <button
@@ -425,7 +423,7 @@ const Home = (props) => {
               </div>
               <div
                 className={
-                  "font-normal text-base leading-6 text-gray-600 mt-4 w-11/12 " +
+                  "font-normal text-base leading-6 mt-4 w-11/12 " +
                   (show2 ? "block" : "hidden")
                 }
               >
@@ -459,7 +457,7 @@ const Home = (props) => {
 
             <div>
               <div className="flex items-center justify-between cursor-pointer ">
-                <h3 className="text-xl font-semibold leading-5 text-gray-800 ">
+                <h3 className="text-xl font-semibold leading-5 ">
                   門市自取問題
                 </h3>
                 <button
@@ -494,7 +492,7 @@ const Home = (props) => {
               </div>
               <div
                 className={
-                  "font-normal text-base leading-6 text-gray-600 mt-4 w-11/12 " +
+                  "font-normal text-base leading-6 mt-4 w-11/12 " +
                   (show3 ? "block" : "hidden")
                 }
               >
@@ -519,9 +517,7 @@ const Home = (props) => {
 
             <div>
               <div className="flex items-center justify-between cursor-pointer ">
-                <h3 className="text-xl font-semibold leading-5 text-gray-800 ">
-                  其他
-                </h3>
+                <h3 className="text-xl font-semibold leading-5 ">其他</h3>
                 <button
                   aria-label="too"
                   className="cursor-pointer focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800"
@@ -554,7 +550,7 @@ const Home = (props) => {
               </div>
               <div
                 className={
-                  "font-normal text-base leading-6 text-gray-600 mt-4 w-11/12 " +
+                  "font-normal text-base leading-6 mt-4 w-11/12 " +
                   (show4 ? "blcok" : "hidden")
                 }
               >
@@ -577,20 +573,22 @@ const Home = (props) => {
 
             <hr className="bg-gray-200 my-7" />
           </div>
-          <div className="w-full md:w-5/12 lg:w-4/12">
+          <div className="w-0 relative -translate-y-1/4 md:w-1/3">
+            <div className=" absolute -top-2 -right-2 w-full h-full border-2 border-line "></div>
+            <div className=" absolute  -bottom-2 -left-2  w-full h-full border-2 border-line"></div>
             <img
-              src="https://i.ibb.co/8bCs73h/pexels-ron-lach-8128069-1.png"
+              src="./images/try/bg/277250497_1704009473283446_8648863106187982788_n.jpg"
               alt="Img of Glass bottle"
-              className="hidden w-full md:block"
+              className="w-full h-full  object-cover shadow"
             />
-            <img
+            {/* <img
               src="https://i.ibb.co/gZMfQJq/pexels-ron-lach-8128069-1-1.png"
               alt="Img of Glass bottle"
               className="block w-full md:hidden "
-            />
+            /> */}
           </div>
         </div>
-      </div>
+      </section>
       {/* section 03 */}
       {/* <section className="flex justify-center py-20 bg-white md:py-44">
         <div className="flex justify-center" style={{ width: "75%" }}>
@@ -604,10 +602,8 @@ const Home = (props) => {
       {/* 產品 */}
       <div className="px-4 2xl:mx-auto 2xl:container lg:py-16 lg:px-24 xl:px-20 md:py-12 md:px-6 py-9">
         <div className="flex flex-col items-center justify-center">
-          <h1 className="text-4xl font-semibold leading-9 text-gray-800">
-            服務項目
-          </h1>
-          <p className="mt-4 text-base leading-6 text-center text-gray-600 sm:w-96 md:w-9/12 lg:w-7/12">
+          <h1 className="text-4xl font-semibold leading-9">服務項目</h1>
+          <p className="mt-4 text-base leading-6 text-center sm:w-96 md:w-9/12 lg:w-7/12">
             SWEETEN
             除了提供美味的經典商品外，秉持環保的原則推出即期品特賣專區供客人選擇。
             <br />
@@ -633,7 +629,7 @@ const Home = (props) => {
                 </p>
               </div>
               <div className="w-2/3 px-4 md:w-auto whitespace-nowrap">
-                <button className="w-full py-4 text-base font-medium leading-none text-center text-gray-800 transition duration-150 bg-white px-11 hover:bg-gray-300 focus:outline-none">
+                <button className="w-full py-4 text-base font-medium leading-none text-center transition duration-150 bg-white px-11 hover:bg-gray-300 focus:outline-none">
                   前往查看商品
                 </button>
               </div>
@@ -656,7 +652,7 @@ const Home = (props) => {
                 </p>
               </div>
               <div className="w-2/3 px-4 md:w-auto whitespace-nowrap">
-                <button className="w-full px-8 py-4 text-base font-medium leading-none text-center text-gray-800 transition duration-150 bg-white hover:bg-gray-300 focus:outline-none">
+                <button className="w-full px-8 py-4 text-base font-medium leading-none text-center transition duration-150 bg-white hover:bg-gray-300 focus:outline-none">
                   前往即期品專區
                 </button>
               </div>
@@ -680,7 +676,7 @@ const Home = (props) => {
                 </p>
               </div>
               <div className="w-2/3 px-4 md:w-auto whitespace-nowrap">
-                <button className="w-full py-4 text-base font-medium leading-none text-center text-gray-800 transition duration-150 bg-white px-11 hover:bg-gray-300 focus:outline-none">
+                <button className="w-full py-4 text-base font-medium leading-none text-center transition duration-150 bg-white px-11 hover:bg-gray-300 focus:outline-none">
                   前往查看課程
                 </button>
               </div>
@@ -720,14 +716,14 @@ const Home = (props) => {
         <div className="w-11/12 xl:w-1/2">
           <h1
             tabIndex={0}
-            className="text-5xl font-bold text-center text-gray-800 2xl:leading-10 leading-0"
+            className="text-5xl font-bold text-center 2xl:leading-10 leading-0"
           >
             共同創造美好回憶
           </h1>
           <h2
             role="contentinfo"
             tabIndex={0}
-            className="mt-8 text-base leading-normal text-center text-gray-600"
+            className="mt-8 text-base leading-normal text-center"
           >
             SWEETEN
             希望除了甜點的美味之外，也能在每個重要的時刻陪伴大家留下最有溫度的記憶。
