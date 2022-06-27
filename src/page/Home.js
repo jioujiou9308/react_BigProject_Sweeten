@@ -89,7 +89,6 @@ const Home = (props) => {
                           alt="..."
                         /></SwiperSlide>
               </Swiper>
-
           </div>
       </div>
 
