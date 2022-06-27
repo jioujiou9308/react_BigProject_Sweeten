@@ -19,7 +19,10 @@ function App() {
   }, []);
 
   return (
-    <div id="top" className="relative min-h-screen bg-[#f6f6f6] App text-dark">
+    <div
+      id="top"
+      className="relative min-h-screen overflow-hidden bg-[#f6f6f6] App text-dark"
+    >
       <BrowserRouter>
         <Header />
         <Routes>
