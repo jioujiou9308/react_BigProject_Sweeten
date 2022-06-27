@@ -13,22 +13,7 @@ import { Button } from "@material-tailwind/react";
 import { API_URL } from "../utils/config";
 import axios from "axios";
 
-const products = [
-  {
-    id: 1,
-    name: "倉石乳酪蛋糕",
-    price: 1200,
-    description:
-      "我們不得不面對一個非常尷尬的事實，那就是，對於甜點，我們不能不去想，卻也不能走火入魔。我們要學會站在別人的角度思考。",
-  },
-  {
-    id: 2,
-    name: "蜂蜜蛋糕",
-    price: 700,
-    description:
-      "我們不得不面對一個非常尷尬的事實，那就是，對於甜點，我們不能不去想，卻也不能走火入魔。我們要學會站在別人的角度思考。",
-  },
-];
+
 
 function ProductDetail() {
   const [selectedItem, setSelectedItem] = useState();
@@ -37,6 +22,9 @@ function ProductDetail() {
   const [favClick, setFavClick] = useState(false);
   const [productDetail, setProductDetail] = useState([]);
 
+
+  
+//TODO: comment和照片ㄉAPI還沒串
   useEffect(() => {
     let getProductDetail = async () => {
       let response = await axios.get(API_URL + "/product/1");

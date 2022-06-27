@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import MemberCollectionBar from "../components/memberCollection/MemberCollectionBar";
 import MemberSearchBar from "../components/memberCollection/MemberSearchBar";
 import {
@@ -10,31 +10,8 @@ import {
 } from "react-icons/ai";
 import { Button } from "@material-tailwind/react";
 import UserCommentCard from "../components/memberCollection/UserCommentCard";
-
-// 假資料
-const products = [
-  {
-    id: 1,
-    name: "標哥千層蛋糕",
-    img: `${process.env.PUBLIC_URL}/images/memberCollectionAndOrder/member_order1.png`,
-    price: 500,
-    score: 4,
-  },
-  {
-    id: 2,
-    name: "蜂蜜蛋糕",
-    img: `${process.env.PUBLIC_URL}/images/memberCollectionAndOrder/member_order2.png`,
-    price: 500,
-    score: "-",
-  },
-  {
-    id: 3,
-    name: "大麻蛋糕",
-    img: `${process.env.PUBLIC_URL}/images/memberCollectionAndOrder/member_order3.png`,
-    price: 750,
-    score: 2,
-  },
-];
+import { API_URL } from "../utils/config";
+import axios from "axios";
 
 //生成評價星星
 const star = (score) => {
@@ -51,6 +28,25 @@ const star = (score) => {
 
 const MemberColloction = () => {
   const [isOn, setIsOn] = useState(1);
+  const [memberCollection, setMemberCollection] = useState([]);
+  const [comment, setComment] = useState([]);
+
+  //讀取資料
+  useEffect(() => {
+    let getMemberCollection = async () => {
+      let response = await axios.get(API_URL + "/user/favorite_product/1");
+      setMemberCollection(response.data.allResults);
+      // console.log(response.data.allResults);
+    };
+    getMemberCollection();
+
+    let getComment = async () => {
+      let response = await axios.get(API_URL + "/user/comment/1");
+      setComment(response.data.allResults);
+      // console.log(response.data.allResults);
+    };
+    getComment();
+  }, []);
   return (
     <>
       <div className="mx-0 ">
@@ -66,14 +62,27 @@ const MemberColloction = () => {
           </h2>
 
           {isOn == 1 &&
-            products.map((product, i) => {
-              const { id, name, img, price, score } = product;
+            memberCollection.map((v, i) => {
+              const {
+                user_id,
+                product_id,
+                id,
+                name,
+                price,
+                description,
+                express_id,
+                created_at,
+              } = v;
               return (
                 <>
-                  {/* 圖片 備註 評分愛心 1*/}
+                  {/* 圖片 備註 評分*/}
                   <div className="flex items-center justify-around px-0 py-1 border-b md:py-6 md:px-8">
                     <div className="overflow-hidden ">
-                      <img className="" src={img} alt="" />
+                      <img
+                        className=""
+                        src="/images/memberCollectionAndOrder/member_order1.png"
+                        alt=""
+                      />
                     </div>
                     {/* 商品價格活動 */}
 
@@ -91,15 +100,36 @@ const MemberColloction = () => {
                         母親節特賣
                       </button>
                     </div>
+                    {/* 被唾棄ㄉ兩欄UI */}
+                    {/* <div className="">
+                    <div className="flex   md:h4 mb-10">
+                      <p className="mr-1">商品</p>
+                      <p className="mr-4">{name}</p>
+                      <p  className="mr-1">價格</p>
+                      <p>{price}</p>
+                    </div>
+                      <div className="flex">
+                      <p className="md:hidden ">活動</p>
+                      <p className="hidden md:block h4 mr-3">目前活動</p>
+                      <button className="px-1 text-white md:p bg-warning">
+                        母親節特賣
+                      </button>
+                      </div>
+                    </div> */}
 
                     {/* 評分 */}
-                    <div className="hidden text-center md:block mx-18 ">
-                      <p className="note">
-                        {score == "-" ? "尚未評價" : "評價"}
-                      </p>
-                      <h2 className="my-2 h3">{score}/5</h2>
-                      <div className="flex">{star(score)}</div>
-                    </div>
+                    {/* 不確定這裡這樣寫對不對QQ */}
+                          <div className="hidden text-center md:block mx-18 ">
+                          
+                            <p className="note mr-2">
+                              {comment[i].score == "0" ? "尚未評價" : "評價"}
+                            </p>
+                            <h2 className=" h3">{comment[i].score}/5</h2>
+                        
+                            
+                            <div className="flex">{star(comment[i].score)}</div>
+                          </div>
+                       
 
                     {/* 移除&購買 */}
                     <div className="flex-col md:ml-4 ">
@@ -118,7 +148,7 @@ const MemberColloction = () => {
                       >
                         <span className="flex items-center ">
                           移除收藏 <AiOutlineDelete className="icon-sm" />
-                        </span>{" "}
+                        </span>
                       </Button>
                     </div>
                   </div>
