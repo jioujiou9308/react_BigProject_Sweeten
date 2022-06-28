@@ -60,8 +60,6 @@ const s3Cards = [
   },
 ];
 
-const slides = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-
 const Home = (props) => {
   const [show, setShow] = useState(false);
   const [show2, setShow2] = useState(false);
