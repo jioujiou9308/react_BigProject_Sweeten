@@ -39,7 +39,6 @@ const s1Feature = [
     Icon: GiTeacher,
   },
 ];
-
 const s3Cards = [
   {
     img: "../../images/home/session3/hp-express.png",
@@ -61,6 +60,8 @@ const s3Cards = [
   },
 ];
 
+const slides = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
 const Home = (props) => {
   const [show, setShow] = useState(false);
   const [show2, setShow2] = useState(false);
@@ -74,39 +75,17 @@ const Home = (props) => {
           <Swiper
             loop={true}
             autoplay={{
-              delay: 2000,
+              delay: 3000,
               disableOnInteraction: false,
             }}
             modules={[Autoplay]}
             className="mySwiper"
           >
-            <SwiperSlide>
-              <img src={`/images/home/banner1.jpeg`} alt="..." />
-            </SwiperSlide>
-            <SwiperSlide>
-              <img src={`/images/home/banner2.jpeg`} alt="..." />
-            </SwiperSlide>
-            <SwiperSlide>
-              <img src={`/images/home/banner3.jpeg`} alt="..." />
-            </SwiperSlide>
-            <SwiperSlide>
-              <img src={`/images/home/banner4.jpeg`} alt="..." />
-            </SwiperSlide>
-            <SwiperSlide>
-              <img src={`/images/home/banner5.jpeg`} alt="..." />
-            </SwiperSlide>
-            <SwiperSlide>
-              <img src={`/images/home/banner6.jpeg`} alt="..." />
-            </SwiperSlide>
-            <SwiperSlide>
-              <img src={`/images/home/banner7.jpeg`} alt="..." />
-            </SwiperSlide>
-            <SwiperSlide>
-              <img src={`/images/home/banner8.jpeg`} alt="..." />
-            </SwiperSlide>
-            <SwiperSlide>
-              <img src={`/images/home/banner9.jpeg`} alt="..." />
-            </SwiperSlide>
+            {slides.map((i) => (
+              <SwiperSlide>
+                <img src={`/images/home/banner${i}.jpeg`} alt="slide" />
+              </SwiperSlide>
+            ))}
           </Swiper>
         </div>
       </div>
@@ -115,12 +94,12 @@ const Home = (props) => {
         <img
           src="./images/home/cake007.png"
           className="absolute left-0 h-[30vw] -translate-x-1/2 "
-          alt=""
+          alt="background"
         />
         <img
           src="./images/home/cake007.png"
           className="absolute right-0 h-[30vw] translate-x-1/2"
-          alt=""
+          alt="background"
         />
         <div className="px-6 py-12 xl:mx-auto xl:container xl:px-20 ">
           <div className="relative items-center justify-center lg:flex lg:space-x-12 2xl:space-x-6">
@@ -133,7 +112,7 @@ const Home = (props) => {
               </p>
               <p className="w-full mx-auto mt-4 text-lg leading-7 xl:w-7/12">
                 <span>{s1Post.content}</span>
-                <hr className="mt-4 border-b-2  border-line" />
+                <hr className="mt-4 border-b-2 border-line" />
               </p>
 
               <div className="grid gap-6 mt-6 md:mt-10 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 lg:mt-6 2xl:mt-12">
@@ -142,7 +121,7 @@ const Home = (props) => {
                     <div className="relative w-16 h-16">
                       <div className="z-20 flex items-center justify-center flex-shrink-0 w-16 h-16 mt-2 mr-3 ">
                         {
-                          <Feature.Icon className="p-1 text-6xl border rounded-full  border-line" />
+                          <Feature.Icon className="p-1 text-6xl border rounded-full border-line" />
                         }
                       </div>
                     </div>
@@ -178,13 +157,13 @@ const Home = (props) => {
             <div className="w-full h-full bg-red-200">
               <img
                 src="./images/home/section1-1.jpg"
-                alt="apartment design"
+                alt="yellow cake"
                 className="hidden w-full sm:block "
               />
 
               <img
                 src="./images/home/section1-1.jpg"
-                alt="apartment design"
+                alt="yellow cake"
                 className="block w-full sm:hidden"
               />
             </div>
@@ -192,12 +171,12 @@ const Home = (props) => {
               <img
                 src="./images/home/section1-2.jpg"
                 className="w-full "
-                alt="kitchen"
+                alt="red cake"
               />
               <img
                 src="./images/home/section1-3.jpg"
                 className="w-full"
-                alt="sitting room"
+                alt="green cake"
               />
             </div>
           </div>
@@ -208,7 +187,7 @@ const Home = (props) => {
                 SWEETEN
               </p>
               Indoor Interiors
-              <hr className="border-b-2  border-line" />
+              <hr className="border-b-2 border-line" />
             </h1>
             <p className="mt-4 text-base leading-6 ">
               Get inspired by our curated selection of luxiwood interiors. We
@@ -547,8 +526,8 @@ const Home = (props) => {
             <hr className="bg-gray-200 my-7" />
           </div>
           <div className="relative w-0 -translate-y-1/4 md:w-1/3">
-            <div className="absolute w-full h-full border-2  -top-2 -right-2 border-line"></div>
-            <div className="absolute w-full h-full border-2  -bottom-2 -left-2 border-line"></div>
+            <div className="absolute w-full h-full border-2 -top-2 -right-2 border-line"></div>
+            <div className="absolute w-full h-full border-2 -bottom-2 -left-2 border-line"></div>
             <img
               src="./images/try/bg/277250497_1704009473283446_8648863106187982788_n.jpg"
               alt="Img of Glass bottle"
