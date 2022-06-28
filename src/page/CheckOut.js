@@ -302,7 +302,6 @@ function Index() {
           </div>
         </div>
       </form>
-      <a src="../../public/videos/animation_500_l4xxg244.gif"/>
     </>
   );
 }
