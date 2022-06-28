@@ -1,5 +1,5 @@
 CREATE TABLE `user` (
-  `id` int PRIMARY KEY,
+  `id` int PRIMARY KEY AUTO_INCREMENT,
   `full_name` varchar(255),
   `email` varchar(255),
   `password` varchar(255),
@@ -13,12 +13,12 @@ CREATE TABLE `user` (
 );
 
 CREATE TABLE `gender` (
-  `id` int PRIMARY KEY,
+  `id` int PRIMARY KEY AUTO_INCREMENT,
   `name` varchar(255)
 );
 
 CREATE TABLE `country` (
-  `id` int PRIMARY KEY,
+  `id` int PRIMARY KEY AUTO_INCREMENT,
   `name` varchar(255)
 );
 
