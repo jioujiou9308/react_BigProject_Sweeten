@@ -116,7 +116,7 @@ function OrderItems(props) {
           <p>-30</p>
         </div>
 
-        <h2 className="self-end text-right md:absolute right-5 bottom-5 h2">
+        <h2 className="self-end text-right md:absolute right-5 bottom-5 p">
           總計: 2030
         </h2>
       </div>

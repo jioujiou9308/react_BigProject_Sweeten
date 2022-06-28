@@ -1,7 +1,7 @@
 import React from "react";
-import CardProduct from "../components/product/CardProduct";
-import Filter from "../components/product/Filter";
-import Pagination from "../components/product/Pagination";
+import CardProduct from "../components/Product/CardProduct";
+import Filter from "../components/Product/Filter";
+import Pagination from "../components/Product/Pagination";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { API_URL } from "../utils/config";

@@ -25,30 +25,7 @@ function MemberOrder() {
       price: 400,
       order_status_id: 2,
     },
-    {
-      id: 3,
-      name: "大麻蛋糕",
-      img: `${process.env.PUBLIC_URL}/images/memberCollectionAndOrder/member_order3.png`,
-      count: 2,
-      price: 750,
-      order_status_id: 3,
-    },
-    {
-      id: 4,
-      name: "蜂蜜蛋糕",
-      img: `${process.env.PUBLIC_URL}/images/memberCollectionAndOrder/member_order2.png`,
-      count: 5,
-      price: 400,
-      order_status_id: 2,
-    },
-    {
-      id: 5,
-      name: "大麻蛋糕",
-      img: `${process.env.PUBLIC_URL}/images/memberCollectionAndOrder/member_order3.png`,
-      count: 2,
-      price: 750,
-      order_status_id: 4,
-    },
+    
   ];
 
   //待付款ARR
