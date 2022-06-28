@@ -13,7 +13,7 @@ const OnceCarkProduct = (props) => {
         <div className="flex flex-col items-center justify-center mr-1 ">
           <img
             className="object-cover w-full rounded-sm h-[15rem]"
-            src={img}
+            src="/images/course/hand.jpg"
             alt="T-Shirt"
             onClick={()=>{
               navigate('/main/product/detail')

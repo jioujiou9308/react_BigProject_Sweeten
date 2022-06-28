@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   AiFillHeart,
   AiFillPlusCircle,
@@ -8,8 +8,19 @@ import {
 } from "react-icons/ai";
 import UserComment from "../components/UserComment";
 import You_may_like from "../components/You_may_like_product";
+import axios from "axios";
+import { API_URL } from "../../utils/config";
 
 function ProductDetail() {
+  const [productDetail, setProductDetail] = useState([]);
+  useEffect(() => {
+    let getProductDetail = async () => {
+      let response = await axios.get(API_URL + "/product/1");
+      setProductDetail(response.data);
+      console.log(response.data);
+    };
+    getProductDetail();
+  }, []);
   return (
     <>
       <div className="bg-white ">
