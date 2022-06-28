@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import {
   GiFlour,
   GiTeacher,
@@ -10,7 +10,7 @@ import Card from "../components/home/Card";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "../components/home/styles.css";
-import { Autoplay,} from "swiper";
+import { Autoplay } from "swiper";
 
 const s3Cards = [
   {
@@ -40,60 +40,78 @@ const Home = (props) => {
   const [show4, setShow4] = useState(false);
   return (
     <>
-      <div className="w-full pt-20">
-          {/* 輪播 */}
-          <div className="h-80 lg:h-96">
-            <Swiper
-                loop={true}
-                autoplay={{
-                  delay: 2000,
-                  disableOnInteraction: false,
-                }}
-                modules={[Autoplay]}
-                className="mySwiper"
-              >
-                <SwiperSlide><img
-                          src={`${process.env.PUBLIC_URL}/images/home/banner1.jpeg`}
-                          alt="..." 
-                        /></SwiperSlide>
-                <SwiperSlide><img
-                          src={`${process.env.PUBLIC_URL}/images/home/banner2.jpeg`}
-                          alt="..."
-                        /></SwiperSlide>
-                <SwiperSlide><img
-                          src={`${process.env.PUBLIC_URL}/images/home/banner3.jpeg`}
-                          alt="..."
-                        /></SwiperSlide>
-                <SwiperSlide><img
-                          src={`${process.env.PUBLIC_URL}/images/home/banner4.jpeg`}
-                          alt="..."
-                        /></SwiperSlide>
-                <SwiperSlide><img
-                          src={`${process.env.PUBLIC_URL}/images/home/banner5.jpeg`}
-                          alt="..."
-                        /></SwiperSlide>
-                <SwiperSlide><img
-                          src={`${process.env.PUBLIC_URL}/images/home/banner6.jpeg`}
-                          alt="..."
-                        /></SwiperSlide>
-                <SwiperSlide><img
-                          src={`${process.env.PUBLIC_URL}/images/home/banner7.jpeg`}
-                          alt="..."
-                        /></SwiperSlide>
-                <SwiperSlide><img
-                          src={`${process.env.PUBLIC_URL}/images/home/banner8.jpeg`}
-                          alt="..."
-                        /></SwiperSlide>
-                <SwiperSlide><img
-                          src={`${process.env.PUBLIC_URL}/images/home/banner9.jpeg`}
-                          alt="..."
-                        /></SwiperSlide>
-              </Swiper>
-          </div>
+      <div className="w-full py-32 bg-light">
+        {/* 輪播 */}
+        <div className="h-[75vh]">
+          <Swiper
+            loop={true}
+            autoplay={{
+              delay: 2000,
+              disableOnInteraction: false,
+            }}
+            modules={[Autoplay]}
+            className="mySwiper"
+          >
+            <SwiperSlide>
+              <img
+                src={`${process.env.PUBLIC_URL}/images/home/banner1.jpeg`}
+                alt="..."
+              />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img
+                src={`${process.env.PUBLIC_URL}/images/home/banner2.jpeg`}
+                alt="..."
+              />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img
+                src={`${process.env.PUBLIC_URL}/images/home/banner3.jpeg`}
+                alt="..."
+              />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img
+                src={`${process.env.PUBLIC_URL}/images/home/banner4.jpeg`}
+                alt="..."
+              />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img
+                src={`${process.env.PUBLIC_URL}/images/home/banner5.jpeg`}
+                alt="..."
+              />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img
+                src={`${process.env.PUBLIC_URL}/images/home/banner6.jpeg`}
+                alt="..."
+              />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img
+                src={`${process.env.PUBLIC_URL}/images/home/banner7.jpeg`}
+                alt="..."
+              />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img
+                src={`${process.env.PUBLIC_URL}/images/home/banner8.jpeg`}
+                alt="..."
+              />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img
+                src={`${process.env.PUBLIC_URL}/images/home/banner9.jpeg`}
+                alt="..."
+              />
+            </SwiperSlide>
+          </Swiper>
+        </div>
       </div>
 
       {/* 特色 */}
-      <div className="overflow-y-hidden">
+      <div className="mt-20 overflow-y-hidden">
         <img
           src="./images/home/cake007.png"
           className="absolute left-0 h-[30vw] -translate-x-1/2 "

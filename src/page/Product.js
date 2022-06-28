@@ -2,6 +2,10 @@ import React from "react";
 import CardProduct from "../components/product/CardProduct";
 import Filter from "../components/product/Filter";
 import Pagination from "../components/product/Pagination";
+
+import { motion } from "framer-motion";
+// import { useState } from "react";
+
 import MenuTag from "../components/menuTag/MenuTag";
 // import TabBar from "../components/product/Tabs";
 
@@ -18,7 +22,6 @@ const Product = () => {
           <CardProduct />
         </div>
       </div>
-
       <Pagination />
     </>
   );

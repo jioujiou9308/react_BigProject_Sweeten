@@ -3,11 +3,21 @@ import React, { useState } from "react";
 import CitySelector from "../components/tw-city-selector/tw-city-selector";
 
 function Index() {
+  const [orderCityData, setOrderCityData] = useState("");
+  const [shippingCityData, setShippingCityData] = useState("");
+
   const [fields, setFields] = useState({
     ordername: "",
     ordermobile: "",
     orderemail: "",
     orderaddress: "",
+  });
+
+  const [shippingFields, setShippingFields] = useState({
+    shippingname: "",
+    shippingmobile: "",
+    shippingemail: "",
+    shippingaddress: "",
   });
 
   const [fieldErrors, setFieldErrors] = useState({
@@ -17,18 +27,27 @@ function Index() {
     address: "",
   });
 
+  const handleAddress = (e) => {
+    const newFields = {
+      ...fields,
+      orderaddress: orderCityData + e.target.value,
+    };
+    setFields(newFields);
+  };
+
+  const handleShippingAddress = (e) => {
+    const newShippingFields = {
+      ...shippingFields,
+      shippingaddress: shippingCityData + e.target.value,
+    };
+    setShippingFields(newShippingFields);
+  };
+
   const handleChange = (e) => {
     const newData = { ...fields, [e.target.name]: e.target.value };
 
     setFields(newData);
   };
-
-  const [shippingFields, setShippingFields] = useState({
-    shippingname: "",
-    shippingmobile: "",
-    shippingemail: "",
-    shippingaddress: "",
-  });
 
   const handleShippingChange = (e) => {
     const newShippingData = {
@@ -38,18 +57,13 @@ function Index() {
 
     setShippingFields(newShippingData);
   };
-  // 表單通過html5驗証時會呼叫
-  const handleSubmit = (e) => {
-    // 阻擋表單預設行為
-    e.preventDefault();
 
-    // 送到伺服器…ajax…fetch...
+  const handleSubmit = (e) => {
+    e.preventDefault();
     console.log("這裡送出表單資料到伺服器了");
   };
 
-  // 表單出現不合法的html5驗証時會呼叫
   const handleInvalid = (e) => {
-    // 阻擋表單預設行為(錯誤的泡泡訊息)
     e.preventDefault();
 
     const newFieldErrors = {
@@ -58,12 +72,8 @@ function Index() {
     };
 
     setFieldErrors(newFieldErrors);
-
-    //console.log(e.target.validationMessage)
   };
 
-  // 當整個表單有變動時會觸發
-  // 只是為了暫時清除錯誤訊息而已
   const handleFormChange = (e) => {
     const newFieldErrors = {
       ...fieldErrors,
@@ -72,6 +82,7 @@ function Index() {
 
     setFieldErrors(newFieldErrors);
   };
+  console.log(fields);
 
   return (
     <>
@@ -107,9 +118,9 @@ function Index() {
 
                 <div>
                   <input
-                    type="mobile"
-                    name="mobile"
-                    value={fields.mobile}
+                    type="phone"
+                    name="ordermobile"
+                    value={fields.ordermobile}
                     onChange={handleChange}
                     required
                     maxLength={10}
@@ -128,9 +139,9 @@ function Index() {
                   )}
                 </div>
                 <div>
-                  {fieldErrors.mobile !== "" && (
+                  {fieldErrors.ordermobile !== "" && (
                     <div className="error" style={{ color: "red" }}>
-                      {fieldErrors.mobile}
+                      {fieldErrors.ordermobile}
                     </div>
                   )}
                 </div>
@@ -139,27 +150,28 @@ function Index() {
                 <label className="text-xs">信箱</label>
                 <input
                   type="email"
-                  name="email"
-                  value={fields.email}
+                  name="orderemail"
+                  value={fields.orderemail}
                   onChange={handleChange}
                   required
                   className="w-full h-6 py-4 pl-2 text-sm focus:outline-none"
                   placeholder="請輸入電子郵件"
                 />
               </div>
-              {fieldErrors.email !== "" && (
+              {fieldErrors.orderemail !== "" && (
                 <div className="error" style={{ color: "red" }}>
-                  {fieldErrors.email}
+                  {fieldErrors.orderemail}
                 </div>
               )}
               <div className="pt-3">
-                <CitySelector />
+                <CitySelector setCityData={setOrderCityData} />
+                
               </div>
               <div className="pt-2">
                 <input
-                  name="address"
+                  name="orderaddress"
                   value={fields.address}
-                  onChange={handleChange}
+                  onChange={handleAddress}
                   minLength={5}
                   required
                   type="address"
@@ -167,9 +179,9 @@ function Index() {
                   placeholder="請輸入詳細地址"
                 />
               </div>
-              {fieldErrors.address !== "" && (
+              {fieldErrors.orderaddress !== "" && (
                 <div className="error" style={{ color: "red" }}>
-                  {fieldErrors.address}
+                  {fieldErrors.orderaddress}
                 </div>
               )}
             </div>
@@ -177,7 +189,18 @@ function Index() {
             <div className="py-5">
               <span className="block p">收件人資料</span>
               <div className="py-2 ">
-                <input type="radio" className="mr-2" onClick={() => {}} />
+                <input
+                  type="radio"
+                  className="mr-2"
+                  onClick={() => {
+                    setShippingFields({
+                      shippingname: fields.ordername,
+                      shippingmobile: fields.ordermobile,
+                      shippingemail: fields.orderemail,
+                      shippingaddress: fields.orderaddress,
+                    });
+                  }}
+                />
                 <label className="text-sm">同訂購人資訊</label>
               </div>
               <div className="grid grid-cols-2 gap-2">
@@ -232,7 +255,7 @@ function Index() {
                 <label className="text-xs">信箱</label>
                 <input
                   type="email"
-                  name="email"
+                  name="shippingemail"
                   value={shippingFields.shippingemail}
                   onChange={handleShippingChange}
                   required
@@ -246,13 +269,13 @@ function Index() {
                 </div>
               )}
               <div className="pt-3">
-                <CitySelector />
+                <CitySelector setCityData={setShippingCityData} />
               </div>
               <div className="pt-2">
                 <input
                   name="shippingaddress"
-                  value={shippingFields.shippingaddress}
-                  onChange={handleShippingChange}
+                  value={shippingFields.address}
+                  onChange={handleShippingAddress}
                   minLength={5}
                   required
                   type="address"
@@ -269,13 +292,17 @@ function Index() {
             <button
               type="submit"
               className="w-full py-2 text-white border hover:bg-secondary"
-              onClick={() => {}}
+              onClick={() => {
+                console.log(fields);
+                console.log(shippingFields);
+              }}
             >
               確認付款
             </button>
           </div>
         </div>
       </form>
+      <a src="../../public/videos/animation_500_l4xxg244.gif"/>
     </>
   );
 }

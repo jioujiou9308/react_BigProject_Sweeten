@@ -64,4 +64,24 @@ body {
   background: #f39898;
 }
 
+//彈跳視窗視窗
+.parent {
+  background: black;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
+.parent[data-isOpen="true"] {
+  width: 400px;
+  height: 200px;
+}
+
+.child {
+  width: 40px;
+  height: 40px;
+  background: #f107a3;
+  border-radius: 50%;
+}
