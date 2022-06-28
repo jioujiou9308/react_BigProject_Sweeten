@@ -77,11 +77,7 @@ function Filter() {
           <AiFillFilter className="icon-sm" />
         </div>
         <div className="overflow-hidden ">
-<<<<<<< HEAD
           {open === true ? (
-=======
-          {open == true ? (
->>>>>>> parent of f7d73b8 (Delete src/components/Product directory)
             <div
               className="grid grid-cols-1 gap-4 mt-4 "
               data-aos="fade-down"
