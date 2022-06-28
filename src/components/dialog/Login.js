@@ -4,6 +4,7 @@ import { openLogin, openSignup } from "../../utils/redux/modalSlice";
 import { updateUser } from "../../utils/redux/userSlice";
 import { useDispatch } from "react-redux/es/exports";
 import { API_URL } from "../../utils/config";
+import { toast } from "react-toastify";
 import axios from "axios";
 
 const Login = () => {
@@ -31,7 +32,9 @@ const Login = () => {
       .then((res) => {
         // 登入成功
         const { data: currentUser } = res;
+        toast.success(`${currentUser.email} 登入成功!`);
         dispatch(updateUser(currentUser));
+        dispatch(openLogin());
       })
       .catch((e) => {
         // 登入失敗

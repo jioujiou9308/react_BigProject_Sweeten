@@ -9,7 +9,8 @@ import "aos/dist/aos.css";
 import { useEffect } from "react";
 import LoginModal from "./components/dialog/LoginModal";
 import SignupModal from "./components/dialog/SignupModal";
-
+import { ToastContainer, Slide } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 // TODO 註冊 關於 上下架 訂單 課程 即期品
 
 function App() {
@@ -32,6 +33,13 @@ function App() {
         </Routes>
       </BrowserRouter>
       <Footer />
+      <ToastContainer
+        position="top-center"
+        autoClose={1000}
+        hideProgressBar={true}
+        transition={Slide}
+        limit={2}
+      />
       <LoginModal />
       <SignupModal />
     </div>
