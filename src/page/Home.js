@@ -82,7 +82,7 @@ const Home = (props) => {
             className="mySwiper"
           >
             {slides.map((i) => (
-              <SwiperSlide>
+              <SwiperSlide key={i}>
                 <img src={`/images/home/banner${i}.jpeg`} alt="slide" />
               </SwiperSlide>
             ))}
@@ -141,10 +141,11 @@ const Home = (props) => {
               <p className="absolute top-0 text-4xl font-bold opacity-50 -translate-y-3/4 -z-10 ">
                 SWEETEN食甜
               </p>
+              <div className="absolute w-full h-full translate-x-2 translate-y-2 border-2 border-line"></div>
               <img
                 src={`./images/home/lesson.jpg`}
-                alt="..."
-                className="object-cover object-center w-full h-full "
+                alt="lesson"
+                className="relative object-cover object-center w-full h-full "
               />
             </div>
           </div>
