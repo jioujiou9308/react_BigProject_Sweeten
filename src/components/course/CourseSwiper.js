@@ -16,9 +16,9 @@ const CourseSwiper = (props) => {
   return (
     <>
       <Swiper
-        slidesPerView={3}
+        slidesPerView={2}
         spaceBetween={30}
-        slidesPerGroup={3}
+        slidesPerGroup={2}
         loop={true}
         loopFillGroupWithBlank={true}
         pagination={{
@@ -28,14 +28,14 @@ const CourseSwiper = (props) => {
         modules={[Pagination, Navigation]}
         className="mySwiper"
       >
-        <SwiperSlide>
+        {/* <SwiperSlide>
           <img src={"/images/course/hand.jpg"} alt="" />
-        </SwiperSlide>
-        {lessons.map((lesson) => {
+        </SwiperSlide> */}
+        {lessons.map((lesson, i) => {
           return (
             <SwiperSlide
               onClick={() => {
-                setSwipe(lesson.id);
+                setSwipe(i);
               }}
             >
               {lesson.name}

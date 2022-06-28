@@ -4,7 +4,8 @@ const CourseContent = (props) => {
   const { lessons, swipe } = props;
   console.log(swipe);
   let a = swipe;
-  //   console.log(lessons);
+  // console.log(a);
+  // console.log(lessons[a].name);
   return (
     <>
       <div className="flex flex-col justify-around h-full p-7">
