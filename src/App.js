@@ -4,11 +4,11 @@ import Footer from "./layout/Footer";
 import Header from "./layout/Header";
 import Main from "./layout/Main";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Login from "./components/Login";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
-import LoginModal from "./components/Dialog/LoginModal";
+import LoginModal from "./components/dialog/LoginModal";
+import SignupModal from "./components/dialog/SignupModal";
 
 // TODO 註冊 關於 上下架 訂單 課程 即期品
 
@@ -20,17 +20,20 @@ function App() {
   }, []);
 
   return (
-    <div className="relative min-h-screen bg-[#f6f6f6] App text-dark">
+    <div
+      id="top"
+      className="relative min-h-screen overflow-hidden bg-[#f6f6f6] App text-dark"
+    >
       <BrowserRouter>
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/main/*" element={<Main />} />
-          <Route path="/login" element={<Login />} />
         </Routes>
       </BrowserRouter>
       <Footer />
       <LoginModal />
+      <SignupModal />
     </div>
   );
 }
