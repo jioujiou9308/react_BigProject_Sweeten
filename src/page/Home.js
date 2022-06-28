@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { Fragment, useState } from "react";
 import {
   GiFlour,
   GiTeacher,
@@ -81,11 +81,42 @@ const Home = (props) => {
             modules={[Autoplay]}
             className="mySwiper"
           >
-            {slides.map((i) => (
-              <SwiperSlide key={i}>
-                <img src={`/images/home/banner${i}.jpeg`} alt="slide" />
-              </SwiperSlide>
-            ))}
+            {/* {slides.map((i) => {
+              return (
+                <Fragment key={"slides" + i}>
+                  <SwiperSlide>
+                    <img src={`/images/home/banner${i}.jpeg`} alt="slide" />
+                  </SwiperSlide>
+                </Fragment>
+              );
+            })} */}
+            <SwiperSlide>
+              <img src={`/images/home/banner1.jpeg`} alt="slide" />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img src={`/images/home/banner2.jpeg`} alt="slide" />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img src={`/images/home/banner3.jpeg`} alt="slide" />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img src={`/images/home/banner4.jpeg`} alt="slide" />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img src={`/images/home/banner5.jpeg`} alt="slide" />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img src={`/images/home/banner6.jpeg`} alt="slide" />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img src={`/images/home/banner7.jpeg`} alt="slide" />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img src={`/images/home/banner8.jpeg`} alt="slide" />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img src={`/images/home/banner9.jpeg`} alt="slide" />
+            </SwiperSlide>
           </Swiper>
         </div>
       </div>
@@ -104,20 +135,22 @@ const Home = (props) => {
         <div className="px-6 py-12 xl:mx-auto xl:container xl:px-20 ">
           <div className="relative items-center justify-center lg:flex lg:space-x-12 2xl:space-x-6">
             <div className="text-center ">
-              <p className="relative text-3xl font-bold leading-9 lg:text-4xl">
+              <div className="relative text-3xl font-bold leading-9 lg:text-4xl">
                 <p className="absolute px-5 text-2xl font-bold -translate-x-1/2 -translate-y-full left-1/2 opacity-30 ">
                   SWEETEN
                 </p>
                 <span>{s1Post.title}</span>
-              </p>
-              <p className="w-full mx-auto mt-4 text-lg leading-7 xl:w-7/12">
-                <span>{s1Post.content}</span>
+              </div>
+              <div className="w-3/4 mx-auto">
+                <p className="mt-4 text-lg leading-7">
+                  <span>{s1Post.content}</span>
+                </p>
                 <hr className="mt-4 border-b-2 border-line" />
-              </p>
+              </div>
 
               <div className="grid gap-6 mt-6 md:mt-10 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 lg:mt-6 2xl:mt-12">
                 {s1Feature.map((Feature) => (
-                  <div className="flex items-center">
+                  <div key={Feature.title} className="flex items-center">
                     <div className="relative w-16 h-16">
                       <div className="z-20 flex items-center justify-center flex-shrink-0 w-16 h-16 mt-2 mr-3 ">
                         {
