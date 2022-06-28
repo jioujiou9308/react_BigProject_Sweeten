@@ -12,7 +12,7 @@ import Product from "../page/Product";
 import ProductDetail from "../page/ProductDetail";
 import Test from "../page/Test";
 import Cart from "../page/Cart";
-import Signup from "../page/Signup";
+import Signup from "../components/dialog/Signup";
 import CustomerService from "../page/CustomerService";
 import CheckOut from "../page/CheckOut";
 

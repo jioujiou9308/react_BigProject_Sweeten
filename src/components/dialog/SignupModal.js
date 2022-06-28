@@ -1,16 +1,15 @@
 import { motion } from "framer-motion";
-import Login from "./Login";
 import { useSelector, useDispatch } from "react-redux/es/exports";
-import { openLogin } from "../../utils/redux/modalSlice";
-
-export default function LoginModal() {
+import { openSignup } from "../../utils/redux/modalSlice";
+import Signup from "./Signup";
+const SignupModal = () => {
   const modal = useSelector((state) => state.modal);
   const dispatch = useDispatch();
-  const handleOpen = () => dispatch(openLogin());
+  const handleOpen = () => dispatch(openSignup());
 
   return (
     <>
-      {modal.login && (
+      {modal.signup && (
         <>
           <div
             className="fixed inset-0 transition-opacity bg-[#000] z-50 bg-opacity-60"
@@ -22,10 +21,12 @@ export default function LoginModal() {
             transition={{ duration: 0.3 }}
             className="fixed z-50 flex flex-col items-center justify-between w-full -translate-x-1/2 -translate-y-1/2 bg-white md:rounded md:w-3/4 xl:w-1/2 inset-x-1/2 "
           >
-            <Login />
+            <Signup />
           </motion.div>
         </>
       )}
     </>
   );
-}
+};
+
+export default SignupModal;
