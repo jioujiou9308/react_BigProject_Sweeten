@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import postData from "./data-zh";
 
 function CitySelector(props) {
@@ -19,8 +19,20 @@ function CitySelector(props) {
     postcodes[counties.indexOf(county)][
       townships[counties.indexOf(county)].indexOf(township)
     ];
-  const cityData = postcode+county+township;
+  const cityData = postcode+' '+county+' '+township;
   props.setCityData(cityData);
+  // props.setFields();
+  useEffect(()=>{
+    console.log(props.fields);
+    props.setFields({...props.fields,cityData:cityData});
+  },[cityData])
+
+  useEffect(()=>{
+    const dataArr = props.fields.cityData.split(" ")
+    setCounty(dataArr[1]);
+    setTownship(dataArr[2])
+  },[props.shippingFields])
+  
 
 
   return (

@@ -1,47 +1,31 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import CitySelector from "../components/tw-city-selector/tw-city-selector";
 
 function Index() {
-  const [orderCityData, setOrderCityData] = useState("");
+  const [cityData, setCityData] = useState("");
   const [shippingCityData, setShippingCityData] = useState("");
-
   const [fields, setFields] = useState({
-    ordername: "",
-    ordermobile: "",
-    orderemail: "",
-    orderaddress: "",
+    name: "",
+    mobile: "",
+    email: "",
+    cityData: "",
+    address: "",
   });
-
   const [shippingFields, setShippingFields] = useState({
-    shippingname: "",
-    shippingmobile: "",
-    shippingemail: "",
-    shippingaddress: "",
+    name: "",
+    mobile: "",
+    email: "",
+    cityData: "",
+    address: "",
   });
-
+  console.log(fields);
   const [fieldErrors, setFieldErrors] = useState({
     name: "",
     mobile: "",
     email: "",
     address: "",
   });
-
-  const handleAddress = (e) => {
-    const newFields = {
-      ...fields,
-      orderaddress: orderCityData + e.target.value,
-    };
-    setFields(newFields);
-  };
-
-  const handleShippingAddress = (e) => {
-    const newShippingFields = {
-      ...shippingFields,
-      shippingaddress: shippingCityData + e.target.value,
-    };
-    setShippingFields(newShippingFields);
-  };
 
   const handleChange = (e) => {
     const newData = { ...fields, [e.target.name]: e.target.value };
@@ -83,6 +67,9 @@ function Index() {
     setFieldErrors(newFieldErrors);
   };
   console.log(fields);
+  // useEffect(()=>{
+  //   setFields({...fields,cityData})
+  // },[cityData])
 
   return (
     <>
@@ -106,8 +93,8 @@ function Index() {
                 <div>
                   <input
                     type="text"
-                    name="ordername"
-                    value={fields.ordername}
+                    name="name"
+                    value={fields.name}
                     minLength={2}
                     onChange={handleChange}
                     required
@@ -119,8 +106,8 @@ function Index() {
                 <div>
                   <input
                     type="phone"
-                    name="ordermobile"
-                    value={fields.ordermobile}
+                    name="mobile"
+                    value={fields.mobile}
                     onChange={handleChange}
                     required
                     maxLength={10}
@@ -132,16 +119,16 @@ function Index() {
               </div>
               <div className="grid grid-cols-2 gap-2">
                 <div>
-                  {fieldErrors.ordername !== "" && (
+                  {fieldErrors.name !== "" && (
                     <div className="error" style={{ color: "red" }}>
-                      {fieldErrors.ordername}
+                      {fieldErrors.name}
                     </div>
                   )}
                 </div>
                 <div>
-                  {fieldErrors.ordermobile !== "" && (
+                  {fieldErrors.mobile !== "" && (
                     <div className="error" style={{ color: "red" }}>
-                      {fieldErrors.ordermobile}
+                      {fieldErrors.mobile}
                     </div>
                   )}
                 </div>
@@ -150,28 +137,32 @@ function Index() {
                 <label className="text-xs">信箱</label>
                 <input
                   type="email"
-                  name="orderemail"
-                  value={fields.orderemail}
+                  name="email"
+                  value={fields.email}
                   onChange={handleChange}
                   required
                   className="w-full h-6 py-4 pl-2 text-sm focus:outline-none"
                   placeholder="請輸入電子郵件"
                 />
               </div>
-              {fieldErrors.orderemail !== "" && (
+              {fieldErrors.email !== "" && (
                 <div className="error" style={{ color: "red" }}>
-                  {fieldErrors.orderemail}
+                  {fieldErrors.mail}
                 </div>
               )}
               <div className="pt-3">
-                <CitySelector setCityData={setOrderCityData} />
-                
+                <CitySelector
+                  setCityData={setCityData}
+                  setFields={setFields}
+                  fields={fields}
+                  shippingFields={shippingFields}
+                />
               </div>
               <div className="pt-2">
                 <input
-                  name="orderaddress"
+                  name="address"
                   value={fields.address}
-                  onChange={handleAddress}
+                  onChange={handleChange}
                   minLength={5}
                   required
                   type="address"
@@ -179,9 +170,9 @@ function Index() {
                   placeholder="請輸入詳細地址"
                 />
               </div>
-              {fieldErrors.orderaddress !== "" && (
+              {fieldErrors.address !== "" && (
                 <div className="error" style={{ color: "red" }}>
-                  {fieldErrors.orderaddress}
+                  {fieldErrors.address}
                 </div>
               )}
             </div>
@@ -194,10 +185,11 @@ function Index() {
                   className="mr-2"
                   onClick={() => {
                     setShippingFields({
-                      shippingname: fields.ordername,
-                      shippingmobile: fields.ordermobile,
-                      shippingemail: fields.orderemail,
-                      shippingaddress: fields.orderaddress,
+                      name: fields.name,
+                      mobile: fields.mobile,
+                      email: fields.email,
+                      cityData: fields.cityData,
+                      address: fields.address,
                     });
                   }}
                 />
@@ -211,8 +203,8 @@ function Index() {
                 <div>
                   <input
                     type="text"
-                    name="shippingname"
-                    value={shippingFields.shippingname}
+                    name="name"
+                    value={shippingFields.name}
                     minLength={2}
                     onChange={handleShippingChange}
                     required
@@ -224,8 +216,8 @@ function Index() {
                 <div>
                   <input
                     type="mobile"
-                    name="shippingmobile"
-                    value={shippingFields.shippingmobile}
+                    name="mobile"
+                    value={shippingFields.mobile}
                     onChange={handleShippingChange}
                     required
                     maxLength={10}
@@ -237,16 +229,16 @@ function Index() {
               </div>
               <div className="grid grid-cols-2 gap-2">
                 <div>
-                  {fieldErrors.shippingname !== "" && (
+                  {fieldErrors.name !== "" && (
                     <div className="error" style={{ color: "red" }}>
-                      {fieldErrors.shippingname}
+                      {fieldErrors.name}
                     </div>
                   )}
                 </div>
                 <div>
-                  {fieldErrors.shippingmobile !== "" && (
+                  {fieldErrors.mobile !== "" && (
                     <div className="error" style={{ color: "red" }}>
-                      {fieldErrors.shippingmobile}
+                      {fieldErrors.mobile}
                     </div>
                   )}
                 </div>
@@ -255,27 +247,32 @@ function Index() {
                 <label className="text-xs">信箱</label>
                 <input
                   type="email"
-                  name="shippingemail"
-                  value={shippingFields.shippingemail}
+                  name="email"
+                  value={shippingFields.email}
                   onChange={handleShippingChange}
                   required
                   className="w-full h-6 py-4 pl-2 text-sm focus:outline-none"
                   placeholder="請輸入電子郵件"
                 />
               </div>
-              {fieldErrors.shippingemail !== "" && (
+              {fieldErrors.email !== "" && (
                 <div className="error" style={{ color: "red" }}>
-                  {fieldErrors.shippingemail}
+                  {fieldErrors.email}
                 </div>
               )}
               <div className="pt-3">
-                <CitySelector setCityData={setShippingCityData} />
+                <CitySelector
+                  setCityData={setCityData}
+                  setFields={setFields}
+                  fields={fields}
+                  shippingFields={shippingFields}
+                />
               </div>
               <div className="pt-2">
                 <input
-                  name="shippingaddress"
+                  name="address"
                   value={shippingFields.address}
-                  onChange={handleShippingAddress}
+                  onChange={handleChange}
                   minLength={5}
                   required
                   type="address"
@@ -283,9 +280,9 @@ function Index() {
                   placeholder="請輸入詳細地址"
                 />
               </div>
-              {fieldErrors.shippingaddress !== "" && (
+              {fieldErrors.address !== "" && (
                 <div className="error" style={{ color: "red" }}>
-                  {fieldErrors.shippingaddress}
+                  {fieldErrors.address}
                 </div>
               )}
             </div>
