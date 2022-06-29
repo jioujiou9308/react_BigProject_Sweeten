@@ -147,7 +147,7 @@ function Index() {
               </div>
               {fieldErrors.email !== "" && (
                 <div className="error" style={{ color: "red" }}>
-                  {fieldErrors.mail}
+                  {fieldErrors.email}
                 </div>
               )}
               <div className="pt-3">

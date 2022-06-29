@@ -10,7 +10,11 @@ function Filter() {
   };
   return (
     <>
+<<<<<<< HEAD
+      <div className="hidden md:block md:pr-5 md:border-r rounded-sm min-w-[15rem] lg:w-1/4 h-max border-line">
+=======
       <div className="hidden md:pr-5 md:border-r md:block rounded-sm min-w-[15rem] lg:w-1/4 h-max border-line">
+>>>>>>> 11
         {/* filter&clear filter */}
         <div className="flex items-center p-1 border-b-2 border-line">
           <p className="pr-2 p">篩選 </p>
