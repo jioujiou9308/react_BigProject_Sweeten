@@ -2,7 +2,10 @@ import { createSlice } from "@reduxjs/toolkit";
 
 export const modalSlice = createSlice({
   name: "modal",
-  initialState: { login: false, signup: false },
+  initialState: {
+    Node: null,
+    isOpen: false,
+  },
   reducers: {
     openLogin: (state, action) => {
       state.login = !state.login;
@@ -10,8 +13,13 @@ export const modalSlice = createSlice({
     openSignup: (state, action) => {
       state.signup = !state.signup;
     },
+    closeModal: (state, action) => {
+      for (let key in state) {
+        delete state[key];
+      }
+    },
   },
 });
 
-export const { openLogin, openSignup } = modalSlice.actions;
+export const { openLogin, openSignup, closeModal } = modalSlice.actions;
 export default modalSlice.reducer;
