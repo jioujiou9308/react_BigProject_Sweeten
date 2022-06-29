@@ -15,30 +15,44 @@ const Product = () => {
   const [products, setProducts] = useState([]);
   const [fav, setFav] = useState([]);
   //分頁
-  const [page, setPage]=useState(1)
-  const [lastPage, setLastPage] = useState(1)
+  const [page, setPage] = useState(1);
+  const [lastPage, setLastPage] = useState(1);
 
   useEffect(() => {
-
     //抓所有商品
     let getProducts = async () => {
-      let response = await axios.get(API_URL + "/product");
+      //API_URL+"/product?page=1"
+      let response = await axios.get(API_URL + "/product", {
+        params: {
+          page: page,
+        },
+      });
       setProducts(response.data.data);
-      console.log(response.data.data);
-      
+      //set頁數 
+      setLastPage(response.data.pagination.totalPage);
+      // console.log(response.data.data);
     };
     getProducts();
-    
+
     //抓有加入最愛ㄉ商品
     let getFav = async () => {
       let response = await axios(API_URL + "/user/favorite_product/all_data/1");
       setFav(response.data);
-      console.log(response.data);
+      // console.log(response.data);
     };
     getFav();
 
-    //抓分頁
-  }, []);
+    
+  }, [page]);
+
+  //抓分頁
+  const getPage = () => {
+    let pages = [];
+    for (let i = 1; i <= lastPage; i++) {
+      pages.push(<Pagination i={i} page={page} setPage={setPage}/>);
+    }
+    return pages;
+  };
 
   return (
     <>
@@ -51,7 +65,9 @@ const Product = () => {
           <CardProduct products={products} fav={fav} />
         </div>
       </div>
-      <Pagination />
+      <ul className="flex justify-center">{getPage()}</ul>
+      
+     
     </>
   );
 };
