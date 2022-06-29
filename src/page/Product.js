@@ -28,7 +28,7 @@ const Product = () => {
         },
       });
       setProducts(response.data.data);
-      //set頁數 
+      //set頁數
       setLastPage(response.data.pagination.totalPage);
       // console.log(response.data.data);
     };
@@ -41,15 +41,13 @@ const Product = () => {
       // console.log(response.data);
     };
     getFav();
-
-    
   }, [page]);
 
   //抓分頁
   const getPage = () => {
     let pages = [];
     for (let i = 1; i <= lastPage; i++) {
-      pages.push(<Pagination i={i} page={page} setPage={setPage}/>);
+      pages.push(<Pagination i={i} page={page} setPage={setPage} />);
     }
     return pages;
   };
@@ -65,9 +63,14 @@ const Product = () => {
           <CardProduct products={products} fav={fav} />
         </div>
       </div>
-      <ul className="flex justify-center">{getPage()}</ul>
-      
-     
+      <ul className="flex items-center justify-center">
+        <li className="mr-4" onClick={()=>{page>1&&
+          setPage(page-1)
+        }}>上一頁</li>
+        {getPage()} <li className="ml-4"  onClick={()=>{page<lastPage&&
+          setPage(page+1)
+        }}>下一頁</li>
+      </ul>
     </>
   );
 };
