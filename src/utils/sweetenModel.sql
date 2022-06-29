@@ -107,6 +107,16 @@ CREATE TABLE `order_info` (
   `timestamp` timestamp
 );
 
+CREATE TABLE `order_product` (
+  `id` int PRIMARY KEY AUTO_INCREMENT,
+  `product_id` int,
+  `coupon_id` int DEFAULT 0,
+  `order_status_id` int,
+  `address` varchar(255),
+  `payment_id` int,
+  `timestamp` timestamp
+);
+
 CREATE TABLE `payment` (
   `id` int PRIMARY KEY AUTO_INCREMENT,
   `name` varchar(255)
