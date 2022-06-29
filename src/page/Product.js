@@ -13,24 +13,31 @@ import MenuTag from "../components/menuTag/MenuTag";
 
 const Product = () => {
   const [products, setProducts] = useState([]);
-  const [fav, setFav] = useState([
- 
-  ]);
+  const [fav, setFav] = useState([]);
+  //分頁
+  const [page, setPage]=useState(1)
+  const [lastPage, setLastPage] = useState(1)
 
   useEffect(() => {
+
+    //抓所有商品
     let getProducts = async () => {
       let response = await axios.get(API_URL + "/product");
       setProducts(response.data.data);
       console.log(response.data.data);
-      console.log(fav);
+      
     };
     getProducts();
+    
+    //抓有加入最愛ㄉ商品
     let getFav = async () => {
-      let response = await axios(API_URL + "/user/favorite_product/1");
-      setFav(response.data.allResults);
-      console.log(response.data.allResults);
+      let response = await axios(API_URL + "/user/favorite_product/all_data/1");
+      setFav(response.data);
+      console.log(response.data);
     };
     getFav();
+
+    //抓分頁
   }, []);
 
   return (
