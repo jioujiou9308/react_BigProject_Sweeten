@@ -100,7 +100,6 @@ CREATE TABLE `lesson_photo` (
 CREATE TABLE `order_info` (
   `id` int PRIMARY KEY AUTO_INCREMENT,
   `user_id` int,
-  `coupon_id` int DEFAULT 0,
   `order_status_id` int,
   `address` varchar(255),
   `payment_id` int,
@@ -111,10 +110,8 @@ CREATE TABLE `order_product` (
   `id` int PRIMARY KEY AUTO_INCREMENT,
   `product_id` int,
   `coupon_id` int DEFAULT 0,
-  `order_status_id` int,
-  `address` varchar(255),
-  `payment_id` int,
-  `timestamp` timestamp
+  `memo` varchar(255),
+  `price` int
 );
 
 CREATE TABLE `payment` (
@@ -166,8 +163,6 @@ ALTER TABLE `product_category` ADD FOREIGN KEY (`product_id`) REFERENCES `produc
 ALTER TABLE `lesson_photo` ADD FOREIGN KEY (`lesson_id`) REFERENCES `lesson` (`id`);
 
 ALTER TABLE `order_info` ADD FOREIGN KEY (`user_id`) REFERENCES `user` (`id`);
-
-ALTER TABLE `order_info` ADD FOREIGN KEY (`coupon_id`) REFERENCES `coupon` (`id`);
 
 ALTER TABLE `order_info` ADD FOREIGN KEY (`order_status_id`) REFERENCES `order_status` (`id`);
 
