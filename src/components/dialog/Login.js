@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import { Input, Button, Checkbox } from "@material-tailwind/react";
-import { openLogin, openSignup } from "../../utils/redux/modalSlice";
+import { FcGoogle } from "react-icons/fc";
+import { closeModal, openSignup } from "../../utils/redux/modalSlice";
 import { updateUser } from "../../utils/redux/userSlice";
 import { useDispatch } from "react-redux/es/exports";
 import { API_URL } from "../../utils/config";
@@ -13,8 +14,8 @@ const Login = () => {
 
   /* ------------------------------- toggle form ------------------------------ */
   const handleOpen = () => {
+    dispatch(closeModal());
     dispatch(openSignup());
-    dispatch(openLogin());
   };
   /* ---------------------------------- 會員登入 ---------------------------------- */
   const handleLogin = (e) => {
@@ -34,7 +35,6 @@ const Login = () => {
         const { data: currentUser } = res;
         toast.success(`${currentUser.email} 登入成功!`);
         dispatch(updateUser(currentUser));
-        dispatch(openLogin());
       })
       .catch((e) => {
         // 登入失敗
@@ -80,6 +80,14 @@ const Login = () => {
                 <label htmlFor="remember" className="text-sm text-grey-dark">
                   Remember Me
                 </label>
+                <Button
+                  size="sm"
+                  variant="text"
+                  color="brown"
+                  className="flex items-center justify-center ml-auto"
+                >
+                  <FcGoogle className=" icon" />
+                </Button>
               </div>
               <div className="flex flex-col mt-8">
                 <Button
