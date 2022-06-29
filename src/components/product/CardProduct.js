@@ -3,8 +3,8 @@ import OneCardProduct from "./OneCardProduct";
 import { useProductState } from "../../utils/redux/hooks-redux";
 
 const CardProduct = (props) => {
-  const { products } = props;
-  const [product, setProduct] = useProductState();
+  const { products, fav} = props;
+  // const [product, setProduct] = useProductState();
 
   return (
     <>
@@ -28,7 +28,7 @@ const CardProduct = (props) => {
           <div className="flex flex-wrap justify-around">
             {products.map((product, i) => {
               const { id, name, price } = product;
-              return <OneCardProduct id={id} name={name} price={price} />;
+              return <OneCardProduct id={id} name={name} price={price}  fav={fav} />;
             })}
           </div>
         </div>

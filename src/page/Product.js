@@ -1,7 +1,7 @@
 import React from "react";
-import CardProduct from "../components/Product/CardProduct";
-import Filter from "../components/Product/Filter";
-import Pagination from "../components/Product/Pagination";
+import CardProduct from "../components/product/CardProduct";
+import Filter from "../components/product/Filter";
+import Pagination from "../components/product/Pagination";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { API_URL } from "../utils/config";
@@ -11,22 +11,27 @@ import { motion } from "framer-motion";
 import MenuTag from "../components/menuTag/MenuTag";
 // import TabBar from "../components/product/Tabs";
 
-
 const Product = () => {
-  
   const [products, setProducts] = useState([]);
-useEffect(() => {
-  let getProducts = async () => {
-    let response = await axios.get(
-      API_URL+"/product"
-    );
-    setProducts(response.data.data);
-    console.log(response.data.data)
-  };
-  getProducts();
-  
-}, []);
+  const [fav, setFav] = useState([
+ 
+  ]);
 
+  useEffect(() => {
+    let getProducts = async () => {
+      let response = await axios.get(API_URL + "/product");
+      setProducts(response.data.data);
+      console.log(response.data.data);
+      console.log(fav);
+    };
+    getProducts();
+    let getFav = async () => {
+      let response = await axios(API_URL + "/user/favorite_product/1");
+      setFav(response.data.allResults);
+      console.log(response.data.allResults);
+    };
+    getFav();
+  }, []);
 
   return (
     <>
@@ -36,7 +41,7 @@ useEffect(() => {
         <Filter />
         {/* card list  */}
         <div className="flex flex-wrap ">
-          <CardProduct products={products}/>
+          <CardProduct products={products} fav={fav} />
         </div>
       </div>
       <Pagination />

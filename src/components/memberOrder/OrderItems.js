@@ -7,7 +7,7 @@ import OrderDetail from "./OrderDetail";
 
 function OrderItems(props) {
   const navigate = useNavigate();
-  const { id, name, img, count, price } = props;
+  const { id, name, count, price } = props;
   const [selectedId, setSelectedId] = useState(false);
   return (
     <>
@@ -26,7 +26,7 @@ function OrderItems(props) {
               {/* 商品價格數量 */}
               <div className="flex items-center justify-start">
                 <div className="mr-2 overflow-hidden">
-                  <img className="scale-105 " src={img} alt="" />
+                  <img className="scale-105 " src="/images/memberCollectionAndOrder/member_order1.png" alt="" />
                 </div>
 
                 <div className="mx-3">
