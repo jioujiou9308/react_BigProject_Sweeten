@@ -168,12 +168,12 @@ const MemberInformation = () => {
                 label="選擇圖片"
                 type="file"
                 id="photo"
-                className="border-2 rounded-sm  g"
+                className="border-2 rounded-sm g"
                 nmae="photo"
                 onChange={handlePhoto}
               />
             </div>
-            <p className="mt-4 text-center note">檔案大小：最大3MB</p>
+            <p className="mt-4 text-center note">檔案大小：最大3MB.</p>
             <p className="text-center note">檔案格式：JPG, PNG</p>
           </div>
         </div>
