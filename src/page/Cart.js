@@ -1,6 +1,7 @@
 import OrderList from "../components/cart/OrderList";
 import Summary from "../components/cart/Summary";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useCartState } from "../utils/redux/hooks-redux";
 
 const products = [
   {
@@ -41,7 +42,7 @@ const initState = (productArray) => {
 
 function OrderPage() {
   const [productsInOrder, setProductsInOrder] = useState(initState(products));
-
+  const [cartState, setCart] = useCartState();
   const totalNumber = () => {
     let result = 0;
 
