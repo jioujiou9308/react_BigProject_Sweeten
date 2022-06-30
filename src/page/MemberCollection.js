@@ -13,6 +13,7 @@ import UserCommentCard from "../components/memberCollection/UserCommentCard";
 import { API_URL } from "../utils/config";
 import axios from "axios";
 import { useFavoriteState } from "../utils/redux/hooks-redux";
+import { calcLength } from "framer-motion";
 
 //生成評價星星
 const star = (score) => {
@@ -29,7 +30,7 @@ const star = (score) => {
 
 const MemberColloction = () => {
   const [isOn, setIsOn] = useState(1);
-  const [memberCollection, setMemberCollection] = useFavoriteState;
+  const [memberCollection, setMemberCollection] = useFavoriteState();
   const [comment, setComment] = useState([]);
   // const [favorite, setFavorite] = useFavoriteState()
 
@@ -156,7 +157,20 @@ const MemberColloction = () => {
                         variant="outlined"
                         className="rounded-sm md:p"
                       >
-                        <span className="flex items-center ">
+                        <span
+                          className="flex items-center "
+                          onClick={async () => {
+                            console.log(user_id);
+                            console.log(
+                              `${API_URL}/user/favorite_product/${user_id}`
+                            );
+                            let response = await axios.delete(
+                              `${API_URL}/user/favorite_product/${user_id}?product_id=${product_id}`
+                            );
+                            // alert();
+                            // console.log(response)
+                          }}
+                        >
                           移除收藏 <AiOutlineDelete className="icon-sm" />
                         </span>
                       </Button>
