@@ -133,7 +133,7 @@ const Home = (props) => {
         <div className="px-6 py-12 xl:mx-auto xl:container xl:px-20 ">
           <div className="relative items-center justify-center lg:flex lg:space-x-12 2xl:space-x-6">
             <div className="text-center ">
-              <div className="relative text-3xl font-bold leading-9 lg:text-4xl animate__animated animate__hinge">
+              <div className="relative text-3xl font-bold leading-9 lg:text-4xl">
                 <p className="absolute px-5 text-2xl font-bold -translate-x-1/2 -translate-y-full left-1/2 opacity-30 ">
                   SWEETEN
                 </p>

@@ -84,7 +84,9 @@ const Header = () => {
               <AiOutlineSearch
                 className="mx-1 icon-sm"
                 onClick={() => {
-                  axios.get(API_URL + "/auth").then((e) => console.log(e));
+                  axios
+                    .get(API_URL + "/auth/check")
+                    .then((e) => console.log(e));
                 }}
               />
               <Link to="/main/cart">
