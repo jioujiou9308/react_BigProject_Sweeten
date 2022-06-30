@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 import CitySelector from "../components/tw-city-selector/tw-city-selector";
 
 function Index() {
   const [cityData, setCityData] = useState("");
-  const [shippingCityData, setShippingCityData] = useState("");
   const [fields, setFields] = useState({
     name: "",
     mobile: "",
@@ -57,6 +56,27 @@ function Index() {
 
     setFieldErrors(newFieldErrors);
   };
+  // 同訂購人資料onClick
+  const handleCheck = (e) => {
+    if (e.target.checked) {
+      setShippingFields({
+        name: fields.name,
+        mobile: fields.mobile,
+        email: fields.email,
+        cityData: fields.cityData,
+        address: fields.address,
+      });
+    }
+    if (!e.target.checked) {
+      setShippingFields({
+        name: "",
+        mobile: "",
+        email: "",
+        cityData: "",
+        address: "",
+      });
+    }
+  };
 
   const handleFormChange = (e) => {
     const newFieldErrors = {
@@ -67,9 +87,6 @@ function Index() {
     setFieldErrors(newFieldErrors);
   };
   console.log(fields);
-  // useEffect(()=>{
-  //   setFields({...fields,cityData})
-  // },[cityData])
 
   return (
     <>
@@ -155,7 +172,6 @@ function Index() {
                   setCityData={setCityData}
                   setFields={setFields}
                   fields={fields}
-                  shippingFields={shippingFields}
                 />
               </div>
               <div className="pt-2">
@@ -176,23 +192,11 @@ function Index() {
                 </div>
               )}
             </div>
-            {/* 收件資訊 */}
+            {/* 收件資訊================================================= */}
             <div className="py-5">
               <span className="block p">收件人資料</span>
               <div className="py-2 ">
-                <input
-                  type="radio"
-                  className="mr-2"
-                  onClick={() => {
-                    setShippingFields({
-                      name: fields.name,
-                      mobile: fields.mobile,
-                      email: fields.email,
-                      cityData: fields.cityData,
-                      address: fields.address,
-                    });
-                  }}
-                />
+                <input type="checkbox" className="mr-2" onClick={handleCheck} />
                 <label className="text-sm">同訂購人資訊</label>
               </div>
               <div className="grid grid-cols-2 gap-2">
@@ -272,7 +276,7 @@ function Index() {
                 <input
                   name="address"
                   value={shippingFields.address}
-                  onChange={handleChange}
+                  onChange={handleShippingChange}
                   minLength={5}
                   required
                   type="address"
