@@ -15,6 +15,7 @@ import axios from "axios";
 import { useFavoriteState } from "../utils/redux/hooks-redux";
 import { calcLength } from "framer-motion";
 
+
 //生成評價星星
 const star = (score) => {
   const arr = [];
@@ -160,6 +161,7 @@ const MemberColloction = () => {
                       >
                         <span
                           className="flex items-center "
+                          //TODO: 要重新整理才會出來 
                           onClick={async () => {
                             console.log(user_id);
                             console.log(

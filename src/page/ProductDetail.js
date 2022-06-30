@@ -14,6 +14,7 @@ import { Button } from "@material-tailwind/react";
 import { API_URL } from "../utils/config";
 import axios from "axios";
 import { useParams } from "react-router-dom";
+import { useFavoriteState } from "../utils/redux/hooks-redux";
 
 function ProductDetail() {
   const [selectedItem, setSelectedItem] = useState();
@@ -23,15 +24,15 @@ function ProductDetail() {
   const [productDetail, setProductDetail] = useState([]);
   const [comment, setComment] = useState([]);
   const { id } = useParams();
-  console.log(id);
+  // console.log(id);
 
   //TODO: 照片ㄉAPI還沒串
   useEffect(() => {
-    //抓所有商品資料
+    //抓這個商品資料
     let getProductDetail = async () => {
       let response = await axios.get(`${API_URL}/product/${id}`);
       setProductDetail(response.data);
-      // console.log(response.data);
+      console.log(response.data);
     };
     getProductDetail();
     //抓所有評論
@@ -40,9 +41,13 @@ function ProductDetail() {
         `${API_URL}/product/comment/product/${id}`
       );
       setComment(response.data);
-      console.log(response.data);
+      // console.log(response.data);
     };
     getComment();
+    //TODO:要抓axios
+    //看喜歡ㄉproduct有哪些
+ 
+
   }, []);
   //抓此商品平均分數
   const averageScore = () => {
@@ -53,6 +58,9 @@ function ProductDetail() {
     }
     return result;
   };
+
+  
+
 //生成星星
   const stars = (score) => {
     let elementArr = [];
@@ -316,7 +324,7 @@ function ProductDetail() {
 
                 <div className="overflow-auto md:px-10 md:w-3/5">
                   {/* 評論區 上半部*/}
-                  {/* //TODO */}
+                  {/* //TODO:評論藥可以展開 */}
                   <div className="flex justify-between w-full h-1/5">
                     <div className="flex items-center justify-around w-full my-7">
                       <div>
