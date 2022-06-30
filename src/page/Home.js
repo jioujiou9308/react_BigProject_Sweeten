@@ -68,7 +68,7 @@ const Home = (props) => {
   const [show4, setShow4] = useState(false);
   return (
     <>
-      <div className="py-32  bg-light">
+      <div className="py-32 bg-light">
         {/* 輪播 */}
         <div className="h-[75vh]">
           <Swiper
@@ -160,7 +160,7 @@ const Home = (props) => {
               </p>
               <p className="w-full mx-auto mt-4 text-lg leading-7 xl:w-7/12">
                 <span>{s1Post.content}</span>
-                <hr className=" border-line border-b-2 mt-4" />
+                <hr className="mt-4 border-b-2  border-line" />
               </p>
 
               <div className="grid gap-6 mt-6 md:mt-10 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 lg:mt-6 2xl:mt-12">
@@ -169,7 +169,7 @@ const Home = (props) => {
                     <div className="relative w-16 h-16">
                       <div className="z-20 flex items-center justify-center flex-shrink-0 w-16 h-16 mt-2 mr-3 ">
                         {
-                          <Feature.Icon className=" text-6xl border border-line p-1 rounded-full" />
+                          <Feature.Icon className="p-1 text-6xl border rounded-full  border-line" />
                         }
                       </div>
                     </div>
@@ -228,14 +228,14 @@ const Home = (props) => {
               />
             </div>
           </div>
-          <div className="py-10 relative lg:w-1/3 lg:p-3">
+          <div className="relative py-10 lg:w-1/3 lg:p-3">
             <div className=" lg:border-2 border-line absolute -translate-x-1/4 -translate-y-[20%] w-[150%] h-[150%]"></div>
-            <h1 className=" relative text-4xl font-semibold leading-9">
+            <h1 className="relative text-4xl font-semibold leading-9 ">
               <p className="absolute text-2xl font-bold -translate-y-full opacity-30 ">
                 SWEETEN
               </p>
               Indoor Interiors
-              <hr className=" border-line border-b-2" />
+              <hr className="border-b-2  border-line" />
             </h1>
             <p className="mt-4 text-base leading-6 ">
               Get inspired by our curated selection of luxiwood interiors. We
@@ -289,7 +289,7 @@ const Home = (props) => {
             </p>
           </div>
         </div>
-        <div className="flex  flex-col mt-8 md:flex-row md:space-x-8 md:mt-16">
+        <div className="flex flex-col mt-8 md:flex-row md:space-x-8 md:mt-16">
           <div className="w-full mt-10 md:w-7/12 lg:w-8/12 md:mt-0 sm:mt-14">
             {/* <!-- Shipping Section --> */}
             <div>
@@ -573,13 +573,13 @@ const Home = (props) => {
 
             <hr className="bg-gray-200 my-7" />
           </div>
-          <div className="w-0 relative -translate-y-1/4 md:w-1/3">
-            <div className=" absolute -top-2 -right-2 w-full h-full border-2 border-line "></div>
-            <div className=" absolute  -bottom-2 -left-2  w-full h-full border-2 border-line"></div>
+          <div className="relative w-0 -translate-y-1/4 md:w-1/3">
+            <div className="absolute w-full h-full border-2  -top-2 -right-2 border-line"></div>
+            <div className="absolute w-full h-full border-2  -bottom-2 -left-2 border-line"></div>
             <img
               src="./images/try/bg/277250497_1704009473283446_8648863106187982788_n.jpg"
               alt="Img of Glass bottle"
-              className="w-full h-full  object-cover shadow"
+              className="object-cover w-full h-full shadow"
             />
             {/* <img
               src="https://i.ibb.co/gZMfQJq/pexels-ron-lach-8128069-1-1.png"
