@@ -12,6 +12,7 @@ import { Button } from "@material-tailwind/react";
 //import material tailwind ㄉ button
 import { API_URL } from "../utils/config";
 import axios from "axios";
+import { useParams } from "react-router-dom";
 
 function ProductDetail() {
   const [selectedItem, setSelectedItem] = useState();
@@ -19,11 +20,13 @@ function ProductDetail() {
   const [count, setCount] = useState(2);
   const [favClick, setFavClick] = useState(false);
   const [productDetail, setProductDetail] = useState([]);
+  const {id} = useParams();
+  console.log(id)
 
-  //TODO: comment和照片ㄉAPI還沒串
+  //TODO: 照片ㄉAPI還沒串 id也是寫死ㄉ
   useEffect(() => {
     let getProductDetail = async () => {
-      let response = await axios.get(API_URL + "/product/1");
+      let response = await axios.get( `${API_URL}/product/${id}`);
       setProductDetail(response.data);
       console.log(response.data);
     };

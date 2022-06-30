@@ -16,7 +16,7 @@ const OnceCarkProduct = (props) => {
             src="/images/course/hand.jpg"
             alt="T-Shirt"
             onClick={() => {
-              navigate("/main/product/detail");
+              navigate(`/main/product/${id}`);
             }}
           />
           <div className="flex items-center justify-end w-full mt-2">

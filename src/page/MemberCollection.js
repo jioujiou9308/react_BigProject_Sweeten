@@ -12,6 +12,7 @@ import { Button } from "@material-tailwind/react";
 import UserCommentCard from "../components/memberCollection/UserCommentCard";
 import { API_URL } from "../utils/config";
 import axios from "axios";
+import { useFavoriteState } from "../utils/redux/hooks-redux";
 
 //生成評價星星
 const star = (score) => {
@@ -28,8 +29,9 @@ const star = (score) => {
 
 const MemberColloction = () => {
   const [isOn, setIsOn] = useState(1);
-  const [memberCollection, setMemberCollection] = useState([]);
+  const [memberCollection, setMemberCollection] = useFavoriteState;
   const [comment, setComment] = useState([]);
+  // const [favorite, setFavorite] = useFavoriteState()
 
   //讀取資料
   useEffect(() => {

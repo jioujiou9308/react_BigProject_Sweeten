@@ -23,7 +23,7 @@ const Main = () => {
       <div className="relative w-full p-8 bg-white shadow max-w-screen-2xl ">
         <Routes>
           <Route path="/product" element={<Product />} />
-          <Route path="/product/detail" element={<ProductDetail />} />
+          <Route path="/product/:id" element={<ProductDetail />} />
           <Route path="/test" element={<Test />} />
           <Route path="/member" element={<Member />} />
           <Route path="/member/order" element={<MemberOrder />} />
