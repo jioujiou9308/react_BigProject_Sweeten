@@ -12,6 +12,7 @@ import SignupModal from "./components/dialog/SignupModal";
 import { ToastContainer, Slide } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useDispatch } from "react-redux";
+import "animate.css";
 
 // TODO 註冊 關於 上下架 訂單 課程 即期品
 
