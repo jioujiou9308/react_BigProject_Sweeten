@@ -87,6 +87,7 @@ const Header = () => {
                   axios.get(API_URL + "/auth").then((e) => console.log(e));
                 }}
               />
+              {/* 購物車pin動畫 */}
               <div className="relative ">
                 <Link to="/main/cart">
                   <AiOutlineShoppingCart className="mx-1 icon-sm" />

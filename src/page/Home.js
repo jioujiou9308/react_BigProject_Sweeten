@@ -69,7 +69,7 @@ const Home = (props) => {
     <>
     
         {/* 輪播 */}
-      <div className="py-32 bg-gradient-to-r from-primary to-transparent">
+      <div className="py-32 bg-gradient-to-r from-secondary to-transparent">
         <div className="h-[75vh]">
           <Swiper
             loop={true}
