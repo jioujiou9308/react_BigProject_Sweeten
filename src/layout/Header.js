@@ -5,12 +5,17 @@ import {
   AiOutlineUnorderedList,
   AiOutlineUserAdd,
 } from "react-icons/ai";
+import { FiLogOut } from "react-icons/fi";
 import { Button } from "@material-tailwind/react";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { useDispatch } from "react-redux/es/exports";
-import { openLogin } from "../utils/redux/modalSlice";
+import { useSelector, useDispatch } from "react-redux/es/exports";
+import { closeModal, openLogin } from "../utils/redux/modalSlice";
+import { updateUser } from "../utils/redux/userSlice";
+import { toast } from "react-toastify";
+import axios from "axios";
+import { API_URL } from "../utils/config";
 
 const pageTitle = ["首頁", "商城", "會員專區", "關於我們"];
 const subPage = {
@@ -40,8 +45,16 @@ const Header = () => {
   const [isOpen, setOpen] = useState(false);
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const currentUser = useSelector((state) => state.user.user);
   const toggle = () => setOpen(!isOpen);
-  const handleOpen = () => dispatch(openLogin());
+  const handleOpen = () => {
+    dispatch(closeModal());
+    dispatch(openLogin());
+  };
+  const handleLogout = () => {
+    toast.info("已成功登出!");
+    dispatch(updateUser(null));
+  };
   const handleNavigate = (path) => () => {
     navigate(path);
   };
@@ -64,12 +77,34 @@ const Header = () => {
           />
           <div className="w-full md:w-auto">
             {/* icons */}
-            <div className="absolute flex justify-end w-full mb-2 right-2 top-3 md:static ">
-              <AiOutlineSearch className="mx-1 icon-sm" />
+            <div className="absolute flex items-center justify-end w-full mb-2 right-2 top-3 md:static ">
+              <span className=" p">
+                {currentUser && currentUser.email?.split("@")[0]}
+              </span>
+              <AiOutlineSearch
+                className="mx-1 icon-sm"
+                onClick={() => {
+                  axios.get(API_URL + "/auth").then((e) => console.log(e));
+                }}
+              />
               <Link to="/main/cart">
                 <AiOutlineShoppingCart className="mx-1 icon-sm" />
               </Link>
-              <AiOutlineUserAdd className="mx-1 icon-sm" onClick={handleOpen} />
+              {currentUser ? (
+                <span className="cursor-pointer">
+                  <FiLogOut
+                    className="mx-1 cursor-pointer icon-sm"
+                    onClick={handleLogout}
+                  />
+                </span>
+              ) : (
+                <span className="cursor-pointer">
+                  <AiOutlineUserAdd
+                    className="mx-1 icon-sm"
+                    onClick={handleOpen}
+                  />
+                </span>
+              )}
               <AiOutlineUnorderedList
                 className="mx-1 icon-sm"
                 onClick={toggle}
