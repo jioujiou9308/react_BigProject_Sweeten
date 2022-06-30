@@ -12,10 +12,6 @@ import MenuTag from "../components/menuTag/MenuTag";
 // import TabBar from "../components/product/Tabs";
 
 const Product = () => {
-<<<<<<< HEAD
-  
-=======
->>>>>>> ab2e898ffd688b42b8021501b52c449c0bb04847
   const [products, setProducts] = useState([]);
   const [fav, setFav] = useState([]);
   //分頁
@@ -56,10 +52,6 @@ const Product = () => {
     return pages;
   };
 
-<<<<<<< HEAD
-
-=======
->>>>>>> ab2e898ffd688b42b8021501b52c449c0bb04847
   return (
     <>
       <div className=" md:flex">
@@ -72,12 +64,23 @@ const Product = () => {
         </div>
       </div>
       <ul className="flex items-center justify-center">
-        <li className="mr-4" onClick={()=>{page>1&&
-          setPage(page-1)
-        }}>上一頁</li>
-        {getPage()} <li className="ml-4"  onClick={()=>{page<lastPage&&
-          setPage(page+1)
-        }}>下一頁</li>
+        <li
+          className="mr-4"
+          onClick={() => {
+            page > 1 && setPage(page - 1);
+          }}
+        >
+          上一頁
+        </li>
+        {getPage()}{" "}
+        <li
+          className="ml-4"
+          onClick={() => {
+            page < lastPage && setPage(page + 1);
+          }}
+        >
+          下一頁
+        </li>
       </ul>
     </>
   );
