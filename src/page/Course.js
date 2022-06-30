@@ -1,5 +1,9 @@
 import React from "react";
 import CardCourse from "../components/course/CardCourse";
+import { useState, useEffect } from "react";
+import axios from "axios";
+import { API_URL } from "../utils/config";
+
 
 //假資料
 const courses = [
@@ -41,7 +45,10 @@ const courses = [
   },
 ];
 
+
 const Course = () => {
+  
+ 
   return (
     <>
       {courses.map((course, i) => {
