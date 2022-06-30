@@ -34,10 +34,7 @@ const UserComment = () => {
     <>
       {comment.length == 0 ? (
         <>
-    
           <h1 className="h1 text-center pt-10">目前尚無評價</h1>
-        
-          
         </>
       ) : (
         comment.map((comment, i) => {
@@ -58,23 +55,6 @@ const UserComment = () => {
           );
         })
       )}
-      {/* {comment.map((comment, i) => {
-        const { id, user_id, content, score } = comment;
-        return (
-          <>
-            <div className="flex justify-center py-4 md:justify-start md:border-b-2">
-              <div className="overflow-hidden border-2 rounded-full md:mr-8 mr-14 bg-theme w-14">
-                <img src="/images/productDetail/user 1.png" alt="" />
-              </div>
-
-              <div>
-                <div className="flex mb-2">{stars(score)}</div>
-                <p className="p">{content}</p>
-              </div>
-            </div>
-          </>
-        );
-      })} */}
     </>
   );
 };

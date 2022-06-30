@@ -4,7 +4,7 @@ import {
   AiFillPlusCircle,
   AiFillMinusCircle,
   AiOutlineStar,
-  AiOutlineRight,
+  AiOutlineRight,AiFillStar
 } from "react-icons/ai";
 import UserComment from "../components/productDetail/UserComment";
 import YouMayLikeProduct from "../components/productDetail/YouMayLikeProduct";
@@ -20,19 +20,50 @@ function ProductDetail() {
   const [count, setCount] = useState(2);
   const [favClick, setFavClick] = useState(false);
   const [productDetail, setProductDetail] = useState([]);
-  const {id} = useParams();
-  console.log(id)
+  const [comment, setComment] = useState([]);
+  const { id } = useParams();
+  console.log(id);
 
-  //TODO: 照片ㄉAPI還沒串 id也是寫死ㄉ
+  //TODO: 照片ㄉAPI還沒串
   useEffect(() => {
     let getProductDetail = async () => {
-      let response = await axios.get( `${API_URL}/product/${id}`);
+      let response = await axios.get(`${API_URL}/product/${id}`);
       setProductDetail(response.data);
-      console.log(response.data);
+      // console.log(response.data);
     };
     getProductDetail();
+
+    let getComment = async () => {
+      let response = await axios.get(
+        `${API_URL}/product/comment/product/${id}`
+      );
+      setComment(response.data);
+      console.log(response.data);
+    };
+    getComment();
   }, []);
 
+  const averageScore = () => {
+    let result = 0;
+    for (let i = 0; i < comment.length; i++) {
+      result += comment[i].score;
+      result = Math.round(result/comment.length)
+    }
+    return result;
+    
+  };
+
+  const stars = (score) => {
+    let elementArr = [];
+    for (let i = 0; i < 5; i++) {
+      if (i < score) {
+        elementArr.push(<AiFillStar className=" comment-star" />);
+      } else {
+        elementArr.push(<AiOutlineStar />);
+      }
+    }
+    return elementArr;
+  };
   return (
     <>
       {productDetail.map((v, i) => {
@@ -284,20 +315,20 @@ function ProductDetail() {
 
                 <div className="overflow-auto md:px-10 md:w-3/5">
                   {/* 評論區 上半部*/}
+                  {/* //TODO */}
                   <div className="flex justify-between w-full h-1/5">
                     <div className="flex items-center justify-around w-full my-7">
                       <div>
                         <h2 className="h2">商品評論</h2>
-                        <p className="md:hidden p">(6則評論)</p>
+                        <p className="md:hidden p">({comment.length}則評論)</p>
                       </div>
 
                       <div className="flex items-center">
-                        <AiOutlineStar className="comment-star" />
-                        <AiOutlineStar className="comment-star" />
-                        <AiOutlineStar className="comment-star" />
-                        <AiOutlineStar className="comment-star" />
-                        <p className="mx-3 p">4/5</p>
-                        <p className="hidden md:block p">(6則評論)</p>
+                        {stars(averageScore())}
+                        <p className="mx-3 p">{averageScore()}/5</p>
+                        <p className="hidden md:block p">
+                          ({comment.length}則評論)
+                        </p>
                       </div>
                     </div>
 
