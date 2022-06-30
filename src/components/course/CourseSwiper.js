@@ -34,6 +34,7 @@ const CourseSwiper = (props) => {
         {lessons.map((lesson, i) => {
           return (
             <SwiperSlide
+              key={i}
               onClick={() => {
                 setSwipe(i);
               }}

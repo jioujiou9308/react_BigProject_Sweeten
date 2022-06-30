@@ -41,7 +41,9 @@ const CardCourse = (props) => {
           <div className="w-full text-center">
             <div className="flex justify-center p">
               製作難度:
-              <div className="flex items-center ">{starLevel(level[index])}</div>
+              <div className="flex items-center ">
+                {starLevel(level[index])}
+              </div>
             </div>
             <div className="p">製作時間:{duration} min</div>
           </div>
