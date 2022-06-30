@@ -12,6 +12,7 @@ import { Button } from "@material-tailwind/react";
 import UserCommentCard from "../components/memberCollection/UserCommentCard";
 import { API_URL } from "../utils/config";
 import axios from "axios";
+import { useFavoriteState } from "../utils/redux/hooks-redux";
 
 //生成評價星星
 const star = (score) => {
@@ -28,8 +29,9 @@ const star = (score) => {
 
 const MemberColloction = () => {
   const [isOn, setIsOn] = useState(1);
-  const [memberCollection, setMemberCollection] = useState([]);
+  const [memberCollection, setMemberCollection] = useFavoriteState;
   const [comment, setComment] = useState([]);
+  // const [favorite, setFavorite] = useFavoriteState()
 
   //讀取資料
   useEffect(() => {
@@ -119,14 +121,22 @@ const MemberColloction = () => {
 
                     {/* 評分 */}
                     {/* 不確定這裡這樣寫對不對QQ */}
+                    {/* 有評分score變數 */}
                     <div className="hidden text-center md:block mx-18 ">
-                      <p className="mr-2 note">
-                        {comment[i].score == "0" ? "尚未評價" : "評價"}
-                      </p>
-                      <h2 className=" h3">{comment[i].score}/5</h2>
+                      <p className="mr-2 note">評價</p>
+                      <h2 className=" h3">{comment[i]&&comment[i].score}/5</h2>
 
-                      <div className="flex">{star(comment[i].score)}</div>
+                      <div className="flex">{comment[i]&&star(comment[i].score)}</div>
                     </div>
+                    {/* 沒有評分 */}
+                    {/* <div className="hidden text-center md:block mx-18 ">
+                      <p className="mr-2 note">
+              尚未評價
+                      </p>
+                      <h2 className=" h3">-/5</h2>
+
+                      <div className="flex">{star(0)}</div>
+                    </div> */}
 
                     {/* 移除&購買 */}
                     <div className="flex-col md:ml-4 ">
