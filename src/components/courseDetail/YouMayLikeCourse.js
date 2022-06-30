@@ -50,25 +50,18 @@ function YouMayLikeCourse() {
           modules={[Pagination, Navigation]}
           className="mySwiper"
         >
-
-        {courses.map((course, i)=>{
-          const {id, img} = course;
-          return (
-            <>
-              <SwiperSlide>
-            <div className="pb-12 scale-75 bg-sub">
-              <img
-                src={
-                  img
-                }
-              ></img>
-            </div>
-          </SwiperSlide>
-            </>
-          )
-        })}
-          
-         
+          {courses.map((course, i) => {
+            const { id, img } = course;
+            return (
+              <>
+                <SwiperSlide>
+                  <div className="pb-12 scale-75 bg-sub">
+                    <img src={img}></img>
+                  </div>
+                </SwiperSlide>
+              </>
+            );
+          })}
         </Swiper>
       </div>
     </>

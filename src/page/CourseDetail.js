@@ -228,23 +228,17 @@ const CourseDetail = () => {
                 <div className="w-full md:pr-10 md:w-1/2">
                   <div className="mb-4">
                     <h2 className="ml-2 md:ml-0 h3">商品特色：</h2>
-                    <p className="text-justify p">
-                      {description}
-                    </p>
+                    <p className="text-justify p">{description}</p>
                   </div>
 
                   <div className="mb-4">
                     <h2 className="ml-2 md:ml-0 h3">原料：</h2>
-                    <p className="text-justify p">
-                    {description}
-                    </p>
+                    <p className="text-justify p">{description}</p>
                   </div>
 
                   <div>
                     <h2 className="ml-2 md:ml-0 h3">過敏原：</h2>
-                    <p className="text-justify p">
-                    {description}
-                    </p>
+                    <p className="text-justify p">{description}</p>
                   </div>
                 </div>
 

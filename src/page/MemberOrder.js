@@ -18,8 +18,6 @@ function MemberOrder() {
     };
     getOrder();
   }, []);
- 
-
 
   //待付款ARR
   const notPaidArr = order.filter((v) => {
@@ -58,14 +56,21 @@ function MemberOrder() {
             </div>
             <div className="mb-10">
               {order.map((v, i) => {
-                const { id,coupon_id,address,payment_id, name, count, price } = v;
+                const {
+                  id,
+                  coupon_id,
+                  address,
+                  payment_id,
+                  name,
+                  count,
+                  price,
+                } = v;
                 return (
                   <>
                     <div className="mt-10 shadow-md md:flex">
                       <OrderItems
                         id={id}
                         name={name}
-                        
                         count={count}
                         price={price}
                       />
@@ -90,7 +95,6 @@ function MemberOrder() {
                       <OrderItems
                         id={id}
                         name={name}
-                    
                         count={count}
                         price={price}
                       />
@@ -108,14 +112,13 @@ function MemberOrder() {
             </div>
             <div className="mb-10">
               {notDeliveredArr.map((v, i) => {
-                const { id, name,  count, price } = v;
+                const { id, name, count, price } = v;
                 return (
                   <>
                     <div className="mt-10 shadow-md md:flex">
                       <OrderItems
                         id={id}
                         name={name}
-                        
                         count={count}
                         price={price}
                       />
@@ -140,7 +143,6 @@ function MemberOrder() {
                       <OrderItems
                         id={id}
                         name={name}
-                    
                         count={count}
                         price={price}
                       />
@@ -165,7 +167,6 @@ function MemberOrder() {
                       <OrderItems
                         id={id}
                         name={name}
-                    
                         count={count}
                         price={price}
                       />

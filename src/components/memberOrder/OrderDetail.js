@@ -3,9 +3,12 @@ import React from "react";
 function OrderDetail() {
   return (
     <>
-      <div className="flex justify-between p-2 border border-line"  data-aos="fade-down"
-              data-aos-easing="ease-in-out"
-              data-aos-duration="500">
+      <div
+        className="flex justify-between p-2 border border-line"
+        data-aos="fade-down"
+        data-aos-easing="ease-in-out"
+        data-aos-duration="500"
+      >
         {/* 商品價格數量 */}
         <div className="justify-between ">
           <div className="flex items-center justify-start">
@@ -32,16 +35,16 @@ function OrderDetail() {
             </div>
           </div>
         </div>
-      
-         
 
-          <h3 className="self-end h3">小計: 2800</h3>
-        
+        <h3 className="self-end h3">小計: 2800</h3>
       </div>
-        {/* DEMO2 */}
-      <div className="flex justify-between p-2 border border-line"  data-aos="fade-down"
-              data-aos-easing="ease-in-out"
-              data-aos-duration="500">
+      {/* DEMO2 */}
+      <div
+        className="flex justify-between p-2 border border-line"
+        data-aos="fade-down"
+        data-aos-easing="ease-in-out"
+        data-aos-duration="500"
+      >
         {/* 商品價格數量 */}
         <div className="justify-between ">
           <div className="flex items-center justify-start">
@@ -68,11 +71,8 @@ function OrderDetail() {
             </div>
           </div>
         </div>
-      
-         
 
-          <h3 className="self-end h3">小計: 2800</h3>
-        
+        <h3 className="self-end h3">小計: 2800</h3>
       </div>
     </>
   );

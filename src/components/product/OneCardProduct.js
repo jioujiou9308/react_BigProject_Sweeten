@@ -1,5 +1,5 @@
 import React from "react";
-import { AiOutlineMessage, AiFillHeart,AiOutlineHeart } from "react-icons/ai";
+import { AiOutlineMessage, AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
 import { useProductState } from "../../utils/redux/hooks-redux";
 
@@ -13,10 +13,10 @@ const OnceCarkProduct = (props) => {
         <div className="flex flex-col items-center justify-center mr-1 ">
           <img
             className="object-cover w-full rounded-sm h-[15rem]"
-            src={img}
+            src="/images/course/hand.jpg"
             alt="T-Shirt"
             onClick={() => {
-              navigate("/main/product/detail");
+              navigate(`/main/product/${id}`);
             }}
           />
           <div className="flex items-center justify-end w-full mt-2">
@@ -27,14 +27,12 @@ const OnceCarkProduct = (props) => {
             <div className="flex items-center ">
               <AiOutlineMessage className="icon-sm" />
               {/* <AiOutlineShoppingCart className="icon" /> */}
-             
-             
-               {
-                  fav.findIndex((item) => item.product_id === id) > -1
-                    ? <AiFillHeart className= "text-secondary icon-sm"/>
-                    :  <AiOutlineHeart className="icon-sm"/>
-                }
-             
+
+              {fav.findIndex((item) => item.product_id === id) > -1 ? (
+                <AiFillHeart className="text-secondary icon-sm" />
+              ) : (
+                <AiOutlineHeart className="icon-sm" />
+              )}
             </div>
           </div>
 
