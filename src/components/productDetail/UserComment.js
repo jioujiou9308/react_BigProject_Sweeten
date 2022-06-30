@@ -6,6 +6,7 @@ import { useParams } from "react-router-dom";
 
 const UserComment = () => {
   const { id } = useParams();
+ 
   const [comment, setComment] = useState([]);
   useEffect(() => {
     let getComment = async () => {

@@ -27,13 +27,14 @@ function ProductDetail() {
 
   //TODO: 照片ㄉAPI還沒串
   useEffect(() => {
+    //抓所有商品資料
     let getProductDetail = async () => {
       let response = await axios.get(`${API_URL}/product/${id}`);
       setProductDetail(response.data);
       // console.log(response.data);
     };
     getProductDetail();
-
+    //抓所有評論
     let getComment = async () => {
       let response = await axios.get(
         `${API_URL}/product/comment/product/${id}`
@@ -43,7 +44,7 @@ function ProductDetail() {
     };
     getComment();
   }, []);
-
+  //抓此商品平均分數
   const averageScore = () => {
     let result = 0;
     for (let i = 0; i < comment.length; i++) {
@@ -52,7 +53,7 @@ function ProductDetail() {
     }
     return result;
   };
-
+//生成星星
   const stars = (score) => {
     let elementArr = [];
     for (let i = 0; i < 5; i++) {
@@ -340,7 +341,7 @@ function ProductDetail() {
 
                   {/* 評論區 下半部使用者 */}
                   <div className="">
-                    <UserComment />
+                    <UserComment/>
                   </div>
 
                   <div className="flex items-center justify-start mt-4 mb-12 ml-8 text-secondary md:hidden ">
