@@ -2,7 +2,11 @@ import React, { useRef, useState } from "react";
 import { FiEye, FiEyeOff } from "react-icons/fi";
 import { Input, Button } from "@material-tailwind/react";
 import axios from "axios";
-import { openLogin, openSignup } from "../../utils/redux/modalSlice";
+import {
+  closeModal,
+  openLogin,
+  openSignup,
+} from "../../utils/redux/modalSlice";
 import { useDispatch } from "react-redux/es/exports";
 import { API_URL } from "../../utils/config";
 
@@ -35,14 +39,14 @@ const Signup = () => {
     const formCols = ["name", "email", "phone", "password"];
     const formValue = {};
     // 製作data
-    inputRef.current.map((node, i) => {
+    inputRef.current.forEach((node, i) => {
       const input = node.children[0],
         colName = formCols[i];
       formValue[colName] = input.value;
     });
 
     axios
-      .post(API_URL + "/auth", formValue)
+      .post(API_URL + "/auth/email", formValue)
       .then((res) => {
         // 清空欄位
         inputRef.current.forEach((node) => {
@@ -55,7 +59,7 @@ const Signup = () => {
   };
   /* ---------------------------------- 切換至登入 ---------------------------------- */
   const handleOpen = () => {
-    dispatch(openSignup());
+    dispatch(closeModal());
     dispatch(openLogin());
   };
   // TODO 表單驗證 錯誤訊息
@@ -136,7 +140,8 @@ const Signup = () => {
             )}
           </div>
         </div>
-        <div className="mt-8 text-center">
+
+        <div className="mt-2 text-center">
           <Button
             className="px-4 py-2 mx-1 font-normal text-center text-white bg-dark"
             type="submit"

@@ -67,6 +67,7 @@ const Home = (props) => {
   const [show4, setShow4] = useState(false);
   return (
     <>
+    
       <div className="py-32 bg-light">
         {/* 輪播 */}
         <div className="h-[75vh]">
@@ -717,7 +718,7 @@ const Home = (props) => {
         <div className="flex flex-wrap items-start justify-center px-4 mt-4 2xl:px-20 lg:px-12">
           {/* 左上 */}
           <div className="mt-24">
-            <div className="flex items-end ">
+            <div className="flex items-end">
               <img
                 tabIndex={0}
                 src={`${process.env.PUBLIC_URL}/images/home/cookie.jpg`}

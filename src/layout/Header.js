@@ -11,7 +11,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { useSelector, useDispatch } from "react-redux/es/exports";
-import { openLogin } from "../utils/redux/modalSlice";
+import { closeModal, openLogin } from "../utils/redux/modalSlice";
 import { updateUser } from "../utils/redux/userSlice";
 import { toast } from "react-toastify";
 import axios from "axios";
@@ -47,7 +47,10 @@ const Header = () => {
   const dispatch = useDispatch();
   const currentUser = useSelector((state) => state.user.user);
   const toggle = () => setOpen(!isOpen);
-  const handleOpen = () => dispatch(openLogin());
+  const handleOpen = () => {
+    dispatch(closeModal());
+    dispatch(openLogin());
+  };
   const handleLogout = () => {
     toast.info("已成功登出!");
     dispatch(updateUser(null));
@@ -76,7 +79,7 @@ const Header = () => {
             {/* icons */}
             <div className="absolute flex items-center justify-end w-full mb-2 right-2 top-3 md:static ">
               <span className=" p">
-                {currentUser && currentUser.email.split("@")[0]}
+                {currentUser && currentUser.email?.split("@")[0]}
               </span>
               <AiOutlineSearch
                 className="mx-1 icon-sm"
