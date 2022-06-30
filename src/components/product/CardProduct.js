@@ -2,33 +2,10 @@ import React from "react";
 import OneCardProduct from "./OneCardProduct";
 import { useProductState } from "../../utils/redux/hooks-redux";
 
+const CardProduct = (props) => {
+  const { products, fav} = props;
+  // const [product, setProduct] = useProductState();
 
-const products = [
-  {
-    id: 1,
-    name: "馬卡龍蛋糕",
-    price: 400,
-    img: "/images/course/hand.jpg",
-  },
-  {
-    id: 2,
-    name: "龍蛋糕",
-    price: 450,
-    img: "/images/course/hand.jpg",
-  },
-  {
-    id: 3,
-    name: "卡龍蛋糕",
-    price: 780,
-    img: "/images/course/hand.jpg",
-  },
-  {
-    id: 4,
-    name: "馬龍蛋糕",
-    price: 300,
-    img: "/images/course/hand.jpg",
-  },
-];
 
 const CardProduct = () => {
   const [product, setProduct] = useProductState();
@@ -54,10 +31,8 @@ const CardProduct = () => {
           {/* ---------------------------- */}
           <div className="flex flex-wrap justify-around">
             {products.map((product, i) => {
-              const { id, name, price, img } = product;
-              return (
-                <OneCardProduct id={id} name={name} price={price} img={img} />
-              );
+              const { id, name, price } = product;
+              return <OneCardProduct id={id} name={name} price={price}  fav={fav} />;
             })}
           </div>
         </div>

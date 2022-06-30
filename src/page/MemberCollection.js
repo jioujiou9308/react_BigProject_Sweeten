@@ -43,7 +43,7 @@ const MemberColloction = () => {
     let getComment = async () => {
       let response = await axios.get(API_URL + "/user/comment/1");
       setComment(response.data.allResults);
-      // console.log(response.data.allResults);
+      console.log(response.data);
     };
     getComment();
   }, []);
@@ -102,7 +102,7 @@ const MemberColloction = () => {
                     </div>
                     {/* 被唾棄ㄉ兩欄UI */}
                     {/* <div className="">
-                    <div className="flex   md:h4 mb-10">
+                    <div className="flex mb-10 md:h4">
                       <p className="mr-1">商品</p>
                       <p className="mr-4">{name}</p>
                       <p  className="mr-1">價格</p>
@@ -110,7 +110,7 @@ const MemberColloction = () => {
                     </div>
                       <div className="flex">
                       <p className="md:hidden ">活動</p>
-                      <p className="hidden md:block h4 mr-3">目前活動</p>
+                      <p className="hidden mr-3 md:block h4">目前活動</p>
                       <button className="px-1 text-white md:p bg-warning">
                         母親節特賣
                       </button>
@@ -119,17 +119,14 @@ const MemberColloction = () => {
 
                     {/* 評分 */}
                     {/* 不確定這裡這樣寫對不對QQ */}
-                          <div className="hidden text-center md:block mx-18 ">
-                          
-                            <p className="note mr-2">
-                              {comment[i].score == "0" ? "尚未評價" : "評價"}
-                            </p>
-                            <h2 className=" h3">{comment[i].score}/5</h2>
-                        
-                            
-                            <div className="flex">{star(comment[i].score)}</div>
-                          </div>
-                       
+                    <div className="hidden text-center md:block mx-18 ">
+                      <p className="mr-2 note">
+                        {comment[i].score == "0" ? "尚未評價" : "評價"}
+                      </p>
+                      <h2 className=" h3">{comment[i].score}/5</h2>
+
+                      <div className="flex">{star(comment[i].score)}</div>
+                    </div>
 
                     {/* 移除&購買 */}
                     <div className="flex-col md:ml-4 ">
