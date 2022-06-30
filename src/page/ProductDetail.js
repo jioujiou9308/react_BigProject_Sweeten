@@ -4,7 +4,8 @@ import {
   AiFillPlusCircle,
   AiFillMinusCircle,
   AiOutlineStar,
-  AiOutlineRight,AiFillStar
+  AiOutlineRight,
+  AiFillStar,
 } from "react-icons/ai";
 import UserComment from "../components/productDetail/UserComment";
 import YouMayLikeProduct from "../components/productDetail/YouMayLikeProduct";
@@ -47,10 +48,9 @@ function ProductDetail() {
     let result = 0;
     for (let i = 0; i < comment.length; i++) {
       result += comment[i].score;
-      result = Math.round(result/comment.length)
+      result = Math.round(result / comment.length);
     }
     return result;
-    
   };
 
   const stars = (score) => {

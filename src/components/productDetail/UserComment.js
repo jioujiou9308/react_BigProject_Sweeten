@@ -34,7 +34,7 @@ const UserComment = () => {
     <>
       {comment.length == 0 ? (
         <>
-          <h1 className="h1 text-center pt-10">目前尚無評價</h1>
+          <h1 className="pt-10 text-center h1">目前尚無評價</h1>
         </>
       ) : (
         comment.map((comment, i) => {

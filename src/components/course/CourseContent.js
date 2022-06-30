@@ -28,7 +28,7 @@ const CourseContent = (props) => {
           <div class="pb-10 px-10  -mt-5">
             <div class="h1">{lessons[a].name}</div>
 
-            <p class="opcacity-60 mb-4 p mt-4">{lessons[0].description}</p>
+            <p class="opcacity-60 mb-4 p mt-4">{lessons[a].description}</p>
             <div class="inline-block mr-2 mt-2">
               <button
                 type="button"

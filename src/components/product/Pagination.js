@@ -1,6 +1,6 @@
 import React from "react";
 
-const ProductPagination = (props) => {
+const Pagination = (props) => {
   const { i, page, setPage } = props;
   return (
     <div>
@@ -20,4 +20,4 @@ const ProductPagination = (props) => {
   );
 };
 
-export default ProductPagination;
+export default Pagination;
