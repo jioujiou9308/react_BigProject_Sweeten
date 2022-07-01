@@ -29,8 +29,9 @@ const Product = () => {
     setFav(response.data);
     // console.log(response.data);
   };
+
+  //抓所有商品(有分頁)
   useEffect(() => {
-    //抓所有商品
     let getProducts = async () => {
       //API_URL+"/product?page=1"
       let response = await axios.get(API_URL + "/product", {
@@ -61,12 +62,12 @@ const Product = () => {
   return (
     <>
       <div className=" md:flex">
-        <MenuTag />
+        <MenuTag setProducts={setProducts}/>
         {/* filter section */}
         <Filter />
         {/* card list  */}
         <div className="flex flex-wrap ">
-          <CardProduct products={products} fav={fav} getFav={getFav}/>
+          <CardProduct products={products} fav={fav} getFav={getFav} />
         </div>
       </div>
       <ul className="flex items-center justify-center">

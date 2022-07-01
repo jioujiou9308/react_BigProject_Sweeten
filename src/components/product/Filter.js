@@ -1,18 +1,20 @@
 import React from "react";
 import { AiFillFilter } from "react-icons/ai";
 import { Fragment, useState } from "react";
+import { calcLength } from "framer-motion";
+import axios from "axios";
+import { API_URL } from "../../utils/config";
 
 function Filter() {
   const [open, setOpen] = useState(false);
 
+ 
+  //手機板篩選ㄉ彈跳視窗
   const categoryHandler = () => {
     setOpen(!open);
   };
-  const deskTopFilter = {
-    price: "mid-price",
-    category: "chocolate",
-    create_at: "newest",
-  };
+
+ 
 
   return (
     <>
@@ -27,14 +29,18 @@ function Filter() {
         <div>
           {/* 各類選項 */}
           <div className="grid grid-cols-1 gap-4 mt-4 border-b-2 border-line">
-            <select className="w-full px-4 py-3 text-sm bg-gray-100 border-transparent rounded-none focus:border-gray-500 focus:bg-white focus:ring-0">
+            <select
+              value="lowest-price"
+              onChange={() => {
+               
+              }}
+              className="w-full px-4 py-3 text-sm bg-gray-100 border-transparent rounded-none focus:border-gray-500 focus:bg-white focus:ring-0"
+            >
               <option value="">價格範圍</option>
-              <option value="lowest-price" onClick={() => {}}>
-                300以下
-              </option>
+              <option>600以下</option>
 
-              <option value="mid-price">300~600</option>
-              <option value="highest-price">600以上</option>
+              <option value="mid-price">600~1200</option>
+              <option value="highest-price">1200以上</option>
             </select>
 
             <select className="w-full px-4 py-3 text-sm bg-gray-100 border-transparent rounded-none md:hidden focus:border-gray-500 focus:bg-white focus:ring-0">
