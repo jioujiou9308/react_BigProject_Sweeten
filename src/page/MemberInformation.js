@@ -4,6 +4,7 @@ import { Input, Button } from '@material-tailwind/react';
 import IconButton from '@mui/material/IconButton';
 import PhotoCamera from '@mui/icons-material/PhotoCamera';
 import axios from 'axios';
+import { useDropzone } from 'react-dropzone';
 
 const MemberInformation = () => {
   const InputCamera = styled('input')({
@@ -28,9 +29,17 @@ const MemberInformation = () => {
       console.log(e);
     }
   }
+  // react-dropzone
+  const { acceptedFiles, getRootProps, getInputProps } = useDropzone();
+
+  const files = acceptedFiles.map((file) => (
+    <li key={file.path}>
+      {file.path} - {file.size} bytes
+    </li>
+  ));
 
   return (
-    <div>
+    <div className="flex justify-between">
       <div className="w-full p-10">
         <h1 className="focus:outline-none h1 font-bold text-gray-800">
           我的檔案
@@ -147,7 +156,6 @@ const MemberInformation = () => {
             </div>
           </div>
         </div>
-
         <Button
           size="sm"
           color="brown"
@@ -168,6 +176,26 @@ const MemberInformation = () => {
             <path d="M8.01 3H0V5H8.01V8L12 4L8.01 0V3Z" fill="#242731" />
           </svg>
         </Button>
+      </div>
+      <div className="flex justify-center mt-40 mr-40">
+        <section className="container">
+          <div
+            {...getRootProps({ className: 'dropzone' })}
+            className="border-dashed border-2 border-sky-500 h-1/2 w-80"
+          >
+            <input {...getInputProps()} />
+            <div className=" text-center mt-20 ">
+              <InputCamera accept="image/*" id="icon-button-file" type="file" />
+              <IconButton aria-label="upload picture" component="span">
+                <PhotoCamera />
+              </IconButton>
+            </div>
+          </div>
+          <aside>
+            <h4 className="p mt-4 text-center">請選擇圖片</h4>
+            <ul>{files}</ul>
+          </aside>
+        </section>
       </div>
     </div>
   );
