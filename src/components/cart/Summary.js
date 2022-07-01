@@ -7,11 +7,12 @@ function Summary(props) {
 
   return (
     <>
-      <div className="bg-secondary lg:w-1/3 flex flex-col justify-between m-8 p-8 max-h-[38rem]">
+      <div className="bg-secondary lg:w-1/3 flex flex-col justify-between m-8 px-8 pb-8 max-h-[38rem]">
         {/* 明細上半部 */}
         <div>
-          <p className="font-black h2">Summary</p>
-          <div className="flex justify-between pt-12">
+          <p className="py-5 font-black h3">購物明細</p>
+          <hr/>
+          <div className="flex justify-between pt-5">
             <p className="">項目</p>
             <p className="">共{totalNumber}件</p>
           </div>

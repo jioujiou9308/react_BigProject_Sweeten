@@ -89,9 +89,17 @@ const Header = () => {
                     .then((e) => console.log(e));
                 }}
               />
-              <Link to="/main/cart">
-                <AiOutlineShoppingCart className="mx-1 icon-sm" />
-              </Link>
+              {/* 購物車pin動畫 */}
+              <div className="relative ">
+                <Link to="/main/cart">
+                  <AiOutlineShoppingCart className="mx-1 icon-sm" />
+                </Link>
+                <span class="flex h-3 w-3 absolute -top-1 -right-1">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                  <span class="relative inline-flex rounded-full h-3 w-3 bg-secondary bg-opacity-50"></span>
+                </span>
+              </div>
+
               {currentUser ? (
                 <span className="cursor-pointer">
                   <FiLogOut
