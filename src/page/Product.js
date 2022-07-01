@@ -9,6 +9,7 @@ import { motion } from "framer-motion";
 // import { useState } from "react";
 
 import MenuTag from "../components/menuTag/MenuTag";
+import { useUserState } from "../utils/redux/hooks-redux";
 // import TabBar from "../components/product/Tabs";
 
 const Product = () => {
@@ -17,6 +18,7 @@ const Product = () => {
   //分頁
   const [page, setPage] = useState(1);
   const [lastPage, setLastPage] = useState(1);
+  const [currentUser]=useUserState()
 
   useEffect(() => {
     //抓所有商品
@@ -37,7 +39,7 @@ const Product = () => {
     //抓有加入最愛ㄉ商品
     let getFav = async () => {
       //1=user_id
-      let response = await axios.get(API_URL + "/user/favorite_product/all_data/1");
+      let response = await axios.get(API_URL + `/user/favorite_product/all_data/${currentUser.id}`);
       setFav(response.data);
       // console.log(response.data);
     };

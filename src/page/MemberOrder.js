@@ -4,15 +4,17 @@ import MemberSearchBar from "../components/memberCollection/MemberSearchBar";
 import MemberOrderBar from "../components/memberOrder/MemberOrderBar";
 import axios from "axios";
 import { API_URL } from "../utils/config";
+import { useUserState } from "../utils/redux/hooks-redux";
 
 function MemberOrder() {
   const step = ["全部", "待付款", "待出貨", "待收貨", "完成"];
   const [barStep, setBarStep] = useState(0);
   const [order, setOrder] = useState([]);
+  const [currentUser]=useUserState()
 
   useEffect(() => {
     let getOrder = async () => {
-      let response = await axios.get(API_URL + "/order/user/1");
+      let response = await axios.get(API_URL + `/order/user/${currentUser.id}`);
       setOrder(response.data.data);
       console.log(response.data.data);
     };
