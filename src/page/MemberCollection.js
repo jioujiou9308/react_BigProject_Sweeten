@@ -125,6 +125,7 @@ const MemberColloction = () => {
 
                     {/* 評分 */}
                     {/* 不確定這裡這樣寫對不對QQ */}
+                    {/* TODO:不對 */}
                     {/* 有評分score變數 */}
                     <div className="hidden text-center md:block mx-18 ">
                       <p className="mb-1 mr-2 note">{comment.length>0?'評價':'尚未評價'}</p>

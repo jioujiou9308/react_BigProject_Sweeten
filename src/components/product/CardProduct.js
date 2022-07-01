@@ -27,12 +27,12 @@ const CardProduct = (props) => {
           {/* ---------------------------- */}
           <div className="flex flex-wrap justify-around">
             {/* ---------------- FIXME Cannot read properties of undefined (第一次渲染) --------------- */}
-            {/* {products.map((product, i) => {
+            {products.map((product, i) => {
               const { id, name, price } = product;
               return (
                 <OneCardProduct id={id} name={name} price={price} fav={fav} />
               );
-            })} */}
+            })}
           </div>
         </div>
       </section>

@@ -30,6 +30,7 @@ const Product = () => {
         },
       });
       setProducts(response.data.data);
+      // console.log(response.data.data)
       //set頁數
       setLastPage(response.data.pagination.totalPage);
       // console.log(response.data.data);
