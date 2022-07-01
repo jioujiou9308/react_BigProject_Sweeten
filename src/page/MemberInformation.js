@@ -1,15 +1,10 @@
 import React, { useState } from 'react';
-import { styled } from '@mui/material/styles';
-import { Input, Button } from '@material-tailwind/react';
-import IconButton from '@mui/material/IconButton';
-import PhotoCamera from '@mui/icons-material/PhotoCamera';
+import { Input, Button, IconButton } from '@material-tailwind/react';
 import axios from 'axios';
 import { useDropzone } from 'react-dropzone';
+import { FaCamera } from 'react-icons/fa';
 
 const MemberInformation = () => {
-  const InputCamera = styled('input')({
-    display: 'none',
-  });
   const [member, setMember] = useState({
     nickname: 'aaa',
     name: 'aaa',
@@ -52,18 +47,6 @@ const MemberInformation = () => {
               alt=""
               className="h-full w-full rounded-full overflow-hidden shadow"
             />
-            <div className="absolute bottom-0 left-11 cursor-pointer flex flex-col justify-center items-center text-gray-100">
-              <label htmlFor="icon-button-file">
-                <InputCamera
-                  accept="image/*"
-                  id="icon-button-file"
-                  type="file"
-                />
-                <IconButton aria-label="upload picture" component="span">
-                  <PhotoCamera />
-                </IconButton>
-              </label>
-            </div>
           </div>
         </div>
         {/* 表單 */}
@@ -183,13 +166,15 @@ const MemberInformation = () => {
             {...getRootProps({ className: 'dropzone' })}
             className="border-dashed border-2 border-sky-500 h-1/2 w-80"
           >
-            <input {...getInputProps()} />
-            <div className=" text-center mt-20 ">
-              <InputCamera accept="image/*" id="icon-button-file" type="file" />
-              <IconButton aria-label="upload picture" component="span">
-                <PhotoCamera />
-              </IconButton>
-            </div>
+            <Input
+              type="file"
+              className="border-dashed h-60 w-80"
+              accept="image/*"
+              {...getInputProps()}
+            />
+            <IconButton type="file" variant="text" className=" mt-10 mx-32">
+              <FaCamera className="icon-lg"  color='gray'/>
+            </IconButton>
           </div>
           <aside>
             <h4 className="p mt-4 text-center">請選擇圖片</h4>
