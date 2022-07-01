@@ -18,8 +18,17 @@ const Product = () => {
   //分頁
   const [page, setPage] = useState(1);
   const [lastPage, setLastPage] = useState(1);
-  const [currentUser]=useUserState()
+  const [currentUser] = useUserState();
 
+  //抓有加入最愛ㄉ商品
+  let getFav = async () => {
+    //1=user_id
+    let response = await axios.get(
+      API_URL + `/user/favorite_product/all_data/${currentUser.id}`
+    );
+    setFav(response.data);
+    // console.log(response.data);
+  };
   useEffect(() => {
     //抓所有商品
     let getProducts = async () => {
@@ -37,13 +46,6 @@ const Product = () => {
     };
     getProducts();
 
-    //抓有加入最愛ㄉ商品
-    let getFav = async () => {
-      //1=user_id
-      let response = await axios.get(API_URL + `/user/favorite_product/all_data/${currentUser.id}`);
-      setFav(response.data);
-      // console.log(response.data);
-    };
     getFav();
   }, [page]);
 
@@ -64,7 +66,7 @@ const Product = () => {
         <Filter />
         {/* card list  */}
         <div className="flex flex-wrap ">
-          <CardProduct products={products} fav={fav} />
+          <CardProduct products={products} fav={fav} getFav={getFav}/>
         </div>
       </div>
       <ul className="flex items-center justify-center">

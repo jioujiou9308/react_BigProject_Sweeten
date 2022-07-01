@@ -3,7 +3,7 @@ import OneCardProduct from "./OneCardProduct";
 import { useProductState } from "../../utils/redux/hooks-redux";
 
 const CardProduct = (props) => {
-  const { products, fav } = props;
+  const { products, fav, getFav } = props;
   // const [product, setProduct] = useProductState();
 
   return (
@@ -30,7 +30,7 @@ const CardProduct = (props) => {
             {products.map((product, i) => {
               const { id, name, price } = product;
               return (
-                <OneCardProduct id={id} name={name} price={price} fav={fav} />
+                <OneCardProduct id={id} name={name} price={price} fav={fav} getFav={getFav} />
               );
             })}
           </div>

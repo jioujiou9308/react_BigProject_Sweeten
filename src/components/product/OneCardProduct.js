@@ -6,7 +6,7 @@ import { API_URL } from "../../utils/config";
 import { useProductState, useUserState } from "../../utils/redux/hooks-redux";
 
 const OnceCarkProduct = (props) => {
-  const { id, name, price, fav } = props;
+  const { id, name, price, fav, getFav } = props;
   const [product, serProduct] = useProductState();
   const navigate = useNavigate();
   const [currentUser] = useUserState();
@@ -17,12 +17,14 @@ const OnceCarkProduct = (props) => {
       await axios.delete(
         `${API_URL}/user/favorite_product/${currentUser.id}?product_id=${id}`
       );
+      getFav();
     } else {
       //post
       await axios.post(`${API_URL}/user/favorite_product`, {
         user_id: currentUser.id,
         product_id: id,
       });
+      getFav();
     }
   };
   return (
