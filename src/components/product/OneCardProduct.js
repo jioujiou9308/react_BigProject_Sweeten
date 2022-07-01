@@ -27,7 +27,6 @@ const OnceCarkProduct = (props) => {
             <div className="flex items-center ">
               <AiOutlineMessage className="icon-sm" />
               {/* <AiOutlineShoppingCart className="icon" /> */}
-
               {fav.findIndex((item) => item.product_id === id) > -1 ? (
                 <AiFillHeart className="text-secondary icon-sm" />
               ) : (
