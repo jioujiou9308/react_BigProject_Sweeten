@@ -90,17 +90,18 @@ function Index() {
 
   return (
     <>
+    <div className="p-10">
+      <span className="block font-medium h3">訂購資訊</span>
       <form
         onSubmit={handleSubmit}
         onInvalid={handleInvalid}
         onChange={handleFormChange}
       >
-        {/* contact & credit card */}
-        <div className="p-10 border-t mt-14">
+        
+        <div className="pt-5 mt-6 border-t">
           {/* 訂購資訊 */}
           <div className="p-5 mb-10 bg-primary">
             <div className="pb-5 border-b">
-              <span className="block pb-3 font-medium h3">訂購資訊</span>
               <span className="block p">訂購人資料</span>
               <div className="grid grid-cols-2 gap-2">
                 <label className="pt-2 mb-1 text-xs">姓名</label>
@@ -302,7 +303,9 @@ function Index() {
             </button>
           </div>
         </div>
-      </form>
+      </form>    
+    </div>
+      
     </>
   );
 }

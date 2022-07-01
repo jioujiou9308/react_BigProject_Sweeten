@@ -567,11 +567,6 @@ const Home = (props) => {
               alt="Img of Glass bottle"
               className="object-cover w-full h-full shadow"
             />
-            {/* <img
-              src="https://i.ibb.co/gZMfQJq/pexels-ron-lach-8128069-1-1.png"
-              alt="Img of Glass bottle"
-              className="block w-full md:hidden "
-            /> */}
           </div>
         </div>
       </section>

@@ -10,51 +10,13 @@ function ProductItem(props) {
 
   return (
     <>
-      {/* <div className="row border-top border-bottom">
-        <div className="row main align-items-center">
-          <div className="col-2">
-            <img alt="" className="img-fluid" src={image} />
-          </div>
-          <div className="col">
-            <div className="row text-muted">{categroy}</div>
-            <div className="row">{name}</div>
-          </div>
-          <div className="col">
-            <a
-              href="#/"
-              onClick={() => {
-                setCount(count - 1);
-              }}
-            >
-              -
-            </a>
-            <a href="#/" className="border">
-              {count}
-            </a>
-            <a
-              href="#/"
-              onClick={() => {
-                setCount(count + 1);
-              }}
-            >
-              +
-            </a>
-          </div>
-          <div className="col">
-            ${price}{" "}
-            <span className="close" onClick={removeItem}>
-              &#10005;
-            </span>
-          </div>
-        </div>
-      </div> */}
       {/* each item div */}
-      <div className="items-center py-8 border-t md:flex mt-14">
+      <div className="items-center py-5 mt-6 border-t md:flex">
         <div className="w-full md:w-1/4">
           <img
              src={image} 
             alt=""
-            className="object-cover object-center w-full max-h-40"
+            className="object-cover object-center w-full rounded-none max-h-40"
           />
         </div>
         <div className="md:pl-3 md:w-3/4">
