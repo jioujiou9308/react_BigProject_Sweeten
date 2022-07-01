@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { Input, Button, Checkbox } from "@material-tailwind/react";
 import { FcGoogle } from "react-icons/fc";
 import { closeModal, openSignup } from "../../utils/redux/modalSlice";
@@ -11,7 +11,7 @@ import axios from "axios";
 const Login = () => {
   const dispatch = useDispatch();
   const inputRef = useRef([]);
-
+  const [errState, setErrState] = useState({});
   /* ------------------------------- toggle form ------------------------------ */
   const handleOpen = () => {
     dispatch(closeModal());
@@ -38,6 +38,10 @@ const Login = () => {
       })
       .catch((e) => {
         // 登入失敗
+        const msg = e.response.data;
+        toast.error(msg);
+        const position = msg.split(":")[0];
+        setErrState({ [position]: true });
         console.log(e);
       });
   };
@@ -64,6 +68,7 @@ const Login = () => {
                   className="flex-grow h-8 px-2 border rounded border-grey-400"
                   name="email"
                   label="email"
+                  error={errState["email"]}
                   ref={(node) => (inputRef.current[0] = node)}
                 />
               </div>
@@ -74,6 +79,7 @@ const Login = () => {
                   className="flex-grow h-8 px-2 border rounded border-grey-400"
                   name="password"
                   label="password"
+                  error={errState["password"]}
                   ref={(node) => (inputRef.current[1] = node)}
                   required
                 />
