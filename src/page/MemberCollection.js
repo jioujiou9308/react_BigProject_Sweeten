@@ -142,7 +142,6 @@ const MemberColloction = () => {
               尚未評價
                       </p>
                       <h2 className=" h3">-/5</h2>
-
                       <div className="flex">{star(0)}</div>
                     </div> */}
 

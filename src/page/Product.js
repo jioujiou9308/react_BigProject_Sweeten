@@ -67,12 +67,23 @@ const Product = () => {
         </div>
       </div>
       <ul className="flex items-center justify-center">
-        <li className="mr-4" onClick={()=>{page>1&&
-          setPage(page-1)
-        }}>上一頁</li>
-        {getPage()} <li className="ml-4"  onClick={()=>{page<lastPage&&
-          setPage(page+1)
-        }}>下一頁</li>
+        <li
+          className="mr-4"
+          onClick={() => {
+            page > 1 && setPage(page - 1);
+          }}
+        >
+          上一頁
+        </li>
+        {getPage()}{" "}
+        <li
+          className="ml-4"
+          onClick={() => {
+            page < lastPage && setPage(page + 1);
+          }}
+        >
+          下一頁
+        </li>
       </ul>
     </>
   );

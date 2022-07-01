@@ -41,6 +41,9 @@ const Login = () => {
         console.log(e);
       });
   };
+  const handleGoogleLogin = () => {
+    axios.get(API_URL + "/auth/google");
+  };
   // TODO 表單驗證 錯誤訊息
 
   return (
@@ -85,8 +88,11 @@ const Login = () => {
                   variant="text"
                   color="brown"
                   className="flex items-center justify-center ml-auto"
+                  onClick={handleGoogleLogin}
                 >
-                  <FcGoogle className=" icon" />
+                  <a href={API_URL + "/auth/google"}>
+                    <FcGoogle className=" icon" />
+                  </a>
                 </Button>
               </div>
               <div className="flex flex-col mt-8">

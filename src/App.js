@@ -12,13 +12,17 @@ import SignupModal from "./components/dialog/SignupModal";
 import { ToastContainer, Slide } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useDispatch } from "react-redux";
+import "animate.css";
+import axios from "axios";
+import { useUserState } from "./utils/redux/hooks-redux";
 
 // TODO 註冊 關於 上下架 訂單 課程 即期品
 
 function App() {
   const dispatch = useDispatch();
   // firebase 登入狀態聆聽
-
+  const [user] = useUserState();
+  console.log(user);
   //AOS初始化
   useEffect(() => {
     AOS.init();

@@ -1,6 +1,7 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import About from "../page/About";
+// import Course from "../page/Course";
 import Course from "../page/Course";
 import CourseDetail from "../page/CourseDetail";
 import Member from "../page/Member";
@@ -15,6 +16,7 @@ import Cart from "../page/Cart";
 import Signup from "../components/dialog/Signup";
 import CustomerService from "../page/CustomerService";
 import CheckOut from "../page/CheckOut";
+import ExpireProduct from "../page/ExpireProduct";
 
 const Main = () => {
   return (
@@ -29,14 +31,17 @@ const Main = () => {
           <Route path="/member/order" element={<MemberOrder />} />
           <Route path="/member/collection" element={<MemberColloction />} />
           <Route path="/member/information" element={<MemberInformation />} />
+          {/* <Route path="/course" element={<Course />} /> */}
           <Route path="/member/information2" element={<MemberInformation2 />} />
           <Route path="/course" element={<Course />} />
+
           <Route path="/course/detail" element={<CourseDetail />} />
           <Route path="/about" element={<About />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/checkOut" element={<CheckOut />} />
           <Route path="/customerService" element={<CustomerService />} />
+          <Route path="/expireProduct" element={<ExpireProduct />} />
         </Routes>
       </div>
     </main>

@@ -5,7 +5,6 @@ import axios from "axios";
 import { API_URL } from "../utils/config";
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { useCartState } from "../utils/redux/hooks-redux";
 import { useRef } from "react";
 
 // const testUser = {

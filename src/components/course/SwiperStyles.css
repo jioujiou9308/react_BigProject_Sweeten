@@ -1,5 +1,7 @@
-//給課程和商品推薦用ㄉ跑馬燈
-
+#app {
+  height: 100%;
+}
+html,
 body {
   position: relative;
   height: 100%;
@@ -16,7 +18,7 @@ body {
 
 .swiper {
   width: 100%;
-  height: 100%;
+  height: 500px;
 }
 
 .swiper-slide {
@@ -44,42 +46,4 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
-}
-
-.swiper-button-prev,
-.swiper-button-next {
-  color: #f39898;
-  transform: translateY(-30px);
-}
-
-.swiper-pagination {
-}
-
-.swiper-slide {
-  background: #fad2bc;
-}
-.swiper-pagination-bullet-active {
-  background: #f39898;
-}
-
-//彈跳視窗視窗
-.parent {
-  background: black;
-  width: 100px;
-  height: 100px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.parent[data-isOpen="true"] {
-  width: 400px;
-  height: 200px;
-}
-
-.child {
-  width: 40px;
-  height: 40px;
-  background: #f107a3;
-  border-radius: 50%;
 }
