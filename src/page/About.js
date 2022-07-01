@@ -24,19 +24,20 @@ function About() {
                 </h1>
               </div>
             </div>
-            <p className="my-5 p">
-              創立的感人故事，富有熱忱與激情blablabla每一個值得慶祝的時刻，<br/>創立的感人故事，富有熱忱與激情blablabla每一個值得慶祝的時刻，<br/>創立的感人故事，富有熱忱與激情blablabla每一個值得慶祝的時刻，<br/>創立的感人故事，富有熱忱與激情blablabla每一個值得慶祝的時刻，<br/>創立的感人故事，富有熱忱與激情blablabla每一個值得慶祝的時刻，<br/>
+            <p className="my-5 leading-9 p">
+              甜點對法國人而言，就像是日常所需，與法國人聚餐，無論是享用哪<br/>國料理，餐後結尾甜點是絕對必要的，哪怕只是簡單的烤布雷、熔岩<br/>巧克力蛋糕，就像台灣人吃餐後水果一樣，吃完甜點才算是正式結束<br/>一餐。<br/>
+              近年來，將引以為傲的傳統經典款式更加精緻化，拆解重組，融入了<br/>更多創意和口味上的層次轉變。分子甜點、完美視覺與味覺饗宴的盤<br/>式甜點，反應了與生活密不可分的飲食文化。
             </p>
           </div>
 
           <div
-            className="relative w-1/2"
+            className="relative w-1/2 mt-5"
             data-aos="fade-in"
             data-aos-duration="2000"
           >
             <div className="absolute invisible w-full h-full border-2 md:visible -top-2 -right-2 border-line"></div>
             <div className="absolute invisible w-full h-full border-2 md:visible -bottom-2 -left-2 border-line"></div>
-            <div className="mx-10 my-10 bg-opacity-50 ">
+            <div className="mx-10 my-10 bg-opacity-50">
               <p
                 className="leading-8 p"
                 data-aos="flip-left"
@@ -82,8 +83,9 @@ function About() {
               </h1>
             </div>
         </div>
+        <span className="mx-10 my-5 leading-9 p">近年來，風格獨立甜點店一間間開起，各色甜點創作不僅滿足甜點迷的味蕾，也形塑出多元甜點文化。事實上台灣常民生活與甜點的美味關係其來有自。早從日治時期開始，台灣人便可以在喫茶店裡享用兼具和洋風味的「洋菓子」；到了美援時期，在美國推廣小麥的背景下，街邊開起一間間「西點麵包店」，西點師傅們在「台灣區麵麥食品推廣執行委員會」教導下，以當時看來科學化的先進技術，製作出充滿美式風格的西點麵包，成為許多人的童年回憶。</span>
         <div className="relative flex flex-wrap items-start justify-center px-4 mt-20 2xl:px-1 lg:px-12">
-          <div className="mt-24">
+          <div className="mt-5">
             <div className="flex items-end ">
               <img
                 tabIndex={0}
@@ -247,7 +249,7 @@ function About() {
               </h1>
             </div>
         </div>
-      <div className="flex flex-wrap justify-around mt-8">
+      <div className="flex flex-wrap justify-around mt-8 mb-20">
         {/* Each Teacher */}
         <div className="flex items-center p-2 hover:bg-primary"
                 data-aos="flip-left"
@@ -259,7 +261,7 @@ function About() {
           />
           <div className="ml-3 mr-3">
             <p className="text-sm font-medium">
-              法國餐廚資深研究員
+              澳洲藍帶甜點師傅
             </p>
             <p className="font-medium p">
               陳映汝
@@ -293,7 +295,7 @@ function About() {
           />
           <div className="ml-3 mr-3">
             <p className="text-sm font-medium">
-              法國餐廚資深研究員
+              台式甜點師
             </p>
             <p className="font-medium p">
               陳映汝
@@ -310,7 +312,7 @@ function About() {
           />
           <div className="ml-3 mr-3">
             <p className="text-sm font-medium">
-              法國餐廚資深研究員
+              法國優秀烘焙專家
             </p>
             <p className="font-medium p">
               陳映汝
@@ -325,7 +327,7 @@ function About() {
         data-aos-easing="ease-in"
         data-aos-duration="2000"
       >
-        <div className="h-14 text-center w-2/3 mt-10 bg-gradient-to-r pb-[6px] from-secondary to-transparent">
+        <div className="h-14 text-center mt-10 bg-gradient-to-r pb-[6px] from-secondary to-transparent">
             <div className="h-12 p-0 bg-white">
               <h1
                 className=" flex  h-12 text-4xl  font-bold leading-9  tracking-[.5em] pr-20"

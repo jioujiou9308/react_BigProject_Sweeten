@@ -15,27 +15,27 @@ import { Autoplay } from "swiper";
 const s1Post = {
   title: "我們的堅持",
   content:
-    "Whether article spirits new her covered hastily sitting her. Money witty books nor son add",
+    "All organic foods used are certified to use chemical pesticides in the cultivation process",
 };
 const s1Feature = [
   {
     title: "有機食材",
-    content: "Whether article spirits new her covered.",
+    content: "所有使用的有機食材均獲認證在種植過程絕不使用化學農藥",
     Icon: GiHealing,
   },
   {
     title: "天然酵母",
-    content: "Whether article spirits new her covered.",
+    content: "達到好的口感可不用食品添加較費工對健康絕對是有保障的",
     Icon: GiFlour,
   },
   {
     title: "客製化包裝",
-    content: "Whether article spirits new her covered.",
+    content: "認真傾聽需求並打造專屬風格滿足客戶並賦予產品新的面貌",
     Icon: GiCardboardBoxClosed,
   },
   {
     title: "獨創課程",
-    content: "Whether article spirits new her covered.",
+    content: "國內外烘焙專業團隊獲獎無數豐富教學經驗及獨家烘焙秘訣",
     Icon: GiTeacher,
   },
 ];
@@ -161,7 +161,7 @@ const Home = (props) => {
                       <h2 className="text-lg font-semibold leading-4">
                         {Feature.title}
                       </h2>
-                      <p className="mt-2 text-base leading-6 lg:w-40 2xl:w-52">
+                      <p className="mt-2 text-base leading-6 text-start lg:w-40 2xl:w-52">
                         {Feature.content}
                       </p>
                     </div>
@@ -219,19 +219,17 @@ const Home = (props) => {
               <p className="absolute text-2xl font-bold -translate-y-full opacity-30 ">
                 SWEETEN
               </p>
-              Indoor Interiors
+              烤箱記憶
               <hr className="border-b-2 border-line" />
             </h1>
             <p className="mt-4 text-base leading-6 ">
-              Get inspired by our curated selection of luxiwood interiors. We
-              hope get inspired to have luxiwood interior yourself. You’ll find
-              tips here where you can buy a lot of cool furniture.
+            食物，不管是甜是鹹，就像香氣一樣，總能帶我們回到彼時。某段時光，也許與某個人，分享了某些食物，在腦海中留下縈繞不去卻又略為模糊的畫面，雖然記不清，但想起還會帶著笑意，那是回憶去蕪存菁後所恩賜的溫暖。記憶裡，某個冬日我推開了門，認識了一家獨特又充滿個性的法式甜點店，而她不是某家甜點店，這次我會記得填上她們的芳名。
             </p>
             <button
               aria-label="view catalogue"
               className="flex items-center mt-6 text-base font-semibold leading-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-700 focus:outline-none md:mt-8 hover:underline"
             >
-              View Catalogue
+              看更多
               <svg
                 className="mt-1 ml-2"
                 width="12"
