@@ -39,7 +39,8 @@ const Product = () => {
 
     //抓有加入最愛ㄉ商品
     let getFav = async () => {
-      let response = await axios(API_URL + "/user/favorite_product/all_data/1");
+      //1=user_id
+      let response = await axios.get(API_URL + "/user/favorite_product/all_data/1");
       setFav(response.data);
       // console.log(response.data);
     };
