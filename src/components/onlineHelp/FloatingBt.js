@@ -4,12 +4,16 @@ import { IconButton } from '@material-tailwind/react';
 import { useNavigate } from 'react-router-dom';
 
 const FloatingBt = () => {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
   return (
-    <div className="h-full">
-      <IconButton type="file" variant="text" className=" mt-10 mx-32 float-left"  onClick={() => {
-                  navigate('/main/customerService');
-                }}>
+    <div className=" fixed bottom-3 bg-primary rounded-full right-3 ">
+      <IconButton
+        type="file"
+        variant="text"
+        onClick={() => {
+          navigate('/main/customerService');
+        }}
+      >
         <RiCustomerService2Fill className="icon-lg" color="gray" />
       </IconButton>
     </div>

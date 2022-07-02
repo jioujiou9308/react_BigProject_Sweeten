@@ -43,9 +43,7 @@ const Main = () => {
         </Routes>
       </div>
       <div>
-        <Routes>
-          <Route path="/FloatingBt" element={<FloatingBt />} />
-        </Routes>
+        <FloatingBt />
       </div>
     </main>
   );
