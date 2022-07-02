@@ -21,7 +21,7 @@ import ErrorPage from "../page/ErrorPage";
 
 const Main = () => {
   return (
-    <main className="flex flex-wrap justify-center pb-12 mx-auto pt-36 ">
+    <main className="flex flex-wrap justify-center min-h-screen pb-12 mx-auto pt-36 ">
       {/* <Aside /> */}
       <div className="relative w-full p-8 bg-white shadow max-w-screen-2xl ">
         <Routes>
