@@ -48,7 +48,7 @@ CREATE TABLE `comment` (
 );
 
 CREATE TABLE `product` (
-  `id` varchar(255) PRIMARY KEY,
+  `id` int PRIMARY KEY AUTO_INCREMENT,
   `name` varchar(255),
   `price` int,
   `description` varchar(255),
@@ -58,7 +58,7 @@ CREATE TABLE `product` (
 );
 
 CREATE TABLE `product_photo` (
-  `product_id` varchar(255),
+  `product_id` int,
   `name` int,
   `path` varchar(255)
 );

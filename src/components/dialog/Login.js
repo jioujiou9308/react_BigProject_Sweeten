@@ -22,14 +22,17 @@ const Login = () => {
     e.preventDefault();
     const formKeys = ["email", "password"];
     const postBody = {};
-
     // make post data
     inputRef.current.forEach((node, i) => {
       const input = node.children[0];
       postBody[formKeys[i]] = input.value;
     });
+
     axios
-      .post(API_URL + "/auth/login", postBody)
+      .post(API_URL + "/auth/login", postBody, {
+        // 如果想要跨源讀寫 cookie
+        withCredentials: true,
+      })
       .then((res) => {
         // 登入成功
         const { data: currentUser } = res;
@@ -46,9 +49,11 @@ const Login = () => {
       });
   };
   const handleGoogleLogin = () => {
-    axios.get(API_URL + "/auth/google");
+    axios.get(API_URL + "/auth/google", {
+      // 如果想要跨源讀寫 cookie
+      withCredentials: true,
+    });
   };
-  // TODO 表單驗證 錯誤訊息
 
   return (
     <div

@@ -69,7 +69,7 @@ const Home = (props) => {
     <>
       {/* 輪播 */}
       <div className="py-32 bg-gradient-to-r from-secondary to-transparent">
-        <div className="h-[75vh]">
+        <div className="h-[75vh] flex items-center">
           <Swiper
             loop={true}
             autoplay={{
@@ -77,7 +77,7 @@ const Home = (props) => {
               disableOnInteraction: false,
             }}
             modules={[Autoplay]}
-            className="mySwiper"
+            className="h-full mySwiper"
           >
             {/* {slides.map((i) => {
               return (

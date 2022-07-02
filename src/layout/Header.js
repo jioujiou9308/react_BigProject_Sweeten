@@ -52,8 +52,15 @@ const Header = () => {
     dispatch(openLogin());
   };
   const handleLogout = () => {
-    toast.info("已成功登出!");
-    dispatch(updateUser(null));
+    axios
+      .get(API_URL + "/auth/logout", { withCredentials: true })
+      .then(({ data }) => {
+        dispatch(updateUser(null));
+        toast.info(data);
+      })
+      .catch((e) => {
+        toast.error("發生錯誤");
+      });
   };
   const handleNavigate = (path) => () => {
     navigate(path);
@@ -85,7 +92,10 @@ const Header = () => {
                 className="mx-1 icon-sm"
                 onClick={() => {
                   axios
-                    .get(API_URL + "/auth/check")
+                    .get(API_URL + "/auth/check?test=123", {
+                      // 如果想要跨源讀寫 cookie
+                      withCredentials: true,
+                    })
                     .then((e) => console.log(e));
                 }}
               />
