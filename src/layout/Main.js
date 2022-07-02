@@ -1,21 +1,22 @@
-import React from "react";
-import { Routes, Route } from "react-router-dom";
-import About from "../page/About";
-import Course from "../page/Course";
-import CourseDetail from "../page/CourseDetail";
-import Member from "../page/Member";
-import MemberColloction from "../page/MemberCollection";
-import MemberInformation from "../page/MemberInformation";
-import MemberInformation2 from "../page/MemberInformation2";
-import MemberOrder from "../page/MemberOrder";
-import Product from "../page/Product";
-import ProductDetail from "../page/ProductDetail";
-import Test from "../page/Test";
-import Cart from "../page/Cart";
-import Signup from "../components/dialog/Signup";
-import CustomerService from "../page/CustomerService";
-import CheckOut from "../page/CheckOut";
-import ErrorPage from "../page/ErrorPage";
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import About from '../page/About';
+import Course from '../page/Course';
+import CourseDetail from '../page/CourseDetail';
+import Member from '../page/Member';
+import MemberColloction from '../page/MemberCollection';
+import MemberInformation from '../page/MemberInformation';
+import MemberInformation2 from '../page/MemberInformation2';
+import MemberOrder from '../page/MemberOrder';
+import Product from '../page/Product';
+import ProductDetail from '../page/ProductDetail';
+import Test from '../page/Test';
+import Cart from '../page/Cart';
+import Signup from '../components/dialog/Signup';
+import FloatingBt from '../components/onlineHelp/FloatingBt';
+import CustomerService from '../page/CustomerService';
+import CheckOut from '../page/CheckOut';
+import ErrorPage from '../page/ErrorPage';
 
 const Main = () => {
   return (
@@ -39,6 +40,11 @@ const Main = () => {
           <Route path="/signup" element={<Signup />} />
           <Route path="/checkOut" element={<CheckOut />} />
           <Route path="/customerService" element={<CustomerService />} />
+        </Routes>
+      </div>
+      <div>
+        <Routes>
+          <Route path="/FloatingBt" element={<FloatingBt />} />
         </Routes>
       </div>
     </main>
