@@ -6,10 +6,13 @@ import CourseContent from "./CourseContent";
 
 import CourseHeader from "./CourseHeader";
 import CourseIntro from "./CourseIntro";
+import CourseDetail from "./CourseDetail";
 
 const CourseMain = () => {
   const [swipe, setSwipe] = useState(0);
   const [lessons, setLessons] = useState([true]);
+  const [detailContent, setDetailContent] = useState([false]);
+  const toggle = () => setDetailContent(!detailContent);
   //勞出使用者資料;
   useEffect(() => {
     // 撈出各頁產品資料
@@ -27,7 +30,23 @@ const CourseMain = () => {
     <>
       <CourseHeader />
       <CourseIntro />
-      <CourseContent swipe={swipe} lessons={lessons} />
+      <CourseContent
+        swipe={swipe}
+        lessons={lessons}
+        setDetailContent={setDetailContent}
+        toggle={toggle}
+      />
+      {detailContent === true ? (
+        <div data-aos="flip-up">
+          <CourseDetail
+            lessons={lessons}
+            swipe={swipe}
+            detailContent={detailContent}
+          />
+        </div>
+      ) : (
+        <></>
+      )}
 
       <div className="-translate-y-15 ">
         <CourseSwiper lessons={lessons} setSwipe={setSwipe} />

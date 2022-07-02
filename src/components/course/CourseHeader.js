@@ -6,7 +6,7 @@ const CourseHeader = () => {
       <img
         className="absolute z-0 object-cover w-full h-full"
         src={"/images/courseDetial/course_demo_lower.png"}
-        alt=""
+        alt="找不到照片"
       />
       {/* <div
         className="absolute top-0 z-0 flex flex-col items-center justify-center w-full h-full bg-no-repeat bg-cover "

@@ -29,7 +29,7 @@ const CourseSwiper = (props) => {
         className="mySwiper"
       >
         {/* <SwiperSlide>
-          <img src={"/images/course/hand.jpg"} alt="" />
+          <img src={"/images/course/hand.jpg"} alt="找不到照片" />
         </SwiperSlide> */}
         {lessons.map((lesson, i) => {
           return (

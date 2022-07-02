@@ -6,6 +6,8 @@ import {
   AiOutlineStar,
   AiOutlineRight,
 } from "react-icons/ai";
+// import UserComment from "../components/courseDetail/UserComment";
+import YouMayLikeCourse from "../components/courseDetail/YouMayLikeCourse";
 import { Button } from "@material-tailwind/react";
 import { useState } from "react";
 import axios from "axios";
@@ -15,8 +17,8 @@ import { useParams } from "react-router-dom";
 const CourseDetail = () => {
   const [selectedItem, setSelectedItem] = useState();
   const dates = ["6月", "8月"];
-  const [count, setCount] = useState(3);
-  const [favClick, setFavClick] = useState(true);
+  const [count, setCount] = useState(5);
+  const [favClick, setFavClick] = useState(false);
   const [courseDetail, setCourseDetail] = useState([]);
   const { id } = useParams();
   console.log(id);
@@ -38,6 +40,18 @@ const CourseDetail = () => {
             <div className="bg-white pb-60">
               {/* 桌機板DEMO */}
               <div className="hidden md:flex">
+                {/* demo大圖(左側)桌機板 */}
+                <div className="w-1/2 mr-10 mt-14 ml-7">
+                  <img
+                    className="max-w-full"
+                    src={
+                      process.env.PUBLIC_URL +
+                      "/images/courseDetial/course_demo_upper.png"
+                    }
+                    alt=""
+                  />
+                </div>
+                {/* DEMO右欄 桌機板*/}
                 <div className="w-1/2 mr-7">
                   {/* 桌機板標題和副標字體+愛心 */}
                   <div className="border-b-2 ">
@@ -211,34 +225,6 @@ const CourseDetail = () => {
                 </div>
               </div>
               {/* 商品說明&評論區桌機板+手機板 */}
-
-              <div className="mx-8 md:mt-16 md:flex">
-                <div className="w-full md:pr-10 md:w-1/2">
-                  <div className="mb-4">
-                    <h2 className="ml-2 md:ml-0 h3">商品特色：</h2>
-                    <p className="text-justify p">{description}</p>
-                  </div>
-
-                  <div className="mb-4">
-                    <h2 className="ml-2 md:ml-0 h3">原料：</h2>
-                    <p className="text-justify p">{description}</p>
-                  </div>
-
-                  <div>
-                    <h2 className="ml-2 md:ml-0 h3">過敏原：</h2>
-                    <p className="text-justify p">{description}</p>
-                  </div>
-                </div>
-
-                <div className="overflow-auto md:pl-5 md:w-1/2">
-                  <Button variant="text">
-                    <div className="flex items-center justify-start mt-4 mb-12 ml-8 text-secondary md:hidden">
-                      <p className="p">查看全部</p>
-                      <AiOutlineRight className="icon-l" />
-                    </div>
-                  </Button>
-                </div>
-              </div>
             </div>
           </>
         );

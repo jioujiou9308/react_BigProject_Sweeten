@@ -1,11 +1,11 @@
 import React from "react";
 
 const CourseContent = (props) => {
-  const { lessons, swipe } = props;
+  const { lessons, swipe, toggle } = props;
   let a = swipe;
   return (
     <>
-      <div className="h-full lg:flex">
+      <div className="h-full mb-5 lg:flex">
         <div className="relative w-full lg:-translate-x-5 ">
           <div className="h-0 lg:w-4/6 lg:h-full lg:ml-auto lg:mr-4">
             <img
@@ -38,8 +38,9 @@ const CourseContent = (props) => {
               <button
                 type="button"
                 className="focus:outline-none text-white text-sm py-2.5 px-5 rounded-md bg-gradient-to-r from-green-400 to-green-600 transform hover:scale-110"
+                onClick={toggle}
               >
-                Read More
+                詳細資訊
               </button>
             </div>
           </div>
