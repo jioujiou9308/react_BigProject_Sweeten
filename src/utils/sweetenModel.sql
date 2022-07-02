@@ -23,25 +23,25 @@ CREATE TABLE `country` (
 );
 
 CREATE TABLE `user_photo` (
-  `user_id` int,
+  `user_id` varchar(255),
   `name` varchar(255),
   `path` varchar(255)
 );
 
 CREATE TABLE `favorit_product` (
-  `user_id` int,
-  `product_id` int
+  `user_id` varchar(255),
+  `product_id` varchar(255)
 );
 
 CREATE TABLE `favorit_lesson` (
-  `user_id` int,
+  `user_id` varchar(255),
   `lesson_id` int
 );
 
 CREATE TABLE `comment` (
   `id` int PRIMARY KEY AUTO_INCREMENT,
-  `user_id` int,
-  `product_id` int,
+  `user_id` varchar(255),
+  `product_id` varchar(255),
   `content` varchar(255),
   `score` int,
   `created_at` datetime
@@ -74,7 +74,7 @@ CREATE TABLE `category` (
 );
 
 CREATE TABLE `product_category` (
-  `product_id` int,
+  `product_id` varchar(255),
   `category_id` int
 );
 
@@ -100,7 +100,7 @@ CREATE TABLE `lesson_photo` (
 
 CREATE TABLE `order_info` (
   `id` int PRIMARY KEY AUTO_INCREMENT,
-  `user_id` int,
+  `user_id` varchar(255),
   `order_status_id` int,
   `address` varchar(255),
   `payment_id` int,
@@ -138,7 +138,8 @@ CREATE TABLE `coupon_category` (
 
 CREATE TABLE `expiry` (
   `id` int,
-  `product_id` int,
+  `product_id` varchar(255),
   `expriy_date` date,
   `count` int
 );
+
