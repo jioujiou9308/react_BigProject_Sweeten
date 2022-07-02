@@ -10,46 +10,113 @@ function About() {
 
   return (
     <div>
-      {/* 照片牆 */}
-      <div className="flex flex-col items-center justify-center py-10 bg-gray-50">
-        <div className="xl:w-1/2 w-11/12 relative w-full h-40  tracking-[.9em]">
-          <h1
-            role="heading"
-            tabIndex={0}
-            className="text-6xl font-bold text-center 2xl:leading-10 leading-0 text-line"
+      <div className="flex flex-col py-10">
+        <div className="justify-around md:flex">
+          <div>
+            <div className="h-14  mt-10 bg-gradient-to-r pb-[6px] from-secondary to-transparent">
+              <div className="h-12 p-0 bg-white">
+                <h1
+                  className=" flex  h-12 text-4xl  font-bold leading-9  tracking-[.5em] pr-20"
+                  data-aos="fade-in-left"
+                  data-aos-duration="3000"
+                >
+                  認識SWEETEN
+                </h1>
+              </div>
+            </div>
+            <p className="my-5 leading-9 p">
+              甜點對法國人而言，就像是日常所需，與法國人聚餐，無論是享用哪
+              <br />
+              國料理，餐後結尾甜點是絕對必要的，哪怕只是簡單的烤布雷、熔岩
+              <br />
+              巧克力蛋糕，就像台灣人吃餐後水果一樣，吃完甜點才算是正式結束
+              <br />
+              一餐。
+              <br />
+              近年來，將引以為傲的傳統經典款式更加精緻化，拆解重組，融入了
+              <br />
+              更多創意和口味上的層次轉變。分子甜點、完美視覺與味覺饗宴的盤
+              <br />
+              式甜點，反應了與生活密不可分的飲食文化。
+            </p>
+          </div>
+
+          <div
+            className="relative w-1/2 mt-5"
+            data-aos="fade-in"
+            data-aos-duration="2000"
           >
-            認識SWEETEN
-          </h1>
+            <div className="absolute invisible w-full h-full border-2 md:visible -top-2 -right-2 border-line"></div>
+            <div className="absolute invisible w-full h-full border-2 md:visible -bottom-2 -left-2 border-line"></div>
+            <div className="mx-10 my-10 bg-opacity-50">
+              <p
+                className="leading-8 p"
+                data-aos="flip-left"
+                data-aos-duration="1000"
+              >
+                甜點，是生活裡的享受，
+                <br />
+                是給自己溫柔地犒賞。
+              </p>
+              <br />
+              <p
+                className="leading-8 text-center p"
+                data-aos="flip-left"
+                data-aos-duration="2000"
+              >
+                每一個微笑的時刻，
+                <br />
+                每一個值得慶祝的時刻，
+              </p>
+              <br />
+              <p
+                className="leading-8 text-end p"
+                data-aos="flip-left"
+                data-aos-duration="3000"
+              >
+                無論什麼時候，
+                <br />
+                都是適合吃甜點的好時光。
+              </p>
+            </div>
+          </div>
         </div>
-        <div className="absolute bg-white top-20 bg-opacity-70">
-          <p className="mt-10 leading-8 text-center text-gray-200 p">
-            甜點，是生活裡的享受，
-            <br className="hidden md:block" />
-            是給自己溫柔地犒賞。
-            <br />
-            每一個微笑的時刻，
-            <br className="hidden md:block" />
-            每一個值得慶祝的時刻，
-            <br />
-            無論什麼時候，
-            <br className="hidden md:block" />
-            都是適合吃甜點的好時光。
-          </p>
+
+        {/* 照片牆 */}
+        <div className="h-14 ml-10 mt-40 bg-gradient-to-r pb-[6px] from-secondary to-transparent">
+          <div className="h-12 p-0 bg-white">
+            <h1
+              className=" flex  h-12 text-4xl  font-bold leading-9  tracking-[.5em] pr-20"
+              data-aos="fade-in-left"
+              data-aos-duration="2000"
+            >
+              SWEETEN烘焙
+            </h1>
+          </div>
         </div>
+        <span className="mx-10 my-5 leading-9 p">
+          近年來，風格獨立甜點店一間間開起，各色甜點創作不僅滿足甜點迷的味蕾，也形塑出多元甜點文化。事實上台灣常民生活與甜點的美味關係其來有自。早從日治時期開始，台灣人便可以在喫茶店裡享用兼具和洋風味的「洋菓子」；到了美援時期，在美國推廣小麥的背景下，街邊開起一間間「西點麵包店」，西點師傅們在「台灣區麵麥食品推廣執行委員會」教導下，以當時看來科學化的先進技術，製作出充滿美式風格的西點麵包，成為許多人的童年回憶。
+        </span>
         <div className="relative flex flex-wrap items-start justify-center px-4 mt-20 2xl:px-1 lg:px-12">
-          <div className="mt-24">
+          <div className="mt-5">
             <div className="flex items-end ">
               <img
                 tabIndex={0}
                 src={`${process.env.PUBLIC_URL}/images/about/aboutwall1.jpeg`}
                 alt=""
                 className="object-cover w-20 h-20 mr-6 rounded-lg"
+                data-aos="zoom-in-right"
+                data-aos-easing="ease-in"
+                data-aos-duration="800"
               />
               <img
                 tabIndex={0}
                 src={`${process.env.PUBLIC_URL}/images/about/aboutwall7.jpeg`}
                 alt=""
                 className="w-48 rounded-lg h-36"
+                data-aos="zoom-in-right"
+                data-aos-easing="ease-in"
+                data-aos-duration="1500"
               />
             </div>
             <div className="flex items-center justify-end my-6">
@@ -58,6 +125,9 @@ function About() {
                 src={`${process.env.PUBLIC_URL}/images/about/aboutwall2.jpeg`}
                 alt=""
                 className="w-64 rounded-lg"
+                data-aos="zoom-in-up"
+                data-aos-easing="ease-in"
+                data-aos-duration="1500"
               />
             </div>
             <div className="flex items-start">
@@ -66,12 +136,18 @@ function About() {
                 src={`${process.env.PUBLIC_URL}/images/about/aboutwall3.jpeg`}
                 alt=""
                 className="w-48 h-48 rounded-lg"
+                data-aos="zoom-in-up"
+                data-aos-easing="ease-in"
+                data-aos-duration="800"
               />
               <img
                 tabIndex={0}
                 src={`${process.env.PUBLIC_URL}/images/about/aboutwall6.jpeg`}
                 alt=""
                 className="flex-shrink-0 object-cover w-20 h-20 ml-6 rounded-lg object-fit"
+                data-aos="zoom-in-up"
+                data-aos-easing="ease-in"
+                data-aos-duration="1000"
               />
             </div>
           </div>
@@ -81,6 +157,9 @@ function About() {
               src={`${process.env.PUBLIC_URL}/images/about/aboutwall5.jpeg`}
               className="rounded-lg w-72 h-80"
               alt="guy with sunglasses"
+              data-aos="zoom-in-down"
+              data-aos-easing="ease-in"
+              data-aos-duration="1000"
             />
             <div className="flex items-start mt-6">
               <img
@@ -88,12 +167,18 @@ function About() {
                 src={`${process.env.PUBLIC_URL}/images/about/aboutwall8.jpeg`}
                 alt="girl  laughing"
                 className="w-48 h-48 rounded-lg"
+                data-aos="zoom-in-up"
+                data-aos-easing="ease-in"
+                data-aos-duration="800"
               />
               <img
                 tabIndex={0}
                 src={`${process.env.PUBLIC_URL}/images/about/aboutwall9.jpeg`}
                 alt="guy with glasses"
                 className="object-cover w-20 h-20 ml-6 rounded-lg object-fit"
+                data-aos="zoom-in-up"
+                data-aos-easing="ease-in"
+                data-aos-duration="800"
               />
             </div>
           </div>
@@ -105,6 +190,9 @@ function About() {
                   src={`${process.env.PUBLIC_URL}/images/about/aboutwall10.jpeg`}
                   alt="group of friends"
                   className="object-center rounded-lg w-96 h-72 object-fit"
+                  data-aos="zoom-in-down"
+                  data-aos-easing="ease-in"
+                  data-aos-duration="800"
                 />
               </div>
               <div>
@@ -114,12 +202,18 @@ function About() {
                     src={`${process.env.PUBLIC_URL}/images/about/aboutwall12.jpeg`}
                     className="w-20 h-20 rounded-lg mt-14"
                     alt="man"
+                    data-aos="zoom-in-down"
+                    data-aos-easing="ease-in"
+                    data-aos-duration="1500"
                   />
                   <img
                     tabIndex={0}
                     src={`${process.env.PUBLIC_URL}/images/about/aboutwall4.jpeg`}
                     className="w-20 h-24 ml-6 rounded-lg"
                     alt="woman"
+                    data-aos="zoom-in-left"
+                    data-aos-easing="ease-in"
+                    data-aos-duration="800"
                   />
                 </div>
                 <img
@@ -127,6 +221,9 @@ function About() {
                   src={`${process.env.PUBLIC_URL}/images/about/aboutwall11.jpeg`}
                   alt="boy with blonde hair"
                   className="w-48 h-32 mt-6 ml-6 rounded-lg"
+                  data-aos="zoom-in-left"
+                  data-aos-easing="ease-in"
+                  data-aos-duration="1000"
                 />
               </div>
             </div>
@@ -136,42 +233,122 @@ function About() {
                 className="w-48 h-48 rounded-lg"
                 src={`${process.env.PUBLIC_URL}/images/about/aboutwall15.jpeg`}
                 alt="young girl with red hair"
+                data-aos="zoom-in-up"
+                data-aos-easing="ease-in"
+                data-aos-duration="1000"
               />
               <img
                 tabIndex={0}
                 className="h-56 ml-6 rounded-lg w-72"
                 src={`${process.env.PUBLIC_URL}/images/about/aboutwall14.jpeg`}
                 alt="young girl with red hair"
+                data-aos="zoom-in-up"
+                data-aos-easing="ease-in"
+                data-aos-duration="800"
               />
             </div>
           </div>
         </div>
-        {/* <div className="xl:w-1/2 w-11/12 w-full h-40 tracking-[.9em] absolute top-20 first-line bg-white opacity-70">
-                <h1 role="heading" tabIndex={0} className="text-6xl font-bold text-center text-gray-800 2xl:leading-10 leading-0">
-                    認識SWEETEN
-                </h1>
-                <p className="mt-10 leading-8 text-center p">
-                  甜點，是生活裡的享受，
-                  <br className="hidden md:block" />
-                  是給自己溫柔地犒賞。
-                  <br />
-                  每一個微笑的時刻，
-                  <br className="hidden md:block" />
-                  每一個值得慶祝的時刻，
-                  <br />
-                  無論什麼時候，
-                  <br className="hidden md:block" />
-                  都是適合吃甜點的好時光。
-                </p>
-            </div> */}
+      </div>
+      {/*師資*/}
+      <div className="h-14 ml-10 mt-40 bg-gradient-to-r pb-[6px] from-secondary to-transparent">
+        <div className="h-12 p-0 bg-white">
+          <h1
+            className=" flex  h-12 text-4xl  font-bold leading-9  tracking-[.5em] pr-20"
+            data-aos="fade-in-left"
+            data-aos-duration="2000"
+          >
+            SWEETEN師資
+          </h1>
+        </div>
+      </div>
+      <div className="flex flex-wrap justify-around mt-8 mb-20">
+        {/* Each Teacher */}
+        <div
+          className="flex items-center p-2 hover:bg-primary"
+          data-aos="flip-left"
+          data-aos-duration="2000"
+        >
+          <img
+            className="w-20 h-20 rounded-full shrink-0"
+            src={`${process.env.PUBLIC_URL}/images/about/aboutwall1.jpeg`}
+            alt=""
+          />
+          <div className="ml-3 mr-3">
+            <p className="text-sm font-medium">澳洲藍帶甜點師傅</p>
+            <p className="font-medium p">陳映汝</p>
+          </div>
+        </div>
+        <div
+          className="flex items-center p-2 hover:bg-primary"
+          data-aos="flip-left"
+          data-aos-duration="2000"
+        >
+          <img
+            className="w-20 h-20 rounded-full shrink-0"
+            src={`${process.env.PUBLIC_URL}/images/about/aboutwall1.jpeg`}
+            alt=""
+          />
+          <div className="ml-3 mr-3">
+            <p className="text-sm font-medium">法國餐廚資深研究員</p>
+            <p className="font-medium p">陳映汝</p>
+          </div>
+        </div>
+        <div
+          className="flex items-center p-2 hover:bg-primary"
+          data-aos="flip-left"
+          data-aos-duration="2000"
+        >
+          <img
+            className="w-20 h-20 rounded-full shrink-0"
+            src={`${process.env.PUBLIC_URL}/images/about/aboutwall1.jpeg`}
+            alt=""
+          />
+          <div className="ml-3 mr-3">
+            <p className="text-sm font-medium">台式甜點師</p>
+            <p className="font-medium p">陳映汝</p>
+          </div>
+        </div>
+        <div
+          className="flex items-center p-2 hover:bg-primary"
+          data-aos="flip-left"
+          data-aos-duration="2000"
+        >
+          <img
+            className="w-20 h-20 rounded-full shrink-0"
+            src={`${process.env.PUBLIC_URL}/images/about/aboutwall1.jpeg`}
+            alt=""
+          />
+          <div className="ml-3 mr-3">
+            <p className="text-sm font-medium">法國優秀烘焙專家</p>
+            <p className="font-medium p">陳映汝</p>
+          </div>
+        </div>
       </div>
       {/* 關於sweeten */}
-      <div className="px-4 text-left 2xl:container 2xl:mx-auto md:py-12 lg:px-20 md:px-6 py-9">
-        <h2 className="text-3xl font-semibold leading-9 text-gray-800 lg:text-4xl lg:leading-9 md:leading-7">
-          關於sweeten
-        </h2>
+      <div
+        className="px-4 text-left 2xl:container 2xl:mx-auto md:py-12 lg:px-10 md:px-6 py-9"
+        data-aos-offset="500"
+        data-aos-easing="ease-in"
+        data-aos-duration="2000"
+      >
+        <div className="h-14 text-center mt-10 bg-gradient-to-r pb-[6px] from-secondary to-transparent">
+          <div className="h-12 p-0 bg-white">
+            <h1
+              className=" flex  h-12 text-4xl  font-bold leading-9  tracking-[.5em] pr-20"
+              data-aos="fade-in-left"
+              data-aos-duration="2000"
+            >
+              關於SWEETEN
+            </h1>
+          </div>
+        </div>
         <div className="flex flex-col justify-center mt-8 md:flex-row md:space-x-8 md:mt-16">
-          <div className="w-full mt-10 md:w-7/12 lg:w-8/12 md:mt-0 sm:mt-14">
+          <div
+            className="w-full mt-10 md:w-7/12 lg:w-8/12 md:mt-0 sm:mt-14"
+            data-aos="flip-up"
+            data-aos-duration="2000"
+          >
             {/* <!-- Shipping Section --> */}
             <div>
               <div className="flex items-center justify-between cursor-pointer ">
@@ -368,14 +545,24 @@ function About() {
         </div>
       </div>
       {/* 訂閱 */}
-      <div className="pt-10 lg:py-10">
-        <div className="relative flex items-center justify-center w-full">
+      <div className="mt-20 ">
+        <div
+          className="relative flex items-center justify-center w-full"
+          data-aos="zoom-out"
+          data-aos-easing="ease-in"
+          data-aos-duration="1000"
+        >
           <img
             src={`${process.env.PUBLIC_URL}/images/about/slide2.png`}
             alt=""
             className="absolute z-0 object-cover w-full h-full xl:block"
           />
-          <div className="relative z-40 flex flex-col items-center justify-center w-full px-4 py-10 bg-black bg-opacity-20 md:my-16 lg:py-16 md:mx-24 md:px-12">
+          <div
+            className="relative z-40 flex flex-col items-center justify-center w-full px-4 py-10 bg-dark bg-opacity-70 md:my-16 lg:py-16 md:mx-24 md:px-12"
+            data-aos="flip-up"
+            data-aos-easing="ease-in"
+            data-aos-duration="2000"
+          >
             <h1 className="text-4xl font-semibold leading-9 text-center text-white">
               訂閱我們
             </h1>
@@ -394,6 +581,13 @@ function About() {
           </div>
         </div>
       </div>
+      <blockquote class="text-2xl font-semibold italic text-center mt-20 mb-10">
+        Let us&nbsp;
+        <span class="before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-secondary relative inline-block">
+          <span class="relative text-white">sweeten</span>
+        </span>
+        &nbsp;up your life.
+      </blockquote>
     </div>
   );
 }

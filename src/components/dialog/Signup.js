@@ -9,10 +9,12 @@ import {
 } from "../../utils/redux/modalSlice";
 import { useDispatch } from "react-redux/es/exports";
 import { API_URL } from "../../utils/config";
+import { toast } from "react-toastify";
 
 const Signup = () => {
   const dispatch = useDispatch();
   const inputRef = useRef([]);
+  const [errState, setErrState] = useState({});
   // -------- 切換密碼眼睛開關 --------
   const [eye, setEye] = useState({
     passwordEye: false,
@@ -55,7 +57,13 @@ const Signup = () => {
         });
         dispatch(openSignup());
       })
-      .catch((e) => console.log(e));
+      .catch((e) => {
+        const msg = e.response.data;
+        toast.error(msg);
+        const position = msg.split(":")[0];
+        setErrState({ [position]: true });
+        console.log(e);
+      });
   };
   /* ---------------------------------- 切換至登入 ---------------------------------- */
   const handleOpen = () => {
@@ -81,6 +89,7 @@ const Signup = () => {
           label="姓名"
           color="grey"
           ref={(node) => (inputRef.current[0] = node)}
+          error={errState["name"]}
           required
           className="block w-full px-4 py-2 mt-4 text-base rounded appearance-none focus:outline-none focus:shadow-outline"
         />
@@ -91,6 +100,7 @@ const Signup = () => {
           label="E-mail"
           color="grey"
           ref={(node) => (inputRef.current[1] = node)}
+          error={errState["email"]}
           required
           className="block w-full px-4 py-2 mt-4 text-base border rounded appearance-none focus:outline-none focus:shadow-outline"
         />
@@ -100,6 +110,7 @@ const Signup = () => {
           name="phone"
           label="手機號碼"
           color="grey"
+          error={errState["phone"]}
           ref={(node) => (inputRef.current[2] = node)}
           className="block w-full px-4 py-2 mt-4 text-base border rounded appearance-none focus:outline-none focus:shadow-outline"
         />
@@ -110,7 +121,7 @@ const Signup = () => {
             name="password"
             color="grey"
             label="密碼"
-            required
+            error={errState["password"]}
             className="block w-full px-4 py-2 mt-4 text-base border rounded appearance-none focus:outline-none focus:shadow-outline"
           />
           <div className="absolute right-2 top-3" onClick={passwordShow}>
@@ -128,6 +139,7 @@ const Signup = () => {
             name="confirmPassword"
             color="grey"
             label="確認密碼"
+            error={errState["password"]}
             ref={(node) => (inputRef.current[3] = node)}
             required
             className="block w-full px-4 py-2 mt-4 text-base border rounded appearance-none focus:outline-none focus:shadow-outline"
@@ -143,15 +155,6 @@ const Signup = () => {
 
         <div className="mt-2 text-center">
           <Button
-            className="px-4 py-2 mx-1 font-normal text-center text-white bg-dark"
-            type="submit"
-            size="sm"
-            color="brown"
-            onClick={handleSubmit}
-          >
-            註冊
-          </Button>
-          <Button
             className="px-4 py-2 mx-1 font-normal text-center text-white"
             type="submit"
             color="brown"
@@ -160,6 +163,15 @@ const Signup = () => {
             onClick={handleOpen}
           >
             返回登入
+          </Button>
+          <Button
+            className="px-4 py-2 mx-1 font-normal text-center text-white bg-dark"
+            type="submit"
+            size="sm"
+            color="brown"
+            onClick={handleSubmit}
+          >
+            註冊
           </Button>
         </div>
       </div>

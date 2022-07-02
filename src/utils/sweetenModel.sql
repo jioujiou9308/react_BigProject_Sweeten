@@ -1,5 +1,5 @@
 CREATE TABLE `user` (
-  `id` int PRIMARY KEY AUTO_INCREMENT,
+  `id` varchar(255) PRIMARY KEY,
   `full_name` varchar(255),
   `email` varchar(255),
   `password` varchar(255),
@@ -48,16 +48,17 @@ CREATE TABLE `comment` (
 );
 
 CREATE TABLE `product` (
-  `id` int PRIMARY KEY AUTO_INCREMENT,
+  `id` varchar(255) PRIMARY KEY,
   `name` varchar(255),
   `price` int,
   `description` varchar(255),
   `express_id` int,
-  `created_at` datetime
+  `created_at` datetime,
+  `valid` int DEFAULT 1
 );
 
 CREATE TABLE `product_photo` (
-  `product_id` int,
+  `product_id` varchar(255),
   `name` int,
   `path` varchar(255)
 );
@@ -135,40 +136,10 @@ CREATE TABLE `coupon_category` (
   `category_id` int
 );
 
-ALTER TABLE `user` ADD FOREIGN KEY (`gender_id`) REFERENCES `gender` (`id`);
+CREATE TABLE `expriy` (
+  `id` int,
+  `product_id` int,
+  `expriy_date` date,
+  `count` int
+);
 
-ALTER TABLE `user` ADD FOREIGN KEY (`country_id`) REFERENCES `country` (`id`);
-
-ALTER TABLE `user_photo` ADD FOREIGN KEY (`user_id`) REFERENCES `user` (`id`);
-
-ALTER TABLE `favorit_product` ADD FOREIGN KEY (`user_id`) REFERENCES `user` (`id`);
-
-ALTER TABLE `favorit_product` ADD FOREIGN KEY (`product_id`) REFERENCES `product` (`id`);
-
-ALTER TABLE `favorit_lesson` ADD FOREIGN KEY (`user_id`) REFERENCES `user` (`id`);
-
-ALTER TABLE `favorit_lesson` ADD FOREIGN KEY (`lesson_id`) REFERENCES `lesson` (`id`);
-
-ALTER TABLE `comment` ADD FOREIGN KEY (`user_id`) REFERENCES `user` (`id`);
-
-ALTER TABLE `comment` ADD FOREIGN KEY (`product_id`) REFERENCES `product` (`id`);
-
-ALTER TABLE `product` ADD FOREIGN KEY (`express_id`) REFERENCES `express` (`id`);
-
-ALTER TABLE `product_photo` ADD FOREIGN KEY (`product_id`) REFERENCES `product` (`id`);
-
-ALTER TABLE `product_category` ADD FOREIGN KEY (`category_id`) REFERENCES `category` (`id`);
-
-ALTER TABLE `product_category` ADD FOREIGN KEY (`product_id`) REFERENCES `product` (`id`);
-
-ALTER TABLE `lesson_photo` ADD FOREIGN KEY (`lesson_id`) REFERENCES `lesson` (`id`);
-
-ALTER TABLE `order_info` ADD FOREIGN KEY (`user_id`) REFERENCES `user` (`id`);
-
-ALTER TABLE `order_info` ADD FOREIGN KEY (`order_status_id`) REFERENCES `order_status` (`id`);
-
-ALTER TABLE `order_info` ADD FOREIGN KEY (`payment_id`) REFERENCES `payment` (`id`);
-
-ALTER TABLE `coupon_category` ADD FOREIGN KEY (`coupon_id`) REFERENCES `coupon` (`id`);
-
-ALTER TABLE `coupon_category` ADD FOREIGN KEY (`category_id`) REFERENCES `category` (`id`);

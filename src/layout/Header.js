@@ -52,8 +52,15 @@ const Header = () => {
     dispatch(openLogin());
   };
   const handleLogout = () => {
-    toast.info("已成功登出!");
-    dispatch(updateUser(null));
+    axios
+      .get(API_URL + "/auth/logout", { withCredentials: true })
+      .then(({ data }) => {
+        dispatch(updateUser(null));
+        toast.info(data);
+      })
+      .catch((e) => {
+        toast.error("發生錯誤");
+      });
   };
   const handleNavigate = (path) => () => {
     navigate(path);
@@ -84,12 +91,25 @@ const Header = () => {
               <AiOutlineSearch
                 className="mx-1 icon-sm"
                 onClick={() => {
-                  axios.get(API_URL + "/auth").then((e) => console.log(e));
+                  axios
+                    .get(API_URL + "/auth/check?test=123", {
+                      // 如果想要跨源讀寫 cookie
+                      withCredentials: true,
+                    })
+                    .then((e) => console.log(e));
                 }}
               />
-              <Link to="/main/cart">
-                <AiOutlineShoppingCart className="mx-1 icon-sm" />
-              </Link>
+              {/* 購物車pin動畫 */}
+              <div className="relative ">
+                <Link to="/main/cart">
+                  <AiOutlineShoppingCart className="mx-1 icon-sm" />
+                </Link>
+                <span class="flex h-3 w-3 absolute -top-1 -right-1">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                  <span class="relative inline-flex rounded-full h-3 w-3 bg-secondary bg-opacity-50"></span>
+                </span>
+              </div>
+
               {currentUser ? (
                 <span className="cursor-pointer">
                   <FiLogOut

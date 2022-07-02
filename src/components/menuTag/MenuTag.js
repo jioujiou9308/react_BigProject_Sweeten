@@ -18,6 +18,7 @@ const MenuTag = () => {
           initial={{ y: 5 }}
           animate={{ y: 5 }}
           whileHover={{ y: 0 }}
+          
         >
           {title}
         </MotionButton>

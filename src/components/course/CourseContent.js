@@ -45,9 +45,12 @@ const CourseContent = (props) => {
             </div>
           </div>
         </div>
-      </div>
+        </div>
+      
     </>
-  );
+    );
 };
+ 
+
 
 export default CourseContent;

@@ -12,7 +12,7 @@ import { Button } from "@material-tailwind/react";
 import UserCommentCard from "../components/memberCollection/UserCommentCard";
 import { API_URL } from "../utils/config";
 import axios from "axios";
-import { useFavoriteState } from "../utils/redux/hooks-redux";
+import { useFavoriteState, useUserState } from "../utils/redux/hooks-redux";
 import { calcLength } from "framer-motion";
 
 //生成評價星星
@@ -33,11 +33,14 @@ const MemberColloction = () => {
   const [memberCollection, setMemberCollection] = useFavoriteState();
   const [comment, setComment] = useState([]);
   // const [favorite, setFavorite] = useFavoriteState()
+  const [currentUser] = useUserState();
+  console.log(currentUser);
 
   //讀取資料
   useEffect(() => {
     let getMemberCollection = async () => {
-      let response = await axios.get(API_URL + "/user/favorite_product/1");
+      //TODO:currentUserId要記得改成變數
+      let response = await axios.get(API_URL + `/user/favorite_product/${currentUser.id}`);
       setMemberCollection(response.data.allResults);
       // console.log(response.data.allResults);
     };
@@ -122,15 +125,16 @@ const MemberColloction = () => {
 
                     {/* 評分 */}
                     {/* 不確定這裡這樣寫對不對QQ */}
+                    {/* TODO:不對 */}
                     {/* 有評分score變數 */}
                     <div className="hidden text-center md:block mx-18 ">
-                      <p className="mr-2 note">評價</p>
+                      <p className="mb-1 mr-2 note">{comment.length>0?'評價':'尚未評價'}</p>
                       <h2 className=" h3">
-                        {comment[i] && comment[i].score}/5
+                        {comment.length>0? comment[i].score:'-'}/5
                       </h2>
 
                       <div className="flex">
-                        {comment[i] && star(comment[i].score)}
+                        {comment.length>0? star(comment[i].score):star(0)}
                       </div>
                     </div>
                     {/* 沒有評分 */}
@@ -159,16 +163,13 @@ const MemberColloction = () => {
                       >
                         <span
                           className="flex items-center "
+                          //TODO: 要重新整理才會出來
                           onClick={async () => {
                             console.log(user_id);
-                            console.log(
-                              `${API_URL}/user/favorite_product/${user_id}`
-                            );
                             let response = await axios.delete(
                               `${API_URL}/user/favorite_product/${user_id}?product_id=${product_id}`
                             );
-                            // alert();
-                            // console.log(response)
+                            console.log(response);
                           }}
                         >
                           移除收藏 <AiOutlineDelete className="icon-sm" />

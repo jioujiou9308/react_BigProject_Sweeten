@@ -12,17 +12,33 @@ import SignupModal from "./components/dialog/SignupModal";
 import { ToastContainer, Slide } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useDispatch } from "react-redux";
+import "animate.css";
+import axios from "axios";
+import { useUserState } from "./utils/redux/hooks-redux";
+import { API_URL } from "./utils/config";
+import { updateUser } from "./utils/redux/userSlice";
 
 // TODO 註冊 關於 上下架 訂單 課程 即期品
 
 function App() {
   const dispatch = useDispatch();
-  // firebase 登入狀態聆聽
-
+  const [user] = useUserState();
+  console.log(user);
   //AOS初始化
   useEffect(() => {
     AOS.init();
     AOS.refresh();
+  }, []);
+  /* ------------------------------- auth check ------------------------------- */
+  useEffect(() => {
+    axios
+      .get(API_URL + "/auth/check?test=123", {
+        // 如果想要跨源讀寫 cookie
+        withCredentials: true,
+      })
+      .then(({ data: { user } }) => {
+        dispatch(updateUser(user));
+      });
   }, [dispatch]);
 
   return (
