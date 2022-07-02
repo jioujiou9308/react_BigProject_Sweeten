@@ -16,6 +16,7 @@ import { updateUser } from "../utils/redux/userSlice";
 import { toast } from "react-toastify";
 import axios from "axios";
 import { API_URL } from "../utils/config";
+import { useCartState } from "../utils/redux/hooks-redux";
 
 const pageTitle = ["首頁", "商城", "會員專區", "關於我們"];
 const subPage = {
@@ -58,6 +59,7 @@ const Header = () => {
   const handleNavigate = (path) => () => {
     navigate(path);
   };
+  const [cart, setCart] = useCartState();
   return (
     <motion.header
       className={`fixed top-0 z-50 w-full min-w-[370px] h-[6rem]  pt-4 pb-3 overflow-hidden  bg-white shadow`}
@@ -87,15 +89,21 @@ const Header = () => {
                   axios.get(API_URL + "/auth").then((e) => console.log(e));
                 }}
               />
+                
               {/* 購物車pin動畫 */}
-              <div className="relative ">
+              <div className="relative">
                 <Link to="/main/cart">
                   <AiOutlineShoppingCart className="mx-1 icon-sm" />
                 </Link>
+              {cart[1].length > 0 ?(
                 <span class="flex h-3 w-3 absolute -top-1 -right-1">
                   <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
                   <span class="relative inline-flex rounded-full h-3 w-3 bg-secondary bg-opacity-50"></span>
                 </span>
+              
+              ):(
+                <></>
+              )}
               </div>
 
               {currentUser ? (

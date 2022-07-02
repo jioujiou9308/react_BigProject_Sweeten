@@ -66,7 +66,15 @@ function ProductItem(props) {
                 <AiOutlineHeart className="icon" />
                 收藏
               </div>
-              <div className="flex items-center" onClick={() => {}}>
+              <div className="flex items-center" onClick={() => {
+                  const newProduct = [...cart[1]];
+                  const remove = newProduct.filter(
+                    (item) => item.name !== name
+                  );
+                  const newCart = [cart[0],remove];
+                    setCart(newCart);
+                }}
+              >
                 <AiOutlineDelete className="icon" />
                 刪除
               </div>

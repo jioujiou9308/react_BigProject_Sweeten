@@ -5,7 +5,6 @@ import { useCartState } from "../../utils/redux/hooks-redux";
 function Summary(props) {
   const navigate = useNavigate();
   const [productsInOrder, setProductsInOrder] = useCartState();
-  console.log(productsInOrder);
 
   let totalCount = 0;
   let temPrice = 0;
@@ -21,7 +20,7 @@ function Summary(props) {
 
   const totalPrice =
    plusTax + productsInOrder[0].fee
-  console.log(totalPrice);
+   
   return (
     <>
       <div className="bg-primary lg:w-1/3 flex flex-col justify-between m-8 px-8 pb-8 max-h-[38rem]">
