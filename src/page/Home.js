@@ -67,9 +67,9 @@ const Home = (props) => {
   const [show4, setShow4] = useState(false);
   return (
     <>
-      <div className="py-32 bg-light">
-        {/* 輪播 */}
-        <div className="h-[75vh]">
+      {/* 輪播 */}
+      <div className="py-32 bg-gradient-to-r from-secondary to-transparent">
+        <div className="h-[75vh] flex items-center">
           <Swiper
             loop={true}
             autoplay={{
@@ -77,7 +77,7 @@ const Home = (props) => {
               disableOnInteraction: false,
             }}
             modules={[Autoplay]}
-            className="mySwiper"
+            className="h-full mySwiper"
           >
             {/* {slides.map((i) => {
               return (
@@ -132,8 +132,18 @@ const Home = (props) => {
         />
         <div className="px-6 py-12 xl:mx-auto xl:container xl:px-20 ">
           <div className="relative items-center justify-center lg:flex lg:space-x-12 2xl:space-x-6">
-            <div className="text-center ">
-              <div className="relative text-3xl font-bold leading-9 lg:text-4xl">
+            <div
+              className="text-center "
+              data-aos="fade-right"
+              data-aos-easing="ease-in"
+              data-aos-duration="1000"
+            >
+              <div
+                className="relative text-3xl font-bold leading-9 lg:text-4xl"
+                data-aos="zoom-in"
+                data-aos-duration="1000"
+                data-aos-easing="ease-in"
+              >
                 <p className="absolute px-5 text-2xl font-bold -translate-x-1/2 -translate-y-full left-1/2 opacity-30 ">
                   SWEETEN
                 </p>
@@ -148,7 +158,12 @@ const Home = (props) => {
 
               <div className="grid gap-6 mt-6 md:mt-10 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 lg:mt-6 2xl:mt-12">
                 {s1Feature.map((Feature) => (
-                  <div key={Feature.title} className="flex items-center">
+                  <div
+                    key={Feature.title}
+                    className="flex items-center"
+                    data-aos="flip-left"
+                    data-aos-duration="1000"
+                  >
                     <div className="relative w-16 h-16">
                       <div className="z-20 flex items-center justify-center flex-shrink-0 w-16 h-16 mt-2 mr-3 ">
                         {
@@ -168,7 +183,12 @@ const Home = (props) => {
                 ))}
               </div>
             </div>
-            <div className="relative z-10 hidden max-w-[20rem] shadow h-[50vh] mt-6 lg:block lg:w-3/5 xl:w-3/5 lg:mt-0">
+            <div
+              className="relative z-10 hidden max-w-[20rem] shadow h-[50vh] mt-6 lg:block lg:w-3/5 xl:w-3/5 lg:mt-0"
+              data-aos="fade-left"
+              data-aos-easing="ease-in"
+              data-aos-duration="1000"
+            >
               <p className="absolute top-0 text-4xl font-bold opacity-50 -translate-y-3/4 -z-10 ">
                 SWEETEN食甜
               </p>
@@ -186,7 +206,11 @@ const Home = (props) => {
       <section className="px-4 py-8 lg:px-20 md:px-6 md:py-12">
         <div className="items-center justify-around lg:flex">
           <div className="mt-8 lg:w-7/12 lg:mt-0">
-            <div className="w-full h-full bg-red-200">
+            <div
+              className="w-full h-full bg-red-200"
+              data-aos="fade-in-up"
+              data-aos-easing="ease-in"
+            >
               <img
                 src="./images/home/section1-1.jpg"
                 alt="yellow cake"
@@ -204,17 +228,31 @@ const Home = (props) => {
                 src="./images/home/section1-2.jpg"
                 className="w-full "
                 alt="red cake"
+                data-aos="zoom-out-right"
+                data-aos-easing="ease-in"
               />
               <img
                 src="./images/home/section1-3.jpg"
                 className="w-full"
                 alt="green cake"
+                data-aos="zoom-out-left"
+                data-aos-easing="ease-in"
               />
             </div>
           </div>
-          <div className="relative py-10 lg:w-1/3 lg:p-3">
+          <div
+            className="relative py-10 lg:w-1/3 lg:p-3"
+            data-aos="zoom-out-right"
+            data-aos-easing="ease-in"
+            data-aos-duration="1000"
+          >
             <div className=" lg:border-2 border-line absolute -translate-x-1/4 -translate-y-[20%] w-[150%] h-[150%]"></div>
-            <h1 className="relative text-4xl font-semibold leading-9 ">
+            <h1
+              className="relative text-4xl font-semibold leading-9 "
+              data-aos="zoom-in-up"
+              data-aos-easing="ease-in"
+              data-aos-duration="1000"
+            >
               <p className="absolute text-2xl font-bold -translate-y-full opacity-30 ">
                 SWEETEN
               </p>
@@ -262,19 +300,31 @@ const Home = (props) => {
           </div>
         </div>
       </section>
-      <section className="px-4 2xl:container 2xl:mx-auto md:py-12 lg:px-20 md:px-6 py-9">
-        <h2 className="text-3xl font-semibold leading-9 lg:text-4xl lg:leading-9 md:leading-7">
+      <section
+        className="px-4 2xl:container 2xl:mx-auto md:py-12 lg:px-20 md:px-6 py-9"
+        data-aos="fade-left"
+        data-aos-offset="500"
+        data-aos-easing="ease-in"
+        data-aos-duration="2000"
+      >
+        <h2
+          className="text-3xl font-semibold leading-9 lg:text-4xl lg:leading-9 md:leading-7"
+          data-aos="zoom-in-up"
+        >
           Q & A
         </h2>
         <div className="flex flex-col items-start justify-start mt-4 md:justify-between md:items-start md:flex-row">
-          <div>
+          <div data-aos="zoom-in-up">
             <p className="text-base font-normal leading-6 lg:w-8/12 md:w-9/12">
               任何有關 SWEETEN 相關的問題，可以先到這裡看看
             </p>
           </div>
         </div>
         <div className="flex flex-col mt-8 md:flex-row md:space-x-8 md:mt-16">
-          <div className="w-full mt-10 md:w-7/12 lg:w-8/12 md:mt-0 sm:mt-14">
+          <div
+            className="w-full mt-10 md:w-7/12 lg:w-8/12 md:mt-0 sm:mt-14"
+            data-aos="zoom-in-up"
+          >
             {/* <!-- Shipping Section --> */}
             <div>
               <div className="flex items-center justify-between cursor-pointer ">
@@ -557,7 +607,11 @@ const Home = (props) => {
 
             <hr className="bg-gray-200 my-7" />
           </div>
-          <div className="relative w-0 -translate-y-1/4 md:w-1/3">
+          <div
+            className="relative w-0 -translate-y-1/4 md:w-1/3"
+            data-aos="flip-up"
+            data-aos-duration="2000"
+          >
             <div className="absolute w-full h-full border-2 -top-2 -right-2 border-line"></div>
             <div className="absolute w-full h-full border-2 -bottom-2 -left-2 border-line"></div>
             <img
@@ -565,11 +619,6 @@ const Home = (props) => {
               alt="Img of Glass bottle"
               className="object-cover w-full h-full shadow"
             />
-            {/* <img
-              src="https://i.ibb.co/gZMfQJq/pexels-ron-lach-8128069-1-1.png"
-              alt="Img of Glass bottle"
-              className="block w-full md:hidden "
-            /> */}
           </div>
         </div>
       </section>
@@ -585,7 +634,12 @@ const Home = (props) => {
       </section> */}
       {/* 產品 */}
       <div className="px-4 2xl:mx-auto 2xl:container lg:py-16 lg:px-24 xl:px-20 md:py-12 md:px-6 py-9">
-        <div className="flex flex-col items-center justify-center">
+        <div
+          className="flex flex-col items-center justify-center"
+          data-aos="zoom-in"
+          data-aos-easing="ease-in"
+          data-aos-duration="2000"
+        >
           <h1 className="text-4xl font-semibold leading-9">服務項目</h1>
           <p className="mt-4 text-base leading-6 text-center sm:w-96 md:w-9/12 lg:w-7/12">
             SWEETEN
@@ -596,7 +650,12 @@ const Home = (props) => {
           </p>
         </div>
         <div className="grid grid-cols-1 gap-4 mt-6 md:grid-cols-1 lg:grid-cols-3 xl:grid-cols-3 lg:gap-x-8 md:gap-6 lg:mt-12 md:mt-9">
-          <div className="relative flex items-center justify-center">
+          <div
+            className="relative flex items-center justify-center"
+            data-aos="flip-right"
+            data-aos-easing="ease-in"
+            data-aos-duration="2000"
+          >
             <img
               src={`${process.env.PUBLIC_URL}/images/home/toProduct.jpg`}
               className="object-cover w-full h-full max-w-lg max-h-96"
@@ -619,7 +678,12 @@ const Home = (props) => {
               </div>
             </div>
           </div>
-          <div className="relative flex items-center justify-center">
+          <div
+            className="relative flex items-center justify-center"
+            data-aos="flip-right"
+            data-aos-easing="ease-in"
+            data-aos-duration="2000"
+          >
             <img
               src={`${process.env.PUBLIC_URL}/images/home/expire.jpg`}
               className="object-cover w-full h-full max-w-lg max-h-96"
@@ -642,7 +706,12 @@ const Home = (props) => {
               </div>
             </div>
           </div>
-          <div className="relative flex items-center justify-center">
+          <div
+            className="relative flex items-center justify-center"
+            data-aos="flip-right"
+            data-aos-easing="ease-in"
+            data-aos-duration="2000"
+          >
             <img
               src={`${process.env.PUBLIC_URL}/images/home/makeCake.jpg`}
               className="object-cover w-full h-full max-w-lg max-h-96"
@@ -669,14 +738,24 @@ const Home = (props) => {
         </div>
       </div>
       {/* 訂閱 */}
-      <div className="pt-20 lg:py-32">
+      <div
+        className="pt-20 lg:py-32"
+        data-aos="zoom-out"
+        data-aos-easing="ease-in"
+        data-aos-duration="2000"
+      >
         <div className="relative flex items-center justify-center w-full">
           <img
             src={`${process.env.PUBLIC_URL}/images/home/subscribe.jpg`}
             alt=""
             className="absolute z-0 object-cover w-full h-full xl:block"
-          />
-          <div className="relative z-40 flex flex-col items-center justify-center w-full px-4 py-10 bg-dark bg-opacity-70 md:my-16 lg:py-16 md:mx-24 md:px-12">
+          ></img>
+          <div
+            className="relative z-40 flex flex-col items-center justify-center w-full px-4 py-10 bg-dark bg-opacity-70 md:my-16 lg:py-16 md:mx-24 md:px-12"
+            data-aos="flip-up"
+            data-aos-easing="ease-in"
+            data-aos-duration="3000"
+          >
             <h1 className="text-4xl font-semibold leading-9 text-center text-white">
               訂閱我們
             </h1>
@@ -697,7 +776,12 @@ const Home = (props) => {
       </div>
       {/* 照片牆 */}
       <div className="flex flex-col items-center justify-center py-20 bg-gray-50">
-        <div className="w-11/12 xl:w-1/2">
+        <div
+          className="w-11/12 xl:w-1/2"
+          data-aos="zoom-in"
+          data-aos-easing="ease-in"
+          data-aos-duration="1000"
+        >
           <h1
             tabIndex={0}
             className="text-5xl font-bold text-center 2xl:leading-10 leading-0"
@@ -717,18 +801,24 @@ const Home = (props) => {
         <div className="flex flex-wrap items-start justify-center px-4 mt-4 2xl:px-20 lg:px-12">
           {/* 左上 */}
           <div className="mt-24">
-            <div className="flex items-end ">
+            <div className="flex items-end">
               <img
                 tabIndex={0}
                 src={`${process.env.PUBLIC_URL}/images/home/cookie.jpg`}
                 alt=""
                 className="object-cover w-20 h-20 mr-6 rounded-lg"
+                data-aos="zoom-in-right"
+                data-aos-easing="ease-in"
+                data-aos-duration="2000"
               />
               <img
                 tabIndex={0}
                 src={`${process.env.PUBLIC_URL}/images/home/mango.jpg`}
                 alt=""
                 className="object-cover w-48 rounded-lg h-36"
+                data-aos="zoom-in-right"
+                data-aos-easing="ease-in"
+                data-aos-duration="1000"
               />
             </div>
             <div className="flex items-center justify-end my-6">
@@ -737,6 +827,9 @@ const Home = (props) => {
                 src={`${process.env.PUBLIC_URL}/images/home/lemon.jpg`}
                 alt=""
                 className="w-64 rounded-lg"
+                data-aos="zoom-in-up"
+                data-aos-easing="ease-in"
+                data-aos-duration="1000"
               />
             </div>
             <div className="flex items-start">
@@ -745,12 +838,18 @@ const Home = (props) => {
                 src={`${process.env.PUBLIC_URL}/images/home/handMake.jpg`}
                 alt=""
                 className="object-cover w-48 h-48 rounded-lg"
+                data-aos="zoom-in-up"
+                data-aos-easing="ease-in"
+                data-aos-duration="2000"
               />
               <img
                 tabIndex={0}
                 src={`${process.env.PUBLIC_URL}/images/home/flower.jpg`}
                 alt=""
                 className="flex-shrink-0 object-cover w-20 h-20 ml-6 rounded-lg object-fit"
+                data-aos="zoom-in-up"
+                data-aos-easing="ease-in"
+                data-aos-duration="1000"
               />
             </div>
           </div>
@@ -762,6 +861,9 @@ const Home = (props) => {
               src={`${process.env.PUBLIC_URL}/images/home/strawberry.jpg`}
               className="object-cover rounded-lg w-72 h-80"
               alt=""
+              data-aos="zoom-in-down"
+              data-aos-easing="ease-in"
+              data-aos-duration="2000"
             />
             <div className="flex items-start mt-6">
               <img
@@ -769,12 +871,18 @@ const Home = (props) => {
                 src={`${process.env.PUBLIC_URL}/images/home/macha.jpg`}
                 alt=""
                 className="object-cover w-48 h-48 rounded-lg"
+                data-aos="zoom-in-right"
+                data-aos-easing="ease-in"
+                data-aos-duration="1000"
               />
               <img
                 tabIndex={0}
                 src={`${process.env.PUBLIC_URL}/images/home/strCakeRoll.jpg`}
                 alt=""
                 className="object-cover w-20 h-20 mt-8 ml-6 rounded-lg"
+                data-aos="zoom-in-up"
+                data-aos-easing="ease-in"
+                data-aos-duration="2000"
               />
             </div>
           </div>
@@ -788,6 +896,9 @@ const Home = (props) => {
                   src={`${process.env.PUBLIC_URL}/images/home/store.jpg`}
                   alt=""
                   className="object-cover rounded-lg w-96 h-72 object-fit"
+                  data-aos="zoom-in-down"
+                  data-aos-easing="ease-in"
+                  data-aos-duration="2000"
                 />
               </div>
               <div>
@@ -797,12 +908,18 @@ const Home = (props) => {
                     src={`${process.env.PUBLIC_URL}/images/home/taro.jpg`}
                     className="object-cover w-20 h-20 rounded-lg mt-14"
                     alt=""
+                    data-aos="zoom-in-down"
+                    data-aos-easing="ease-in"
+                    data-aos-duration="1000"
                   />
                   <img
                     tabIndex={0}
                     src={`${process.env.PUBLIC_URL}/images/home/chocoMarka.jpg`}
                     className="object-cover w-20 h-24 ml-6 rounded-lg"
                     alt=""
+                    data-aos="zoom-in-left"
+                    data-aos-easing="ease-in"
+                    data-aos-duration="2000"
                   />
                 </div>
                 <img
@@ -810,6 +927,9 @@ const Home = (props) => {
                   src={`${process.env.PUBLIC_URL}/images/home/make.jpg`}
                   alt=""
                   className="object-cover w-48 h-32 mt-6 ml-6 rounded-lg"
+                  data-aos="zoom-in-left"
+                  data-aos-easing="ease-in"
+                  data-aos-duration="1000"
                 />
               </div>
             </div>
@@ -819,12 +939,18 @@ const Home = (props) => {
                 className="object-cover w-48 h-48 rounded-lg"
                 src={`${process.env.PUBLIC_URL}/images/home/ingredient.jpg`}
                 alt=""
+                data-aos="zoom-in-up"
+                data-aos-easing="ease-in"
+                data-aos-duration="1000"
               />
               <img
                 tabIndex={0}
                 className="object-cover h-56 ml-6 rounded-lg w-72"
                 src={`${process.env.PUBLIC_URL}/images/home/lesson.jpg`}
                 alt=""
+                data-aos="zoom-in-up"
+                data-aos-easing="ease-in"
+                data-aos-duration="2000"
               />
             </div>
           </div>

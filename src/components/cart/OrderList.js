@@ -7,7 +7,7 @@ function OrderList(props) {
   return (
     <>
       <div className="p-8 bg-white lg:w-2/3 md:p-12" id="scroll">
-        <p className="font-black h2">Bag</p>
+        <p className="font-black h3">購物車</p>
         {productsInOrder.map((product, i) => {
           const { id, name, categroy, image, price, count, size, flavor } =
             product;

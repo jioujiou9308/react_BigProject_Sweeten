@@ -6,6 +6,9 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { API_URL } from "../utils/config";
 import { motion } from "framer-motion";
+import {
+  AiOutlineShoppingCart,
+} from "react-icons/ai";
 // import { useState } from "react";
 
 import MenuTag from "../components/menuTag/MenuTag";
@@ -91,6 +94,9 @@ const Product = () => {
           下一頁
         </li> */}
       </ul>
+      <div class="fixed top-1/3 right-0 bg-secondary px-4 py-10 rounded-l-lg">
+       <button className="text-2xl text-white"><AiOutlineShoppingCart /></button>
+      </div>
     </>
   );
 };
