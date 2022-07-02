@@ -1,17 +1,17 @@
-import React, { useState } from 'react';
-import { Input, Button, IconButton } from '@material-tailwind/react';
-import axios from 'axios';
-import { useDropzone } from 'react-dropzone';
-import { FaCamera } from 'react-icons/fa';
+import React, { useState } from "react";
+import { Input, Button, IconButton } from "@material-tailwind/react";
+import axios from "axios";
+import { useDropzone } from "react-dropzone";
+import { FaCamera } from "react-icons/fa";
 
 const MemberInformation = () => {
   const [member, setMember] = useState({
-    nickname: 'aaa',
-    name: 'aaa',
-    email: '123@com',
-    phone: '0912345678',
-    birthday: '',
-    photo: '',
+    nickname: "aaa",
+    name: "aaa",
+    email: "123@com",
+    phone: "0912345678",
+    birthday: "",
+    photo: "",
   });
   console.log(member);
   function handleChange(e) {
@@ -65,10 +65,6 @@ const MemberInformation = () => {
                 onChange={handleChange}
               />
             </div>
-          
-
-      
-         
           </div>
 
           {/* 姓名 */}
@@ -168,7 +164,7 @@ const MemberInformation = () => {
       <div className="flex justify-center mt-40 mr-40">
         <section className="container">
           <div
-            {...getRootProps({ className: 'dropzone' })}
+            {...getRootProps({ className: "dropzone" })}
             className="border-2 border-dashed border-sky-500 h-1/2 w-80"
           >
             <Input
@@ -178,7 +174,7 @@ const MemberInformation = () => {
               {...getInputProps()}
             />
             <IconButton type="file" variant="text" className="mx-32 mt-10 ">
-              <FaCamera className="icon-lg"  color='gray'/>
+              <FaCamera className="icon-lg" color="gray" />
             </IconButton>
           </div>
           <aside>
