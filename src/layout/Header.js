@@ -128,7 +128,7 @@ const Header = () => {
                 variant="text"
                 size="sm"
                 color="pink"
-                className={`note  cursor-pointer md:p relative md:-top-6 px-3 py-1 rounded-none border-b-2 border-white hover:border-primary ${
+                className={`note  cursor-pointer md:p relative md:-top-6 px-3 py-1 rounded-none hvr-underline-from-center ${
                   title === current && active
                 }`}
               >

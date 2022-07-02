@@ -97,7 +97,7 @@ const Login = () => {
               </div>
               <div className="flex flex-col mt-8">
                 <Button
-                  className="px-4 py-2 text-sm font-semibold text-white bg-blue-500 rounded hover:bg-blue-700"
+                  className="px-4 py-2 text-sm font-semibold text-white shadow-pink-100 bg-primary hover:bg-secondary hover:shadow-pink-200"
                   onClick={handleLogin}
                 >
                   Login
@@ -107,7 +107,7 @@ const Login = () => {
             <div className="mt-4 text-center">
               <p>
                 <a
-                  className="text-xs no-underline hover:underline text-blue-dark"
+                  className="text-xs no-underline hover:underline "
                   href="{{ route('password.request') }}"
                 >
                   忘記帳密
@@ -115,7 +115,7 @@ const Login = () => {
               </p>
               <p>
                 <a
-                  className="text-xs no-underline hover:underline text-blue-dark"
+                  className="text-xs no-underline hover:underline "
                   href="#1"
                   onClick={handleOpen}
                 >
