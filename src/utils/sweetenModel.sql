@@ -136,10 +136,9 @@ CREATE TABLE `coupon_category` (
   `category_id` int
 );
 
-CREATE TABLE `expriy` (
+CREATE TABLE `expiry` (
   `id` int,
   `product_id` int,
   `expriy_date` date,
   `count` int
 );
-
