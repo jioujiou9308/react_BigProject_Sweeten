@@ -33,11 +33,11 @@ const Product = () => {
     // console.log(response.data);
   };
 
-  //抓所有商品(有分頁)
+  //抓所有商品(沒有分頁)
   useEffect(() => {
     let getProducts = async () => {
       //API_URL+"/product?page=1"
-      let response = await axios.get(API_URL + "/product", {
+      let response = await axios.get(API_URL + "/product/all", {
         params: {
           page: page,
         },
@@ -45,27 +45,29 @@ const Product = () => {
       setProducts(response.data.data);
       // console.log(response.data.data)
       //set頁數
-      setLastPage(response.data.pagination.totalPage);
-      // console.log(response.data.data);
+     
     };
     getProducts();
 
     getFav();
   }, [page]);
 
+  const perPage = 12;
+  const totalPage = (products/perPage);
+
   //抓分頁
-  const getPage = () => {
-    let pages = [];
-    for (let i = 1; i <= lastPage; i++) {
-      pages.push(<Pagination i={i} page={page} setPage={setPage} />);
-    }
-    return pages;
-  };
+  // const getPage = () => {
+  //   let pages = [];
+  //   for (let i = 1; i <= lastPage; i++) {
+  //     pages.push(<Pagination i={i} page={page} setPage={setPage} />);
+  //   }
+  //   return pages;
+  // };
 
   return (
     <>
       <div className=" md:flex">
-        <MenuTag setProducts={setProducts}/>
+        <MenuTag setProducts={setProducts} products={products}/>
         {/* filter section */}
         <Filter />
         {/* card list  */}
@@ -74,7 +76,7 @@ const Product = () => {
         </div>
       </div>
       <ul className="flex items-center justify-center">
-        <li
+        {/* <li
           className="mr-4"
           onClick={() => {
             page > 1 && setPage(page - 1);
@@ -82,7 +84,7 @@ const Product = () => {
         >
           上一頁
         </li>
-        {getPage()}{" "}
+        {/* {getPage()}{" "} */}
         <li
           className="ml-4"
           onClick={() => {
@@ -90,7 +92,7 @@ const Product = () => {
           }}
         >
           下一頁
-        </li>
+        </li> */}
       </ul>
       <div class="fixed top-1/3 right-0 bg-secondary px-4 py-10 rounded-l-lg">
        <button className="text-2xl text-white"><AiOutlineShoppingCart /></button>
