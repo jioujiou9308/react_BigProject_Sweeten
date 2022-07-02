@@ -25,7 +25,6 @@ const CourseMain = () => {
     getLesson();
   }, []);
   // console.log(lessons);
-  //
   return (
     <>
       <CourseHeader />

@@ -17,7 +17,7 @@ const CourseDetail = (props) => {
   const [count, setCount] = useState(1);
   const [favClick, setFavClick] = useState(true);
   const a = swipe;
-  console.log(lessons[0]);
+
   //     const [courseDetail, setCourseDetail] = useState([]);
   //     const { id } = useParams();
   //     console.log(id);
@@ -28,21 +28,6 @@ const CourseDetail = (props) => {
         <div className="w-full bg-white">
           <div className="flex items-center justify-between mt-10">
             <p className="h2">{lessons[a].name}</p>
-            {/* 愛心的按鈕功能 */}
-            {/* 愛心的按鈕功能 */}
-            <Button
-              variant="outlined"
-              className="rounded-full select-none text-line border-line"
-              onClick={() => {
-                setFavClick(!favClick);
-              }}
-            >
-              <AiFillHeart
-                className={`icon-xl select-none rounded-full ${
-                  favClick && "text-secondary"
-                }`}
-              />
-            </Button>
           </div>
           <p className="mt-2 mb-5 h3">$ {lessons[a].price} NTD</p>
 
