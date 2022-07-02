@@ -29,7 +29,7 @@ const Product = () => {
     let response = await axios.get(
       API_URL + `/user/favorite_product/all_data/${currentUser.id}`
     );
-    setFav(response.data);
+    setFav(response.data||[]);
     // console.log(response.data);
   };
 

@@ -17,6 +17,7 @@ import Signup from "../components/dialog/Signup";
 import CustomerService from "../page/CustomerService";
 import CheckOut from "../page/CheckOut";
 import ExpireProduct from "../page/ExpireProduct";
+import ErrorPage from "../page/ErrorPage";
 
 const Main = () => {
   return (
@@ -34,9 +35,9 @@ const Main = () => {
           {/* <Route path="/course" element={<Course />} /> */}
           <Route path="/member/information2" element={<MemberInformation2 />} />
           <Route path="/course" element={<Course />} />
-
           <Route path="/course/detail" element={<CourseDetail />} />
           <Route path="/about" element={<About />} />
+          <Route path="/ErrorPage" element={<ErrorPage />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/checkOut" element={<CheckOut />} />

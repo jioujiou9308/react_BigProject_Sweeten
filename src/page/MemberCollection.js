@@ -39,7 +39,7 @@ const MemberColloction = () => {
   //讀取資料
   useEffect(() => {
     let getMemberCollection = async () => {
-      //TODO:currentUserId要記得改成變數
+     
       let response = await axios.get(API_URL + `/user/favorite_product/${currentUser.id}`);
       setMemberCollection(response.data.allResults);
       // console.log(response.data.allResults);

@@ -1,184 +1,189 @@
-import { useState } from "react";
+import React, { useState } from "react";
+import { Input, Button, IconButton } from "@material-tailwind/react";
 import axios from "axios";
-import { Input, Button } from "@material-tailwind/react";
-import { API_URL } from "../utils/config";
+import { useDropzone } from "react-dropzone";
+import { FaCamera } from "react-icons/fa";
 
 const MemberInformation = () => {
   const [member, setMember] = useState({
-    nickname: "",
-    nmae: "",
-    email: "",
-    phone: "",
+    nickname: "aaa",
+    name: "aaa",
+    email: "123@com",
+    phone: "0912345678",
+    birthday: "",
     photo: "",
   });
-
+  console.log(member);
   function handleChange(e) {
-    setMember({ ...member, [e.targer.name]: e.targer.value });
+    setMember({ ...member, [e.target.name]: e.target.value });
   }
-
-  function handlePhoto(e) {
-    setMember({ ...member, photo: e.targer.files[0] });
-  }
-
-  async function hadleSubmit(e) {
-    e.preventDefaulte();
+  async function handleSubmit(e) {
     try {
-      let formDate = new FormData();
-      formDate.append("nickname", member.email);
-      formDate.append("name", member.name);
-      formDate.append("email", member.email);
-      formDate.append("phohe", member.phone);
-      formDate.append("photo", member.photo);
-      let response = axios.post(`${(API_URL / MemberInformation, formDate)}`);
+      let response = axios.post(`$(API_URL)`, member);
     } catch (e) {
-      console.error(e);
+      console.log(e);
     }
   }
+  // react-dropzone
+  const { acceptedFiles, getRootProps, getInputProps } = useDropzone();
+
+  const files = acceptedFiles.map((file) => (
+    <li key={file.path}>
+      {file.path} - {file.size} bytes
+    </li>
+  ));
 
   return (
-    <>
-      <div className="px-2">
-        <h2 className="py-2 border-b-2 h2 border-line">我的檔案</h2>
-        <div className="flex justify-around mx-1 mt-10">
-          <form method="POST" action="#">
-            <div className="mb-2 md:flex md:items-center">
-              <div className="md:w-1/4">
-                <label
-                  className="block pr-4 mb-1 md:mb-0"
-                  for="inline-full-name"
-                >
-                  暱稱
-                </label>
-              </div>
-              <div className="mx-4">
-                <Input
-                  id="nickname"
-                  name="nickname"
-                  variant="standard"
-                  color="brow"
-                  placeholder=""
-                  type="text"
-                  required
-                  value={member.nickname}
-                  onChange={handleChange}
-                />
-              </div>
+    <div className="flex justify-between">
+      <div className="w-full p-10">
+        <h1 className="font-bold text-gray-800 focus:outline-none h1">
+          我的檔案
+        </h1>
+        {/* 大頭照 */}
+        <div className="flex flex-wrap items-center px-2 sm:flex-row">
+          <div className="relative w-32 h-32 mt-6 mb-4 mr-4 lg:mb-0">
+            <img
+              src="https://tuk-cdn.s3.amazonaws.com/assets/components/avatars/a_3_7.png"
+              alt=""
+              className="w-full h-full overflow-hidden rounded-full shadow"
+            />
+          </div>
+        </div>
+        {/* 表單 */}
+        {/* 暱稱 */}
+        <div className="items-center mt-8 md:flex">
+          <div className="flex flex-col">
+            <div className="flex items-end w-64 gap-4">
+              <Input
+                variant="standard"
+                color="brown"
+                label="暱稱"
+                type="text"
+                id="nickname"
+                name="nickname"
+                value={member.nickname}
+                onChange={handleChange}
+              />
             </div>
-            <div className="mb-2 md:flex md:items-center">
-              <div className="md:w-1/4">
-                <label
-                  className="block pr-4 mb-1 md:mb-0"
-                  for="inline-full-name"
-                >
-                  姓名
-                </label>
-              </div>
-              <div className="mx-4">
+          </div>
+
+          {/* 姓名 */}
+          <div className="flex flex-col mt-8 md:ml-12 md:mt-0">
+            <div className="flex flex-col">
+              <div className="flex items-end w-64 gap-4">
                 <Input
                   variant="standard"
+                  label="姓名"
                   color="brown"
-                  placeholder=""
                   type="text"
-                  required
                   id="name"
                   name="name"
+                  required
                   value={member.name}
                   onChange={handleChange}
                 />
               </div>
             </div>
-            <div className="mb-2 md:flex md:items-center">
-              <div className="md:w-1/4">
-                <label
-                  className="block pr-4 mb-1 md:mb-0"
-                  for="inline-full-name"
-                >
-                  E-mail
-                </label>
-              </div>
-              <div className="mx-4">
-                <Input
-                  variant="standard"
-                  color="brown"
-                  type="email"
-                  placeholder=""
-                  required
-                  value={member.email}
-                  onChange={handleChange}
-                />
-              </div>
+          </div>
+        </div>
+        {/* email */}
+        <div className="items-center mt-8 md:flex">
+          <div className="flex flex-col">
+            <div className="flex items-end w-64 gap-4">
+              <Input
+                variant="standard"
+                label="email"
+                color="brown"
+                type="email"
+                required
+                id="email"
+                name="email"
+                value={member.email}
+                onChange={handleChange}
+              />
             </div>
-            <div className="mb-2 md:flex md:items-center">
-              <div className="md:w-1/4">
-                <label className="block mb-1 md:mb-0 " for="inline-full-name">
-                  手機號碼
-                </label>
-              </div>
-              <div className="mx-4">
+          </div>
+          {/* 手機號碼 */}
+          <div className="flex flex-col mt-8 md:ml-12 md:mt-0">
+            <div className="flex flex-col">
+              <div className="flex items-end w-64 gap-4">
                 <Input
                   variant="standard"
+                  label="手機號碼"
                   color="brown"
+                  required
                   type="tel"
-                  placeholder=""
                   id="phone"
-                  name="name"
+                  name="phone"
                   value={member.phone}
                   onChange={handleChange}
                 />
               </div>
             </div>
-
-            <div className="md:flex md:items-center">
-              <div className="md:w-1/4">
-                <label className="block mb-1 md:mb-0" for="inline-full-name">
-                  生日
-                </label>
-              </div>
-              <div className="mx-4">
-                <Input variant="standard" color="brown" placeholder="" />
-              </div>
-            </div>
-            <div className="mt-8">
-              <Button
-                className="flex mx-auto bg-dark"
-                type="submit"
-                onClick={hadleSubmit}
-              >
-                儲存設定
-              </Button>
-            </div>
-          </form>
-          {/* 桌機板中間的桿桿 */}
-          <div className="hidden border border-line md:block"></div>
-          {/* 桌機版使用者圖片 */}
-          <div className="hidden md:block">
-            <div>
-              <img
-                className="mx-auto"
-                src={
-                  process.env.PUBLIC_URL +
-                  "/images/memberCollectionAndOrder/user_pic.png"
-                }
-                alt=""
-              />
-            </div>
-            <div className="mt-5 text-center">
-              <input
-                size="sm"
-                label="選擇圖片"
-                type="file"
-                id="photo"
-                className="border-2 rounded-sm g"
-                nmae="photo"
-                onChange={handlePhoto}
-              />
-            </div>
-            <p className="mt-4 text-center note">檔案大小：最大3MB.</p>
-            <p className="text-center note">檔案格式：JPG, PNG</p>
           </div>
         </div>
+        {/* 生日 */}
+        <div className="items-center mt-8 md:flex">
+          <div className="flex flex-col">
+            <div className="flex items-end w-64 gap-4">
+              <Input
+                variant="standard"
+                label="生日"
+                color="brown"
+                type="date"
+                id="birthday"
+                name="birthday"
+                value={member.birthday}
+                onChange={handleChange}
+                required
+              />
+            </div>
+          </div>
+        </div>
+        <Button
+          size="sm"
+          color="brown"
+          variant="outlined"
+          className="flex items-center justify-center border rounded focus:outline-none mt-7 md:mt-14 hover:bg-gray-100"
+          type="submit"
+          onClick={handleSubmit}
+        >
+          <span className="font-medium text-center p">儲存設定</span>
+          <svg
+            className="mt-1 ml-3"
+            width={12}
+            height={8}
+            viewBox="0 0 12 8"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path d="M8.01 3H0V5H8.01V8L12 4L8.01 0V3Z" fill="#242731" />
+          </svg>
+        </Button>
       </div>
-    </>
+      <div className="flex justify-center mt-40 mr-40">
+        <section className="container">
+          <div
+            {...getRootProps({ className: "dropzone" })}
+            className="border-2 border-dashed border-sky-500 h-1/2 w-80"
+          >
+            <Input
+              type="file"
+              className="border-dashed h-60 w-80"
+              accept="image/*"
+              {...getInputProps()}
+            />
+            <IconButton type="file" variant="text" className="mx-32 mt-10 ">
+              <FaCamera className="icon-lg" color="gray" />
+            </IconButton>
+          </div>
+          <aside>
+            <h4 className="mt-4 text-center p">請選擇圖片</h4>
+            <ul>{files}</ul>
+          </aside>
+        </section>
+      </div>
+    </div>
   );
 };
 
