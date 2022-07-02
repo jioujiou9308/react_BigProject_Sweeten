@@ -4,7 +4,6 @@
   "private": true,
   "dependencies": {
     "@material-tailwind/react": "^1.0.4",
-    "@mui/icons-material": "^5.8.4",
     "@reduxjs/toolkit": "^1.8.2",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
