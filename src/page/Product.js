@@ -12,6 +12,7 @@ import {
 // import { useState } from "react";
 
 import MenuTag from "../components/menuTag/MenuTag";
+import { useUserState } from "../utils/redux/hooks-redux";
 // import TabBar from "../components/product/Tabs";
 
 const Product = () => {
@@ -20,9 +21,20 @@ const Product = () => {
   //分頁
   const [page, setPage] = useState(1);
   const [lastPage, setLastPage] = useState(1);
+  const [currentUser] = useUserState();
 
+  //抓有加入最愛ㄉ商品
+  let getFav = async () => {
+    //1=user_id
+    let response = await axios.get(
+      API_URL + `/user/favorite_product/all_data/${currentUser.id}`
+    );
+    setFav(response.data);
+    // console.log(response.data);
+  };
+
+  //抓所有商品(有分頁)
   useEffect(() => {
-    //抓所有商品
     let getProducts = async () => {
       //API_URL+"/product?page=1"
       let response = await axios.get(API_URL + "/product", {
@@ -31,19 +43,13 @@ const Product = () => {
         },
       });
       setProducts(response.data.data);
+      // console.log(response.data.data)
       //set頁數
       setLastPage(response.data.pagination.totalPage);
       // console.log(response.data.data);
     };
     getProducts();
 
-    //抓有加入最愛ㄉ商品
-    let getFav = async () => {
-      //1=user_id
-      let response = await axios.get(API_URL + "/user/favorite_product/all_data/1");
-      setFav(response.data);
-      // console.log(response.data);
-    };
     getFav();
   }, [page]);
 
@@ -59,12 +65,12 @@ const Product = () => {
   return (
     <>
       <div className=" md:flex">
-        <MenuTag />
+        <MenuTag setProducts={setProducts}/>
         {/* filter section */}
         <Filter />
         {/* card list  */}
         <div className="flex flex-wrap ">
-          <CardProduct products={products} fav={fav} />
+          <CardProduct products={products} fav={fav} getFav={getFav} />
         </div>
       </div>
       <ul className="flex items-center justify-center">

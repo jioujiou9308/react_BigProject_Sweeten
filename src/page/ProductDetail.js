@@ -24,7 +24,14 @@ function ProductDetail() {
   const [currentUser] = useUserState()
   const { id } = useParams();
   // console.log(id);
-
+  
+let getFavProduct = async () => {
+      let response = await axios.get(
+        API_URL + "/user/favorite_product/all_data/1"
+      );
+      setFavProduct(response.data);
+      console.log(response.data);
+    };
   //TODO: 照片ㄉAPI還沒串
   useEffect(() => {
     //抓這個商品資料
@@ -44,13 +51,7 @@ function ProductDetail() {
     };
     getComment();
     //看喜歡ㄉproduct有哪些
-    let getFavProduct = async () => {
-      let response = await axios.get(
-        API_URL + "/user/favorite_product/all_data/1"
-      );
-      setFavProduct(response.data);
-      console.log(response.data);
-    };
+    
     getFavProduct();
   }, []);
   //抓此商品平均分數
@@ -78,7 +79,7 @@ function ProductDetail() {
     return elementArr;
   };
 
-  //TODO:愛心開關可以切換但是要重新整理頁面
+  
   const favSwitchHandler = async () => {
     if (isFavor.length < 1) {
       //isFavor長度等於0要post
@@ -87,12 +88,14 @@ function ProductDetail() {
         user_id: currentUser.id,
         product_id: id,
       });
+      getFavProduct()
     } else {
       //isFavor長度大於0要delete
 
       await axios.delete(
         API_URL+`/user/favorite_product/${currentUser.id}?product_id=${id}`
       );
+      getFavProduct()
     }
   };
 
