@@ -86,16 +86,13 @@ const Header = () => {
     <motion.header
       className={`fixed top-0 z-50 w-full min-w-[370px] h-[6rem]  pt-4 pb-3 overflow-hidden  bg-white shadow`}
       animate={{ height: isOpen ? "16rem" : "6rem" }}
-      whileHover={{ height: "16rem" }}
       transition={{ duration: 0.3 }}
     >
       <div className="mx-auto max-w-7xl">
         {/* logo & icons */}
         <div className="flex flex-wrap justify-between pl-2 mx-auto ">
           <img
-            onClick={() => {
-              navigate("/");
-            }}
+            onClick={handleNavigate("/")}
             className="w-[10rem] h-full object-cover"
             src="/images/logo.png"
             alt=""
@@ -156,7 +153,11 @@ const Header = () => {
           </div>
         </div>
         {/* menu */}
-        <div className="flex justify-end my-1" onClick={toggle}>
+        <div
+          className="flex justify-end my-1"
+          onMouseLeave={() => setOpen(false)}
+          onMouseEnter={() => setOpen(true)}
+        >
           {pageTitle.map((title, mainIdx) => (
             <div key={title} className="">
               <button
@@ -174,11 +175,12 @@ const Header = () => {
                   <Button
                     size="sm"
                     variant="text"
-                    className="px-0 py-1 rounded-none"
+                    className="px-0 py-1 rounded-none "
                     key={title}
+                    color="orange"
                     onClick={handleNavigate(subPage.path[mainIdx][subIdx])}
                   >
-                    <p className="my-1 text-dark">{title}</p>
+                    <p className="my-1 text-dark ">{title}</p>
                   </Button>
                 ))}
               </div>
