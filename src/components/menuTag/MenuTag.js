@@ -8,7 +8,7 @@ const MenuTag = () => {
   return (
     <div className="absolute top-0 flex overflow-hidden -translate-y-full">
       {titleList.map((title, i) => (
-        <Tag title={title} i={i} />
+        <Tag key={title} title={title} i={i} />
       ))}
     </div>
   );

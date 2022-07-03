@@ -122,9 +122,9 @@ const Header = () => {
                   <AiOutlineShoppingCart className="mx-1 icon-sm" />
                 </Link>
                 {cart[1].length > 0 ? (
-                  <span class="flex h-3 w-3 absolute -top-1 -right-1">
-                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-                    <span class="relative inline-flex rounded-full h-3 w-3 bg-secondary bg-opacity-50"></span>
+                  <span className="absolute flex w-3 h-3 -top-1 -right-1">
+                    <span className="absolute inline-flex w-full h-full rounded-full opacity-75 animate-ping bg-primary"></span>
+                    <span className="relative inline-flex w-3 h-3 bg-opacity-50 rounded-full bg-secondary"></span>
                   </span>
                 ) : (
                   <></>

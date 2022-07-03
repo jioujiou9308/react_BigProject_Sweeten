@@ -6,6 +6,7 @@ import Main from "./layout/Main";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { toast } from "react-toastify";
 import { useEffect } from "react";
 import LoginModal from "./components/dialog/LoginModal";
 import SignupModal from "./components/dialog/SignupModal";
@@ -40,6 +41,8 @@ function App() {
         withCredentials: true,
       })
       .then(({ data: { user } }) => {
+        user && toast.success("成功登入!");
+
         dispatch(updateUser(user || { id: 0, name: "遊客" }));
       });
   }, [dispatch]);

@@ -91,7 +91,7 @@ const Product = () => {
           下一頁
         </li>
       </ul>
-      <div class="fixed top-1/3 right-0 bg-secondary px-4 py-10 rounded-l-lg">
+      <div className="fixed right-0 px-4 py-10 rounded-l-lg top-1/3 bg-secondary">
         <button className="text-2xl text-white">
           <AiOutlineShoppingCart />
         </button>
