@@ -2,100 +2,61 @@ import { React, useEffect, useState } from "react";
 import OneCardProduct from "./OneCardProduct";
 import { useProductState } from "../../utils/redux/hooks-redux";
 import Pagination from "./Pagination";
+const initPageInfo = {
+  cur: 1,
+  per: 12,
+  total: 1,
+};
 
-const CardProduct = (props) => {
-  const {
-    products,
-    fav,
-    getFav,
-    totalPage,
-    currentPage,
-    setCurrentPage,
-    firstIndex,
-    lastIndex,
-  } = props;
-  // const [product, setProduct] = useProductState();
-  // console.log(products);
+const CardProduct = () => {
+  const [products, setProducts] = useProductState();
+  const [pageInfo, setPageInfo] = useState(initPageInfo);
+  const [index, setInex] = useState({ start: 0, end: pageInfo.per });
 
-  //前端分頁
-  //一頁顯示多少筆
-  // const perPage = 12;
-  // //總共多少頁
-  // const [totalPage, setTotalPage] = useState(1);
-  // //目前頁面
-  // const [currentPage, setCurrentPage] = useState(1);
-  // //第一個商品索引值
-  // const [firstIndex, setfirstIndex] = useState(0);
-  // //最後一個商品索引值
-  // const [lastIndex, setLastIndex] = useState(0);
-
-  //進入頁面時set頁碼
-  // useEffect(() => {
-  //   setfirstIndex((currentPage - 1) * perPage);
-  //   setLastIndex(currentPage * perPage - 1);
-  //   setTotalPage(Math.ceil(products.length / perPage));
-  //   console.log('currentpage=',currentPage,'totalpage=', totalPage)
-  // }, [currentPage]);
-
+  const changePage = (n) => setPageInfo({ ...pageInfo, cur: n });
+  // 製作頁碼
   const getPage = () => {
     let page = [];
-    for (let i = 1; i <= totalPage; i++) {
+    for (let i = 1; i <= pageInfo.total; i++) {
       page.push(
-        <Pagination
-          i={i}
-          currentPage={currentPage}
-          setCurrentPage={setCurrentPage}
-        />
+        <Pagination i={i} currentPage={pageInfo} setCurrentPage={changePage} />
       );
     }
     return page;
   };
+
+  // products 改變 就更新 pageInfo
+  useEffect(() => {
+    const newTotal = parseInt(products.length / pageInfo.per) + 1;
+    setPageInfo({ ...pageInfo, total: newTotal, cur: 1 });
+  }, [products]);
+
+  // pageInfo 改變 就從新計算分頁 index
+  useEffect(() => {
+    const { cur, per } = pageInfo;
+    setInex({ start: (cur - 1) * per, end: cur * per });
+  }, [pageInfo]);
 
   return (
     <>
       <section className="bg-white">
         <div className="flex items-center justify-between text-sm tracking-widest uppercase md:px-3">
           <h3 className="w-full p-1 border-b-2 border-line p">精選商品</h3>
-          {/* <p className="text-gray-500 dark:text-gray-300">
-            {products.length} Items
-          </p>
-          <div className="flex items-center">
-            <p className="text-gray-500 dark:text-gray-300">Sort</p>
-            <select className="font-medium text-gray-700 bg-transparent dark:text-gray-500 focus:outline-none">
-              <option value="#">Recommended</option>
-              <option value="#">Size</option>
-              <option value="#">Price</option>
-            </select>
-          </div> */}
         </div>
         <div className="container px-6 py-8 mx-auto">
           {/* ---------------------------- */}
           <div className="flex flex-wrap justify-around">
-            {/* ---------------- FIXME Cannot read properties of undefined (第一次渲染) --------------- */}
-            {products
-              .filter((v, i) => {
-                return i >= firstIndex && i <= lastIndex;
-              })
-              ?.map((product, i) => {
-                const { id, name, price } = product;
-                return (
-                  <OneCardProduct
-                    id={id}
-                    name={name}
-                    price={price}
-                    fav={fav}
-                    getFav={getFav}
-                  />
-                );
-              })}
+            {products?.slice(index.start, index.end).map((product) => (
+              <OneCardProduct product={product} />
+            ))}
           </div>
 
           <ul className="flex items-center justify-center">
             <li
               className="mr-4"
-              onClick={() => {
-                currentPage > 1 && setCurrentPage(currentPage - 1);
-              }}
+              // onClick={() => {
+              //   currentPage > 1 && setCurrentPage(currentPage - 1);
+              // }}
             >
               上一頁
             </li>
@@ -103,7 +64,7 @@ const CardProduct = (props) => {
             <li
               className="ml-4"
               onClick={() => {
-                currentPage < totalPage && setCurrentPage(currentPage + 1);
+                // currentPage < totalPage && setCurrentPage(currentPage + 1);
               }}
             >
               下一頁
