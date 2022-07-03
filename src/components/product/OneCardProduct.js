@@ -3,17 +3,14 @@ import { React, useEffect, useState } from "react";
 import { AiOutlineMessage, AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
 import { API_URL } from "../../utils/config";
-import {
-  useFavoriteState,
-  useUserState,
-} from "../../utils/redux/hooks-redux";
+import { useFavoriteState, useUserState } from "../../utils/redux/hooks-redux";
 
 const OnceCarkProduct = ({ product }) => {
   const navigate = useNavigate();
   const [favProduct, setFavProduct] = useFavoriteState();
   const [currentUser] = useUserState();
-  console.log('最愛商品',favProduct);
-  console.log('所有商品',product);
+  console.log("最愛商品", favProduct);
+  console.log("所有商品", product);
 
   const favSwitchHander = async () => {
     if (favProduct.findIndex((item) => item.product_id === product.id) > -1) {
@@ -51,13 +48,11 @@ const OnceCarkProduct = ({ product }) => {
             <div className="mr-2 text-blue-500 p">${product.price}</div>
             <div className="flex items-center ">
               <AiOutlineMessage className="icon-sm" />
-
-              {favProduct.findIndex((item) => item.product_id === product.id) >
-              -1 ? (
-                <AiFillHeart className="text-secondary icon-sm" />
-              ) : (
-                <AiOutlineHeart className="icon-sm" />
-              )}
+              {/* TODO:判斷式出不來 */}
+               
+                <AiFillHeart className={`icon-sm ${favProduct.findIndex((item) => item.product_id === product.id)>-1 ?'text-secondary ':''}`} />
+                
+              
             </div>
           </div>
 
