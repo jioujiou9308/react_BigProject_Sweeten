@@ -16,7 +16,7 @@ function OrderItems(props) {
         <div>
           <div>
             <h4 className="pb-5 h4">
-              訂單編號 # {Math.ceil(Math.random() * 1000000)}
+              訂單編號 # {id}
             </h4>
           </div>
 

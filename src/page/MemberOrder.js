@@ -11,6 +11,7 @@ function MemberOrder() {
   const [barStep, setBarStep] = useState(0);
   const [order, setOrder] = useState([]);
   const [currentUser]=useUserState()
+  
 
   useEffect(() => {
     let getOrder = async () => {
