@@ -30,7 +30,7 @@ let getFavProduct = async () => {
         API_URL + "/user/favorite_product/all_data/1"
       );
       setFavProduct(response.data);
-      console.log(response.data);
+      // console.log('此用戶喜歡ㄉ商品',response.data);
     };
   //TODO: 照片ㄉAPI還沒串
   useEffect(() => {
@@ -89,6 +89,7 @@ let getFavProduct = async () => {
         product_id: id,
       });
       getFavProduct()
+      
     } else {
       //isFavor長度大於0要delete
 

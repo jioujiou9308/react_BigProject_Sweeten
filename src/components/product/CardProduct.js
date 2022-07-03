@@ -4,29 +4,38 @@ import { useProductState } from "../../utils/redux/hooks-redux";
 import Pagination from "./Pagination";
 
 const CardProduct = (props) => {
-  const { products, fav, getFav } = props;
+  const {
+    products,
+    fav,
+    getFav,
+    totalPage,
+    currentPage,
+    setCurrentPage,
+    firstIndex,
+    lastIndex,
+  } = props;
   // const [product, setProduct] = useProductState();
   // console.log(products);
 
   //前端分頁
   //一頁顯示多少筆
-  const perPage = 12;
-  //總共多少頁
-  const [totalPage, setTotalPage] = useState(1);
-  //目前頁面
-  const [currentPage, setCurrentPage] = useState(1);
-  //第一個商品索引值
-  const [firstIndex, setfirstIndex] = useState(0);
-  //最後一個商品索引值
-  const [lastIndex, setLastIndex] = useState(0);
+  // const perPage = 12;
+  // //總共多少頁
+  // const [totalPage, setTotalPage] = useState(1);
+  // //目前頁面
+  // const [currentPage, setCurrentPage] = useState(1);
+  // //第一個商品索引值
+  // const [firstIndex, setfirstIndex] = useState(0);
+  // //最後一個商品索引值
+  // const [lastIndex, setLastIndex] = useState(0);
 
   //進入頁面時set頁碼
-  useEffect(() => {
-    setfirstIndex((currentPage - 1) * perPage);
-    setLastIndex(currentPage * perPage - 1);
-    setTotalPage(Math.ceil(products.length / perPage));
-    console.log('currentpage=',currentPage,'totalpage=', totalPage)
-  }, [currentPage]);
+  // useEffect(() => {
+  //   setfirstIndex((currentPage - 1) * perPage);
+  //   setLastIndex(currentPage * perPage - 1);
+  //   setTotalPage(Math.ceil(products.length / perPage));
+  //   console.log('currentpage=',currentPage,'totalpage=', totalPage)
+  // }, [currentPage]);
 
   const getPage = () => {
     let page = [];

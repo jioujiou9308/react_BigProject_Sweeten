@@ -15,9 +15,21 @@ import { useFavoriteState, useUserState } from "../utils/redux/hooks-redux";
 const Product = () => {
   const [products, setProducts] = useState([]);
   const [fav, setFav] = useFavoriteState();
- 
+  console.log(products.length);
   const [currentUser] = useUserState();
-  
+
+  //前端分頁
+  //一頁顯示多少筆
+  const perPage = 12;
+  //總共多少頁
+  const [totalPage, setTotalPage] = useState(1);
+  //目前頁面
+  const [currentPage, setCurrentPage] = useState(1);
+  //第一個商品索引值
+  const [firstIndex, setfirstIndex] = useState(0);
+  //最後一個商品索引值
+  const [lastIndex, setLastIndex] = useState(0);
+
   //抓有加入最愛ㄉ商品
   let getFav = async () => {
     //1=user_id
@@ -28,23 +40,22 @@ const Product = () => {
     console.log("有加入最愛ㄉ商品", response.data);
     console.log(currentUser);
   };
-  
   //抓所有商品(沒有分頁)
   useEffect(() => {
     let getProducts = async () => {
       //API_URL+"/product?page=1"
-      let response = await axios.get(API_URL + "/product/all");
-        console.log("所有商品", response.data.data);
-        setProducts(response.data.data);
+      let res = await axios.get(API_URL + "/product/all");
+      const data = res.data.data;
+      setProducts(data);
       //set頁數
+      setfirstIndex((currentPage - 1) * perPage);
+      setLastIndex(currentPage * perPage - 1);
+      setTotalPage(Math.ceil(data.length / perPage));
+      console.log("currentpage=", currentPage, "totalpage=", totalPage);
     };
     getProducts();
-
     getFav();
-  }, []);
-
-
-
+  }, [currentPage]);
   //後端抓分頁
   // const getPage = () => {
   //   let pages = [];
@@ -62,7 +73,16 @@ const Product = () => {
         <Filter />
         {/* card list  */}
         <div className="flex flex-wrap ">
-          <CardProduct products={products} fav={fav} getFav={getFav} />
+          <CardProduct
+            products={products}
+            fav={fav}
+            getFav={getFav}
+            totalPage={totalPage}
+            currentPage={currentPage}
+            setCurrentPage={setCurrentPage}
+            firstIndex={firstIndex}
+            lastIndex={lastIndex}
+          />
         </div>
       </div>
       <ul className="flex items-center justify-center">
