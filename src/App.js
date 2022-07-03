@@ -17,6 +17,7 @@ import axios from "axios";
 import { useUserState } from "./utils/redux/hooks-redux";
 import { API_URL } from "./utils/config";
 import { updateUser } from "./utils/redux/userSlice";
+import "./styles.css";
 
 // TODO 註冊 關於 上下架 訂單 課程 即期品
 
@@ -26,7 +27,9 @@ function App() {
   console.log(user);
   //AOS初始化
   useEffect(() => {
-    AOS.init();
+    AOS.init({
+      once: true,
+    });
     AOS.refresh();
   }, []);
   /* ------------------------------- auth check ------------------------------- */
@@ -37,7 +40,7 @@ function App() {
         withCredentials: true,
       })
       .then(({ data: { user } }) => {
-        dispatch(updateUser(user));
+        dispatch(updateUser(user || { id: 0, name: "遊客" }));
       });
   }, [dispatch]);
 
