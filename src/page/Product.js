@@ -1,61 +1,51 @@
 import React from "react";
 import CardProduct from "../components/product/CardProduct";
 import Filter from "../components/product/Filter";
-import Pagination from "../components/product/Pagination";
+
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { API_URL } from "../utils/config";
 import { motion } from "framer-motion";
-import {
-  AiOutlineShoppingCart,
-} from "react-icons/ai";
+import { AiOutlineShoppingCart } from "react-icons/ai";
 // import { useState } from "react";
 
 import MenuTag from "../components/menuTag/MenuTag";
-import { useUserState } from "../utils/redux/hooks-redux";
-// import TabBar from "../components/product/Tabs";
+import { useFavoriteState, useUserState } from "../utils/redux/hooks-redux";
 
 const Product = () => {
   const [products, setProducts] = useState([]);
-  const [fav, setFav] = useState([]);
-  //分頁
-  const [page, setPage] = useState(1);
-  const [lastPage, setLastPage] = useState(1);
+  const [fav, setFav] = useFavoriteState();
+ 
   const [currentUser] = useUserState();
-
+  
   //抓有加入最愛ㄉ商品
   let getFav = async () => {
     //1=user_id
     let response = await axios.get(
       API_URL + `/user/favorite_product/all_data/${currentUser.id}`
     );
-    setFav(response.data||[]);
-    // console.log(response.data);
+    setFav(response.data);
+    console.log("有加入最愛ㄉ商品", response.data);
+    console.log(currentUser);
   };
-
+  
   //抓所有商品(沒有分頁)
   useEffect(() => {
     let getProducts = async () => {
       //API_URL+"/product?page=1"
-      let response = await axios.get(API_URL + "/product/all", {
-        params: {
-          page: page,
-        },
-      });
-      setProducts(response.data.data);
-      // console.log(response.data.data)
+      let response = await axios.get(API_URL + "/product/all");
+        console.log("所有商品", response.data.data);
+        setProducts(response.data.data);
       //set頁數
-     
     };
     getProducts();
 
     getFav();
-  }, [page]);
+  }, []);
 
-  const perPage = 12;
-  const totalPage = (products/perPage);
 
-  //抓分頁
+
+  //後端抓分頁
   // const getPage = () => {
   //   let pages = [];
   //   for (let i = 1; i <= lastPage; i++) {
@@ -67,7 +57,7 @@ const Product = () => {
   return (
     <>
       <div className=" md:flex">
-        <MenuTag setProducts={setProducts} products={products}/>
+        <MenuTag setProducts={setProducts} products={products} />
         {/* filter section */}
         <Filter />
         {/* card list  */}
@@ -85,17 +75,20 @@ const Product = () => {
           上一頁
         </li>
         {/* {getPage()}{" "} */}
-        <li
+        {/* <li
           className="ml-4"
           onClick={() => {
             page < lastPage && setPage(page + 1);
           }}
         >
           下一頁
-        </li> */}
+        </li>{" "}
+        */}
       </ul>
       <div class="fixed top-1/3 right-0 bg-secondary px-4 py-10 rounded-l-lg">
-       <button className="text-2xl text-white"><AiOutlineShoppingCart /></button>
+        <button className="text-2xl text-white">
+          <AiOutlineShoppingCart />
+        </button>
       </div>
     </>
   );

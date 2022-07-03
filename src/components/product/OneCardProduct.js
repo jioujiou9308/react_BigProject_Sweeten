@@ -1,9 +1,10 @@
 import axios from "axios";
-import React from "react";
+import {React, useState} from "react";
 import { AiOutlineMessage, AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
 import { API_URL } from "../../utils/config";
 import { useProductState, useUserState } from "../../utils/redux/hooks-redux";
+
 
 const OnceCarkProduct = (props) => {
   const { id, name, price, fav, getFav } = props;
@@ -11,6 +12,9 @@ const OnceCarkProduct = (props) => {
   const navigate = useNavigate();
   const [currentUser] = useUserState();
 
+  
+
+  
   const favSwitchHander = async () => {
     if (fav.findIndex((item) => item.product_id === id) > -1) {
       //delete
@@ -27,6 +31,8 @@ const OnceCarkProduct = (props) => {
       getFav();
     }
   };
+
+  
   return (
     <>
       <div className=" mb-6 mx-1 xl:w-[13rem]">
@@ -46,7 +52,6 @@ const OnceCarkProduct = (props) => {
             <div className="mr-2 text-blue-500 p">${price}</div>
             <div className="flex items-center ">
               <AiOutlineMessage className="icon-sm" />
-              {/* <AiOutlineShoppingCart className="icon" /> */}
               {fav.findIndex((item) => item.product_id === id) > -1 ? (
                 <AiFillHeart
                   className="text-secondary icon-sm"
