@@ -6,6 +6,7 @@ import {
   AiFillStar,
   AiOutlineStar,
 } from "react-icons/ai";
+import LessonList from "../courseCart/LessonList";
 //難度星星ㄉ假資料
 const level = [4, 5, 3, 2];
 const starLevel = (level) => {
@@ -25,7 +26,8 @@ const CardCourse = (props) => {
   const { id, name, img, description, price, duration, index } = props;
   return (
     <>
-      <section className="w-full my-5 px-3 bg-white lg:max-h-[240px] lg:flex   overflow-hidden  ">
+    <LessonList/>
+      <section className="w-full my-5 px-3 bg-white lg:max-h-[240px] lg:flex   overflow-hidden">
         <div className=" lg:w-1/2">
           <img
             // 這裡的圖片先將高度拉滿版，在使用object-cover變正常長寬
