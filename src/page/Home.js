@@ -137,7 +137,7 @@ const Home = (props) => {
             </div>
           </div>
           {/* 特色 */}
-          <div className="mt-20 ">
+          <div className="mt-20">
             <img
               src="./images/home/cake007.png"
               className="absolute left-0 h-[30vw] -translate-x-1/2 "
