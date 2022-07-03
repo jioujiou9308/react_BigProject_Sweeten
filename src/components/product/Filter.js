@@ -15,7 +15,7 @@ function Filter() {
   const flavorOption = ["巧克力", "草莓", "芋頭"];
   //種類選項
   const categoryOption = ["蛋糕", "餅乾", "點心", "冰品"];
-  console.log(product);
+  // console.log(product);
   //手機板篩選ㄉ彈跳視窗
   const categoryHandler = () => {
     setOpen(!open);
@@ -52,8 +52,52 @@ function Filter() {
   };
   //口味filter
   const flavorChangeHandler = () => {};
-  //上架時間filter
-  const timeOrderChangeHandler = () => {};
+  //價格排序
+  const priceOrderChangeHandler = async (e) => {
+    const res = await axios.get(API_URL + "/product/all");
+    const newList = res.data.data;
+
+    switch (e.target.value) {
+      case "0":
+        const newProduct0 = [...newList].sort((a, b) => {
+          return b.price - a.price;
+        });
+        setProduct(newProduct0);
+        break;
+
+      case "1":
+        const newProduct1 = [...newList].sort((a, b) => {
+          return a.price - b.price;
+        });
+        setProduct(newProduct1);
+        break;
+      default:
+        return;
+    }
+  };
+  //上架時間排序
+  const timeOrderChangeHandler = async (e) => {
+    const res = await axios.get(API_URL + "/product/all");
+    const newList = res.data.data;
+
+    switch (e.target.value) {
+      case "0":
+        const newProduct0 = [...newList].sort((a, b) => {
+          return b.create_at - a.create_at;
+        });
+        setProduct(newProduct0);
+        break;
+
+      case "1":
+        const newProduct1 = [...newList].sort((a, b) => {
+          return a.create_at - b.create_at;
+        });
+        setProduct(newProduct1);
+        break;
+      default:
+        return;
+    }
+  };
 
   return (
     <>
@@ -68,6 +112,8 @@ function Filter() {
         <div>
           {/* 各類選項 */}
           <div className="grid grid-cols-1 gap-4 mt-4 border-b-2 border-line">
+
+          {/* 價格範圍 */}
             <select
               onChange={PriceChangeHandler}
               className="w-full px-4 py-3 text-sm bg-gray-100 border-transparent rounded-none focus:border-gray-500 focus:bg-white focus:ring-0"
@@ -78,6 +124,7 @@ function Filter() {
               })}
             </select>
 
+            {/* 口味 */}
             <select
               onChange={flavorChangeHandler}
               className="hidden w-full px-4 py-3 text-sm bg-gray-100 border-transparent rounded-none md:block focus:border-gray-500 focus:bg-white focus:ring-0"
@@ -88,13 +135,24 @@ function Filter() {
               })}
             </select>
 
+            {/* 上架時間 */}
             <select
               onChange={timeOrderChangeHandler}
               className="hidden w-full px-4 py-3 text-sm bg-gray-100 border-transparent rounded-none md:block focus:border-gray-500 focus:bg-white focus:ring-0"
             >
               <option value="">上架時間</option>
-              <option value="latest">最新到最舊</option>
-              <option value="oldest">最舊到最新</option>
+              <option value="0">最新到最舊</option>
+              <option value="1">最舊到最新</option>
+            </select>
+
+            {/* 價格排序 */}
+            <select
+              onChange={priceOrderChangeHandler}
+              className="hidden w-full px-4 py-3 text-sm bg-gray-100 border-transparent rounded-none md:block focus:border-gray-500 focus:bg-white focus:ring-0"
+            >
+              <option value="">價格排序</option>
+              <option value="0">由高到低</option>
+              <option value="1">由低到高</option>
             </select>
           </div>
         </div>

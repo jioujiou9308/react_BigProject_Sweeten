@@ -1,30 +1,35 @@
 import axios from "axios";
-import { React, useState } from "react";
+import { React, useEffect, useState } from "react";
 import { AiOutlineMessage, AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
 import { API_URL } from "../../utils/config";
-import { useProductState, useUserState } from "../../utils/redux/hooks-redux";
+import {
+  useFavoriteState,
+  useUserState,
+} from "../../utils/redux/hooks-redux";
 
 const OnceCarkProduct = ({ product }) => {
-  // const [product, serProduct] = useProductState();
   const navigate = useNavigate();
+  const [favProduct, setFavProduct] = useFavoriteState();
   const [currentUser] = useUserState();
+  console.log('最愛商品',favProduct);
+  console.log('所有商品',product);
 
   const favSwitchHander = async () => {
-    // if (fav.findIndex((item) => item.product_id === id) > -1) {
-    //   //delete
-    //   await axios.delete(
-    //     `${API_URL}/user/favorite_product/${currentUser.id}?product_id=${id}`
-    //   );
-    //   getFav();
-    // } else {
-    //   //post
-    //   await axios.post(`${API_URL}/user/favorite_product`, {
-    //     user_id: currentUser.id,
-    //     product_id: id,
-    //   });
-    //   getFav();
-    // }
+    if (favProduct.findIndex((item) => item.product_id === product.id) > -1) {
+      //delete
+      await axios.delete(
+        `${API_URL}/user/favorite_product/${currentUser.id}?product_id=${product.id}`
+      );
+      //   getFav();
+    } else {
+      //   //post
+      await axios.post(`${API_URL}/user/favorite_product`, {
+        user_id: currentUser.id,
+        product_id: product.id,
+      });
+      //   getFav();
+    }
   };
 
   return (
@@ -36,7 +41,7 @@ const OnceCarkProduct = ({ product }) => {
             src="/images/course/hand.jpg"
             alt="T-Shirt"
             onClick={() => {
-              navigate(`/main/product/${"id"}`);
+              navigate(`/main/product/${product.id}`);
             }}
           />
           <div className="flex items-center justify-end w-full mt-2">
@@ -46,18 +51,13 @@ const OnceCarkProduct = ({ product }) => {
             <div className="mr-2 text-blue-500 p">${product.price}</div>
             <div className="flex items-center ">
               <AiOutlineMessage className="icon-sm" />
-              <AiOutlineHeart
-                className="text-secondary icon-sm"
-                onClick={() => {}}
-              />
-              {/* {fav.findIndex((item) => item.product_id === "id") > -1 ? (
-                <AiFillHeart
-                  className="text-secondary icon-sm"
-                  onClick={()=>{}}
-                />
+
+              {favProduct.findIndex((item) => item.product_id === product.id) >
+              -1 ? (
+                <AiFillHeart className="text-secondary icon-sm" />
               ) : (
-                <AiOutlineHeart className="icon-sm" onClick={()=>{}} />
-              )} */}
+                <AiOutlineHeart className="icon-sm" />
+              )}
             </div>
           </div>
 

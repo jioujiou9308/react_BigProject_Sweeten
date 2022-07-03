@@ -21,17 +21,17 @@ function ProductDetail() {
   const [favProduct, setFavProduct] = useFavoriteState();
   const [productDetail, setProductDetail] = useState([]);
   const [comment, setComment] = useState([]);
-  const [currentUser] = useUserState()
+  const [currentUser] = useUserState();
   const { id } = useParams();
   // console.log(id);
-  
-let getFavProduct = async () => {
-      let response = await axios.get(
-        API_URL + "/user/favorite_product/all_data/1"
-      );
-      setFavProduct(response.data);
-      // console.log('此用戶喜歡ㄉ商品',response.data);
-    };
+
+  let getFavProduct = async () => {
+    let response = await axios.get(
+      API_URL + `/user/favorite_product/all_data/${currentUser.id}`
+    );
+    setFavProduct(response.data);
+    console.log("此用戶喜歡ㄉ商品", response.data);
+  };
   //TODO: 照片ㄉAPI還沒串
   useEffect(() => {
     //抓這個商品資料
@@ -51,7 +51,7 @@ let getFavProduct = async () => {
     };
     getComment();
     //看喜歡ㄉproduct有哪些
-    
+
     getFavProduct();
   }, []);
   //抓此商品平均分數
@@ -65,7 +65,7 @@ let getFavProduct = async () => {
   };
 
   const isFavor = favProduct.filter((item) => item.product_id == id);
-  
+
   //生成星星
   const stars = (score) => {
     let elementArr = [];
@@ -79,7 +79,6 @@ let getFavProduct = async () => {
     return elementArr;
   };
 
-  
   const favSwitchHandler = async () => {
     if (isFavor.length < 1) {
       //isFavor長度等於0要post
@@ -88,15 +87,14 @@ let getFavProduct = async () => {
         user_id: currentUser.id,
         product_id: id,
       });
-      getFavProduct()
-      
+      getFavProduct();
     } else {
       //isFavor長度大於0要delete
 
       await axios.delete(
-        API_URL+`/user/favorite_product/${currentUser.id}?product_id=${id}`
+        API_URL + `/user/favorite_product/${currentUser.id}?product_id=${id}`
       );
-      getFavProduct()
+      getFavProduct();
     }
   };
 
@@ -144,7 +142,6 @@ let getFavProduct = async () => {
                 {/* DEMO右欄 桌機板*/}
                 <div className="w-3/5 mr-10">
                   {/* 桌機板標題和副標字體+愛心 */}
-                  {/* TODO: 商品有加入收藏ㄉ畫愛心要亮  */}
 
                   <div className="border-b-2 ">
                     <div className="flex items-center justify-between mt-10">
@@ -153,12 +150,11 @@ let getFavProduct = async () => {
                       <Button
                         variant="outlined"
                         className="border rounded-full select-none border-line text-line"
-                        // TODO:要新增&刪除最愛
                         onClick={favSwitchHandler}
                       >
                         <AiFillHeart
                           className={`icon-xl select-none rounded-full ${
-                            isFavor.length>0?'text-secondary':''
+                            isFavor.length > 0 ? "text-secondary" : ""
                           } 
                          
                           `}
@@ -257,7 +253,7 @@ let getFavProduct = async () => {
                   >
                     <AiFillHeart
                       className={`icon-xl select-none rounded-full  ${
-                        isFavor.length>0?'text-secondary':''
+                        isFavor.length > 0 ? "text-secondary" : ""
                       }`}
                     />
                   </Button>

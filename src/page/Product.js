@@ -16,22 +16,28 @@ import {
 
 const Product = () => {
   const [products, setProducts] = useProductState();
-  const [fav, setFav] = useFavoriteState();
   const [currentUser] = useUserState();
-  console.log(products.length, "product count");
-  //抓所有商品(沒有分頁)
-  useEffect(() => {}, []);
+  const [favProduct, setFavProduct] = useFavoriteState();
 
-  // init products
+  console.log(products.length, "product count");
   useEffect(() => {
+    //抓所有商品(沒有分頁)
     axios
       .get(API_URL + "/product/all")
       .then(({ data }) => {
         setProducts(data.data);
       })
       .catch((e) => console.log(e));
+    //抓所有最愛ㄉ商品(沒有分頁)
+    axios
+      .get(API_URL + `/user/favorite_product/all_data/${currentUser.id}`)
+      .then(({ data }) => {
+        setFavProduct(data);
+      })
+      .catch((e) => console.log(e));
   }, []);
 
+  // console.log("最愛商品", favProduct);
   return (
     <>
       <div className=" md:flex">
