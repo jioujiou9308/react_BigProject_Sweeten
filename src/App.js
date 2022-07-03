@@ -26,7 +26,9 @@ function App() {
   console.log(user);
   //AOS初始化
   useEffect(() => {
-    AOS.init();
+    AOS.init({
+      once: true,
+    });
     AOS.refresh();
   }, []);
   /* ------------------------------- auth check ------------------------------- */
@@ -37,7 +39,7 @@ function App() {
         withCredentials: true,
       })
       .then(({ data: { user } }) => {
-        dispatch(updateUser(user));
+        dispatch(updateUser(user || { id: 0, name: "遊客" }));
       });
   }, [dispatch]);
 

@@ -19,7 +19,7 @@ const MemberInformation = () => {
   }
   async function handleSubmit(e) {
     try {
-      let response = axios.post(`$(API_URL)`, member);
+      axios.post(`$(API_URL)`, member);
     } catch (e) {
       console.log(e);
     }
