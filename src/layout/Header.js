@@ -16,6 +16,7 @@ import { updateUser } from "../utils/redux/userSlice";
 import { toast } from "react-toastify";
 import axios from "axios";
 import { API_URL } from "../utils/config";
+import { useCartState } from "../utils/redux/hooks-redux";
 
 const titleOnLogin = ["首頁", "商城", "會員專區", "關於我們"];
 const titleOnLogout = ["首頁", "商城", "關於我們"];
@@ -80,10 +81,12 @@ const Header = () => {
   const handleNavigate = (path) => () => {
     navigate(path);
   };
+  const [cart, setCart] = useCartState();
   return (
     <motion.header
       className={`fixed top-0 z-50 w-full min-w-[370px] h-[6rem]  pt-4 pb-3 overflow-hidden  bg-white shadow`}
       animate={{ height: isOpen ? "16rem" : "6rem" }}
+      whileHover={{ height: "16rem" }}
       transition={{ duration: 0.3 }}
     >
       <div className="mx-auto max-w-7xl">
@@ -114,15 +117,20 @@ const Header = () => {
                     .then((e) => console.log(e));
                 }}
               />
+
               {/* 購物車pin動畫 */}
-              <div className="relative ">
+              <div className="relative">
                 <Link to="/main/cart">
                   <AiOutlineShoppingCart className="mx-1 icon-sm" />
                 </Link>
-                <span class="flex h-3 w-3 absolute -top-1 -right-1">
-                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-                  <span class="relative inline-flex rounded-full h-3 w-3 bg-secondary bg-opacity-50"></span>
-                </span>
+                {cart[1].length > 0 ? (
+                  <span class="flex h-3 w-3 absolute -top-1 -right-1">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-3 w-3 bg-secondary bg-opacity-50"></span>
+                  </span>
+                ) : (
+                  <></>
+                )}
               </div>
 
               {!!user.id ? (
@@ -155,7 +163,7 @@ const Header = () => {
                 variant="text"
                 size="sm"
                 color="pink"
-                className={`note  cursor-pointer md:p relative md:-top-6 px-3 py-1 rounded-none border-b-2 border-white hover:border-primary ${
+                className={`note  cursor-pointer md:p relative md:-top-6 px-3 py-1 rounded-none hvr-underline-from-center ${
                   title === current && active
                 }`}
               >
