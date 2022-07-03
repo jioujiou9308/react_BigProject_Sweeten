@@ -11,7 +11,7 @@ import { Pagination, Navigation } from "swiper";
 
 const CourseSwiper = (props) => {
   const { lessons, setSwipe } = props;
-  console.log(lessons);
+  // console.log(lessons);
 
   return (
     <>
@@ -31,20 +31,26 @@ const CourseSwiper = (props) => {
         {/* <SwiperSlide>
           <img src={"/images/course/hand.jpg"} alt="找不到照片" />
         </SwiperSlide> */}
-        {lessons.map((lesson, i) => {
-          return (
-            <SwiperSlide
-              key={i}
-              onClick={() => {
-                setSwipe(i);
-              }}
-            >
-              {lesson.name}
-              <br />
-              {lesson.description}
-            </SwiperSlide>
-          );
-        })}
+        {lessons ? (
+          <>
+            {lessons.map((lesson, i) => {
+              return (
+                <SwiperSlide
+                  key={i}
+                  onClick={() => {
+                    setSwipe(i);
+                  }}
+                >
+                  {lesson.name}
+                  <br />
+                  {lesson.description}
+                </SwiperSlide>
+              );
+            })}
+          </>
+        ) : (
+          <></>
+        )}
       </Swiper>
     </>
   );

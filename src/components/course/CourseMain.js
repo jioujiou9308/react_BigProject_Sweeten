@@ -11,6 +11,7 @@ import CourseDetail from "./CourseDetail";
 const CourseMain = () => {
   const [swipe, setSwipe] = useState(0);
   const [lessons, setLessons] = useState([true]);
+  console.log(lessons);
   const [detailContent, setDetailContent] = useState([false]);
   const toggle = () => setDetailContent(!detailContent);
   //勞出使用者資料;
@@ -19,6 +20,7 @@ const CourseMain = () => {
     let getLesson = async () => {
       let response = await axios.get(`${API_URL}/lesson`);
       setLessons(response.data);
+
       // console.log(response.data);
       // console.log(response.data[0]);
     };

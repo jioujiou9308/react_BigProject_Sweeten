@@ -16,12 +16,13 @@ const CardList = () => {
   //從後端抓資料到前端
   useEffect(() => {
     let getExpireProduct = async () => {
-      let response = await axios.get(`${API_URL}/product/expire_product`, {
+      let response = await axios.get(`${API_URL}/expiry/expire_product`, {
         params: {
           page: page,
         },
       });
       setExpireProduct(response.data.data);
+      console.log(response);
       setLastPage(response.data.pagination.totalPage);
 
       // console.log(response.data.pagination.totalPage);
@@ -64,7 +65,7 @@ const CardList = () => {
       <div className="container flex flex-wrap justify-around px-6 py-8">
         {/* ---------------------------- */}
 
-        {expireProuct.map((product) => {
+        {expireProuct?.map((product) => {
           return (
             <div className="flex flex-wrap justify-around">
               <Card key={product.id} product={product} />

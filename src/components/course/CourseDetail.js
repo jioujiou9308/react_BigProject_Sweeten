@@ -24,7 +24,7 @@ const CourseDetail = (props) => {
 
   return (
     <div className="flex mt-5 mb-5 border border-red-500 h-96">
-      <div className="w-1/2 ml-3">
+      <div className="w-1/3 ml-10">
         <div className="w-full bg-white">
           <div className="flex items-center justify-between mt-10">
             <p className="h2">{lessons[a].name}</p>
@@ -74,13 +74,6 @@ const CourseDetail = (props) => {
             </div>
 
             <div className="flex justify-between mt-3 lg:m-0">
-              <Button
-                className="border-2 rounded-none border-sub"
-                variant="outlined"
-              >
-                <span className="text-black">加入購物車</span>
-              </Button>
-
               <Button
                 className="ml-3 text-white border-2 rounded-none border-warning bg-warning"
                 variant="filled"

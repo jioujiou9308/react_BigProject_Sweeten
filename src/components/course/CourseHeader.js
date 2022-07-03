@@ -14,7 +14,6 @@ const CourseHeader = () => {
       ></div> */}
       <div className="relative flex flex-col items-center justify-center w-full p-8 z-1">
         <div className="flex flex-col items-center justify-center w-full h-auto col-span-12 p-5 rounded-lg shadow-md md:w-1/2 blur-3">
-          <img src="" alt="" />
           <h4 className="w-48 h-20 border-t-4 border-red-500 border-solid"></h4>
           <h4 className="text-2xl text-orange-300">Some CTA description</h4>
           <h2 className="mt-2 mb-20 text-5xl text-center text-gray-300">
