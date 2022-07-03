@@ -6,9 +6,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { API_URL } from "../utils/config";
 import { motion } from "framer-motion";
-import {
-  AiOutlineShoppingCart,
-} from "react-icons/ai";
+import { AiOutlineShoppingCart } from "react-icons/ai";
 // import { useState } from "react";
 
 import MenuTag from "../components/menuTag/MenuTag";
@@ -45,7 +43,6 @@ const Product = () => {
       setProducts(response.data.data);
       // console.log(response.data.data)
       //set頁數
-     
     };
     getProducts();
 
@@ -53,7 +50,7 @@ const Product = () => {
   }, [page]);
 
   const perPage = 12;
-  const totalPage = (products/perPage);
+  const totalPage = products / perPage;
 
   //抓分頁
   // const getPage = () => {
@@ -67,7 +64,7 @@ const Product = () => {
   return (
     <>
       <div className=" md:flex">
-        <MenuTag setProducts={setProducts} products={products}/>
+        <MenuTag setProducts={setProducts} products={products} />
         {/* filter section */}
         <Filter />
         {/* card list  */}
@@ -92,10 +89,12 @@ const Product = () => {
           }}
         >
           下一頁
-        </li> */}
+        </li>
       </ul>
       <div class="fixed top-1/3 right-0 bg-secondary px-4 py-10 rounded-l-lg">
-       <button className="text-2xl text-white"><AiOutlineShoppingCart /></button>
+        <button className="text-2xl text-white">
+          <AiOutlineShoppingCart />
+        </button>
       </div>
     </>
   );

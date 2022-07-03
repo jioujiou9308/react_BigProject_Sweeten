@@ -79,6 +79,7 @@ const Header = () => {
       });
   };
   const handleNavigate = (path) => () => {
+    setOpen(false);
     navigate(path);
   };
   const [cart, setCart] = useCartState();
