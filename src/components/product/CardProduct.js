@@ -25,6 +25,7 @@ const CardProduct = (props) => {
     setfirstIndex((currentPage - 1) * perPage);
     setLastIndex(currentPage * perPage - 1);
     setTotalPage(Math.ceil(products.length / perPage));
+    console.log('currentpage=',currentPage,'totalpage=', totalPage)
   }, [currentPage]);
 
   const getPage = () => {
