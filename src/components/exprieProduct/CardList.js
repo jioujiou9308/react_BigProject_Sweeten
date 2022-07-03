@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { API_URL } from "../../utils/config";
 import axios from "axios";
 import Pagination from "./Pangination";
+// import { useCartState } from "../../utils/redux/hooks-redux";
 
 const CardList = () => {
   //目前在第幾頁
@@ -12,6 +13,8 @@ const CardList = () => {
   const [lastPage, setLastPage] = useState(1);
   //設定資料庫抓取的資料
   const [expireProuct, setExpireProduct] = useState([]);
+  //新增進購物車的功能
+  // const [carData, setCartData] = useCartState([]);
 
   //從後端抓資料到前端
   useEffect(() => {
@@ -68,7 +71,11 @@ const CardList = () => {
         {expireProuct?.map((product) => {
           return (
             <div className="flex flex-wrap justify-around">
-              <Card key={product.id} product={product} />
+              <Card
+                key={product.id}
+                product={product}
+                // setCartData={setCartData}
+              />
             </div>
           );
         })}

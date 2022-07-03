@@ -4,11 +4,10 @@ import {
   AiOutlineHeart,
   AiOutlineDelete,
 } from "react-icons/ai";
-import { useCartState } from "../../utils/redux/hooks-redux";
 
 function ProductItem(props) {
-  const { name, size, flavor, count, image, price } = props;
-  const [cart, setCart] = useCartState();
+  const { name, size, flavor, count, image, price, setCount, removeItem } =
+    props;
 
   return (
     <>
@@ -27,33 +26,13 @@ function ProductItem(props) {
             <div className="flex items-center">
               <AiOutlineMinus
                 onClick={() => {
-                  const newCart = [...cart];
-                  const newProduct = [...cart[1]];
-                  const target = newProduct.findIndex(
-                    (item) => item.name === name
-                  );
-                  newProduct[target] = {
-                    ...newProduct[target],
-                    count: newProduct[target].count - 1,
-                  };
-                  newCart[1] = newProduct;
-                  setCart(newCart);
+                  setCount(count - 1);
                 }}
               />
               <p className="p-3 text-lg">{count}</p>
               <AiOutlinePlus
                 onClick={() => {
-                  const newCart = [...cart];
-                  const newProduct = [...cart[1]];
-                  const target = newProduct.findIndex(
-                    (item) => item.name === name
-                  );
-                  newProduct[target] = {
-                    ...newProduct[target],
-                    count: newProduct[target].count + 1,
-                  };
-                  newCart[1] = newProduct;
-                  setCart(newCart);
+                  setCount(count + 1);
                 }}
               />
             </div>
@@ -66,15 +45,7 @@ function ProductItem(props) {
                 <AiOutlineHeart className="icon" />
                 收藏
               </div>
-              <div className="flex items-center" onClick={() => {
-                  const newProduct = [...cart[1]];
-                  const remove = newProduct.filter(
-                    (item) => item.name !== name
-                  );
-                  const newCart = [cart[0],remove];
-                    setCart(newCart);
-                }}
-              >
+              <div className="flex items-center" onClick={removeItem}>
                 <AiOutlineDelete className="icon" />
                 刪除
               </div>

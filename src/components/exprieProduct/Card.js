@@ -7,7 +7,7 @@ import { clear } from "@testing-library/user-event/dist/clear";
 
 const Card = (props) => {
   const { product } = props;
-  const [cart, setCart] = useCartState();
+  const [cart, setCart] = useCartState([]);
   const [timer, setTimer] = useState([0, 0, 0, 0]);
   const [timeOut, setTimeOut] = useState(false);
   // console.log(cart);
@@ -23,6 +23,13 @@ const Card = (props) => {
   let restTime = Math.floor((expireTime - timeNow) / 1000);
 
   // console.log(restTime);
+  // const { name, size, flavor, count, image, price, setCount, removeItem } =
+  // props;
+  console.log(cart);
+
+  // let sendCart = () => {
+  //   setCart(carData);
+  // };
 
   useEffect(() => {
     let countDown = setInterval(() => {
@@ -93,11 +100,29 @@ const Card = (props) => {
           </div>
           <button
             className="flex items-center justify-center w-full px-2 py-2 mt-4 text-white rounded-sm opacity-100 hover:opacity-80 bg-dark focus:outline-none "
-            // onClick={() => {
-            //   const { product } = props;
-            //   product.count = 1;
-            //   setCart([...cart, product]);
-            // }}
+            onClick={() => {
+              const { product } = props;
+              let productIndex = cart[1].findIndex(function (data, index) {
+                return data.name === product.name;
+              });
+              console.log(productIndex);
+
+              if (productIndex > -1) {
+                let newCount = {
+                  ...product,
+                  count: cart[1][productIndex].count + 1,
+                };
+                let cartList = [...cart[1]];
+                cartList[productIndex] = newCount;
+                let newData = [cart[0], cartList];
+                setCart(newData);
+              } else {
+                let newCount = { ...product, count: 1 };
+                let cartList = [...cart[1], newCount];
+                let newData = [cart[0], cartList];
+                setCart(newData);
+              }
+            }}
           >
             <span className="mx-1">加入購物車</span>
           </button>
