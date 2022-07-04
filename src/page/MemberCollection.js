@@ -48,7 +48,7 @@ const MemberColloction = () => {
       API_URL + `/user/favorite_product/${currentUser.id}`
     );
     setMemberCollection(response.data.allResults);
-    // console.log(response.data.allResults);
+    console.log('喜歡ㄉ商品',response.data.allResults);
   };
   useEffect(() => {
     getMemberCollection();
@@ -58,7 +58,7 @@ const MemberColloction = () => {
         API_URL + `/user/comment/${currentUser.id}`
       );
       setComment(response.data.allResults);
-      console.log(response.data);
+      // console.log(response.data);
     };
     getComment();
   }, []);
@@ -84,9 +84,7 @@ const MemberColloction = () => {
                 id,
                 name,
                 price,
-                description,
-                express_id,
-                created_at,
+               
               } = v;
               return (
                 <>
@@ -162,7 +160,14 @@ const MemberColloction = () => {
                       <Button
                         size="sm"
                         className="flex items-center mb-3 rounded-sm md:p bg-warning"
+                        // TODO:商品要set回購物車
                         onClick={() => {
+                          let newCart = [...cart[1]]
+                          // console.log('新購物車',newCart)
+                          // console.log('購物車',cart[1])
+                        
+                          newCart.push(v)
+                          // console.log('新購物車',newCart)
                           navigate("/main/cart");
                         }}
                       >
