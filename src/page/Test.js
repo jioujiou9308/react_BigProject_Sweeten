@@ -1,12 +1,12 @@
-import React from "react";
-import { useMultiInput } from "../utils/hooks/";
-import { AiFillPlusCircle } from "react-icons/ai";
-import axios from "axios";
-import { API_URL } from "../utils/config";
-import { useState } from "react";
-import { motion } from "framer-motion";
-import { useCartState } from "../utils/redux/hooks-redux";
-import { useRef } from "react";
+import React from 'react';
+import { useMultiInput } from '../utils/hooks/';
+import { AiFillPlusCircle } from 'react-icons/ai';
+import axios from 'axios';
+import { API_URL } from '../utils/config';
+import { useState } from 'react';
+import { motion } from 'framer-motion';
+import { useCartState } from '../utils/redux/hooks-redux';
+import { useRef } from 'react';
 
 // const testUser = {
 //   name: "test",
@@ -15,20 +15,26 @@ import { useRef } from "react";
 // };
 
 const Test = () => {
-  const [Inputs, allRef] = useMultiInput(["name", "acount", "password"]);
+  const [Inputs, allRef] = useMultiInput(['name', 'acount', 'password']);
   const [x, setX] = useState(0);
-  const [rotate, setRotate] = useState("0deg");
+  const [rotate, setRotate] = useState('0deg');
   const photoRef = useRef();
+  const [open, setOpen] = useState(false);
 
   return (
     <>
+      {open ? <div className="w-10 h-10 border">context</div> : <></>}
+      <button onClick={()=>{
+        setOpen(!open)
+      }}>open</button>
+      
       <motion.div
         className="w-10 bg-black"
         initial={{ x: 0, rotate: 0 }}
         animate={{ x, rotate }}
         onClick={() => {
           setX(x + 100);
-          setRotate("180deg");
+          setRotate('180deg');
         }}
       >
         div
@@ -44,7 +50,7 @@ const Test = () => {
         onClick={() => {
           // console.log("allRef.current");
           // console.log(allRef.current);
-          console.log("allRef.get()");
+          console.log('allRef.get()');
           console.log(allRef.get());
           allRef.clear();
         }}
@@ -63,7 +69,7 @@ const Test = () => {
           <input type="text" name="TotalAmount" placeholder="總價錢" />
           <input type="text" name="TradeDesc" placeholder="描述" />
           <input type="text" name="ItemName" placeholder="商品名#分隔" />
-          <p>{"-form action-> server -redirect-> ecpay -redirect-> local"}</p>
+          <p>{'-form action-> server -redirect-> ecpay -redirect-> local'}</p>
           <p>
             信用卡號：4311-9522-2222-2222 <br />
             有效日期：大於今日
@@ -81,7 +87,7 @@ const Test = () => {
           onClick={(e) => {
             e.preventDefault();
             let formData = new FormData();
-            formData.append("photo", photoRef.current.files[0]);
+            formData.append('photo', photoRef.current.files[0]);
             console.log(photoRef.current.files[0]);
             axios
               .post(`${API_URL}/product/photo`, formData)

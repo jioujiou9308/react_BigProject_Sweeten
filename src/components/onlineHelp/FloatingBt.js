@@ -1,22 +1,60 @@
-import React from 'react';
-import { RiCustomerService2Fill } from 'react-icons/ri';
-import { IconButton } from '@material-tailwind/react';
-import { useNavigate } from 'react-router-dom';
+import React from "react";
+import { RiCustomerService2Fill } from "react-icons/ri";
+import { IconButton } from "@material-tailwind/react";
+import CustomerService from "../../page/CustomerService";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const FloatingBt = () => {
-  const navigate = useNavigate();
+  const [openOnlineHelp, setOpenOnlineHelp] = useState(false);
   return (
-    <div className=" fixed bottom-3 bg-primary rounded-full right-3 ">
-      <IconButton
-        type="file"
-        variant="text"
-        onClick={() => {
-          navigate('/main/customerService');
-        }}
-      >
-        <RiCustomerService2Fill className="icon-lg" color="gray" />
-      </IconButton>
-    </div>
+    <>
+      <AnimatePresence>
+        {openOnlineHelp ? (
+          <motion.div
+          initial={{ scale: 0 }}
+          animate={{ scale: 1 }}
+          transition={{
+            type: "spring",
+            stiffness: 200,
+            damping: 15
+          }}
+            
+            className=" absolute top-20 md:right-10 right-0 border-2 border-line rounded-sm bg-white z-50"
+          >
+            <motion.h5>
+              <CustomerService />
+            </motion.h5>
+          </motion.div>
+        ) : (
+          <></>
+        )}
+      </AnimatePresence>
+
+      <div className=" fixed bottom-3 bg-primary rounded-full right-3">
+        <motion.IconButton
+          onClick={() => {
+            setOpenOnlineHelp(!openOnlineHelp);
+          }}
+        >
+          <IconButton variant="text">
+            <RiCustomerService2Fill className="icon-lg" color="gray" />
+          </IconButton>
+        </motion.IconButton>
+      </div>
+
+      {/* {openOnlineHelp ? <CustomerService /> : <></>}
+      <div className=" fixed bottom-3 bg-primary rounded-full right-3">
+        <IconButton
+          variant="text"
+          onClick={() => {
+            setOpenOnlineHelp(!openOnlineHelp);
+          }}
+        >
+          <RiCustomerService2Fill className="icon-lg" color="gray" />
+        </IconButton>
+      </div> */}
+    </>
   );
 };
 

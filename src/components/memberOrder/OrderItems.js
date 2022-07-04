@@ -9,6 +9,7 @@ function OrderItems(props) {
   const navigate = useNavigate();
   const { id, name, img, count, price } = props;
   const [selectedId, setSelectedId] = useState(false);
+  
   return (
     <>
       {/* 左欄 */}
@@ -73,7 +74,6 @@ function OrderItems(props) {
             </motion.button>
           )}
             
-
             {/* 消除detailㄉ按鈕 */}
             {selectedId == true &&(
               <motion.button onClick={() => setSelectedId(false)}>
