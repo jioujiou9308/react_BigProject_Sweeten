@@ -1,15 +1,15 @@
 import React from "react";
 
 const Pagination = (props) => {
-  const { i, page, setPage } = props;
+  const { i, pageInfo , setPageInfo} = props;
   return (
     <div>
       <li
         className={`${
-          page == i ? "bg-secondary text-white" : ""
+          i == pageInfo.cur ? "bg-secondary text-white" : ""
         } px-3 py-2 mx-1 text-gray-500 bg-gray-200 rounded-lg`}
         onClick={() => {
-          setPage(i);
+          setPageInfo({...pageInfo,cur:i})
         }}
       >
         <a className="flex items-center font-bold" href="#">

@@ -1,32 +1,34 @@
 import axios from "axios";
-import React from "react";
+import { React, useEffect, useState } from "react";
 import { AiOutlineMessage, AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
 import { API_URL } from "../../utils/config";
-import { useProductState, useUserState } from "../../utils/redux/hooks-redux";
+import { useFavoriteState, useUserState } from "../../utils/redux/hooks-redux";
 
-const OnceCarkProduct = (props) => {
-  const { id, name, price, fav, getFav } = props;
-  const [product, serProduct] = useProductState();
+const OnceCarkProduct = ({ product }) => {
   const navigate = useNavigate();
+  const [favProduct, setFavProduct] = useFavoriteState();
   const [currentUser] = useUserState();
+  console.log("最愛商品", favProduct);
+  console.log("所有商品", product);
 
   const favSwitchHander = async () => {
-    if (fav.findIndex((item) => item.product_id === id) > -1) {
+    if (favProduct.findIndex((item) => item.product_id === product.id) > -1) {
       //delete
       await axios.delete(
-        `${API_URL}/user/favorite_product/${currentUser.id}?product_id=${id}`
+        `${API_URL}/user/favorite_product/${currentUser.id}?product_id=${product.id}`
       );
-      getFav();
+      //   getFav();
     } else {
-      //post
+      //   //post
       await axios.post(`${API_URL}/user/favorite_product`, {
         user_id: currentUser.id,
-        product_id: id,
+        product_id: product.id,
       });
-      getFav();
+      //   getFav();
     }
   };
+
   return (
     <>
       <div className=" mb-6 mx-1 xl:w-[13rem]">
@@ -36,33 +38,27 @@ const OnceCarkProduct = (props) => {
             src="/images/course/hand.jpg"
             alt="T-Shirt"
             onClick={() => {
-              navigate(`/main/product/${id}`);
+              navigate(`/main/product/${product.id}`);
             }}
           />
           <div className="flex items-center justify-end w-full mt-2">
             <h4 className="w-full text-lg font-medium dark:text-gray-200">
-              {name}
+              {product.name}
             </h4>
-            <div className="mr-2 text-blue-500 p">${price}</div>
+            <div className="mr-2 text-blue-500 p">${product.price}</div>
             <div className="flex items-center ">
               <AiOutlineMessage className="icon-sm" />
-              {/* <AiOutlineShoppingCart className="icon" /> */}
-              {fav.findIndex((item) => item.product_id === id) > -1 ? (
-                <AiFillHeart
-                  className="text-secondary icon-sm"
-                  onClick={favSwitchHander}
-                />
-              ) : (
-                <AiOutlineHeart className="icon-sm" onClick={favSwitchHander} />
-              )}
+              {/* TODO:判斷式出不來 */}
+               
+                <AiFillHeart className={`icon-sm ${favProduct.findIndex((item) => item.product_id === product.id)>-1 ?'text-secondary ':''}`} />
+                
+              
             </div>
           </div>
 
           <button
             className="flex items-center justify-center w-full px-2 py-2 mt-4 text-white rounded-sm opacity-100 hover:opacity-80 bg-secondary focus:outline-none "
-            onClick={() => {
-              serProduct([...product, "click"]);
-            }}
+            onClick={() => {}}
           >
             <span className="mx-1 bg-secondary">加入購物車</span>
           </button>
