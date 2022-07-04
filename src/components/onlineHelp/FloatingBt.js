@@ -20,7 +20,7 @@ const FloatingBt = () => {
             damping: 15
           }}
             
-            className=" absolute top-20 md:right-10 right-0 border-2 border-line rounded-sm bg-white z-50"
+            className=" fixed top-100 md:right-10 right-0 border-2 border-line rounded-sm bg-white z-50"
           >
             <motion.h5>
               <CustomerService />
@@ -31,7 +31,7 @@ const FloatingBt = () => {
         )}
       </AnimatePresence>
 
-      <div className=" fixed bottom-3 bg-primary rounded-full right-3">
+      <div className=" fixed bottom-3 bg-primary rounded-full right-3 z-50">
         <motion.IconButton
           onClick={() => {
             setOpenOnlineHelp(!openOnlineHelp);
