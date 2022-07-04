@@ -228,6 +228,7 @@ function ProductDetail() {
                           let newData = [cart[0], newCart];
                           setCart(newData);
                           console.log(newData);
+                          navigate("/main/cart");
                         }}
                       >
                         <span className="p">立即購買</span>
