@@ -1,22 +1,23 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-
-import {
-  AiFillPlusCircle,
-  AiFillMinusCircle,
-  AiTwotoneStar,
-} from "react-icons/ai";
+import { AiTwotoneStar } from "react-icons/ai";
 import { Button } from "@material-tailwind/react";
-import { useState } from "react";
+import { useCourseState } from "../../utils/redux/hooks-redux";
 
 const CourseDetail = (props) => {
   const navigate = useNavigate();
   const { lessons, swipe } = props;
-  const dates = ["6月", "8月"];
-  const [count, setCount] = useState(1);
   const a = swipe;
-  console.log(a);
+  const [coursCart, setCoursCart] = useCourseState(null);
+  const [select, setSelect] = useState(null);
+  const [inputAdult, setInputAdult] = useState(null);
+  const [inputChild, setInputChild] = useState(null);
 
+  // console.log(inputAdult);
+  // console.log(inputChild);
+  // console.log(select);
+  console.log("這個是coursRedux", coursCart);
+  // 課程介紹
   const courseDetail = [
     {
       id: 1,
@@ -61,6 +62,25 @@ const CourseDetail = (props) => {
       time: "上課時數:",
       timeIntro: "5小時",
     },
+    {
+      id: 4,
+      material: "製作原料:",
+      materialIntro: "444444",
+      difficulty: "製作難度",
+      difficultyIntro: [
+        <AiTwotoneStar />,
+        <AiTwotoneStar />,
+        <AiTwotoneStar />,
+        <AiTwotoneStar />,
+        <AiTwotoneStar />,
+        <AiTwotoneStar />,
+        <AiTwotoneStar />,
+      ],
+      teacher: "授課老師:",
+      teacherIntro: "黃諾文老師",
+      time: "上課時數:",
+      timeIntro: "3小時",
+    },
   ];
 
   return (
@@ -78,11 +98,21 @@ const CourseDetail = (props) => {
             <p className="mt-2 text-sm leading-none text-gray-800 md:mt-0">
               <span className="font-semibold text-gray-300">時段</span>
             </p>
-            <select className="w-full py-2 text-sm text-center transition-all duration-150 ease-linear bg-white border-0 rounded shadow placeholder-primary text-blueGray-600 focus:outline-none focus:ring">
-              <option>2022/07/03(日)</option>
-              <option>2022/07/04(一)</option>
-              <option>2022/07/05(二)</option>
-              <option>2022/07/06(三)</option>
+            <select
+              id="date"
+              defaultValue="Select date"
+              className="w-full py-2 text-sm text-center transition-all duration-150 ease-linear bg-white border-0 rounded shadow placeholder-primary text-blueGray-600 focus:outline-none focus:ring"
+              onChange={(e) => {
+                setSelect(e.target.value);
+              }}
+            >
+              <option value="請選擇日期" selected>
+                請選擇日期
+              </option>
+              <option value="2022/07/03(日)">2022/07/03(日)</option>
+              <option value="2022/07/04(一)">2022/07/04(一)</option>
+              <option value="2022/07/05(二)">2022/07/05(二)</option>
+              <option value="2022/07/06(三)">2022/07/06(三)</option>
             </select>
           </div>
 
@@ -93,10 +123,13 @@ const CourseDetail = (props) => {
               <input
                 id="adult"
                 type="number"
-                class="border-0 py-2 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-1/2 ease-linear transition-all duration-150"
+                className="w-1/2 py-2 text-sm transition-all duration-150 ease-linear bg-white border-0 rounded shadow placeholder-blueGray-300 text-blueGray-600 focus:outline-none focus:ring"
                 min="0"
                 placeholder="請輸入人數"
-              />{" "}
+                onChange={(e) => {
+                  setInputAdult(e.target.value);
+                }}
+              />
               人,
             </div>
             <div>
@@ -104,22 +137,33 @@ const CourseDetail = (props) => {
               <input
                 id="kid"
                 type="number"
-                class="border-0 py-2 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-1/2 ease-linear transition-all duration-150"
+                className="w-1/2 py-2 text-sm transition-all duration-150 ease-linear bg-white border-0 rounded shadow placeholder-blueGray-300 text-blueGray-600 focus:outline-none focus:ring"
                 min="0"
                 placeholder="請輸入人數"
+                onChange={(e) => {
+                  setInputChild(e.target.value);
+                }}
               />{" "}
               人
             </div>
-
-            <div className="flex justify-between mt-3 lg:m-0">
-              <Button
-                className="ml-3 text-white border-2 rounded-none border-warning bg-warning"
-                variant="filled"
-                onClick={() => navigate("/main/courseDetail")}
-              >
-                <span className="">立即購買</span>
-              </Button>
-            </div>
+          </div>
+          <div className="mt-8 ">
+            <Button
+              className="ml-3 text-white border-2 rounded-none border-warning bg-warning"
+              variant="filled"
+              onClick={() => {
+                setCoursCart([
+                  select,
+                  inputAdult,
+                  inputChild,
+                  lessons[a].name,
+                  lessons[a].price,
+                ]);
+                navigate("/main/courseDetail");
+              }}
+            >
+              <span className="">立即購買</span>
+            </Button>
           </div>
         </div>
       </div>

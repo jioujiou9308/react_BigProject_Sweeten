@@ -24,7 +24,7 @@ const CourseContent = (props) => {
         </div>
         <div className="w-full max-w-md min-w-0 mx-auto mt-16 break-words bg-white border border-black xl:max-w-xl">
           <div className="mx-4 -mt-6 -translate-y-16 ">
-            <img className="w-auto rounded-lg" src={lessonImage[0].image3} />
+            <img className="w-auto rounded-lg" src={lessonImage[a].image3} />
           </div>
           <div className="px-10 pb-10 -mt-5">
             <div className="h1">{lessons[a].name}</div>

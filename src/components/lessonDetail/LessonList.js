@@ -1,6 +1,7 @@
 import React, { Fragment } from "react";
 import LessonItem from "./LessonItem";
 import LessonSummary from "./LessonSummary";
+import { useCourseState } from "../../utils/redux/hooks-redux";
 
 const lessonOrders = [
   {
@@ -20,6 +21,8 @@ const lessonOrders = [
 ];
 
 const LessonList = () => {
+  const [courseDetail, setCourseDetail] = useCourseState();
+
   return (
     <div className="px-4 py-14 md:px-6 2xl:px-20 2xl:container 2xl:mx-auto">
       <div className="flex flex-col justify-start space-y-2 item-start ">
@@ -36,12 +39,15 @@ const LessonList = () => {
             {lessonOrders.map((lessonOrder) => {
               return (
                 <Fragment key={lessonOrder.id}>
-                  <LessonItem lessonOrder={lessonOrder} />
+                  <LessonItem
+                    lessonOrder={lessonOrder}
+                    courseDetail={courseDetail}
+                  />
                 </Fragment>
               );
             })}
           </div>
-          <LessonSummary />
+          <LessonSummary courseDetail={courseDetail} />
         </div>
       </div>
     </div>

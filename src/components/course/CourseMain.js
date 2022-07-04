@@ -3,7 +3,6 @@ import axios from "axios";
 import CourseSwiper from "./CourseSwiper";
 import { API_URL } from "../../utils/config";
 import CourseContent from "./CourseContent";
-
 import CourseHeader from "./CourseHeader";
 import CourseIntro from "./CourseIntro";
 import CourseDetail from "./CourseDetail";
@@ -35,7 +34,7 @@ const CourseMain = () => {
   const [swipe, setSwipe] = useState(0);
   const [lessonImage, setLessonImage] = useState(image);
   const [lessons, setLessons] = useState([true]);
-  console.log(lessons);
+  // console.log(lessons);
   const [detailContent, setDetailContent] = useState([false]);
   const toggle = () => setDetailContent(!detailContent);
   //勞出使用者資料;
@@ -57,6 +56,13 @@ const CourseMain = () => {
     <>
       <CourseHeader />
       <CourseIntro />
+      <div className="mb-10 ">
+        <CourseSwiper
+          lessons={lessons}
+          setSwipe={setSwipe}
+          lessonImage={lessonImage}
+        />
+      </div>
       <CourseContent
         swipe={swipe}
         lessons={lessons}
@@ -75,14 +81,6 @@ const CourseMain = () => {
       ) : (
         <></>
       )}
-
-      <div className="-translate-y-15 ">
-        <CourseSwiper
-          lessons={lessons}
-          setSwipe={setSwipe}
-          lessonImage={lessonImage}
-        />
-      </div>
     </>
   );
 };

@@ -7,7 +7,7 @@ import {
 } from "react-icons/ai";
 
 const LessonItem = (props) => {
-  const { lessonOrder } = props;
+  const { lessonOrder, courseDetail } = props;
   return (
     <>
       {/* items */}
@@ -26,7 +26,7 @@ const LessonItem = (props) => {
           <div className="flex flex-col items-start justify-between w-full h-56 space-y-4 md:flex-row md:space-y-0">
             <div className="flex flex-col items-start w-full space-y-10">
               <h3 className="text-xl font-semibold leading-6 text-gray-800 xl:text-2xl ">
-                課程：{lessonOrder.course}
+                課程：{courseDetail[3]}
               </h3>
               <div>
                 <p>課程說明</p>
@@ -37,7 +37,7 @@ const LessonItem = (props) => {
 
               <div className="w-full">
                 <p className="text-base font-black text-right">
-                  價格: {lessonOrder.price}
+                  價格: {courseDetail[4]}
                 </p>
               </div>
             </div>
@@ -47,47 +47,20 @@ const LessonItem = (props) => {
         <div className="flex flex-col items-start justify-between w-full p-5 border-b border-gray-200 md:flex-row sm:pr-0">
           {/* 人數 */}
           <div>
-            <p className="text-sm leading-none text-gray-800">
-              <span className="font-semibold text-gray-300">人數</span>
-            </p>
+            <div className="leading-none text-gray-800 p">人數</div>
             <div className="flex flex-col gap-2 sm:flex-row sm:gap-0">
-              <div className="sm:-mr-8">
-                <label htmlFor="adult">大人：</label>
-                <input
-                  id="adult"
-                  type="number"
-                  class="border-0 py-2 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-1/2 ease-linear transition-all duration-150"
-                  min="0"
-                  placeholder="請輸入人數"
-                />{" "}
-                人,
-              </div>
-              <div>
-                <label htmlFor="kid">小孩：</label>
-                <input
-                  id="kid"
-                  type="number"
-                  class="border-0 py-2 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-1/2 ease-linear transition-all duration-150"
-                  min="0"
-                  placeholder="請輸入人數"
-                />{" "}
-                人
-              </div>
+              <p className="p">大人： {courseDetail[1]}</p>
+              <p className="p">小孩：{courseDetail[2]}</p>
             </div>
           </div>
           {/* 時段 */}
           <div>
-            <p className="mt-2 text-sm leading-none text-gray-800 md:mt-0">
-              <span className="font-semibold text-gray-300">時段</span>
-            </p>
-            <p>星期一</p>
+            <div className="mt-2 text-sm leading-none text-gray-800 md:mt-0">
+              時段
+            </div>
+            <p>{courseDetail[0]}</p>
           </div>
           {/* 按鈕 */}
-          <div className="flex items-end justify-center w-full py-5 md:flex-row sm:pl-5 sm:justify-end md:w-auto">
-            <button className="px-4 py-1 text-white border-2 sm:ml-5 border-warning bg-warning">
-              前往付款
-            </button>
-          </div>
         </div>
         {/* 注意事項 */}
         <div className="flex flex-col items-start justify-start w-full p-5">
