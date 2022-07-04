@@ -8,8 +8,9 @@ import {
 import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
+import 'swiper/css/effect-fade';
 import "../components/home/styles.css";
-import { Autoplay } from "swiper";
+import { Autoplay, EffectFade } from "swiper";
 import useLoading from "../utils/hooks/useLoading";
 import load from "./loading_logo.gif";
 
@@ -75,8 +76,9 @@ const Home = (props) => {
                   delay: 3000,
                   disableOnInteraction: false,
                 }}
-                modules={[Autoplay]}
+                modules={[Autoplay, EffectFade]}
                 className="mySwiper"
+                effect="fade"
               >
                 <SwiperSlide>
                   <img src={`/images/home/banner1.jpeg`} alt="slide" />
