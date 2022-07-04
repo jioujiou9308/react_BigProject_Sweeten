@@ -1,5 +1,11 @@
 import React, { useState } from "react";
-import { Input, Button, IconButton } from "@material-tailwind/react";
+import {
+  Input,
+  Button,
+  IconButton,
+  Select,
+  Option,
+} from "@material-tailwind/react";
 import axios from "axios";
 import { useDropzone } from "react-dropzone";
 import { FaCamera } from "react-icons/fa";
@@ -8,16 +14,19 @@ import MenuTag from "../components/menuTag/MenuTag";
 
 const MemberInformation = () => {
   const [member, setMember] = useState({
-    nickname: "",
     name: "",
     email: "",
     phone: "",
     birthday: "",
+    gender: "",
     photo: "",
   });
   console.log(member);
   function handleChange(e) {
     setMember({ ...member, [e.target.name]: e.target.value });
+  }
+  function handleChangeGender(e) {
+    setMember({ ...member, gender : e });
   }
   async function handleSubmit(e) {
     try {
@@ -35,7 +44,6 @@ const MemberInformation = () => {
     </li>
   ));
   return (
-    
     <div className="mx-auto">
       <MenuTag />
       <div className="lg:flex">
@@ -61,36 +69,37 @@ const MemberInformation = () => {
               </div>
             </div>
             {/* 表單 */}
-            {/* 暱稱 */}
             <div className="items-center mt-8 md:flex">
+              {/* 姓名*/}
               <div className="flex flex-col">
                 <div className="flex items-end w-64 gap-4">
                   <Input
                     variant="standard"
+                    label="姓名"
                     color="brown"
-                    label="暱稱"
                     type="text"
-                    id="nickname"
-                    name="nickname"
-                    value={member.nickname}
+                    id="name"
+                    name="name"
+                    required
+                    value={member.name}
                     onChange={handleChange}
                   />
                 </div>
               </div>
 
-              {/* 姓名 */}
+              {/* 手機號碼 */}
               <div className="flex flex-col mt-8 md:ml-12 md:mt-0">
                 <div className="flex flex-col">
                   <div className="flex items-end w-64 gap-4">
                     <Input
                       variant="standard"
-                      label="姓名"
+                      label="手機號碼"
                       color="brown"
-                      type="text"
-                      id="name"
-                      name="name"
                       required
-                      value={member.name}
+                      type="tel"
+                      id="phone"
+                      name="phone"
+                      value={member.phone}
                       onChange={handleChange}
                     />
                   </div>
@@ -114,21 +123,24 @@ const MemberInformation = () => {
                   />
                 </div>
               </div>
-              {/* 手機號碼 */}
+              {/* 性別 */}
               <div className="flex flex-col mt-8 md:ml-12 md:mt-0">
                 <div className="flex flex-col">
                   <div className="flex items-end w-64 gap-4">
-                    <Input
+                    <Select
                       variant="standard"
-                      label="手機號碼"
+                      label="性別"
+                      type="text"
                       color="brown"
-                      required
-                      type="tel"
-                      id="phone"
-                      name="phone"
-                      value={member.phone}
-                      onChange={handleChange}
-                    />
+                      id="gender"
+                      name="gender"
+                      value={member.gender}
+                      onChange={handleChangeGender}
+                    >
+                      <Option value="1">男</Option>
+                      <Option value="2">女</Option>
+                      <Option value="3">不提供</Option>
+                    </Select>
                   </div>
                 </div>
               </div>
@@ -174,7 +186,7 @@ const MemberInformation = () => {
           </div>
         </div>
 
-        {/* section2 */}
+        {/* 拖曳區*/}
         <div className="xl:w-2/5 lg:w-2/5 pt-5 pb-5 xl:pr-5 xl:pl-0 mt-20">
           <div
             {...getRootProps({ className: "dropzone" })}
