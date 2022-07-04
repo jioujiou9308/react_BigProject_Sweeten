@@ -7,7 +7,7 @@ import OrderDetail from "./OrderDetail";
 
 function OrderItems(props) {
   const navigate = useNavigate();
-  const { id, name, img, count, price } = props;
+  const { id, name, count, price } = props;
   const [selectedId, setSelectedId] = useState(false);
   
   return (
@@ -27,7 +27,11 @@ function OrderItems(props) {
               {/* 商品價格數量 */}
               <div className="flex items-center justify-start">
                 <div className="mr-2 overflow-hidden">
-                  <img className="scale-105 " src={img} alt="" />
+                  <img
+                    className="scale-105 "
+                    src="/images/memberCollectionAndOrder/member_order1.png"
+                    alt=""
+                  />
                 </div>
 
                 <div className="mx-3">
@@ -50,8 +54,8 @@ function OrderItems(props) {
           </div>
 
           {/* 訂單詳細 */}
-          
-            <AnimatePresence >
+
+          <AnimatePresence>
             {selectedId == true && (
               <motion.div className="overflow-hidden">
                 <motion.h2>
@@ -60,29 +64,30 @@ function OrderItems(props) {
               </motion.div>
             )}
           </AnimatePresence>
-          
-          
+
           <div className="pt-4 text-center md:text-right">
-          {selectedId == false &&(
-            <motion.button onClick={() => setSelectedId(true)}>
-              <Button
-                size="sm"
-                className="mr-3 text-white rounded-sm bg-warning"
-              >
-                訂單詳情
-              </Button>
-            </motion.button>
-          )}
-            
-            {/* 消除detailㄉ按鈕 */}
-            {selectedId == true &&(
-              <motion.button onClick={() => setSelectedId(false)}>
-              <Button size="sm" className="mr-3 text-white rounded-sm bg-warning">
-                收起訂單詳細
-              </Button>
-            </motion.button>
+            {selectedId == false && (
+              <motion.button onClick={() => setSelectedId(true)}>
+                <Button
+                  size="sm"
+                  className="mr-3 text-white rounded-sm bg-warning"
+                >
+                  訂單詳情
+                </Button>
+              </motion.button>
             )}
-            
+
+            {/* 消除detailㄉ按鈕 */}
+            {selectedId == true && (
+              <motion.button onClick={() => setSelectedId(false)}>
+                <Button
+                  size="sm"
+                  className="mr-3 text-white rounded-sm bg-warning"
+                >
+                  收起訂單詳細
+                </Button>
+              </motion.button>
+            )}
 
             <Button
               onClick={() => {
@@ -116,7 +121,7 @@ function OrderItems(props) {
           <p>-30</p>
         </div>
 
-        <h2 className="self-end text-right md:absolute right-5 bottom-5 h2">
+        <h2 className="self-end text-right md:absolute right-5 bottom-5 p">
           總計: 2030
         </h2>
       </div>

@@ -3,6 +3,8 @@ import ReactDOM from "react-dom/client";
 import { Provider } from "react-redux";
 import store from "./utils/redux/store";
 import "./index.css";
+import "swiper/css/bundle";
+import "./styles.css";
 import App from "./App";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));

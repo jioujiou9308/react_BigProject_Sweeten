@@ -5,7 +5,7 @@ const UserComment = () => {
     <div className="flex justify-center py-4 md:justify-start md:border-b-2">
       <div className="overflow-hidden border-2 rounded-full md:mr-8 mr-14 bg-theme w-14">
         <img
-        src={process.env.PUBLIC_URL + "/images/productDetail/user 1.png"}
+          src={process.env.PUBLIC_URL + "/images/productDetail/user 1.png"}
           alt=""
         />
       </div>

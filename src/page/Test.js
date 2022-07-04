@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React from 'react';
 import { useMultiInput } from '../utils/hooks/';
 import { AiFillPlusCircle } from 'react-icons/ai';
@@ -7,6 +8,16 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useCartState } from '../utils/redux/hooks-redux';
 import { useRef } from 'react';
+=======
+import React from "react";
+import { useMultiInput } from "../utils/hooks/";
+import { AiFillPlusCircle } from "react-icons/ai";
+import axios from "axios";
+import { API_URL } from "../utils/config";
+import { useState } from "react";
+import { motion } from "framer-motion";
+import { useRef } from "react";
+>>>>>>> master
 
 // const testUser = {
 //   name: "test",
@@ -17,7 +28,8 @@ import { useRef } from 'react';
 const Test = () => {
   const [Inputs, allRef] = useMultiInput(['name', 'acount', 'password']);
   const [x, setX] = useState(0);
-  const [rotate, setRotate] = useState('0deg');
+  const [rotate, setRotate] = useState("0deg");
+  const [open, setOpen] = useState(false);
   const photoRef = useRef();
   const [open, setOpen] = useState(false);
 
@@ -37,8 +49,8 @@ const Test = () => {
           setRotate('180deg');
         }}
       >
-        div
-      </motion.div>
+        open
+      </button>
       {/* useMultiInput */}
       <Inputs.Acount className=" bg-primary" />
       <br />

@@ -6,23 +6,45 @@ import Main from "./layout/Main";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { toast } from "react-toastify";
 import { useEffect } from "react";
 import LoginModal from "./components/dialog/LoginModal";
 import SignupModal from "./components/dialog/SignupModal";
 import { ToastContainer, Slide } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useDispatch } from "react-redux";
+import "animate.css";
+import axios from "axios";
+import { useUserState } from "./utils/redux/hooks-redux";
+import { API_URL } from "./utils/config";
+import { updateUser } from "./utils/redux/userSlice";
+import "./styles.css";
 
 // TODO 註冊 關於 上下架 訂單 課程 即期品
 
 function App() {
   const dispatch = useDispatch();
-  // firebase 登入狀態聆聽
-
+  const [user] = useUserState();
+  console.log(user);
   //AOS初始化
   useEffect(() => {
-    AOS.init();
+    AOS.init({
+      once: true,
+    });
     AOS.refresh();
+  }, []);
+  /* ------------------------------- auth check ------------------------------- */
+  useEffect(() => {
+    axios
+      .get(API_URL + "/auth/check?test=123", {
+        // 如果想要跨源讀寫 cookie
+        withCredentials: true,
+      })
+      .then(({ data: { user } }) => {
+        user && toast.success("成功登入!");
+
+        dispatch(updateUser(user || { id: 0, name: "遊客" }));
+      });
   }, [dispatch]);
 
   return (

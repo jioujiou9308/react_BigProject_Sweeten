@@ -1,17 +1,19 @@
-import React, { useState } from 'react';
-import { Input, Button, IconButton } from '@material-tailwind/react';
-import axios from 'axios';
-import { useDropzone } from 'react-dropzone';
-import { FaCamera } from 'react-icons/fa';
+import React, { useState } from "react";
+import { Input, Button, IconButton } from "@material-tailwind/react";
+import axios from "axios";
+import { useDropzone } from "react-dropzone";
+import { FaCamera } from "react-icons/fa";
+import { motion } from "framer-motion";
+import MenuTag from "../components/menuTag/MenuTag";
 
 const MemberInformation = () => {
   const [member, setMember] = useState({
-    nickname: 'aaa',
-    name: 'aaa',
-    email: '123@com',
-    phone: '0912345678',
-    birthday: '',
-    photo: '',
+    nickname: "aaa",
+    name: "aaa",
+    email: "123@com",
+    phone: "0912345678",
+    birthday: "",
+    photo: "",
   });
   console.log(member);
   function handleChange(e) {
@@ -19,7 +21,7 @@ const MemberInformation = () => {
   }
   async function handleSubmit(e) {
     try {
-      let response = axios.post(`$(API_URL)`, member);
+      axios.post(`$(API_URL)`, member);
     } catch (e) {
       console.log(e);
     }
@@ -34,6 +36,7 @@ const MemberInformation = () => {
   ));
 
   return (
+<<<<<<< HEAD
     <div className="container mx-auto">
       <div className="lg:flex">
         <div className="xl:w-3/5 lg:w-3/5 py-5 xl:rounded-bl rounded-tl rounded-tr xl:rounded-tr-none">
@@ -53,8 +56,52 @@ const MemberInformation = () => {
           {/* 表單 */}
           {/* 暱稱 */}
           <div className="mt-8 md:flex items-center">
+=======
+    <div className="flex justify-between">
+      <MenuTag />
+      <div className="w-full p-10">
+        <h1 className="font-bold text-gray-800 focus:outline-none h1">
+          我的檔案
+        </h1>
+        <motion.div
+          initial={{ width: 0 }}
+          animate={{ width: "auto" }}
+          transition={{ ease: "easeOut", duration: 2, delay: 1 }}
+          className="bg-gradient-to-r pb-[5px] from-sub to-transparent"
+        ></motion.div>
+        {/* 大頭照 */}
+        <div className="flex flex-wrap items-center px-2 sm:flex-row">
+          <div className="relative w-32 h-32 mt-6 mb-4 mr-4 lg:mb-0">
+            <img
+              src="https://tuk-cdn.s3.amazonaws.com/assets/components/avatars/a_3_7.png"
+              alt=""
+              className="w-full h-full overflow-hidden rounded-full shadow"
+            />
+          </div>
+        </div>
+        {/* 表單 */}
+        {/* 暱稱 */}
+        <div className="items-center mt-8 md:flex">
+          <div className="flex flex-col">
+            <div className="flex items-end w-64 gap-4">
+              <Input
+                variant="standard"
+                color="brown"
+                label="暱稱"
+                type="text"
+                id="nickname"
+                name="nickname"
+                value={member.nickname}
+                onChange={handleChange}
+              />
+            </div>
+          </div>
+
+          {/* 姓名 */}
+          <div className="flex flex-col mt-8 md:ml-12 md:mt-0">
+>>>>>>> master
             <div className="flex flex-col">
-              <div className="flex w-64 items-end gap-4">
+              <div className="flex items-end w-64 gap-4">
                 <Input
                   variant="standard"
                   color="brown"
@@ -67,6 +114,7 @@ const MemberInformation = () => {
                 />
               </div>
             </div>
+<<<<<<< HEAD
             {/* 姓名 */}
             <div className="flex flex-col md:ml-12 md:mt-0 mt-8">
               <div className="flex flex-col">
@@ -88,8 +136,31 @@ const MemberInformation = () => {
           </div>
           {/* email */}
           <div className="mt-8 md:flex items-center">
+=======
+          </div>
+        </div>
+        {/* email */}
+        <div className="items-center mt-8 md:flex">
+          <div className="flex flex-col">
+            <div className="flex items-end w-64 gap-4">
+              <Input
+                variant="standard"
+                label="email"
+                color="brown"
+                type="email"
+                required
+                id="email"
+                name="email"
+                value={member.email}
+                onChange={handleChange}
+              />
+            </div>
+          </div>
+          {/* 手機號碼 */}
+          <div className="flex flex-col mt-8 md:ml-12 md:mt-0">
+>>>>>>> master
             <div className="flex flex-col">
-              <div className="flex w-64 items-end gap-4">
+              <div className="flex items-end w-64 gap-4">
                 <Input
                   variant="standard"
                   label="email"
@@ -170,7 +241,7 @@ const MemberInformation = () => {
               accept="image/*"
               {...getInputProps()}
             />
-            <IconButton type="file" variant="text" className="flex mx-auto mt-20">
+            <IconButton type="file" variant="text" className="mx-32 mt-10 ">
               <FaCamera className="icon-lg" color="gray" />
             </IconButton>
             <p className="p text-center">請拖曳照片至此</p>

@@ -1,255 +1,311 @@
-import React from "react";
-import CitySelector from "../components/tw-city-selector/tw-city-selector";
-{/* import { Radio } from "@material-tailwind/react";
-import { BiRadioCircleMarked,BiRadioCircle } from "react-icons/bi"; */}
+import React, { useState } from "react";
 
+import CitySelector from "../components/tw-city-selector/tw-city-selector";
 
 function Index() {
+  const [cityData, setCityData] = useState("");
+  const [fields, setFields] = useState({
+    name: "",
+    mobile: "",
+    email: "",
+    cityData: "",
+    address: "",
+  });
+  const [shippingFields, setShippingFields] = useState({
+    name: "",
+    mobile: "",
+    email: "",
+    cityData: "",
+    address: "",
+  });
+  console.log(fields);
+  const [fieldErrors, setFieldErrors] = useState({
+    name: "",
+    mobile: "",
+    email: "",
+    address: "",
+  });
+
+  const handleChange = (e) => {
+    const newData = { ...fields, [e.target.name]: e.target.value };
+
+    setFields(newData);
+  };
+
+  const handleShippingChange = (e) => {
+    const newShippingData = {
+      ...shippingFields,
+      [e.target.name]: e.target.value,
+    };
+
+    setShippingFields(newShippingData);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("這裡送出表單資料到伺服器了");
+  };
+
+  const handleInvalid = (e) => {
+    e.preventDefault();
+
+    const newFieldErrors = {
+      ...fieldErrors,
+      [e.target.name]: e.target.validationMessage,
+    };
+
+    setFieldErrors(newFieldErrors);
+  };
+  // 同訂購人資料onClick
+  const handleCheck = (e) => {
+    if (e.target.checked) {
+      setShippingFields({
+        name: fields.name,
+        mobile: fields.mobile,
+        email: fields.email,
+        cityData: fields.cityData,
+        address: fields.address,
+      });
+    }
+    if (!e.target.checked) {
+      setShippingFields({
+        name: "",
+        mobile: "",
+        email: "",
+        cityData: "",
+        address: "",
+      });
+    }
+  };
+
+  const handleFormChange = (e) => {
+    const newFieldErrors = {
+      ...fieldErrors,
+      [e.target.name]: "",
+    };
+
+    setFieldErrors(newFieldErrors);
+  };
+  console.log(fields);
+
   return (
     <>
-      {/* contact & credit card */}
-      <div className="p-10 border-t mt-14">
-        {/* 訂購資訊 */}
-        <div className="p-5 mb-10 bg-primary">
-          <div className="pb-5 border-b">
-            <span className="block pb-3 font-medium h3">訂購資訊</span>
-            <span className="block p">訂購人資料</span>
-            <div className="grid grid-cols-2 gap-2">
-              <label className="pt-2 mb-1 text-xs">姓名</label>
-              <label className="pt-2 text-xs">電話</label>
-            </div>
-            <div className="grid grid-cols-2 gap-2">
-              <div>
-                <input
-                  type="text"
-                  className="w-full h-6 py-4 pl-2 text-sm focus:outline-none"
-                  placeholder="請輸入真實全名"
-                />
-              </div>
-              <div>
-                <input
-                  type="text"
-                  className="w-full h-6 py-4 pl-2 text-sm focus:outline-none"
-                  placeholder="請輸入電話號碼"
-                />
-              </div>
-            </div>
-            <div className="pt-3">
-              <label className="text-xs">信箱</label>
-              <input
-                type="text"
-                className="w-full h-6 py-4 pl-2 text-sm focus:outline-none"
-                placeholder="請輸入電子郵件"
-              />
-            </div>
-            <div className="pt-3">
-               <CitySelector/> 
-            </div>
-            <div className="pt-2">
-              <input
-                type="text"
-                className="w-full h-6 py-4 pl-2 text-sm focus:outline-none"
-                placeholder="請輸入詳細地址"
-              />
-            </div>
-            {/* 付款方式 */}
-            <div className="pt-3">
-              <label className="block text-xs">付款方式</label>
-              <div className="md:flex">
-                  <div className="py-2 mr-5">
-                    <input type="radio" className="mr-2" onClick={
-                        ()=>{}
-                    }/>
-                    <label className="text-sm">線上刷卡</label>
-                  </div>
-                  <div className="py-2 mr-5">
-                    <input type="radio" className="mr-2" onClick={
-                        ()=>{}
-                    }/>
-                    <label className="text-sm">轉帳匯款</label>
-                  </div>
-                <div className="py-2 mr-5">
-                  <input type="radio" className="mr-2" onClick={
-                      ()=>{}
-                  }/>
-                  <label className="text-sm">超商取貨付款</label>
-                </div>
-                <div className="py-2 mr-5">
-                  <input type="radio" className="mr-2" onClick={
-                      ()=>{}
-                  }/>
-                  <label className="text-sm">超商代碼繳費</label>
-                </div>
-              </div>
-              {/* <Radio color="pink"   className="text-sm"/> */}
-              {/* <BiRadioCircleMarked className="text-xl"/>
-              <BiRadioCircle   className="text-xl" onClick={()=>{}}/> */}
-            </div>
-            {/* 配送方式 */}
-            <div className="pt-3">
-              <label className="block text-xs">配送方式</label>
-              <div className="md:flex">
-                <div className="py-2 mr-5">
-                  <input type="radio" className="mr-2" onClick={
-                      ()=>{}
-                  }/>
-                  <label className="text-sm">門市自取</label>
-                </div>
-                <div className="py-2 mr-5">
-                  <input type="radio" className="mr-2" onClick={
-                      ()=>{}
-                  }/>
-                  <label className="text-sm">超商取件</label>
-                </div>
-                <div className="py-2 mr-5">
-                  <input type="radio" className="mr-2" onClick={
-                      ()=>{}
-                  }/>
-                  <label className="text-sm">宅配到府</label>
-                </div>
-              </div>
-            </div>
-            
-          </div>
-          {/* 收件資訊 */}
-          <div className="py-5">
-            <span className="block p">收件人資料</span>
-            <div className="py-2 ">
-                <input type="radio" className="mr-2" onClick={
-                    ()=>{}
-                }/>
-                <label className="text-sm">同訂購人資訊</label>
-            </div>
-            <div className="grid grid-cols-2 gap-2">
-              <label className="pt-2 mb-1 text-xs">姓名</label>
-              <label className="pt-2 text-xs">電話</label>
-            </div>
-            <div className="grid grid-cols-2 gap-2">
-              <div>
-                <input
-                  type="text"
-                  className="w-full h-6 py-4 pl-2 text-sm focus:outline-none"
-                  placeholder="請輸入真實全名"
-                />
-              </div>
-              <div>
-                <input
-                  type="text"
-                  className="w-full h-6 py-4 pl-2 text-sm focus:outline-none"
-                  placeholder="請輸入電話號碼"
-                />
-              </div>
-            </div>
-            <div className="pt-3">
-              <label className="text-xs ">信箱</label>
-              <input
-                type="text"
-                className="w-full h-6 py-4 pl-2 text-sm focus:outline-none"
-                placeholder="請輸入電子郵件"
-              />
-            </div>
-            <div className="pt-3">
-               <CitySelector/> 
-            </div>
-            <div className="pt-2">
-              <input
-                type="text"
-                className="w-full h-6 py-4 pl-2 text-sm focus:outline-none"
-                placeholder="請輸入詳細地址"
-              />
-            </div>
-          </div>
-          <button className="w-full py-2 text-white border hover:bg-secondary" onClick={()=>{}}>
-                確認付款
-          </button>
-        </div>
-
-        {/* 信用卡
-        <div className="p-5 overflow-visible md:mr-10 bg-primary">
-          <span className="block pb-3 font-medium h3">Card Details</span>
-
-          <span className="text-xs">Card Type</span>
-
-          <div className="flex justify-between mt-2 overflow-visible">
-            <div className="relative px-4 py-2 rounded bg-secondary w-52 h-28 right-10">
-              <span className="text-lg italic font-medium underline">VISA</span>
-
-              <div className="flex justify-between pt-4">
-                <span className="text-xs font-medium ">****</span>
-                <span className="text-xs font-medium ">****</span>
-                <span className="text-xs font-medium ">****</span>
-                <span className="text-xs font-medium ">****</span>
-              </div>
-
-              <div className="flex justify-between mt-3">
-                <span className="text-xs ">Giga Tamarashvili</span>
-                <span className="text-xs ">12/18</span>
-              </div>
-            </div>
-
-            <div className="flex flex-col items-center justify-center">
-              <img
-                src="https://img.icons8.com/color/96/000000/mastercard-logo.png"
-                width="40"
-                alt=""
-                className="relative right-5"
-              />
-              <span className="relative text-xs font-medium bottom-2 right-5">
-                mastercard.
-              </span>
-            </div>
-          </div>
-
-          <div className="flex flex-col pt-3">
-            <label className="text-xs">Name on Card</label>
-            <input
-              type="text"
-              className="w-full h-6 py-4 pl-2 text-sm focus:outline-none"
-              placeholder="Giga Tamarashvili"
-            />
-          </div>
-
-          <div className="flex flex-col pt-3">
-            <label className="text-xs">Card Number</label>
-            <input
-              type="text"
-              className="w-full h-6 py-4 pl-2 text-sm focus:outline-none"
-              placeholder="****     ****      ****      ****"
-            />
-          </div>
-
-          <div className="grid grid-cols-3 gap-2 pt-2 mb-3">
-            <div className="col-span-2 ">
-              <label className="text-xs">Expiration Date</label>
+    <div className="p-10">
+      <span className="block font-medium h3">訂購資訊</span>
+      <form
+        onSubmit={handleSubmit}
+        onInvalid={handleInvalid}
+        onChange={handleFormChange}
+      >
+        
+        <div className="pt-5 mt-6 border-t">
+          {/* 訂購資訊 */}
+          <div className="p-5 mb-10 bg-primary">
+            <div className="pb-5 border-b">
+              <span className="block p">訂購人資料</span>
               <div className="grid grid-cols-2 gap-2">
+                <label className="pt-2 mb-1 text-xs">姓名</label>
+                <label className="pt-2 text-xs">電話</label>
+              </div>
+              <div className="grid grid-cols-2 gap-2">
+                <div>
+                  <input
+                    type="text"
+                    name="name"
+                    value={fields.name}
+                    minLength={2}
+                    onChange={handleChange}
+                    required
+                    className="w-full h-6 py-4 pl-2 text-sm focus:outline-none"
+                    placeholder="請輸入真實全名"
+                  />
+                </div>
+
+                <div>
+                  <input
+                    type="phone"
+                    name="mobile"
+                    value={fields.mobile}
+                    onChange={handleChange}
+                    required
+                    maxLength={10}
+                    minLength={10}
+                    className="w-full h-6 py-4 pl-2 text-sm focus:outline-none"
+                    placeholder="請輸入電話號碼"
+                  />
+                </div>
+              </div>
+              <div className="grid grid-cols-2 gap-2">
+                <div>
+                  {fieldErrors.name !== "" && (
+                    <div className="error" style={{ color: "red" }}>
+                      {fieldErrors.name}
+                    </div>
+                  )}
+                </div>
+                <div>
+                  {fieldErrors.mobile !== "" && (
+                    <div className="error" style={{ color: "red" }}>
+                      {fieldErrors.mobile}
+                    </div>
+                  )}
+                </div>
+              </div>
+              <div className="pt-3">
+                <label className="text-xs">信箱</label>
                 <input
-                  type="text"
+                  type="email"
+                  name="email"
+                  value={fields.email}
+                  onChange={handleChange}
+                  required
                   className="w-full h-6 py-4 pl-2 text-sm focus:outline-none"
-                  placeholder="mm"
-                />
-                <input
-                  type="text"
-                  className="w-full h-6 py-4 pl-2 text-sm focus:outline-none"
-                  placeholder="yyyy"
+                  placeholder="請輸入電子郵件"
                 />
               </div>
+              {fieldErrors.email !== "" && (
+                <div className="error" style={{ color: "red" }}>
+                  {fieldErrors.email}
+                </div>
+              )}
+              <div className="pt-3">
+                <CitySelector
+                  setCityData={setCityData}
+                  setFields={setFields}
+                  fields={fields}
+                />
+              </div>
+              <div className="pt-2">
+                <input
+                  name="address"
+                  value={fields.address}
+                  onChange={handleChange}
+                  minLength={5}
+                  required
+                  type="address"
+                  className="w-full h-6 py-4 pl-2 text-sm focus:outline-none"
+                  placeholder="請輸入詳細地址"
+                />
+              </div>
+              {fieldErrors.address !== "" && (
+                <div className="error" style={{ color: "red" }}>
+                  {fieldErrors.address}
+                </div>
+              )}
             </div>
+            {/* 收件資訊================================================= */}
+            <div className="py-5">
+              <span className="block p">收件人資料</span>
+              <div className="py-2 ">
+                <input type="checkbox" className="mr-2" onClick={handleCheck} />
+                <label className="text-sm">同訂購人資訊</label>
+              </div>
+              <div className="grid grid-cols-2 gap-2">
+                <label className="pt-2 mb-1 text-xs">姓名</label>
+                <label className="pt-2 text-xs">電話</label>
+              </div>
+              <div className="grid grid-cols-2 gap-2">
+                <div>
+                  <input
+                    type="text"
+                    name="name"
+                    value={shippingFields.name}
+                    minLength={2}
+                    onChange={handleShippingChange}
+                    required
+                    className="w-full h-6 py-4 pl-2 text-sm focus:outline-none"
+                    placeholder="請輸入真實全名"
+                  />
+                </div>
 
-            <div className="">
-              <label className="text-xs">CVV</label>
-              <input
-                type="text"
-                className="w-full h-6 py-4 pl-2 text-sm focus:outline-none"
-                placeholder="XXX"
-              />
+                <div>
+                  <input
+                    type="mobile"
+                    name="mobile"
+                    value={shippingFields.mobile}
+                    onChange={handleShippingChange}
+                    required
+                    maxLength={10}
+                    minLength={10}
+                    className="w-full h-6 py-4 pl-2 text-sm focus:outline-none"
+                    placeholder="請輸入電話號碼"
+                  />
+                </div>
+              </div>
+              <div className="grid grid-cols-2 gap-2">
+                <div>
+                  {fieldErrors.name !== "" && (
+                    <div className="error" style={{ color: "red" }}>
+                      {fieldErrors.name}
+                    </div>
+                  )}
+                </div>
+                <div>
+                  {fieldErrors.mobile !== "" && (
+                    <div className="error" style={{ color: "red" }}>
+                      {fieldErrors.mobile}
+                    </div>
+                  )}
+                </div>
+              </div>
+              <div className="pt-3">
+                <label className="text-xs">信箱</label>
+                <input
+                  type="email"
+                  name="email"
+                  value={shippingFields.email}
+                  onChange={handleShippingChange}
+                  required
+                  className="w-full h-6 py-4 pl-2 text-sm focus:outline-none"
+                  placeholder="請輸入電子郵件"
+                />
+              </div>
+              {fieldErrors.email !== "" && (
+                <div className="error" style={{ color: "red" }}>
+                  {fieldErrors.email}
+                </div>
+              )}
+              <div className="pt-3">
+                <CitySelector
+                  setCityData={setCityData}
+                  setFields={setFields}
+                  fields={fields}
+                  shippingFields={shippingFields}
+                />
+              </div>
+              <div className="pt-2">
+                <input
+                  name="address"
+                  value={shippingFields.address}
+                  onChange={handleShippingChange}
+                  minLength={5}
+                  required
+                  type="address"
+                  className="w-full h-6 py-4 pl-2 text-sm focus:outline-none"
+                  placeholder="請輸入詳細地址"
+                />
+              </div>
+              {fieldErrors.address !== "" && (
+                <div className="error" style={{ color: "red" }}>
+                  {fieldErrors.address}
+                </div>
+              )}
             </div>
+            <button
+              type="submit"
+              className="w-full py-2 text-white border hover:bg-secondary"
+              onClick={() => {
+                console.log(fields);
+                console.log(shippingFields);
+              }}
+            >
+              確認付款
+            </button>
           </div>
-
-          <button className="w-full py-2 text-white border hover:bg-secondary">
-            Submit Order
-          </button>
-        </div> */}
-      </div>
+        </div>
+      </form>    
+    </div>
+      
     </>
   );
 }
