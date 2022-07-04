@@ -2,13 +2,17 @@ import {
   AiOutlinePlus,
   AiOutlineMinus,
   AiOutlineHeart,
+  AiFillHeart,
   AiOutlineDelete,
 } from "react-icons/ai";
+import { useCartState, useFavoriteState } from "../../utils/redux/hooks-redux";
 
 function ProductItem(props) {
-  const { name, size, flavor, count, image, price, setCount, removeItem } =
-    props;
-
+  const { product } = props;
+  const { name, size, flavor, count, image, price } = product;
+  const [cart, setCart] = useCartState();
+  const [favorite, setFavorite] = useFavoriteState();
+  console.log(favorite);
   return (
     <>
       {/* each item div */}
@@ -26,13 +30,33 @@ function ProductItem(props) {
             <div className="flex items-center">
               <AiOutlineMinus
                 onClick={() => {
-                  setCount(count - 1);
+                  const newCart = [...cart];
+                  const newProduct = [...cart[1]];
+                  const target = newProduct.findIndex(
+                    (item) => item.name === name
+                  );
+                  newProduct[target] = {
+                    ...newProduct[target],
+                    count: newProduct[target].count - 1,
+                  };
+                  newCart[1] = newProduct;
+                  setCart(newCart);
                 }}
               />
               <p className="p-3 text-lg">{count}</p>
               <AiOutlinePlus
                 onClick={() => {
-                  setCount(count + 1);
+                  const newCart = [...cart];
+                  const newProduct = [...cart[1]];
+                  const target = newProduct.findIndex(
+                    (item) => item.name === name
+                  );
+                  newProduct[target] = {
+                    ...newProduct[target],
+                    count: newProduct[target].count + 1,
+                  };
+                  newCart[1] = newProduct;
+                  setCart(newCart);
                 }}
               />
             </div>
@@ -41,11 +65,40 @@ function ProductItem(props) {
           <p className="py-4 text-sm leading-3 ">Flavor: {flavor}</p>
           <div className="flex items-center justify-between pt-4">
             <div className="flex">
-              <div className="flex items-center mr-5">
-                <AiOutlineHeart className="icon" />
+              <div
+                className="flex items-center mr-5"
+                onClick={() => {
+                  const target = favorite.findIndex(
+                    (item) => item.id === product.id
+                  );
+                  if (target > -1) {
+                    const newFavorite = favorite.filter(
+                      (item) => item.id !== product.id
+                    );
+                    setFavorite(newFavorite);
+                  } else {
+                    setFavorite([...favorite, product]);
+                  }
+                }}
+              >
+                {favorite.findIndex((item) => item.id === product.id) > -1 ? (
+                  <AiFillHeart className="icon" />
+                ) : (
+                  <AiOutlineHeart className="icon" />
+                )}
                 收藏
               </div>
-              <div className="flex items-center" onClick={removeItem}>
+              <div
+                className="flex items-center"
+                onClick={() => {
+                  const newProduct = [...cart[1]];
+                  const remove = newProduct.filter(
+                    (item) => item.name !== name
+                  );
+                  const newCart = [cart[0], remove];
+                  setCart(newCart);
+                }}
+              >
                 <AiOutlineDelete className="icon" />
                 刪除
               </div>
