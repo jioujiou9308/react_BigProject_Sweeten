@@ -36,27 +36,6 @@ const MemberInformation = () => {
   ));
 
   return (
-<<<<<<< HEAD
-    <div className="container mx-auto">
-      <div className="lg:flex">
-        <div className="xl:w-3/5 lg:w-3/5 py-5 xl:rounded-bl rounded-tl rounded-tr xl:rounded-tr-none">
-          <h1 className="focus:outline-none h1 font-bold text-gray-800">
-            我的檔案
-          </h1>
-          {/* 大頭照 */}
-          <div className="px-2 flex items-center sm:flex-row flex-wrap">
-            <div className="h-32 w-32 mb-4 lg:mb-0 mr-4 mt-6 relative">
-              <img
-                src="https://tuk-cdn.s3.amazonaws.com/assets/components/avatars/a_3_7.png"
-                alt=""
-                className="h-full w-full rounded-full overflow-hidden shadow"
-              />
-            </div>
-          </div>
-          {/* 表單 */}
-          {/* 暱稱 */}
-          <div className="mt-8 md:flex items-center">
-=======
     <div className="flex justify-between">
       <MenuTag />
       <div className="w-full p-10">
@@ -99,7 +78,6 @@ const MemberInformation = () => {
 
           {/* 姓名 */}
           <div className="flex flex-col mt-8 md:ml-12 md:mt-0">
->>>>>>> master
             <div className="flex flex-col">
               <div className="flex items-end w-64 gap-4">
                 <Input
@@ -114,7 +92,6 @@ const MemberInformation = () => {
                 />
               </div>
             </div>
-<<<<<<< HEAD
             {/* 姓名 */}
             <div className="flex flex-col md:ml-12 md:mt-0 mt-8">
               <div className="flex flex-col">
@@ -136,29 +113,6 @@ const MemberInformation = () => {
           </div>
           {/* email */}
           <div className="mt-8 md:flex items-center">
-=======
-          </div>
-        </div>
-        {/* email */}
-        <div className="items-center mt-8 md:flex">
-          <div className="flex flex-col">
-            <div className="flex items-end w-64 gap-4">
-              <Input
-                variant="standard"
-                label="email"
-                color="brown"
-                type="email"
-                required
-                id="email"
-                name="email"
-                value={member.email}
-                onChange={handleChange}
-              />
-            </div>
-          </div>
-          {/* 手機號碼 */}
-          <div className="flex flex-col mt-8 md:ml-12 md:mt-0">
->>>>>>> master
             <div className="flex flex-col">
               <div className="flex items-end w-64 gap-4">
                 <Input

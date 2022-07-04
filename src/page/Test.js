@@ -1,14 +1,3 @@
-<<<<<<< HEAD
-import React from 'react';
-import { useMultiInput } from '../utils/hooks/';
-import { AiFillPlusCircle } from 'react-icons/ai';
-import axios from 'axios';
-import { API_URL } from '../utils/config';
-import { useState } from 'react';
-import { motion } from 'framer-motion';
-import { useCartState } from '../utils/redux/hooks-redux';
-import { useRef } from 'react';
-=======
 import React from "react";
 import { useMultiInput } from "../utils/hooks/";
 import { AiFillPlusCircle } from "react-icons/ai";
@@ -17,7 +6,6 @@ import { API_URL } from "../utils/config";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { useRef } from "react";
->>>>>>> master
 
 // const testUser = {
 //   name: "test",
