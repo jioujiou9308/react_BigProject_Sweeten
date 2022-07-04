@@ -10,7 +10,7 @@ const Card = (props) => {
   const [cart, setCart] = useCartState([]);
   const [timer, setTimer] = useState([0, 0, 0, 0]);
   const [timeOut, setTimeOut] = useState(false);
-  // console.log(cart);
+  console.log(cart);
   //折扣的價格
   const secondPrice = Math.ceil(product.price * 0.79);
   //現在的時間->轉換成時間戳記
@@ -19,6 +19,7 @@ const Card = (props) => {
   //資料庫即期時間->轉換成時間戳記
   const expiredate = new Date(product.expriy_date);
   const expireTime = expiredate.getTime();
+  console.log(expireTime);
   //相減剩餘的時間(時間戳記)
   let restTime = Math.floor((expireTime - timeNow) / 1000);
 

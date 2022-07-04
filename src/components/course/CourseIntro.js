@@ -9,7 +9,7 @@ const CourseIntro = () => {
           <div className="flex flex-col items-center justify-center max-w-sm p-4 mx-auto mb-6 md:w-1/3 md:mb-0">
             <img
               className="w-full h-56 bg-gray-300 bg-center bg-cover rounded-lg shadow-md"
-              src={"/images/course/hand.jpg"}
+              src={"/images/courseDetail/teacher.jpg"}
             />
 
             <div className="p-5 -mt-10 overflow-hidden bg-white rounded-lg shadow-lg h-44 w-70">
@@ -28,7 +28,7 @@ const CourseIntro = () => {
           <div className="flex flex-col items-center justify-center max-w-sm p-4 mx-auto mb-6 md:w-1/3 md:mb-0">
             <img
               className="w-full h-56 bg-gray-300 bg-center bg-cover rounded-lg shadow-md"
-              src={"/images/course/hand.jpg"}
+              src={"/images/courseDetail/white.jpg"}
             />
             <div className="p-5 -mt-10 overflow-hidden bg-white rounded-lg shadow-lg h-44 w-70">
               <div className="inline-flex header-content ">
@@ -46,7 +46,7 @@ const CourseIntro = () => {
           <div className="flex flex-col items-center justify-center max-w-sm p-4 mx-auto mb-6 md:w-1/3 md:mb-0">
             <img
               className="w-full h-56 bg-gray-300 bg-center bg-cover rounded-lg shadow-md"
-              src={"/images/course/hand.jpg"}
+              src={"/images/courseDetail/learn.jpg"}
             />
 
             <div className="p-5 -mt-10 overflow-hidden bg-white rounded-lg shadow-lg h-44 w-70">

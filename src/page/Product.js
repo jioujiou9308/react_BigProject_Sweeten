@@ -35,7 +35,7 @@ const Product = () => {
   return (
     <>
       <div className=" md:flex">
-        <MenuTag />
+        <MenuTag setProducts={setProducts} products={products} />
         {/* filter section */}
         <Filter />
         {/* card list  */}

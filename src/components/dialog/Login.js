@@ -1,7 +1,11 @@
 import React, { useRef, useState } from "react";
 import { Input, Button, Checkbox } from "@material-tailwind/react";
 import { FcGoogle } from "react-icons/fc";
-import { closeModal, openSignup } from "../../utils/redux/modalSlice";
+import {
+  closeModal,
+  openLogin,
+  openSignup,
+} from "../../utils/redux/modalSlice";
 import { updateUser } from "../../utils/redux/userSlice";
 import { useDispatch } from "react-redux/es/exports";
 import { API_URL } from "../../utils/config";
@@ -37,6 +41,7 @@ const Login = () => {
         // 登入成功
         const { data: currentUser } = res;
         toast.success(`${currentUser.email} 登入成功!`);
+        dispatch(openLogin());
         dispatch(updateUser(currentUser));
       })
       .catch((e) => {

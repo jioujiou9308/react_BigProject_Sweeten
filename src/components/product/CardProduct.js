@@ -3,7 +3,7 @@ import OneCardProduct from "./OneCardProduct";
 import { useProductState } from "../../utils/redux/hooks-redux";
 import Pagination from "./Pagination";
 const initPageInfo = {
-  cur: 1,
+  cur: 2,
   per: 12,
   total: 1,
 };

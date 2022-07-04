@@ -5,6 +5,7 @@ import {
   AiFillMinusCircle,
   AiOutlineStar,
   AiOutlineRight,
+  AiTwotoneStar,
 } from "react-icons/ai";
 import { Button } from "@material-tailwind/react";
 import { useState } from "react";
@@ -17,10 +18,53 @@ const CourseDetail = (props) => {
   const [count, setCount] = useState(1);
   const [favClick, setFavClick] = useState(true);
   const a = swipe;
+  console.log(a);
 
-  //     const [courseDetail, setCourseDetail] = useState([]);
-  //     const { id } = useParams();
-  //     console.log(id);
+  const courseDetail = [
+    {
+      id: 1,
+      material: "製作原料:",
+      materialIntro: "111111",
+      difficulty: "製作難度:",
+      difficultyIntro: [
+        <AiTwotoneStar />,
+        <AiTwotoneStar />,
+        <AiTwotoneStar />,
+      ],
+      teacher: "授課老師:",
+      teacherIntro: "陳泓霖老師",
+      time: "上課時數:",
+      timeIntro: "6小時",
+    },
+    {
+      id: 2,
+      material: "製作原料:",
+      materialIntro: "222222",
+      difficulty: "製作難度",
+      difficultyIntro: [<AiTwotoneStar />, <AiTwotoneStar />],
+      teacher: "授課老師:",
+      teacherIntro: "陳應乳老師",
+      time: "上課時數:",
+      timeIntro: "10小時",
+    },
+    {
+      id: 3,
+      material: "製作原料:",
+      materialIntro: "333333",
+      difficulty: "製作難度",
+      difficultyIntro: [
+        <AiTwotoneStar />,
+        <AiTwotoneStar />,
+        <AiTwotoneStar />,
+        <AiTwotoneStar />,
+        <AiTwotoneStar />,
+      ],
+      teacher: "授課老師:",
+      teacherIntro: "黃雲韓老師",
+      time: "上課時數:",
+      timeIntro: "5小時",
+    },
+  ];
 
   return (
     <div className="flex mt-5 mb-5 border border-red-500 h-96">
@@ -35,7 +79,7 @@ const CourseDetail = (props) => {
           {/* 課程的日期 */}
           <div className="flex items-center">
             <p className="m-4 ml-0 p">課程日期</p>
-            {dates.map((v, i) => {
+            {/* {dates.map((v, i) => {
               return (
                 <button
                   className={`mr-5 px-2 py-1 size-btn-desk ${
@@ -48,11 +92,10 @@ const CourseDetail = (props) => {
                   {v}
                 </button>
               );
-            })}
+            })} */}
           </div>
 
-          <p className="mt-5 p">商品參與的優惠活動</p>
-          <p className="mt-2 text-center w-28 bg-primary p">父親節特惠</p>
+          <p className="mt-5 p">參加人數</p>
 
           {/* 數量和結帳按鈕桌機板 */}
           {/* 數量和結帳按鈕桌機板 */}
@@ -88,19 +131,22 @@ const CourseDetail = (props) => {
         <div className="mx-8 md:mt-16 md:flex">
           <div className="w-full md:pr-10 md:w-1/2">
             <div className="mb-4">
-              <h2 className="ml-2 md:ml-0 h3">商品特色：</h2>
-              <p className="text-justify p">description</p>
+              <h2 className="ml-2 md:ml-0 h3">{courseDetail[a].material}</h2>
+              <p className="text-justify p">{courseDetail[a].materialIntro}</p>
             </div>
-
             <div className="mb-4">
-              <h2 className="ml-2 md:ml-0 h3">原料：</h2>
-              <p className="text-justify p">description</p>
+              <h2 className="ml-2 md:ml-0 h3">{courseDetail[a].difficulty}</h2>
+              <p className="flex text-justify text-yellow-600 p">
+                {courseDetail[a].difficultyIntro}
+              </p>
             </div>
-
-            <div>
-              <h2 className="ml-2 md:ml-0 h3">過敏原：</h2>
-              <p className="text-justify p">description</p>
-              {/* {description} */}
+            <div className="mb-4">
+              <h2 className="ml-2 md:ml-0 h3">{courseDetail[a].teacher}</h2>
+              <p className="text-justify p">{courseDetail[a].teacherIntro}</p>
+            </div>
+            <div className="mb-4">
+              <h2 className="ml-2 md:ml-0 h3">{courseDetail[a].time}</h2>
+              <p className="text-justify p">{courseDetail[a].timeIntro}</p>
             </div>
           </div>
         </div>

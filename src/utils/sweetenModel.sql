@@ -69,7 +69,7 @@ CREATE TABLE `express` (
 );
 
 CREATE TABLE `category` (
-  `id` int PRIMARY KEY AUTO_INCREMENT,
+  `id` int PRIMARY KEY,
   `name` varchar(255)
 );
 

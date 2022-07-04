@@ -5,7 +5,7 @@ const CourseHeader = () => {
     <div className="relative">
       <img
         className="absolute z-0 object-cover w-full h-full"
-        src={"/images/courseDetial/course_demo_lower.png"}
+        src={"/images/courseDetail/course_demo_lower.png"}
         alt="找不到照片"
       />
       {/* <div

@@ -250,7 +250,7 @@ const Home = (props) => {
                 data-aos-duration="1000"
               >
                 <motion.div
-                  initial={{ scale: 2, opacity: 0, x: "-25%" }}
+                  initial={{ scale: 1.5, opacity: 0, x: "-25%" }}
                   whileInView={{ scale: 1, opacity: 1, y: "-20%" }}
                   transition={{ duration: 2, ease: "easeOut", delay: 2 }}
                   className=" lg:border-2 border-line absolute -translate-x-1/4 -translate-y-[20%] w-[150%] h-[150%]"
@@ -311,12 +311,12 @@ const Home = (props) => {
           {/* ----------------------------------- QA ----------------------------------- */}
           <section className="relative">
             <img
-              src="./images/home/cake007.png"
+              src="./images/home/cake002.png"
               className="absolute left-0 top-0 h-[30vw] -translate-x-1/2 "
               alt="background"
             />
             <img
-              src="./images/home/cake007.png"
+              src="./images/home/cake002.png"
               className="absolute right-0 bottom-0 h-[30vw] translate-x-1/2"
               alt="background"
             />
