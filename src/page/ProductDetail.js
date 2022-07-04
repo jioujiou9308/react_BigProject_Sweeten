@@ -13,25 +13,31 @@ import { Button } from "@material-tailwind/react";
 //import material tailwind ㄉ button
 import { API_URL } from "../utils/config";
 import axios from "axios";
-import { useParams } from "react-router-dom";
-import { useFavoriteState, useUserState } from "../utils/redux/hooks-redux";
+import { useNavigate, useParams } from "react-router-dom";
+import {
+  useCartState,
+  useFavoriteState,
+  useUserState,
+} from "../utils/redux/hooks-redux";
 
 function ProductDetail() {
-  const [count, setCount] = useState(2);
+  const [clickCount, setClickCount] = useState(1);
   const [favProduct, setFavProduct] = useFavoriteState();
   const [productDetail, setProductDetail] = useState([]);
   const [comment, setComment] = useState([]);
-  const [currentUser] = useUserState()
+  const [currentUser] = useUserState();
+  const [cart, setCart] = useCartState();
   const { id } = useParams();
+  const navigate = useNavigate();
   // console.log(id);
-  
-let getFavProduct = async () => {
-      let response = await axios.get(
-        API_URL + "/user/favorite_product/all_data/1"
-      );
-      setFavProduct(response.data);
-      // console.log('此用戶喜歡ㄉ商品',response.data);
-    };
+
+  let getFavProduct = async () => {
+    let response = await axios.get(
+      API_URL + `/user/favorite_product/all_data/${currentUser.id}`
+    );
+    setFavProduct(response.data);
+    console.log("此用戶喜歡ㄉ商品", response.data);
+  };
   //TODO: 照片ㄉAPI還沒串
   useEffect(() => {
     //抓這個商品資料
@@ -51,7 +57,7 @@ let getFavProduct = async () => {
     };
     getComment();
     //看喜歡ㄉproduct有哪些
-    
+
     getFavProduct();
   }, []);
   //抓此商品平均分數
@@ -65,7 +71,7 @@ let getFavProduct = async () => {
   };
 
   const isFavor = favProduct.filter((item) => item.product_id == id);
-  
+
   //生成星星
   const stars = (score) => {
     let elementArr = [];
@@ -79,7 +85,6 @@ let getFavProduct = async () => {
     return elementArr;
   };
 
-  
   const favSwitchHandler = async () => {
     if (isFavor.length < 1) {
       //isFavor長度等於0要post
@@ -88,15 +93,14 @@ let getFavProduct = async () => {
         user_id: currentUser.id,
         product_id: id,
       });
-      getFavProduct()
-      
+      getFavProduct();
     } else {
       //isFavor長度大於0要delete
 
       await axios.delete(
-        API_URL+`/user/favorite_product/${currentUser.id}?product_id=${id}`
+        API_URL + `/user/favorite_product/${currentUser.id}?product_id=${id}`
       );
-      getFavProduct()
+      getFavProduct();
     }
   };
 
@@ -144,21 +148,18 @@ let getFavProduct = async () => {
                 {/* DEMO右欄 桌機板*/}
                 <div className="w-3/5 mr-10">
                   {/* 桌機板標題和副標字體+愛心 */}
-                  {/* TODO: 商品有加入收藏ㄉ畫愛心要亮  */}
 
                   <div className="border-b-2 ">
                     <div className="flex items-center justify-between mt-10">
                       <p className="h1">{name}</p>
-                      {/* FIXME rounded-full 也無法變完全圓*/}
                       <Button
                         variant="outlined"
                         className="border rounded-full select-none border-line text-line"
-                        // TODO:要新增&刪除最愛
                         onClick={favSwitchHandler}
                       >
                         <AiFillHeart
                           className={`icon-xl select-none rounded-full ${
-                            isFavor.length>0?'text-secondary':''
+                            isFavor.length > 0 ? "text-secondary" : ""
                           } 
                          
                           `}
@@ -171,20 +172,7 @@ let getFavProduct = async () => {
                   {/* 右欄尺寸桌機板 */}
                   <p className="mt-4 mb-2 p">尺寸</p>
                   {/* 尺寸按鈕桌機板  小字尺寸*/}
-                  {/* {sizes.map((v, i) => {
-                    return (
-                      <button
-                        className={`mr-5 size-btn-desk ${
-                          selectedItem === v ? "bg-sub" : ""
-                        }`}
-                        onClick={() => {
-                          setSelectedItem(v);
-                        }}
-                      >
-                        {v}
-                      </button>
-                    );
-                  })} */}
+
                   <button className="px-1 mr-5 size-btn-desk bg-light">
                     6吋
                   </button>
@@ -201,16 +189,16 @@ let getFavProduct = async () => {
                       <AiFillMinusCircle
                         className="icon-lg text-secondary"
                         onClick={() => {
-                          if (count > 1) {
-                            setCount(count - 1);
+                          if (clickCount > 1) {
+                            setClickCount(clickCount - 1);
                           }
                         }}
                       />
-                      <p className="mx-3">{count}</p>
+                      <p className="mx-3">{clickCount}</p>
                       <AiFillPlusCircle
                         className="icon-lg text-secondary"
                         onClick={() => {
-                          setCount(count + 1);
+                          setClickCount(clickCount + 1);
                         }}
                       />
                     </div>
@@ -219,6 +207,31 @@ let getFavProduct = async () => {
                       <Button
                         className="border-2 rounded-none border-sub"
                         variant="outlined"
+                        onClick={() => {
+                          let productIndex = cart[1].findIndex(function (
+                            data,
+                            index
+                          ) {
+                            return data.name === name;
+                          });
+                          // console.log('productInx',productIndex);
+                          if (productIndex > -1) {
+                            let newCount = {
+                              ...v,
+                              count: cart[1][productIndex].count + clickCount,
+                            };
+                            let cartList = [...cart[1]];
+                            cartList[productIndex] = newCount;
+                            let newData = [cart[0], cartList];
+                            setCart(newData);
+                          } else {
+                            let newCount = { ...v, count: clickCount };
+                            let cartList = [...cart[1], newCount];
+                            let newData = [cart[0], cartList];
+                            setCart(newData);
+                          }
+                          setClickCount(1);
+                        }}
                       >
                         <span className="text-black p">加入購物車</span>
                       </Button>
@@ -226,6 +239,33 @@ let getFavProduct = async () => {
                       <Button
                         className="ml-3 text-white border-2 rounded-none border-warning bg-warning"
                         variant="filled"
+                        onClick={() => {
+                          let productIndex = cart[1].findIndex(function (
+                            data,
+                            index
+                          ) {
+                            return data.name === name;
+                          });
+                          // console.log('productInx',productIndex);
+                          if (productIndex > -1) {
+                            let newCount = {
+                              ...v,
+                              count: cart[1][productIndex].count + clickCount,
+                            };
+                            let cartList = [...cart[1]];
+                            cartList[productIndex] = newCount;
+                            let newData = [cart[0], cartList];
+                            setCart(newData);
+                            navigate("/main/cart");
+                          } else {
+                            let newCount = { ...v, count: clickCount };
+                            let cartList = [...cart[1], newCount];
+                            let newData = [cart[0], cartList];
+                            setCart(newData);
+                            setClickCount(1);
+                            navigate("/main/cart");
+                          }
+                        }}
                       >
                         <span className="p">立即購買</span>
                       </Button>
@@ -257,7 +297,7 @@ let getFavProduct = async () => {
                   >
                     <AiFillHeart
                       className={`icon-xl select-none rounded-full  ${
-                        isFavor.length>0?'text-secondary':''
+                        isFavor.length > 0 ? "text-secondary" : ""
                       }`}
                     />
                   </Button>
@@ -275,16 +315,16 @@ let getFavProduct = async () => {
                   <AiFillMinusCircle
                     className="icon-xl text-secondary"
                     onClick={() => {
-                      if (count > 1) {
-                        setCount(count - 1);
+                      if (clickCount > 1) {
+                        setClickCount(clickCount - 1);
                       }
                     }}
                   />
-                  <p className="mx-5">{count}</p>
+                  <p className="mx-5">{clickCount}</p>
                   <AiFillPlusCircle
                     className="icon-xl text-secondary"
                     onClick={() => {
-                      setCount(count + 1);
+                      setClickCount(clickCount + 1);
                     }}
                   />
                 </div>
@@ -306,14 +346,64 @@ let getFavProduct = async () => {
                   <Button
                     className="px-4 py-1 border-2 rounded-none border-sub"
                     variant="outlined"
+                    onClick={() => {
+                      let productIndex = cart[1].findIndex(function (
+                        data,
+                        index
+                      ) {
+                        return data.name === name;
+                      });
+                      // console.log('productInx',productIndex);
+                      if (productIndex > -1) {
+                        let newCount = {
+                          ...v,
+                          count: cart[1][productIndex].count + clickCount,
+                        };
+                        let cartList = [...cart[1]];
+                        cartList[productIndex] = newCount;
+                        let newData = [cart[0], cartList];
+                        setCart(newData);
+                      } else {
+                        let newCount = { ...v, count: clickCount };
+                        let cartList = [...cart[1], newCount];
+                        let newData = [cart[0], cartList];
+                        setCart(newData);
+                      }
+                      setClickCount(1);
+                    }}
                   >
-                    {" "}
                     <span className="text-black p">加入購物車</span>
                   </Button>
 
                   <Button
                     className="px-4 text-white border-2 rounded-none shadow-primary border-warning bg-warning"
                     variant="filled"
+                    onClick={() => {
+                      let productIndex = cart[1].findIndex(function (
+                        data,
+                        index
+                      ) {
+                        return data.name === name;
+                      });
+                      // console.log('productInx',productIndex);
+                      if (productIndex > -1) {
+                        let newCount = {
+                          ...v,
+                          count: cart[1][productIndex].count + clickCount,
+                        };
+                        let cartList = [...cart[1]];
+                        cartList[productIndex] = newCount;
+                        let newData = [cart[0], cartList];
+                        setCart(newData);
+                      } else {
+                        let newCount = { ...v, count: clickCount };
+                        let cartList = [...cart[1], newCount];
+                        let newData = [cart[0], cartList];
+                        setCart(newData);
+                      }
+                      setClickCount(1);
+                      navigate("/main/cart");
+                    }}
                   >
                     <span className="p">立即購買</span>
                   </Button>

@@ -3,7 +3,7 @@ import OneCardProduct from "./OneCardProduct";
 import { useProductState } from "../../utils/redux/hooks-redux";
 import Pagination from "./Pagination";
 const initPageInfo = {
-  cur: 2,
+  cur: 1,
   per: 12,
   total: 1,
 };
@@ -19,7 +19,7 @@ const CardProduct = () => {
     let page = [];
     for (let i = 1; i <= pageInfo.total; i++) {
       page.push(
-        <Pagination i={i} currentPage={pageInfo} setCurrentPage={changePage} />
+        <Pagination i={i} pageInfo={pageInfo} setPageInfo={setPageInfo} />
       );
     }
     return page;
@@ -54,9 +54,10 @@ const CardProduct = () => {
           <ul className="flex items-center justify-center">
             <li
               className="mr-4"
-              // onClick={() => {
-              //   currentPage > 1 && setCurrentPage(currentPage - 1);
-              // }}
+              onClick={() => {
+                const { cur } = pageInfo;
+                cur > 1 && setPageInfo({ ...pageInfo, cur: cur - 1 });
+              }}
             >
               上一頁
             </li>
@@ -64,7 +65,8 @@ const CardProduct = () => {
             <li
               className="ml-4"
               onClick={() => {
-                // currentPage < totalPage && setCurrentPage(currentPage + 1);
+                const { cur, total } = pageInfo;
+                cur < total && setPageInfo({ ...pageInfo, cur: cur + 1 });
               }}
             >
               下一頁

@@ -12,8 +12,13 @@ import { Button } from "@material-tailwind/react";
 import UserCommentCard from "../components/memberCollection/UserCommentCard";
 import { API_URL } from "../utils/config";
 import axios from "axios";
-import { useFavoriteState, useUserState } from "../utils/redux/hooks-redux";
+import {
+  useCartState,
+  useFavoriteState,
+  useUserState,
+} from "../utils/redux/hooks-redux";
 import { calcLength } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
 //生成評價星星
 const star = (score) => {
@@ -29,27 +34,31 @@ const star = (score) => {
 };
 
 const MemberColloction = () => {
+  const navigate = useNavigate();
+  const [cart, setCart] = useCartState();
   const [isOn, setIsOn] = useState(1);
   const [memberCollection, setMemberCollection] = useFavoriteState();
   const [comment, setComment] = useState([]);
-  // const [favorite, setFavorite] = useFavoriteState()
   const [currentUser] = useUserState();
   console.log(currentUser);
 
   //讀取資料
+  let getMemberCollection = async () => {
+    let response = await axios.get(
+      API_URL + `/user/favorite_product/${currentUser.id}`
+    );
+    setMemberCollection(response.data.allResults);
+    console.log("喜歡ㄉ商品", response.data.allResults);
+  };
   useEffect(() => {
-    let getMemberCollection = async () => {
-     
-      let response = await axios.get(API_URL + `/user/favorite_product/${currentUser.id}`);
-      setMemberCollection(response.data.allResults);
-      // console.log(response.data.allResults);
-    };
     getMemberCollection();
 
     let getComment = async () => {
-      let response = await axios.get(API_URL + "/user/comment/1");
+      let response = await axios.get(
+        API_URL + `/user/comment/${currentUser.id}`
+      );
       setComment(response.data.allResults);
-      console.log(response.data);
+      // console.log(response.data);
     };
     getComment();
   }, []);
@@ -69,16 +78,7 @@ const MemberColloction = () => {
 
           {isOn == 1 &&
             memberCollection.map((v, i) => {
-              const {
-                user_id,
-                product_id,
-                id,
-                name,
-                price,
-                description,
-                express_id,
-                created_at,
-              } = v;
+              const { user_id, product_id, id, name, price } = v;
               return (
                 <>
                   {/* 圖片 備註 評分*/}
@@ -106,35 +106,21 @@ const MemberColloction = () => {
                         母親節特賣
                       </button>
                     </div>
-                    {/* 被唾棄ㄉ兩欄UI */}
-                    {/* <div className="">
-                    <div className="flex mb-10 md:h4">
-                      <p className="mr-1">商品</p>
-                      <p className="mr-4">{name}</p>
-                      <p  className="mr-1">價格</p>
-                      <p>{price}</p>
-                    </div>
-                      <div className="flex">
-                      <p className="md:hidden ">活動</p>
-                      <p className="hidden mr-3 md:block h4">目前活動</p>
-                      <button className="px-1 text-white md:p bg-warning">
-                        母親節特賣
-                      </button>
-                      </div>
-                    </div> */}
 
                     {/* 評分 */}
                     {/* 不確定這裡這樣寫對不對QQ */}
                     {/* TODO:不對 */}
                     {/* 有評分score變數 */}
                     <div className="hidden text-center md:block mx-18 ">
-                      <p className="mb-1 mr-2 note">{comment.length>0?'評價':'尚未評價'}</p>
+                      <p className="mb-1 mr-2 note">
+                        {comment.length > 0 ? "評價" : "尚未評價"}
+                      </p>
                       <h2 className=" h3">
-                        {comment.length>0? comment[i].score:'-'}/5
+                        {comment.length > 0 ? comment[i].score : "-"}/5
                       </h2>
 
                       <div className="flex">
-                        {comment.length>0? star(comment[i].score):star(0)}
+                        {comment.length > 0 ? star(comment[i].score) : star(0)}
                       </div>
                     </div>
                     {/* 沒有評分 */}
@@ -151,6 +137,31 @@ const MemberColloction = () => {
                       <Button
                         size="sm"
                         className="flex items-center mb-3 rounded-sm md:p bg-warning"
+                        onClick={() => {
+                          let productIndex = cart[1].findIndex(function (
+                            data,
+                            index
+                          ) {
+                            return data.name === name;
+                          });
+                          // console.log('productInx',productIndex);
+                          if (productIndex > -1) {
+                            let newCount = {
+                              ...v,
+                              count: cart[1][productIndex].count + 1,
+                            };
+                            let cartList = [...cart[1]];
+                            cartList[productIndex] = newCount;
+                            let newData = [cart[0], cartList];
+                            setCart(newData);
+                          } else {
+                            let newCount = { ...v, count: 1 };
+                            let cartList = [...cart[1], newCount];
+                            let newData = [cart[0], cartList];
+                            setCart(newData);
+                          }
+                          navigate("/main/cart");
+                        }}
                       >
                         立即購買 <AiOutlineShoppingCart className="icon-sm" />
                       </Button>
@@ -163,13 +174,13 @@ const MemberColloction = () => {
                       >
                         <span
                           className="flex items-center "
-                          //TODO: 要重新整理才會出來
                           onClick={async () => {
                             console.log(user_id);
                             let response = await axios.delete(
                               `${API_URL}/user/favorite_product/${user_id}?product_id=${product_id}`
                             );
                             console.log(response);
+                            getMemberCollection();
                           }}
                         >
                           移除收藏 <AiOutlineDelete className="icon-sm" />

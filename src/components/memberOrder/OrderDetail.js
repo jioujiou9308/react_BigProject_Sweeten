@@ -22,14 +22,12 @@ function OrderDetail() {
 
             <div className="mx-3">
               <p>商品</p>
-              <p className="my-2">尺寸</p>
               <p className="my-2">價格</p>
               <p>數量</p>
             </div>
 
             <div>
               <p>蛋糕</p>
-              <p className="my-2">6吋</p>
               <p className="my-2">780</p>
               <p>*5</p>
             </div>
