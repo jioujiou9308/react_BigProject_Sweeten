@@ -10,7 +10,7 @@ import "./SwiperStyles.css";
 import { Pagination, Navigation } from "swiper";
 
 const CourseSwiper = (props) => {
-  const { lessons, setSwipe } = props;
+  const { lessons, setSwipe, lessonImage } = props;
   // console.log(lessons);
 
   return (
@@ -33,7 +33,7 @@ const CourseSwiper = (props) => {
         </SwiperSlide> */}
         {lessons ? (
           <>
-            {lessons.map((lesson, i) => {
+            {lessonImage.map((image, i) => {
               return (
                 <SwiperSlide
                   key={i}
@@ -41,9 +41,7 @@ const CourseSwiper = (props) => {
                     setSwipe(i);
                   }}
                 >
-                  {lesson.name}
-                  <br />
-                  {lesson.description}
+                  <img src={image.image1} alt="" />
                 </SwiperSlide>
               );
             })}

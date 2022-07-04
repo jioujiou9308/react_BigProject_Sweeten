@@ -17,7 +17,7 @@ const Card = (props) => {
   const dateNow = new Date();
   const timeNow = dateNow.getTime();
   //資料庫即期時間->轉換成時間戳記
-  const expiredate = new Date(product.expriy_date);
+  const expiredate = new Date(product.expiry_date);
   const expireTime = expiredate.getTime();
   console.log(expireTime);
   //相減剩餘的時間(時間戳記)

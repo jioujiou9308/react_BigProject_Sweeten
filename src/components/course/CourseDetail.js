@@ -1,22 +1,19 @@
 import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+
 import {
-  AiFillHeart,
   AiFillPlusCircle,
   AiFillMinusCircle,
-  AiOutlineStar,
-  AiOutlineRight,
   AiTwotoneStar,
 } from "react-icons/ai";
 import { Button } from "@material-tailwind/react";
 import { useState } from "react";
-import { useParams } from "react-router-dom";
 
 const CourseDetail = (props) => {
+  const navigate = useNavigate();
   const { lessons, swipe } = props;
-  const [selectedItem, setSelectedItem] = useState();
   const dates = ["6月", "8月"];
   const [count, setCount] = useState(1);
-  const [favClick, setFavClick] = useState(true);
   const a = swipe;
   console.log(a);
 
@@ -68,7 +65,7 @@ const CourseDetail = (props) => {
 
   return (
     <div className="flex mt-5 mb-5 border border-red-500 h-96">
-      <div className="w-1/3 ml-10">
+      <div className="w-2/5 ml-10">
         <div className="w-full bg-white">
           <div className="flex items-center justify-between mt-10">
             <p className="h2">{lessons[a].name}</p>
@@ -79,26 +76,9 @@ const CourseDetail = (props) => {
           {/* 課程的日期 */}
           <div className="flex items-center">
             <p className="m-4 ml-0 p">課程日期</p>
-            {/* {dates.map((v, i) => {
-              return (
-                <button
-                  className={`mr-5 px-2 py-1 size-btn-desk ${
-                    selectedItem === v ? "bg-sub" : ""
-                  }`}
-                  onClick={() => {
-                    setSelectedItem(v);
-                  }}
-                >
-                  {v}
-                </button>
-              );
-            })} */}
           </div>
 
           <p className="mt-5 p">參加人數</p>
-
-          {/* 數量和結帳按鈕桌機板 */}
-          {/* 數量和結帳按鈕桌機板 */}
           <div className="justify-between mt-5 lg:flex ">
             <div className="flex">
               <AiFillMinusCircle
@@ -120,6 +100,7 @@ const CourseDetail = (props) => {
               <Button
                 className="ml-3 text-white border-2 rounded-none border-warning bg-warning"
                 variant="filled"
+                onClick={() => navigate("/main/checkOut")}
               >
                 <span className="">立即購買</span>
               </Button>
@@ -134,19 +115,23 @@ const CourseDetail = (props) => {
               <h2 className="ml-2 md:ml-0 h3">{courseDetail[a].material}</h2>
               <p className="text-justify p">{courseDetail[a].materialIntro}</p>
             </div>
-            <div className="mb-4">
+            <div className="flex mb-4">
               <h2 className="ml-2 md:ml-0 h3">{courseDetail[a].difficulty}</h2>
-              <p className="flex text-justify text-yellow-600 p">
+              <h2 className="flex text-yellow-500 h2">
                 {courseDetail[a].difficultyIntro}
-              </p>
+              </h2>
             </div>
             <div className="mb-4">
-              <h2 className="ml-2 md:ml-0 h3">{courseDetail[a].teacher}</h2>
-              <p className="text-justify p">{courseDetail[a].teacherIntro}</p>
+              <h2 className="ml-2 md:ml-0 h3">
+                {courseDetail[a].teacher}
+                {courseDetail[a].teacherIntro}
+              </h2>
             </div>
             <div className="mb-4">
-              <h2 className="ml-2 md:ml-0 h3">{courseDetail[a].time}</h2>
-              <p className="text-justify p">{courseDetail[a].timeIntro}</p>
+              <h2 className="ml-2 md:ml-0 h3">
+                {courseDetail[a].time}
+                {courseDetail[a].timeIntro}
+              </h2>
             </div>
           </div>
         </div>
