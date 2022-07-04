@@ -13,6 +13,7 @@ function MemberOrder() {
   const [order, setOrder] = useState([]);
   const [orderProduct, setOrderProduct]=useState([])
   const [currentUser]=useUserState()
+  const {id}=useParams()
 
   
 
@@ -25,13 +26,7 @@ function MemberOrder() {
     };
     getOrder();
 
-    //抓所有訂單商品
-    // let getOrderProduct = async ()=>{
-    //   let response = await axios.get(API_URL+`/order/${id}`)
-    //   setOrderProduct(response.data)
-    //   console.log('訂單商品',response.data)
-    // }
-    // getOrderProduct()
+   
     
   }, []);
 
@@ -78,7 +73,7 @@ function MemberOrder() {
                   address,
                   payment_id,
                   name,
-                  count,
+                 
                   price,
                 } = v;
                 return (
@@ -87,7 +82,7 @@ function MemberOrder() {
                       <OrderItems
                         id={id}
                         name={name}
-                        count={count}
+                      
                         price={price}
                       />
                     </div>

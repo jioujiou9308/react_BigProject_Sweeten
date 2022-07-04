@@ -81,10 +81,30 @@ const OnceCarkProduct = ({ product }) => {
           <button
             className="flex items-center justify-center w-full px-2 py-2 mt-4 text-white rounded-sm opacity-100 hover:opacity-80 bg-secondary focus:outline-none "
             onClick={() => {
-              let newCart = [...cart[1]];
-              newCart.push(product);
-              console.log("新購物車", newCart);
-            }}
+                          let productIndex = cart[1].findIndex(function (
+                            data,
+                            index
+                          ) {
+                            return data.name === product.name;
+                          });
+                          // console.log('productInx',productIndex);
+                          if (productIndex > -1) {
+                            let newCount = {
+                              ...product,
+                              count: cart[1][productIndex].count + 1,
+                            };
+                            let cartList = [...cart[1]];
+                            cartList[productIndex] = newCount;
+                            let newData = [cart[0], cartList];
+                            setCart(newData);
+                          } else {
+                            let newCount = { ...product, count: 1 };
+                            let cartList = [...cart[1], newCount];
+                            let newData = [cart[0], cartList];
+                            setCart(newData);
+                          }
+                         
+                        }}
           >
             <span className="mx-1 bg-secondary">加入購物車</span>
           </button>

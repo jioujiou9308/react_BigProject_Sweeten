@@ -7,7 +7,7 @@ import OrderDetail from "./OrderDetail";
 
 function OrderItems(props) {
   const navigate = useNavigate();
-  const { id, name, count, price } = props;
+  const { id, name,  price } = props;
   const [selectedId, setSelectedId] = useState(false);
   return (
     <>
@@ -41,14 +41,14 @@ function OrderItems(props) {
 
                 <div>
                   <p>{name}</p>
-                  <p className="my-2">* {count}</p>
+                  <p className="my-2">* </p>
                   <p>{price}</p>
                 </div>
               </div>
             </div>
             {/* 下單時間 */}
             <div className="self-end hidden pb-2 text-right md:block">
-              <p>共{count}件商品</p>
+              <p>共 件商品</p>
             </div>
           </div>
 
@@ -109,7 +109,7 @@ function OrderItems(props) {
 
         <div className="flex justify-between mt-2 p">
           <p>金額:</p>
-          <p>{count * price}</p>
+          <p>{ price}</p>
         </div>
         <div className="flex justify-between p">
           <p>運費:</p>
@@ -121,7 +121,7 @@ function OrderItems(props) {
         </div>
 
         <h2 className="self-end text-right md:absolute right-5 bottom-5 p">
-          總計: 2030
+          總計: {price+60-30}
         </h2>
       </div>
     </>
