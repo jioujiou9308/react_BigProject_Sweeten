@@ -21,17 +21,17 @@ function ProductDetail() {
   const [favProduct, setFavProduct] = useFavoriteState();
   const [productDetail, setProductDetail] = useState([]);
   const [comment, setComment] = useState([]);
-  const [currentUser] = useUserState()
+  const [currentUser] = useUserState();
   const { id } = useParams();
   // console.log(id);
-  
-let getFavProduct = async () => {
-      let response = await axios.get(
-        API_URL + "/user/favorite_product/all_data/1"
-      );
-      setFavProduct(response.data);
-      console.log(response.data);
-    };
+  console.log(productDetail);
+  let getFavProduct = async () => {
+    let response = await axios.get(
+      API_URL + "/user/favorite_product/all_data/1"
+    );
+    setFavProduct(response.data);
+    console.log(response.data);
+  };
   //TODO: 照片ㄉAPI還沒串
   useEffect(() => {
     //抓這個商品資料
@@ -51,7 +51,7 @@ let getFavProduct = async () => {
     };
     getComment();
     //看喜歡ㄉproduct有哪些
-    
+
     getFavProduct();
   }, []);
   //抓此商品平均分數
@@ -65,7 +65,7 @@ let getFavProduct = async () => {
   };
 
   const isFavor = favProduct.filter((item) => item.product_id == id);
-  
+
   //生成星星
   const stars = (score) => {
     let elementArr = [];
@@ -79,7 +79,6 @@ let getFavProduct = async () => {
     return elementArr;
   };
 
-  
   const favSwitchHandler = async () => {
     if (isFavor.length < 1) {
       //isFavor長度等於0要post
@@ -88,14 +87,14 @@ let getFavProduct = async () => {
         user_id: currentUser.id,
         product_id: id,
       });
-      getFavProduct()
+      getFavProduct();
     } else {
       //isFavor長度大於0要delete
 
       await axios.delete(
-        API_URL+`/user/favorite_product/${currentUser.id}?product_id=${id}`
+        API_URL + `/user/favorite_product/${currentUser.id}?product_id=${id}`
       );
-      getFavProduct()
+      getFavProduct();
     }
   };
 
@@ -157,7 +156,7 @@ let getFavProduct = async () => {
                       >
                         <AiFillHeart
                           className={`icon-xl select-none rounded-full ${
-                            isFavor.length>0?'text-secondary':''
+                            isFavor.length > 0 ? "text-secondary" : ""
                           } 
                          
                           `}
@@ -256,7 +255,7 @@ let getFavProduct = async () => {
                   >
                     <AiFillHeart
                       className={`icon-xl select-none rounded-full  ${
-                        isFavor.length>0?'text-secondary':''
+                        isFavor.length > 0 ? "text-secondary" : ""
                       }`}
                     />
                   </Button>

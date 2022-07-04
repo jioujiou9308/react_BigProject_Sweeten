@@ -33,20 +33,24 @@ const Product = () => {
 
   //抓所有商品(沒有分頁)
   useEffect(() => {
-    let getProducts = async () => {
-      //API_URL+"/product?page=1"
-      let response = await axios.get(API_URL + "/product/all", {
-        params: {
-          page: page,
-        },
-      });
-      setProducts(response.data.data);
-      // console.log(response.data.data)
-      //set頁數
-    };
-    getProducts();
+    try {
+      let getProducts = async () => {
+        //API_URL+"/product?page=1"
+        let response = await axios.get(API_URL + "/product/all", {
+          params: {
+            page: page,
+          },
+        });
+        setProducts(response.data.data);
+        console.log(response.data.data);
+        //set頁數
+      };
+      getProducts();
 
-    getFav();
+      getFav();
+    } catch (e) {
+      console.log(e);
+    }
   }, [page]);
 
   const perPage = 12;
