@@ -135,7 +135,7 @@ const Signup = () => {
         <div className="relative">
           <Input
             id="confirmPassword"
-            type="password"
+            type={eye.confirmPasswordEye ? "text" : "password"}
             name="confirmPassword"
             color="grey"
             label="確認密碼"
