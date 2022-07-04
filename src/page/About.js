@@ -14,8 +14,8 @@ function About() {
       <div className="flex flex-col py-10">
         <div className="justify-around md:flex">
           <div>
-            <div className="h-14  mt-10 bg-gradient-to-r pb-[6px] from-secondary to-transparent">
-              <div className="h-12 p-0 bg-white">
+            <div className="lg:h-14 h-24  mt-10 bg-gradient-to-r pb-[6px] from-secondary to-transparent">
+              <div className="h-20 p-0 bg-white lg:h-12">
                 <h1
                   className=" flex  h-12 text-4xl  font-bold leading-9  tracking-[.5em] pr-20"
                   data-aos="fade-in-left"
@@ -43,7 +43,7 @@ function About() {
           </div>
 
           <div
-            className="relative w-1/2 mt-5"
+            className="relative mt-5 md:w-1/2"
             data-aos="fade-in"
             data-aos-duration="2000"
           >
@@ -84,8 +84,8 @@ function About() {
         </div>
 
         {/* 照片牆 */}
-        <div className="h-14 ml-10 mt-40 bg-gradient-to-r pb-[6px] from-secondary to-transparent">
-          <div className="h-12 p-0 bg-white">
+        <div className="lg:h-14 h-24  ml-10 mt-40 bg-gradient-to-r pb-[6px] from-secondary to-transparent">
+          <div className="h-20 p-0 bg-white lg:h-12">
             <h1
               className=" flex  h-12 text-4xl  font-bold leading-9  tracking-[.5em] pr-20"
               data-aos="fade-in-left"
@@ -252,8 +252,8 @@ function About() {
         </div>
       </div>
       {/*師資*/}
-      <div className="h-14 ml-10 mt-40 bg-gradient-to-r pb-[6px] from-secondary to-transparent">
-        <div className="h-12 p-0 bg-white">
+      <div className="lg:h-14 h-24  ml-10 mt-40 bg-gradient-to-r pb-[6px] from-secondary to-transparent">
+        <div className="h-20 p-0 bg-white lg:h-12">
           <h1
             className=" flex  h-12 text-4xl  font-bold leading-9  tracking-[.5em] pr-20"
             data-aos="fade-in-left"
@@ -266,7 +266,7 @@ function About() {
       <div className="flex flex-wrap justify-around mt-8 mb-20">
         {/* Each Teacher */}
         <div
-          className="flex items-center p-2 hover:bg-primary"
+          className="flex items-center p-2 mb-2 hover:bg-gradient-to-r bg-gradient-to-l from-primary to-transparent w-60"
           data-aos="flip-left"
           data-aos-duration="2000"
         >
@@ -281,7 +281,7 @@ function About() {
           </div>
         </div>
         <div
-          className="flex items-center p-2 hover:bg-primary"
+          className="flex items-center p-2 mb-2 hover:bg-gradient-to-r bg-gradient-to-l from-primary to-transparent w-60"
           data-aos="flip-left"
           data-aos-duration="2000"
         >
@@ -296,7 +296,7 @@ function About() {
           </div>
         </div>
         <div
-          className="flex items-center p-2 hover:bg-primary"
+          className="flex items-center p-2 mb-2 hover:bg-gradient-to-r bg-gradient-to-l from-primary to-transparent w-60"
           data-aos="flip-left"
           data-aos-duration="2000"
         >
@@ -311,7 +311,7 @@ function About() {
           </div>
         </div>
         <div
-          className="flex items-center p-2 hover:bg-primary"
+          className="flex items-center p-2 mb-2 hover:bg-gradient-to-r bg-gradient-to-l from-primary to-transparent w-60"
           data-aos="flip-left"
           data-aos-duration="2000"
         >
@@ -333,8 +333,8 @@ function About() {
         data-aos-easing="ease-in"
         data-aos-duration="2000"
       >
-        <div className="h-14 text-center mt-10 bg-gradient-to-r pb-[6px] from-secondary to-transparent">
-          <div className="h-12 p-0 bg-white">
+        <div className="lg:h-14 h-24  text-center mt-10 bg-gradient-to-r pb-[6px] from-secondary to-transparent">
+          <div className="h-20 p-0 bg-white  lg:h-12">
             <h1
               className=" flex  h-12 text-4xl  font-bold leading-9  tracking-[.5em] pr-20"
               data-aos="fade-in-left"

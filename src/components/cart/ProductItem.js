@@ -30,6 +30,8 @@ function ProductItem(props) {
             <div className="flex items-center">
               <AiOutlineMinus
                 onClick={() => {
+                  if(count==1)return
+                  
                   const newCart = [...cart];
                   const newProduct = [...cart[1]];
                   const target = newProduct.findIndex(
