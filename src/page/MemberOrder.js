@@ -4,22 +4,22 @@ import MemberSearchBar from "../components/memberCollection/MemberSearchBar";
 import MemberOrderBar from "../components/memberOrder/MemberOrderBar";
 import axios from "axios";
 import { API_URL } from "../utils/config";
+import { useUserState } from "../utils/redux/hooks-redux";
 
 function MemberOrder() {
   const step = ["全部", "待付款", "待出貨", "待收貨", "完成"];
   const [barStep, setBarStep] = useState(0);
   const [order, setOrder] = useState([]);
+  const [currentUser]=useUserState()
 
   useEffect(() => {
     let getOrder = async () => {
-      let response = await axios.get(API_URL + "/order/user/1");
+      let response = await axios.get(API_URL + `/order/user/${currentUser.id}`);
       setOrder(response.data.data);
       console.log(response.data.data);
     };
     getOrder();
   }, []);
- 
-
 
   //待付款ARR
   const notPaidArr = order.filter((v) => {
@@ -58,14 +58,21 @@ function MemberOrder() {
             </div>
             <div className="mb-10">
               {order.map((v, i) => {
-                const { id,coupon_id,address,payment_id, name, count, price } = v;
+                const {
+                  id,
+                  coupon_id,
+                  address,
+                  payment_id,
+                  name,
+                  count,
+                  price,
+                } = v;
                 return (
                   <>
                     <div className="mt-10 shadow-md md:flex">
                       <OrderItems
                         id={id}
                         name={name}
-                        
                         count={count}
                         price={price}
                       />
@@ -90,7 +97,6 @@ function MemberOrder() {
                       <OrderItems
                         id={id}
                         name={name}
-                    
                         count={count}
                         price={price}
                       />
@@ -108,14 +114,13 @@ function MemberOrder() {
             </div>
             <div className="mb-10">
               {notDeliveredArr.map((v, i) => {
-                const { id, name,  count, price } = v;
+                const { id, name, count, price } = v;
                 return (
                   <>
                     <div className="mt-10 shadow-md md:flex">
                       <OrderItems
                         id={id}
                         name={name}
-                        
                         count={count}
                         price={price}
                       />
@@ -140,7 +145,6 @@ function MemberOrder() {
                       <OrderItems
                         id={id}
                         name={name}
-                    
                         count={count}
                         price={price}
                       />
@@ -165,7 +169,6 @@ function MemberOrder() {
                       <OrderItems
                         id={id}
                         name={name}
-                    
                         count={count}
                         price={price}
                       />

@@ -71,7 +71,6 @@ const UserComment = () => {
           alt=""
         />
       </div>
-
       <div>
         <div className="flex mb-2">
           <AiOutlineStar className=" comment-star" />

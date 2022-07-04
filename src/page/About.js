@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 
 function About() {
@@ -25,8 +26,19 @@ function About() {
               </div>
             </div>
             <p className="my-5 leading-9 p">
-              甜點對法國人而言，就像是日常所需，與法國人聚餐，無論是享用哪<br/>國料理，餐後結尾甜點是絕對必要的，哪怕只是簡單的烤布雷、熔岩<br/>巧克力蛋糕，就像台灣人吃餐後水果一樣，吃完甜點才算是正式結束<br/>一餐。<br/>
-              近年來，將引以為傲的傳統經典款式更加精緻化，拆解重組，融入了<br/>更多創意和口味上的層次轉變。分子甜點、完美視覺與味覺饗宴的盤<br/>式甜點，反應了與生活密不可分的飲食文化。
+              甜點對法國人而言，就像是日常所需，與法國人聚餐，無論是享用哪
+              <br />
+              國料理，餐後結尾甜點是絕對必要的，哪怕只是簡單的烤布雷、熔岩
+              <br />
+              巧克力蛋糕，就像台灣人吃餐後水果一樣，吃完甜點才算是正式結束
+              <br />
+              一餐。
+              <br />
+              近年來，將引以為傲的傳統經典款式更加精緻化，拆解重組，融入了
+              <br />
+              更多創意和口味上的層次轉變。分子甜點、完美視覺與味覺饗宴的盤
+              <br />
+              式甜點，反應了與生活密不可分的飲食文化。
             </p>
           </div>
 
@@ -73,17 +85,19 @@ function About() {
 
         {/* 照片牆 */}
         <div className="h-14 ml-10 mt-40 bg-gradient-to-r pb-[6px] from-secondary to-transparent">
-            <div className="h-12 p-0 bg-white">
-              <h1
-                className=" flex  h-12 text-4xl  font-bold leading-9  tracking-[.5em] pr-20"
-                data-aos="fade-in-left"
-                data-aos-duration="2000"
-              >
-                SWEETEN烘焙
-              </h1>
-            </div>
+          <div className="h-12 p-0 bg-white">
+            <h1
+              className=" flex  h-12 text-4xl  font-bold leading-9  tracking-[.5em] pr-20"
+              data-aos="fade-in-left"
+              data-aos-duration="2000"
+            >
+              SWEETEN烘焙
+            </h1>
+          </div>
         </div>
-        <span className="mx-10 my-5 leading-9 p">近年來，風格獨立甜點店一間間開起，各色甜點創作不僅滿足甜點迷的味蕾，也形塑出多元甜點文化。事實上台灣常民生活與甜點的美味關係其來有自。早從日治時期開始，台灣人便可以在喫茶店裡享用兼具和洋風味的「洋菓子」；到了美援時期，在美國推廣小麥的背景下，街邊開起一間間「西點麵包店」，西點師傅們在「台灣區麵麥食品推廣執行委員會」教導下，以當時看來科學化的先進技術，製作出充滿美式風格的西點麵包，成為許多人的童年回憶。</span>
+        <span className="mx-10 my-5 leading-9 p">
+          近年來，風格獨立甜點店一間間開起，各色甜點創作不僅滿足甜點迷的味蕾，也形塑出多元甜點文化。事實上台灣常民生活與甜點的美味關係其來有自。早從日治時期開始，台灣人便可以在喫茶店裡享用兼具和洋風味的「洋菓子」；到了美援時期，在美國推廣小麥的背景下，街邊開起一間間「西點麵包店」，西點師傅們在「台灣區麵麥食品推廣執行委員會」教導下，以當時看來科學化的先進技術，製作出充滿美式風格的西點麵包，成為許多人的童年回憶。
+        </span>
         <div className="relative flex flex-wrap items-start justify-center px-4 mt-20 2xl:px-1 lg:px-12">
           <div className="mt-5">
             <div className="flex items-end ">
@@ -239,84 +253,76 @@ function About() {
       </div>
       {/*師資*/}
       <div className="h-14 ml-10 mt-40 bg-gradient-to-r pb-[6px] from-secondary to-transparent">
-            <div className="h-12 p-0 bg-white">
-              <h1
-                className=" flex  h-12 text-4xl  font-bold leading-9  tracking-[.5em] pr-20"
-                data-aos="fade-in-left"
-                data-aos-duration="2000"
-              >
-                SWEETEN師資
-              </h1>
-            </div>
+        <div className="h-12 p-0 bg-white">
+          <h1
+            className=" flex  h-12 text-4xl  font-bold leading-9  tracking-[.5em] pr-20"
+            data-aos="fade-in-left"
+            data-aos-duration="2000"
+          >
+            SWEETEN師資
+          </h1>
         </div>
+      </div>
       <div className="flex flex-wrap justify-around mt-8 mb-20">
         {/* Each Teacher */}
-        <div className="flex items-center p-2 hover:bg-primary"
-                data-aos="flip-left"
-                data-aos-duration="2000">
+        <div
+          className="flex items-center p-2 hover:bg-primary"
+          data-aos="flip-left"
+          data-aos-duration="2000"
+        >
           <img
             className="w-20 h-20 rounded-full shrink-0"
             src={`${process.env.PUBLIC_URL}/images/about/aboutwall1.jpeg`}
             alt=""
           />
           <div className="ml-3 mr-3">
-            <p className="text-sm font-medium">
-              澳洲藍帶甜點師傅
-            </p>
-            <p className="font-medium p">
-              陳映汝
-            </p>
+            <p className="text-sm font-medium">澳洲藍帶甜點師傅</p>
+            <p className="font-medium p">陳映汝</p>
           </div>
         </div>
-        <div className="flex items-center p-2 hover:bg-primary"
-                data-aos="flip-left"
-                data-aos-duration="2000">
+        <div
+          className="flex items-center p-2 hover:bg-primary"
+          data-aos="flip-left"
+          data-aos-duration="2000"
+        >
           <img
             className="w-20 h-20 rounded-full shrink-0"
             src={`${process.env.PUBLIC_URL}/images/about/aboutwall1.jpeg`}
             alt=""
           />
           <div className="ml-3 mr-3">
-            <p className="text-sm font-medium">
-              法國餐廚資深研究員
-            </p>
-            <p className="font-medium p">
-              陳映汝
-            </p>
+            <p className="text-sm font-medium">法國餐廚資深研究員</p>
+            <p className="font-medium p">陳映汝</p>
           </div>
         </div>
-        <div className="flex items-center p-2 hover:bg-primary"
-                data-aos="flip-left"
-                data-aos-duration="2000">
+        <div
+          className="flex items-center p-2 hover:bg-primary"
+          data-aos="flip-left"
+          data-aos-duration="2000"
+        >
           <img
             className="w-20 h-20 rounded-full shrink-0"
             src={`${process.env.PUBLIC_URL}/images/about/aboutwall1.jpeg`}
             alt=""
           />
           <div className="ml-3 mr-3">
-            <p className="text-sm font-medium">
-              台式甜點師
-            </p>
-            <p className="font-medium p">
-              陳映汝
-            </p>
+            <p className="text-sm font-medium">台式甜點師</p>
+            <p className="font-medium p">陳映汝</p>
           </div>
         </div>
-        <div className="flex items-center p-2 hover:bg-primary"
-                data-aos="flip-left"
-                data-aos-duration="2000">
+        <div
+          className="flex items-center p-2 hover:bg-primary"
+          data-aos="flip-left"
+          data-aos-duration="2000"
+        >
           <img
             className="w-20 h-20 rounded-full shrink-0"
             src={`${process.env.PUBLIC_URL}/images/about/aboutwall1.jpeg`}
             alt=""
           />
           <div className="ml-3 mr-3">
-            <p className="text-sm font-medium">
-              法國優秀烘焙專家
-            </p>
-            <p className="font-medium p">
-              陳映汝
-            </p>
+            <p className="text-sm font-medium">法國優秀烘焙專家</p>
+            <p className="font-medium p">陳映汝</p>
           </div>
         </div>
       </div>
@@ -328,16 +334,16 @@ function About() {
         data-aos-duration="2000"
       >
         <div className="h-14 text-center mt-10 bg-gradient-to-r pb-[6px] from-secondary to-transparent">
-            <div className="h-12 p-0 bg-white">
-              <h1
-                className=" flex  h-12 text-4xl  font-bold leading-9  tracking-[.5em] pr-20"
-                data-aos="fade-in-left"
-                data-aos-duration="2000"
-              >
-                關於SWEETEN
-              </h1>
-            </div>
+          <div className="h-12 p-0 bg-white">
+            <h1
+              className=" flex  h-12 text-4xl  font-bold leading-9  tracking-[.5em] pr-20"
+              data-aos="fade-in-left"
+              data-aos-duration="2000"
+            >
+              關於SWEETEN
+            </h1>
           </div>
+        </div>
         <div className="flex flex-col justify-center mt-8 md:flex-row md:space-x-8 md:mt-16">
           <div
             className="w-full mt-10 md:w-7/12 lg:w-8/12 md:mt-0 sm:mt-14"

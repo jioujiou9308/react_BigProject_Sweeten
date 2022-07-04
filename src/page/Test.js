@@ -5,7 +5,6 @@ import axios from "axios";
 import { API_URL } from "../utils/config";
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { useCartState } from "../utils/redux/hooks-redux";
 import { useRef } from "react";
 
 // const testUser = {
@@ -18,21 +17,32 @@ const Test = () => {
   const [Inputs, allRef] = useMultiInput(["name", "acount", "password"]);
   const [x, setX] = useState(0);
   const [rotate, setRotate] = useState("0deg");
+  const [open, setOpen] = useState(false);
   const photoRef = useRef();
 
   return (
     <>
-      <motion.div
-        className="w-10 bg-black"
-        initial={{ x: 0, rotate: 0 }}
-        animate={{ x, rotate }}
+      {open && (
+        <motion.div
+          className="w-10 bg-black"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ type: "spring", stiffness: 100, damping: 50 }}
+          onClick={() => {
+            setX(x + 100);
+            setRotate("180deg");
+          }}
+        >
+          div
+        </motion.div>
+      )}
+      <button
         onClick={() => {
-          setX(x + 100);
-          setRotate("180deg");
+          setOpen(!open);
         }}
       >
-        div
-      </motion.div>
+        open
+      </button>
       {/* useMultiInput */}
       <Inputs.Acount className=" bg-primary" />
       <br />

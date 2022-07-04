@@ -24,7 +24,10 @@ const products = [
 export const userSlice = createSlice({
   name: "user",
   initialState: {
-    user: null,
+    user: {
+      id: 0,
+      name: "遊客",
+    },
     favorite: [],
     cart: [{
       tax:0.05,

@@ -5,6 +5,7 @@ import {
   AiFillMinusCircle,
   AiOutlineStar,
   AiOutlineRight,
+  AiFillStar,
 } from "react-icons/ai";
 import UserComment from "../components/productDetail/UserComment";
 import YouMayLikeProduct from "../components/productDetail/YouMayLikeProduct";
@@ -12,23 +13,91 @@ import { Button } from "@material-tailwind/react";
 //import material tailwind ㄉ button
 import { API_URL } from "../utils/config";
 import axios from "axios";
+import { useParams } from "react-router-dom";
+import { useFavoriteState, useUserState } from "../utils/redux/hooks-redux";
 
 function ProductDetail() {
-  const [selectedItem, setSelectedItem] = useState();
-  const sizes = ["6吋", "8吋"];
   const [count, setCount] = useState(2);
-  const [favClick, setFavClick] = useState(false);
+  const [favProduct, setFavProduct] = useFavoriteState();
   const [productDetail, setProductDetail] = useState([]);
-
-  //TODO: comment和照片ㄉAPI還沒串
-  useEffect(() => {
-    let getProductDetail = async () => {
-      let response = await axios.get(API_URL + "/product/1");
-      setProductDetail(response.data);
+  const [comment, setComment] = useState([]);
+  const [currentUser] = useUserState()
+  const { id } = useParams();
+  // console.log(id);
+  
+let getFavProduct = async () => {
+      let response = await axios.get(
+        API_URL + "/user/favorite_product/all_data/1"
+      );
+      setFavProduct(response.data);
       console.log(response.data);
     };
+  //TODO: 照片ㄉAPI還沒串
+  useEffect(() => {
+    //抓這個商品資料
+    let getProductDetail = async () => {
+      let response = await axios.get(`${API_URL}/product/${id}`);
+      setProductDetail(response.data);
+      // console.log(response.data);
+    };
     getProductDetail();
+    //抓所有評論
+    let getComment = async () => {
+      let response = await axios.get(
+        `${API_URL}/product/comment/product/${id}`
+      );
+      setComment(response.data);
+      // console.log(response.data);
+    };
+    getComment();
+    //看喜歡ㄉproduct有哪些
+    
+    getFavProduct();
   }, []);
+  //抓此商品平均分數
+  const averageScore = () => {
+    let result = 0;
+    for (let i = 0; i < comment.length; i++) {
+      result += comment[i].score;
+      result = Math.round(result / comment.length);
+    }
+    return result;
+  };
+
+  const isFavor = favProduct.filter((item) => item.product_id == id);
+  
+  //生成星星
+  const stars = (score) => {
+    let elementArr = [];
+    for (let i = 0; i < 5; i++) {
+      if (i < score) {
+        elementArr.push(<AiFillStar className=" comment-star" />);
+      } else {
+        elementArr.push(<AiOutlineStar />);
+      }
+    }
+    return elementArr;
+  };
+
+  
+  const favSwitchHandler = async () => {
+    if (isFavor.length < 1) {
+      //isFavor長度等於0要post
+
+      await axios.post(API_URL + `/user/favorite_product`, {
+        user_id: currentUser.id,
+        product_id: id,
+      });
+      getFavProduct()
+    } else {
+      //isFavor長度大於0要delete
+
+      await axios.delete(
+        API_URL+`/user/favorite_product/${currentUser.id}?product_id=${id}`
+      );
+      getFavProduct()
+    }
+  };
 
   return (
     <>
@@ -74,6 +143,8 @@ function ProductDetail() {
                 {/* DEMO右欄 桌機板*/}
                 <div className="w-3/5 mr-10">
                   {/* 桌機板標題和副標字體+愛心 */}
+                  {/* TODO: 商品有加入收藏ㄉ畫愛心要亮  */}
+
                   <div className="border-b-2 ">
                     <div className="flex items-center justify-between mt-10">
                       <p className="h1">{name}</p>
@@ -81,14 +152,15 @@ function ProductDetail() {
                       <Button
                         variant="outlined"
                         className="border rounded-full select-none border-line text-line"
-                        onClick={() => {
-                          setFavClick(!favClick);
-                        }}
+                        // TODO:要新增&刪除最愛
+                        onClick={favSwitchHandler}
                       >
                         <AiFillHeart
                           className={`icon-xl select-none rounded-full ${
-                            favClick && "text-secondary"
-                          }`}
+                            isFavor.length>0?'text-secondary':''
+                          } 
+                         
+                          `}
                         />
                       </Button>
                     </div>
@@ -98,7 +170,7 @@ function ProductDetail() {
                   {/* 右欄尺寸桌機板 */}
                   <p className="mt-4 mb-2 p">尺寸</p>
                   {/* 尺寸按鈕桌機板  小字尺寸*/}
-                  {sizes.map((v, i) => {
+                  {/* {sizes.map((v, i) => {
                     return (
                       <button
                         className={`mr-5 size-btn-desk ${
@@ -111,9 +183,11 @@ function ProductDetail() {
                         {v}
                       </button>
                     );
-                  })}
-                  {/* <button className="mr-5 size-btn-desk">6吋</button>
-            <button className="size-btn-desk bg-light">8吋</button> */}
+                  })} */}
+                  <button className="px-1 mr-5 size-btn-desk bg-light">
+                    6吋
+                  </button>
+                  <button className="px-1 size-btn-desk">8吋</button>
 
                   <p className="mt-5 p">商品參與的優惠活動</p>
                   <p className="w-24 mt-2 text-center p bg-primary">
@@ -121,7 +195,7 @@ function ProductDetail() {
                   </p>
 
                   {/* 數量和結帳按鈕桌機板 */}
-                  <div className="flex justify-between mt-8 ">
+                  <div className="flex items-center justify-between mt-8">
                     <div className="flex">
                       <AiFillMinusCircle
                         className="icon-lg text-secondary"
@@ -175,13 +249,14 @@ function ProductDetail() {
                   <Button
                     variant="outlined"
                     className="rounded-full select-none text-line border-line"
-                    onClick={() => {
-                      setFavClick(!favClick);
-                    }}
+                    onClick={
+                      //  TODO:要做新增刪除
+                      favSwitchHandler
+                    }
                   >
                     <AiFillHeart
-                      className={`icon-xl select-none rounded-full ${
-                        favClick && "text-secondary"
+                      className={`icon-xl select-none rounded-full  ${
+                        isFavor.length>0?'text-secondary':''
                       }`}
                     />
                   </Button>
@@ -216,20 +291,10 @@ function ProductDetail() {
                 <div className="flex items-center justify-start ml-6">
                   <p className="p">尺寸</p>
 
-                  {sizes.map((v, i) => {
-                    return (
-                      <button
-                        className={`ml-5 size-btn-desk ${
-                          selectedItem === v ? "bg-sub" : ""
-                        }`}
-                        onClick={() => {
-                          setSelectedItem(v);
-                        }}
-                      >
-                        {v}
-                      </button>
-                    );
-                  })}
+                  <button className="px-2 ml-5 size-btn-desk bg-sub">
+                    6吋
+                  </button>
+                  <button className="px-2 ml-5 size-btn-desk ">8吋</button>
                 </div>
 
                 <h2 className="my-5 p">商品參與的優惠活動</h2>
@@ -281,20 +346,20 @@ function ProductDetail() {
 
                 <div className="overflow-auto md:px-10 md:w-3/5">
                   {/* 評論區 上半部*/}
+                  {/* //TODO:評論藥可以展開 */}
                   <div className="flex justify-between w-full h-1/5">
                     <div className="flex items-center justify-around w-full my-7">
                       <div>
                         <h2 className="h2">商品評論</h2>
-                        <p className="md:hidden p">(6則評論)</p>
+                        <p className="md:hidden p">({comment.length}則評論)</p>
                       </div>
 
                       <div className="flex items-center">
-                        <AiOutlineStar className="comment-star" />
-                        <AiOutlineStar className="comment-star" />
-                        <AiOutlineStar className="comment-star" />
-                        <AiOutlineStar className="comment-star" />
-                        <p className="mx-3 p">4/5</p>
-                        <p className="hidden md:block p">(6則評論)</p>
+                        {stars(averageScore())}
+                        <p className="mx-3 p">{averageScore()}/5</p>
+                        <p className="hidden md:block p">
+                          ({comment.length}則評論)
+                        </p>
                       </div>
                     </div>
 

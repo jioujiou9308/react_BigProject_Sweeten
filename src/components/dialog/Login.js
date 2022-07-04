@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { Input, Button, Checkbox } from "@material-tailwind/react";
 import { FcGoogle } from "react-icons/fc";
 import { closeModal, openSignup } from "../../utils/redux/modalSlice";
@@ -11,7 +11,7 @@ import axios from "axios";
 const Login = () => {
   const dispatch = useDispatch();
   const inputRef = useRef([]);
-
+  const [errState, setErrState] = useState({});
   /* ------------------------------- toggle form ------------------------------ */
   const handleOpen = () => {
     dispatch(closeModal());
@@ -22,14 +22,17 @@ const Login = () => {
     e.preventDefault();
     const formKeys = ["email", "password"];
     const postBody = {};
-
     // make post data
     inputRef.current.forEach((node, i) => {
       const input = node.children[0];
       postBody[formKeys[i]] = input.value;
     });
+
     axios
-      .post(API_URL + "/auth/login", postBody)
+      .post(API_URL + "/auth/login", postBody, {
+        // 如果想要跨源讀寫 cookie
+        withCredentials: true,
+      })
       .then((res) => {
         // 登入成功
         const { data: currentUser } = res;
@@ -38,13 +41,19 @@ const Login = () => {
       })
       .catch((e) => {
         // 登入失敗
+        const msg = e.response.data;
+        toast.error(msg);
+        const position = msg.split(":")[0];
+        setErrState({ [position]: true });
         console.log(e);
       });
   };
   const handleGoogleLogin = () => {
-    axios.get(API_URL + "/auth/google");
+    axios.get(API_URL + "/auth/google", {
+      // 如果想要跨源讀寫 cookie
+      withCredentials: true,
+    });
   };
-  // TODO 表單驗證 錯誤訊息
 
   return (
     <div
@@ -64,6 +73,7 @@ const Login = () => {
                   className="flex-grow h-8 px-2 border rounded border-grey-400"
                   name="email"
                   label="email"
+                  error={errState["email"]}
                   ref={(node) => (inputRef.current[0] = node)}
                 />
               </div>
@@ -74,6 +84,7 @@ const Login = () => {
                   className="flex-grow h-8 px-2 border rounded border-grey-400"
                   name="password"
                   label="password"
+                  error={errState["password"]}
                   ref={(node) => (inputRef.current[1] = node)}
                   required
                 />
