@@ -28,7 +28,7 @@ function Filter() {
     switch (e.target.value) {
       case "0":
         const newProduct0 = newList.filter((v) => v.price <= 600);
-        console.log("case0=", newProduct0);
+        // console.log("case0=", newProduct0);
         setProduct(newProduct0);
         break;
 
@@ -36,14 +36,14 @@ function Filter() {
         const newProduct1 = newList.filter(
           (v) => v.price >= 600 && v.price <= 1200
         );
-        console.log("case1=", newProduct1);
+        // console.log("case1=", newProduct1);
         setProduct(newProduct1);
         break;
 
       case "2":
-        console.log(product);
+        // console.log(product);
         const newProduct2 = newList.filter((v) => v.price >= 1200);
-        console.log("case2=", newProduct2);
+        // console.log("case2=", newProduct2);
         setProduct(newProduct2);
         break;
       default:
@@ -75,7 +75,7 @@ function Filter() {
         return;
     }
   };
-  //上架時間排序
+  //上架時間排序 TODO:印出來是undefined
   const timeOrderChangeHandler = async (e) => {
     const res = await axios.get(API_URL + "/product/all");
     const newList = res.data.data;
@@ -83,14 +83,19 @@ function Filter() {
     switch (e.target.value) {
       case "0":
         const newProduct0 = [...newList].sort((a, b) => {
-          return b.create_at - a.create_at;
+          const timeA = new Date(a.create_at).getTime().toString();
+          const timeB = new Date(b.create_at).getTime().toString();
+          return timeB - timeA;
         });
         setProduct(newProduct0);
         break;
 
       case "1":
         const newProduct1 = [...newList].sort((a, b) => {
-          return a.create_at - b.create_at;
+          const timeA = new Date(a.create_at).getTime().toString();
+          const timeB = new Date(b.create_at).getTime().toString();
+          console.log(new Date(a.create_at));
+          return timeA - timeB;
         });
         setProduct(newProduct1);
         break;
@@ -112,8 +117,7 @@ function Filter() {
         <div>
           {/* 各類選項 */}
           <div className="grid grid-cols-1 gap-4 mt-4 border-b-2 border-line">
-
-          {/* 價格範圍 */}
+            {/* 價格範圍 */}
             <select
               onChange={PriceChangeHandler}
               className="w-full px-4 py-3 text-sm bg-gray-100 border-transparent rounded-none focus:border-gray-500 focus:bg-white focus:ring-0"
@@ -191,8 +195,8 @@ function Filter() {
 
               <select className="hidden w-full px-4 py-3 text-sm bg-gray-100 border-transparent rounded-none md:block focus:border-gray-500 focus:bg-white focus:ring-0">
                 <option value="">上架時間</option>
-                <option value="200">最新到最舊</option>
-                <option value="400">最舊到最新</option>
+                <option value="0">最新到最舊</option>
+                <option value="1">最舊到最新</option>
               </select>
             </div>
           ) : (

@@ -13,8 +13,12 @@ import { Button } from "@material-tailwind/react";
 //import material tailwind ㄉ button
 import { API_URL } from "../utils/config";
 import axios from "axios";
-import { useParams } from "react-router-dom";
-import { useFavoriteState, useUserState } from "../utils/redux/hooks-redux";
+import { useNavigate, useParams } from "react-router-dom";
+import {
+  useCartState,
+  useFavoriteState,
+  useUserState,
+} from "../utils/redux/hooks-redux";
 
 function ProductDetail() {
   const [count, setCount] = useState(2);
@@ -22,7 +26,9 @@ function ProductDetail() {
   const [productDetail, setProductDetail] = useState([]);
   const [comment, setComment] = useState([]);
   const [currentUser] = useUserState();
+  const [cart, setCart] = useCartState();
   const { id } = useParams();
+  const navigate = useNavigate();
   // console.log(id);
 
   let getFavProduct = async () => {
@@ -146,7 +152,6 @@ function ProductDetail() {
                   <div className="border-b-2 ">
                     <div className="flex items-center justify-between mt-10">
                       <p className="h1">{name}</p>
-                      {/* FIXME rounded-full 也無法變完全圓*/}
                       <Button
                         variant="outlined"
                         className="border rounded-full select-none border-line text-line"
@@ -167,20 +172,7 @@ function ProductDetail() {
                   {/* 右欄尺寸桌機板 */}
                   <p className="mt-4 mb-2 p">尺寸</p>
                   {/* 尺寸按鈕桌機板  小字尺寸*/}
-                  {/* {sizes.map((v, i) => {
-                    return (
-                      <button
-                        className={`mr-5 size-btn-desk ${
-                          selectedItem === v ? "bg-sub" : ""
-                        }`}
-                        onClick={() => {
-                          setSelectedItem(v);
-                        }}
-                      >
-                        {v}
-                      </button>
-                    );
-                  })} */}
+
                   <button className="px-1 mr-5 size-btn-desk bg-light">
                     6吋
                   </button>
@@ -212,9 +204,17 @@ function ProductDetail() {
                     </div>
 
                     <div className="flex justify-center ">
+                    {/* TODO:購物車按鈕好像有錯 */}
                       <Button
                         className="border-2 rounded-none border-sub"
                         variant="outlined"
+                        onClick={() => {
+                          let newCart = [...cart[1]];
+                          newCart.push(v);
+                          let newData = [cart[0], newCart];
+                          setCart(newData);
+                          console.log(newData);
+                        }}
                       >
                         <span className="text-black p">加入購物車</span>
                       </Button>
@@ -222,6 +222,13 @@ function ProductDetail() {
                       <Button
                         className="ml-3 text-white border-2 rounded-none border-warning bg-warning"
                         variant="filled"
+                        onClick={() => {
+                          let newCart = [...cart[1]];
+                          newCart.push(v);
+                          let newData = [cart[0], newCart];
+                          setCart(newData);
+                          console.log(newData);
+                        }}
                       >
                         <span className="p">立即購買</span>
                       </Button>
@@ -302,14 +309,35 @@ function ProductDetail() {
                   <Button
                     className="px-4 py-1 border-2 rounded-none border-sub"
                     variant="outlined"
+                    onClick={() => {
+                      let newCart = [...cart[1]];
+                      // console.log('新購物車',newCart)
+                      // console.log('購物車',cart[1])
+
+                      newCart.push(v);
+                      // console.log('新購物車',newCart)
+                      let newData = [cart[0], newCart];
+                      setCart(newData);
+                    }}
                   >
-                    {" "}
                     <span className="text-black p">加入購物車</span>
                   </Button>
 
                   <Button
                     className="px-4 text-white border-2 rounded-none shadow-primary border-warning bg-warning"
                     variant="filled"
+                    onClick={() => {
+                      let newCart = [...cart[1]];
+                      // console.log('新購物車',newCart)
+                      // console.log('購物車',cart[1])
+
+                      newCart.push(v);
+                      // console.log('新購物車',newCart)
+                      let newData = [cart[0], newCart];
+                      setCart(newData);
+
+                      navigate("/main/cart");
+                    }}
                   >
                     <span className="p">立即購買</span>
                   </Button>

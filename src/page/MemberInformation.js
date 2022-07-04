@@ -3,6 +3,8 @@ import { Input, Button, IconButton } from "@material-tailwind/react";
 import axios from "axios";
 import { useDropzone } from "react-dropzone";
 import { FaCamera } from "react-icons/fa";
+import { motion } from "framer-motion";
+import MenuTag from "../components/menuTag/MenuTag";
 
 const MemberInformation = () => {
   const [member, setMember] = useState({
@@ -35,10 +37,17 @@ const MemberInformation = () => {
 
   return (
     <div className="flex justify-between">
+      <MenuTag />
       <div className="w-full p-10">
         <h1 className="font-bold text-gray-800 focus:outline-none h1">
           我的檔案
         </h1>
+        <motion.div
+          initial={{ width: 0 }}
+          animate={{ width: "auto" }}
+          transition={{ ease: "easeOut", duration: 2, delay: 1 }}
+          className="bg-gradient-to-r pb-[5px] from-sub to-transparent"
+        ></motion.div>
         {/* 大頭照 */}
         <div className="flex flex-wrap items-center px-2 sm:flex-row">
           <div className="relative w-32 h-32 mt-6 mb-4 mr-4 lg:mb-0">
