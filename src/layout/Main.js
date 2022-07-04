@@ -17,6 +17,7 @@ import CustomerService from "../page/CustomerService";
 import CheckOut from "../page/CheckOut";
 import ExpireProduct from "../page/ExpireProduct";
 import ErrorPage from "../page/ErrorPage";
+import FloatingBt from "../components/onlineHelp/FloatingBt"
 
 const Main = () => {
   return (
@@ -43,6 +44,7 @@ const Main = () => {
           <Route path="/expireProduct" element={<ExpireProduct />} />
         </Routes>
       </div>
+      <FloatingBt/>
     </main>
   );
 };
