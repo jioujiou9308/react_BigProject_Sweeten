@@ -12,11 +12,9 @@ function Summary(props) {
     temPrice = temPrice + v.count * v.price;
     totalCount = totalCount + v.count;
   });
-  const afterDiscount =
-    temPrice * productsInOrder[0].discount;
   
   const plusTax =
-   afterDiscount * productsInOrder[0].tax + afterDiscount;
+  temPrice * productsInOrder[0].tax + temPrice;
 
   const totalPrice =
    plusTax + productsInOrder[0].fee
@@ -28,7 +26,7 @@ function Summary(props) {
           <p className="py-5 font-black h3">購物明細</p>
           <hr />
         {/* promo code */}
-        <div className="pt-5">
+        {/* <div className="pt-5">
           <label
             htmlFor="promo"
             className="inline-block mb-2 text-sm font-semibold"
@@ -50,7 +48,7 @@ function Summary(props) {
             <p className="">折扣</p>
             <p className="">-${Math.ceil((1 - productsInOrder[0].discount)* temPrice)}</p>
           </div>
-        </div>
+        </div> */}
            {/* 明細計算 */}
           <div className="flex justify-between pt-12">
             <p className="">項目</p>
@@ -58,7 +56,7 @@ function Summary(props) {
           </div>
           <div className="flex justify-between pt-5">
             <p className="">Tax</p>
-            <p className="">${afterDiscount * productsInOrder[0].tax}</p>
+            <p className="">${temPrice * productsInOrder[0].tax}</p>
           </div>
           <div className="flex justify-between pt-5">
           <p className="">運費</p>

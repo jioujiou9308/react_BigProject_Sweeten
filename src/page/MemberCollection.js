@@ -160,7 +160,6 @@ const MemberColloction = () => {
                       <Button
                         size="sm"
                         className="flex items-center mb-3 rounded-sm md:p bg-warning"
-                        // TODO:商品要set回購物車
                         onClick={() => {
                           let newCart = [...cart[1]]
                           // console.log('新購物車',newCart)
@@ -168,6 +167,10 @@ const MemberColloction = () => {
                         
                           newCart.push(v)
                           // console.log('新購物車',newCart)
+                          let newData=[cart[0],newCart]
+                          setCart(newData)
+                          
+                          
                           navigate("/main/cart");
                         }}
                       >

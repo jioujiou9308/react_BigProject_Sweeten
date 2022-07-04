@@ -14,7 +14,6 @@ export const userSlice = createSlice({
       {
         tax: 0.05,
         fee: 60,
-        discount: 0.8,
       },
       products,
     ],

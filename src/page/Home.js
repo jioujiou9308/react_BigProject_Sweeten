@@ -53,20 +53,20 @@ const Home = (props) => {
   return (
     <WhileLoad
       onLoad={
-        <div className="relative h-screen opacity-50 ">
-          <div className="fixed flex items-center w-full h-full">
+        <div className="relative h-screen">
+          <div className="fixed flex items-center justify-center w-full h-full">
             <img
               src={load}
               className=" animate__animated animate__lightSpeedInRight"
               alt=""
             />
           </div>
-          <div className="w-full h-full bg-sub"></div>
+          <div className="w-full h-full bg-gradient-to-r from-transparent to-primary"></div>
         </div>
       }
       done={
         <>
-          <section className="py-32 bg-gradient-to-r from-secondary to-transparent">
+          <section className="py-32 bg-gradient-to-br from-secondary to-transparent">
             {/* ---------------------------------- {輪播} ---------------------------------- */}
             <div className="h-[75vh] flex items-center">
               <Swiper

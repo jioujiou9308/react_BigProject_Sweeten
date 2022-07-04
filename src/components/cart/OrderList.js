@@ -22,6 +22,7 @@ function OrderList() {
               count={count}
               size={size}
               flavor={flavor}
+            product={product}
               
             />
           );

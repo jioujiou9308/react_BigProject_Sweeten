@@ -3,12 +3,13 @@ import { React, useEffect, useState } from "react";
 import { AiOutlineMessage, AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
 import { API_URL } from "../../utils/config";
-import { useFavoriteState, useUserState } from "../../utils/redux/hooks-redux";
+import { useCartState, useFavoriteState, useUserState } from "../../utils/redux/hooks-redux";
 
 const OnceCarkProduct = ({ product }) => {
   const navigate = useNavigate();
   const [favProduct, setFavProduct] = useFavoriteState();
   const [currentUser] = useUserState();
+  const [cart, setCart]=useCartState()
   console.log("最愛商品", favProduct);
   console.log("所有商品", product);
 
@@ -58,7 +59,11 @@ const OnceCarkProduct = ({ product }) => {
 
           <button
             className="flex items-center justify-center w-full px-2 py-2 mt-4 text-white rounded-sm opacity-100 hover:opacity-80 bg-secondary focus:outline-none "
-            onClick={() => {}}
+            onClick={() => {
+              let newCart=[...cart[1]]
+              newCart.push(product)
+              console.log('新購物車',newCart)
+            }}
           >
             <span className="mx-1 bg-secondary">加入購物車</span>
           </button>

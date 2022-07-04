@@ -41,7 +41,7 @@ const Product = () => {
   return (
     <>
       <div className=" md:flex">
-        <MenuTag />
+        <MenuTag setProducts={setProducts} products={products} />
         {/* filter section */}
         <Filter />
         {/* card list  */}
@@ -49,5 +49,14 @@ const Product = () => {
           <CardProduct />
         </div>
       </div>
-</>)}
-export default Product
+
+      <div class="fixed top-1/3 right-0 bg-secondary px-4 py-10 rounded-l-lg">
+        <button className="text-2xl text-white">
+          <AiOutlineShoppingCart />
+        </button>
+      </div>
+    </>
+  );
+};
+
+export default Product;
