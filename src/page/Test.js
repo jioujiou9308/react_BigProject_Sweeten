@@ -14,27 +14,31 @@ import { useRef } from "react";
 // };
 
 const Test = () => {
-  const [Inputs, allRef] = useMultiInput(['name', 'acount', 'password']);
+  const [Inputs, allRef] = useMultiInput(["name", "acount", "password"]);
   const [x, setX] = useState(0);
   const [rotate, setRotate] = useState("0deg");
   const [open, setOpen] = useState(false);
   const photoRef = useRef();
-  const [open, setOpen] = useState(false);
 
   return (
     <>
-      {open ? <div className="w-10 h-10 border">context</div> : <></>}
-      <button onClick={()=>{
-        setOpen(!open)
-      }}>open</button>
-      
-      <motion.div
-        className="w-10 bg-black"
-        initial={{ x: 0, rotate: 0 }}
-        animate={{ x, rotate }}
+      {open && (
+        <motion.div
+          className="w-10 bg-black"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ type: "spring", stiffness: 100, damping: 50 }}
+          onClick={() => {
+            setX(x + 100);
+            setRotate("180deg");
+          }}
+        >
+          div
+        </motion.div>
+      )}
+      <button
         onClick={() => {
-          setX(x + 100);
-          setRotate('180deg');
+          setOpen(!open);
         }}
       >
         open
@@ -50,7 +54,7 @@ const Test = () => {
         onClick={() => {
           // console.log("allRef.current");
           // console.log(allRef.current);
-          console.log('allRef.get()');
+          console.log("allRef.get()");
           console.log(allRef.get());
           allRef.clear();
         }}
@@ -69,7 +73,7 @@ const Test = () => {
           <input type="text" name="TotalAmount" placeholder="總價錢" />
           <input type="text" name="TradeDesc" placeholder="描述" />
           <input type="text" name="ItemName" placeholder="商品名#分隔" />
-          <p>{'-form action-> server -redirect-> ecpay -redirect-> local'}</p>
+          <p>{"-form action-> server -redirect-> ecpay -redirect-> local"}</p>
           <p>
             信用卡號：4311-9522-2222-2222 <br />
             有效日期：大於今日
@@ -87,7 +91,7 @@ const Test = () => {
           onClick={(e) => {
             e.preventDefault();
             let formData = new FormData();
-            formData.append('photo', photoRef.current.files[0]);
+            formData.append("photo", photoRef.current.files[0]);
             console.log(photoRef.current.files[0]);
             axios
               .post(`${API_URL}/product/photo`, formData)
