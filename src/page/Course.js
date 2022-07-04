@@ -3,6 +3,7 @@ import CardCourse from "../components/course/CardCourse";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { API_URL } from "../utils/config";
+import LessonList from "../components/courseCart/LessonList";
 
 
 //假資料
@@ -51,6 +52,7 @@ const Course = () => {
  
   return (
     <>
+    <LessonList/>
       {courses.map((course, i) => {
         const { id, name, img, description, price, duration } = course;
         return (

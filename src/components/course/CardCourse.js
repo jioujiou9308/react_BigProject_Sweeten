@@ -6,7 +6,6 @@ import {
   AiFillStar,
   AiOutlineStar,
 } from "react-icons/ai";
-import LessonList from "../courseCart/LessonList";
 //難度星星ㄉ假資料
 const level = [4, 5, 3, 2];
 const starLevel = (level) => {
@@ -26,7 +25,6 @@ const CardCourse = (props) => {
   const { id, name, img, description, price, duration, index } = props;
   return (
     <>
-    <LessonList/>
       <section className="w-full my-5 px-3 bg-white lg:max-h-[240px] lg:flex   overflow-hidden">
         <div className=" lg:w-1/2">
           <img
@@ -43,7 +41,9 @@ const CardCourse = (props) => {
           <div className="w-full text-center">
             <div className="flex justify-center p">
               製作難度:
-              <div className="flex items-center ">{starLevel(level[index])}</div>
+              <div className="flex items-center ">
+                {starLevel(level[index])}
+              </div>
             </div>
             <div className="p">製作時間:{duration} min</div>
           </div>
