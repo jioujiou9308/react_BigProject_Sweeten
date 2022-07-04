@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   Card,
   CardHeader,
@@ -8,31 +8,10 @@ import {
 } from "@material-tailwind/react";
 import { Button } from "@material-tailwind/react";
 import { AiOutlineStar, AiFillStar } from "react-icons/ai";
-
-// 假資料
-const products = [
-  {
-    id: 1,
-    name: "標哥千層蛋糕",
-    img: `${process.env.PUBLIC_URL}/images/memberCollectionAndOrder/member_order1.png`,
-    price: 500,
-    score: 4,
-  },
-  {
-    id: 2,
-    name: "蜂蜜蛋糕",
-    img: `${process.env.PUBLIC_URL}/images/memberCollectionAndOrder/member_order2.png`,
-    price: 500,
-    score: "-",
-  },
-  {
-    id: 3,
-    name: "大麻蛋糕",
-    img: `${process.env.PUBLIC_URL}/images/memberCollectionAndOrder/member_order3.png`,
-    price: 750,
-    score: 2,
-  },
-];
+import axios from "axios";
+import { API_URL } from "../../utils/config";
+import { useUserState } from "../../utils/redux/hooks-redux";
+import { useNavigate } from "react-router-dom";
 
 //生成評價星星
 const star = (score) => {
@@ -48,23 +27,46 @@ const star = (score) => {
 };
 
 function UserCommentCard() {
+  const [comment, setComment] = useState([]);
+  const [currentUser] = useUserState();
+  const navigate = useNavigate();
+  const [product, setProduct] = useState();
+
+  useEffect(() => {
+    let getComment = async () => {
+      let response = await axios.get(
+        API_URL + `/user/comment/${currentUser.id}`
+      );
+      setComment(response.data.allResults);
+      console.log("comment", response.data.allResults);
+    };
+    getComment();
+
+    let getProduct = async () => {
+      let response = await axios.get(API_URL + "/product/all");
+      setProduct(response.data.data);
+      console.log(response.data.data);
+    };
+    getProduct();
+  }, []);
+
   return (
     <>
       <div className="flex flex-wrap justify-around px-10">
-        {products.map((product, i) => {
-          const { id, name, img, price, score } = product;
+        {comment.map((comment, i) => {
+          const { id, product_name, score } = comment;
           return (
             <>
               <Card className="p-0 mt-6 rounded-sm w-60">
                 <CardBody className="text-center">
                   <img
-                    src={img}
+                    src="/images/memberCollectionAndOrder/member_order1.png"
                     alt="img-blur-shadow"
                     className="mx-auto mb-6 w-[200px]"
-                  />{" "}
-                  <span className=" h2">{name}</span>
+                  />
+                  <span className=" h2">{product_name}</span>
                   <Typography>
-                    <div className="flex items-center justify-center">
+                    <div className="flex items-center justify-center mt-3">
                       <span className="mr-2 h3"> {score}/5</span>
                       {star(score)}
                     </div>
@@ -84,9 +86,14 @@ function UserCommentCard() {
                     color="grey"
                     className="flex gap-1"
                   >
-                    <span className="note">150則評論</span>
+                  {/* TODO:評論和按鈕還沒串完 */}
+                    <span className="note">{}則評論</span>
                   </Typography>
-                  <Button size="sm" className="rounded-sm bg-warning">
+                  <Button
+                    size="sm"
+                    className="rounded-sm bg-warning"
+                    onClick={() =>{}}
+                  >
                     查看評論
                   </Button>
                 </CardFooter>

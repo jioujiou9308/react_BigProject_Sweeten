@@ -1,14 +1,26 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Button } from "@material-tailwind/react";
 import { useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import OrderDetail from "./OrderDetail";
+import axios from "axios";
+import { API_URL } from "../../utils/config";
 
 function OrderItems(props) {
   const navigate = useNavigate();
   const { id, name,  price } = props;
   const [selectedId, setSelectedId] = useState(false);
+  const [orderProduct, setOrderProduct]=useState([])
+
+  useEffect(()=>{
+    let getOrderProduct=async()=>{
+      let response=await axios.get(API_URL+`/order/${id}`)
+      setOrderProduct(response.data)
+      // console.log('orderProduct', response.data)
+    }
+    getOrderProduct()
+  },[])
   return (
     <>
       {/* 左欄 */}
