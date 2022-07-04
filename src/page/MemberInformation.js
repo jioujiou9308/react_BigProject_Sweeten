@@ -1,40 +1,15 @@
-import React, { useState } from "react";
-import {
-  Input,
-  Button,
-  IconButton,
-  Select,
-  Option,
-} from "@material-tailwind/react";
+import React, { useEffect, useState } from "react";
+import { Input, Button, Select, Option } from "@material-tailwind/react";
 import axios from "axios";
 import { useDropzone } from "react-dropzone";
-import { FaCamera } from "react-icons/fa";
+//import { FaCamera } from "react-icons/fa";
 import { motion } from "framer-motion";
 import MenuTag from "../components/menuTag/MenuTag";
+import { useUserState } from "../utils/redux/hooks-redux";
+import { API_URL } from "../utils/config";
+
 
 const MemberInformation = () => {
-  const [member, setMember] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    birthday: "",
-    gender: "",
-    photo: "",
-  });
-  console.log(member);
-  function handleChange(e) {
-    setMember({ ...member, [e.target.name]: e.target.value });
-  }
-  function handleChangeGender(e) {
-    setMember({ ...member, gender : e });
-  }
-  async function handleSubmit(e) {
-    try {
-      axios.post(`$(API_URL)`, member);
-    } catch (e) {
-      console.log(e);
-    }
-  }
   // react-dropzone
   const { acceptedFiles, getRootProps, getInputProps } = useDropzone();
 
@@ -43,6 +18,52 @@ const MemberInformation = () => {
       {file.path} - {file.size} bytes
     </li>
   ));
+
+  const [user] = useUserState();
+  console.log(user.id);
+  const [member, setMember] = useState({
+    id: user.id,
+    full_name: "",
+    email: "",
+    phone: "",
+    birthday: "",
+    gender_id: "",
+    photo: "",
+  });
+  console.log(member);
+  function handleChange(e) {
+    setMember({ ...member, [e.target.name]: e.target.value });
+  }
+  function handleChangeGender(e) {
+    setMember({ ...member, gender_id: e });
+  }
+
+  // -------- 取得會員的資料 --------
+  useEffect(() => {
+    let getUser = async () => {
+      let response = await axios.get(`${API_URL}/user/${user.id}`, member);
+      console.log(response.data[0]);
+      setMember(response.data[0]);
+    };
+    getUser();
+  }, []);
+
+
+
+  async function handleSubmit(e) {
+    try {
+      axios.patch(`${API_URL}/user/${user.id}`, member);
+    } catch (e) {
+      console.log(e);
+    }
+  }
+
+
+
+
+
+
+
   return (
     <div className="mx-auto">
       <MenuTag />
@@ -78,10 +99,10 @@ const MemberInformation = () => {
                     label="姓名"
                     color="brown"
                     type="text"
-                    id="name"
-                    name="name"
+                    id="full_name"
+                    name="full_name"
                     required
-                    value={member.name}
+                    value={member.full_name}
                     onChange={handleChange}
                   />
                 </div>
@@ -132,9 +153,9 @@ const MemberInformation = () => {
                       label="性別"
                       type="text"
                       color="brown"
-                      id="gender"
-                      name="gender"
-                      value={member.gender}
+                      id="gender_id"
+                      name="gender_id"
+                      value={member.gender_id}
                       onChange={handleChangeGender}
                     >
                       <Option value="1">男</Option>
