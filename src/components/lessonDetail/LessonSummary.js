@@ -1,6 +1,9 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const LessonSummary = () => {
+  const navigate = useNavigate();
+
   return (
     <>
       <div className="bg-primary w-full flex flex-col justify-between lg:m-8 px-8 pb-8 max-h-[38rem] lg:basis-1/3">
@@ -52,7 +55,7 @@ const LessonSummary = () => {
           </div>
           <button
             className="w-full py-2 text-white border hover:bg-secondary"
-            // onClick={() => navigate("/main/checkOut")}
+            onClick={() => navigate("/main/checkOut")}
           >
             Checkout
           </button>

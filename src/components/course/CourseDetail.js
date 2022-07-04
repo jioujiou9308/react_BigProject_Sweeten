@@ -74,33 +74,48 @@ const CourseDetail = (props) => {
 
           {/* 課程的日期 */}
           {/* 課程的日期 */}
-          <div className="flex items-center">
-            <p className="m-4 ml-0 p">課程日期</p>
+          <div>
+            <p className="mt-2 text-sm leading-none text-gray-800 md:mt-0">
+              <span className="font-semibold text-gray-300">時段</span>
+            </p>
+            <select className="w-full py-2 text-sm text-center transition-all duration-150 ease-linear bg-white border-0 rounded shadow placeholder-primary text-blueGray-600 focus:outline-none focus:ring">
+              <option>2022/07/03(日)</option>
+              <option>2022/07/04(一)</option>
+              <option>2022/07/05(二)</option>
+              <option>2022/07/06(三)</option>
+            </select>
           </div>
 
           <p className="mt-5 p">參加人數</p>
-          <div className="justify-between mt-5 lg:flex ">
-            <div className="flex">
-              <AiFillMinusCircle
-                className="icon-lg text-secondary"
-                onClick={() => {
-                  count > 1 && setCount(count - 1);
-                }}
-              />
-              <p className="mx-3">{count}</p>
-              <AiFillPlusCircle
-                className="icon-lg text-secondary"
-                onClick={() => {
-                  setCount(count + 1);
-                }}
-              />
+          <div className="flex flex-col gap-2 sm:flex-row sm:gap-0">
+            <div className="sm:-mr-8">
+              <label htmlFor="adult">大人：</label>
+              <input
+                id="adult"
+                type="number"
+                class="border-0 py-2 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-1/2 ease-linear transition-all duration-150"
+                min="0"
+                placeholder="請輸入人數"
+              />{" "}
+              人,
+            </div>
+            <div>
+              <label htmlFor="kid">小孩：</label>
+              <input
+                id="kid"
+                type="number"
+                class="border-0 py-2 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-1/2 ease-linear transition-all duration-150"
+                min="0"
+                placeholder="請輸入人數"
+              />{" "}
+              人
             </div>
 
             <div className="flex justify-between mt-3 lg:m-0">
               <Button
                 className="ml-3 text-white border-2 rounded-none border-warning bg-warning"
                 variant="filled"
-                onClick={() => navigate("/main/checkOut")}
+                onClick={() => navigate("/main/courseDetail")}
               >
                 <span className="">立即購買</span>
               </Button>

@@ -34,61 +34,11 @@ const LessonItem = (props) => {
                   產品為新鮮製做的蛋糕，如有不能吃的成分請事先告知。三歲前的小朋友請避開巧克力等含咖啡因或含酒精的成分
                 </p>
               </div>
-              {/* <h3 className="text-xl font-semibold leading-6 text-gray-800 xl:text-2xl">
-                {lessonOrder.course}
-              </h3> */}
-              {/* <div className="flex flex-col items-start justify-start">
-                <p className="text-sm leading-none text-gray-800">
-                  <span className="text-base font-semibold text-gray-300">
-                    人數
-                  </span>
+
+              <div className="w-full">
+                <p className="text-base font-black text-right">
+                  價格: {lessonOrder.price}
                 </p>
-                <div className="flex flex-col gap-2 sm:flex-row sm:gap-0">
-                  <div className="sm:-mr-8">
-                    <label htmlFor="adult">大人：</label>
-                    <input
-                      id="adult"
-                      type="number"
-                      class="border w-1/2 rounded"
-                      min="0"
-                    />{" "}
-                    人,
-                  </div>
-                  <div>
-                    <label htmlFor="kid">小孩：</label>
-                    <input
-                      id="kid"
-                      type="number"
-                      class="border w-1/2 rounded"
-                      min="0"
-                    />{" "}
-                    人
-                  </div>
-                </div>
-                <p className="mt-2 text-sm leading-none text-gray-800">
-                  <span className="text-base font-semibold text-gray-300">
-                    時段
-                  </span>
-                </p>
-                <select className="border rounded">
-                  <option>2022/07/03(日)</option>
-                  <option>2022/07/04(一)</option>
-                  <option>2022/07/05(二)</option>
-                  <option>2022/07/06(三)</option>
-                </select>
-              </div> */}
-              <div className="flex items-center justify-between w-full">
-                <div className="flex">
-                  <div className="flex items-center mr-5">
-                    <AiOutlineHeart className="icon" />
-                    收藏
-                  </div>
-                  {/* <div className="flex items-center">
-                    <AiOutlineDelete className="icon" />
-                    刪除
-                  </div> */}
-                </div>
-                <p className="text-base font-black ">{lessonOrder.price}</p>
               </div>
             </div>
           </div>
@@ -130,12 +80,7 @@ const LessonItem = (props) => {
             <p className="mt-2 text-sm leading-none text-gray-800 md:mt-0">
               <span className="font-semibold text-gray-300">時段</span>
             </p>
-            <select className="w-full py-2 text-sm text-center transition-all duration-150 ease-linear bg-white border-0 rounded shadow placeholder-primary text-blueGray-600 focus:outline-none focus:ring">
-              <option>2022/07/03(日)</option>
-              <option>2022/07/04(一)</option>
-              <option>2022/07/05(二)</option>
-              <option>2022/07/06(三)</option>
-            </select>
+            <p>星期一</p>
           </div>
           {/* 按鈕 */}
           <div className="flex items-end justify-center w-full py-5 md:flex-row sm:pl-5 sm:justify-end md:w-auto">

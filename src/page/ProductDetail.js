@@ -204,7 +204,6 @@ function ProductDetail() {
                     </div>
 
                     <div className="flex justify-center ">
-                      {/* TODO:購物車按鈕好像有錯 */}
                       <Button
                         className="border-2 rounded-none border-sub"
                         variant="outlined"
