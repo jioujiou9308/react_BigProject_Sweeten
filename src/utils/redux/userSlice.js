@@ -1,6 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const products = [];
+const products = [
+  {name:'eleekkek'},
+  {name:'eleekkek'},
+
+];
 
 export const userSlice = createSlice({
   name: "user",
