@@ -19,8 +19,7 @@ function MemberOrder() {
     //拿個人所有訂單_product
     let getOrder = async () => {
       let response = await axios.get(API_URL + `/order/user/${currentUser.id}`);
-      setAllOrder(response.data.data)
-      console.log('allorder',response.data.data);
+      
       const orders = [];
       response.data.data.forEach((item) => {
         // 當前商品對應的訂單id
@@ -64,7 +63,7 @@ function MemberOrder() {
                 return (
                   <>
                     <div className="mt-10 shadow-md md:flex">
-                      <OrderItems order={order} i={i} />
+                      <OrderItems order={order}  />
                     </div>
                   </>
                 );
@@ -79,7 +78,7 @@ function MemberOrder() {
             </div>
             <div className="mb-10">
               {order
-                .filter((v,i) => v[i].order_status_id == 1)
+                .filter((v,i) => v[i]?.order_status_id == 1)
                 .map((order, i) => {
                   return (
                     <>
@@ -99,7 +98,7 @@ function MemberOrder() {
             </div>
             <div className="mb-10">
               {order
-                .filter((v,i) => v[i].order_status_id == 2).map((order, i) => {
+                .filter((v,i) => v[i]?.order_status_id == 2).map((order, i) => {
                 return (
                   <>
                     <div className="mt-10 shadow-md md:flex">
@@ -118,7 +117,7 @@ function MemberOrder() {
             </div>
             <div className="mb-10">
               {order
-                .filter((v,i) => v[i].order_status_id == 3).map((order, i) => {
+                .filter((v,i) => v[i]?.order_status_id == 3).map((order, i) => {
                 return (
                   <>
                     <div className="mt-10 shadow-md md:flex">
@@ -137,7 +136,7 @@ function MemberOrder() {
             </div>
             <div className="mb-10">
               {order
-                .filter((v,i) => v[i].order_status_id == 4).map((order, i) => {
+                .filter((v,i) => v[i]?.order_status_id == 4).map((order, i) => {
                 return (
                   <>
                     <div className="mt-10 shadow-md md:flex">

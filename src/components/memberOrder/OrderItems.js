@@ -9,16 +9,25 @@ import { API_URL } from "../../utils/config";
 
 
 
-function OrderItems({ order, i }) {
+function OrderItems({ order}) {
   const navigate = useNavigate();
   const [selectedId, setSelectedId] = useState(false);
   //計算所有商品數量
-  const countTotalNum=(n)=>{
-  for(let i = 0; i <order.length;i++){
+  const countTotalNum=()=>{
     let result = 0;
-    result += order[i].memo;
+  for(let i = 0; i <order.length;i++){
+    result += Number(order[i].memo);
   }
+  return result;
 }
+//計算總計金額
+const countTotalPrice = () => {
+  let result = 0;
+  for (let i = 0; i < order.length; i++) {
+    result += parseInt(order[i].memo) * parseInt(order[i].price);
+  }
+  return result;
+};
 
   return (
     <>
@@ -59,7 +68,7 @@ function OrderItems({ order, i }) {
               </div>
               {/* 商品數量 */}
               <div className="self-end hidden pb-2 text-right md:block">
-                <p>共 件商品</p>
+                <p>共{countTotalNum()}件商品</p>
               </div>
             </div>
           )}
@@ -121,7 +130,7 @@ function OrderItems({ order, i }) {
 
         <div className="flex justify-between mt-2 p">
           <p>金額:</p>
-          <p>{}</p>
+          <p>{ countTotalPrice()}</p>
         </div>
         <div className="flex justify-between p">
           <p>運費:</p>
@@ -133,7 +142,7 @@ function OrderItems({ order, i }) {
         </div>
 
         <h2 className="self-end text-right md:absolute right-5 bottom-5 p">
-          總計: {order.price + 60 - 30}
+          總計: {parseInt(countTotalPrice()) + 60 - 30}
         </h2>
       </div>
     </>

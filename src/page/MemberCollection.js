@@ -40,7 +40,7 @@ const MemberColloction = () => {
   const [memberCollection, setMemberCollection] = useFavoriteState();
   const [comment, setComment] = useState([]);
   const [currentUser] = useUserState();
-  console.log(currentUser);
+  console.log(comment);
 
   //讀取資料
   let getMemberCollection = async () => {
@@ -48,7 +48,7 @@ const MemberColloction = () => {
       API_URL + `/user/favorite_product/${currentUser.id}`
     );
     setMemberCollection(response.data.allResults);
-    console.log('喜歡ㄉ商品',response.data.allResults);
+    console.log("喜歡ㄉ商品", response.data.allResults);
   };
   useEffect(() => {
     getMemberCollection();
@@ -78,14 +78,7 @@ const MemberColloction = () => {
 
           {isOn == 1 &&
             memberCollection.map((v, i) => {
-              const {
-                user_id,
-                product_id,
-                id,
-                name,
-                price,
-               
-              } = v;
+              const { user_id, product_id, id, name, price } = v;
               return (
                 <>
                   {/* 圖片 備註 評分*/}
@@ -113,7 +106,7 @@ const MemberColloction = () => {
                         母親節特賣
                       </button>
                     </div>
-                   
+
                     {/* 評分 */}
                     {/* 不確定這裡這樣寫對不對QQ */}
                     {/* TODO:不對 */}
@@ -123,11 +116,11 @@ const MemberColloction = () => {
                         {comment.length > 0 ? "評價" : "尚未評價"}
                       </p>
                       <h2 className=" h3">
-                        {comment.length > 0 ? comment[i].score : "-"}/5
+                        {comment.length > 0 ? comment[i]?.score : "-"}/5
                       </h2>
 
                       <div className="flex">
-                        {comment.length > 0 ? star(comment[i].score) : star(0)}
+                        {comment.length > 0 ? star(comment[i]?.score) : star(0)}
                       </div>
                     </div>
                     {/* 沒有評分 */}
@@ -161,14 +154,13 @@ const MemberColloction = () => {
                             cartList[productIndex] = newCount;
                             let newData = [cart[0], cartList];
                             setCart(newData);
-                           
                           } else {
                             let newCount = { ...v, count: 1 };
                             let cartList = [...cart[1], newCount];
                             let newData = [cart[0], cartList];
                             setCart(newData);
-                           
-                          } navigate("/main/cart");
+                          }
+                          navigate("/main/cart");
                         }}
                       >
                         立即購買 <AiOutlineShoppingCart className="icon-sm" />

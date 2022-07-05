@@ -44,7 +44,7 @@ function ProductDetail() {
     let getProductDetail = async () => {
       let response = await axios.get(`${API_URL}/product/${id}`);
       setProductDetail(response.data);
-      // console.log(response.data);
+      console.log(response.data);
     };
     getProductDetail();
     //抓所有評論
@@ -204,7 +204,6 @@ function ProductDetail() {
                     </div>
 
                     <div className="flex justify-center ">
-               
                       <Button
                         className="border-2 rounded-none border-sub"
                         variant="outlined"
@@ -231,7 +230,7 @@ function ProductDetail() {
                             let newData = [cart[0], cartList];
                             setCart(newData);
                           }
-                          setClickCount(1)
+                          setClickCount(1);
                         }}
                       >
                         <span className="text-black p">加入購物車</span>
@@ -263,7 +262,7 @@ function ProductDetail() {
                             let cartList = [...cart[1], newCount];
                             let newData = [cart[0], cartList];
                             setCart(newData);
-                            setClickCount(1)
+                            setClickCount(1);
                             navigate("/main/cart");
                           }
                         }}
@@ -325,7 +324,7 @@ function ProductDetail() {
                   <AiFillPlusCircle
                     className="icon-xl text-secondary"
                     onClick={() => {
-                      setClickCount(clickCount +1 );
+                      setClickCount(clickCount + 1);
                     }}
                   />
                 </div>
@@ -370,7 +369,7 @@ function ProductDetail() {
                         let newData = [cart[0], cartList];
                         setCart(newData);
                       }
-                      setClickCount(1)
+                      setClickCount(1);
                     }}
                   >
                     <span className="text-black p">加入購物車</span>
@@ -402,7 +401,7 @@ function ProductDetail() {
                         let newData = [cart[0], cartList];
                         setCart(newData);
                       }
-                      setClickCount(1)
+                      setClickCount(1);
                       navigate("/main/cart");
                     }}
                   >
