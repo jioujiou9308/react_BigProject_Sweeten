@@ -7,7 +7,7 @@ import OrderDetail from "./OrderDetail";
 import axios from "axios";
 import { API_URL } from "../../utils/config";
 
-function OrderItems({ order, allOrder }) {
+function OrderItems({ order, i }) {
   const navigate = useNavigate();
   const [selectedId, setSelectedId] = useState(false);
 
@@ -17,7 +17,7 @@ function OrderItems({ order, allOrder }) {
       <div className="px-2 py-5 g-white m md:px-10 md:w-2/3 ">
         <div>
           <div>
-            <h4 className="pb-5 h4">訂單編號 # {}</h4>
+            <h4 className="pb-5 h4">訂單編號 # {order[0].order_info_id}</h4>
           </div>
 
           {/* 左欄最外框 */}

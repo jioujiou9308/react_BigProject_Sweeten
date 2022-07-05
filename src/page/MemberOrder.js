@@ -42,25 +42,25 @@ function MemberOrder() {
   
   }, []);
 
-  //待付款ARR
-  const notPaidArr = order.filter((v) => {
-    return v.order_status_id == 1;
-  });
+  // //待付款ARR
+  // const notPaidArr = order.filter((v) => {
+  //   return v.order_status_id == 1;
+  // });
 
-  //待出貨ARR
-  const notDeliveredArr = order.filter((v) => {
-    return v.order_status_id == 2;
-  });
+  // //待出貨ARR
+  // const notDeliveredArr = order.filter((v) => {
+  //   return v.order_status_id == 2;
+  // });
 
-  //待收貨ARR
-  const notReceivedArr = order.filter((v) => {
-    return v.order_status_id == 3;
-  });
+  // //待收貨ARR
+  // const notReceivedArr = order.filter((v) => {
+  //   return v.order_status_id == 3;
+  // });
 
-  //完成ARR
-  const completedArr = order.filter((v) => {
-    return v.order_status_id == 4;
-  });
+  // //完成ARR
+  // const completedArr = order.filter((v) => {
+  //   return v.order_status_id == 4;
+  // });
 
   return (
     <>
@@ -82,7 +82,7 @@ function MemberOrder() {
                 return (
                   <>
                     <div className="mt-10 shadow-md md:flex">
-                      <OrderItems order={order} allOrder={allOrder}/>
+                      <OrderItems order={order} i={i} />
                     </div>
                   </>
                 );
