@@ -28,7 +28,8 @@ const Product = () => {
         setProducts(data.data);
       })
       .catch((e) => console.log(e));
-    //抓所有最愛ㄉ商品(沒有分頁)
+
+    // 抓所有最愛ㄉ商品(沒有分頁)
     axios
       .get(API_URL + `/user/favorite_product/all_data/${currentUser.id}`)
       .then(({ data }) => {

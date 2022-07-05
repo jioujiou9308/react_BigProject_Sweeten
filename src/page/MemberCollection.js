@@ -113,23 +113,7 @@ const MemberColloction = () => {
                         母親節特賣
                       </button>
                     </div>
-                    {/* 被唾棄ㄉ兩欄UI */}
-                    {/* <div className="">
-                    <div className="flex mb-10 md:h4">
-                      <p className="mr-1">商品</p>
-                      <p className="mr-4">{name}</p>
-                      <p  className="mr-1">價格</p>
-                      <p>{price}</p>
-                    </div>
-                      <div className="flex">
-                      <p className="md:hidden ">活動</p>
-                      <p className="hidden mr-3 md:block h4">目前活動</p>
-                      <button className="px-1 text-white md:p bg-warning">
-                        母親節特賣
-                      </button>
-                      </div>
-                    </div> */}
-
+                   
                     {/* 評分 */}
                     {/* 不確定這裡這樣寫對不對QQ */}
                     {/* TODO:不對 */}
@@ -161,17 +145,30 @@ const MemberColloction = () => {
                         size="sm"
                         className="flex items-center mb-3 rounded-sm md:p bg-warning"
                         onClick={() => {
-                          let newCart = [...cart[1]]
-                          // console.log('新購物車',newCart)
-                          // console.log('購物車',cart[1])
-                        
-                          newCart.push(v)
-                          // console.log('新購物車',newCart)
-                          let newData=[cart[0],newCart]
-                          setCart(newData)
-                          
-                          
-                          navigate("/main/cart");
+                          let productIndex = cart[1].findIndex(function (
+                            data,
+                            index
+                          ) {
+                            return data.name === name;
+                          });
+                          // console.log('productInx',productIndex);
+                          if (productIndex > -1) {
+                            let newCount = {
+                              ...v,
+                              count: cart[1][productIndex].count + 1,
+                            };
+                            let cartList = [...cart[1]];
+                            cartList[productIndex] = newCount;
+                            let newData = [cart[0], cartList];
+                            setCart(newData);
+                           
+                          } else {
+                            let newCount = { ...v, count: 1 };
+                            let cartList = [...cart[1], newCount];
+                            let newData = [cart[0], cartList];
+                            setCart(newData);
+                           
+                          } navigate("/main/cart");
                         }}
                       >
                         立即購買 <AiOutlineShoppingCart className="icon-sm" />
