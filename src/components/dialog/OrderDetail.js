@@ -8,7 +8,7 @@ function OrderDetail({ order }) {
         return (
           <>
             <div
-              className="flex justify-between p-2 border border-line"
+              className="flex justify-between w-full p-2 mb-2 border border-line"
               // data-aos="fade-down"
               // data-aos-easing="ease-in-out"
               // data-aos-duration="500"

@@ -46,7 +46,7 @@ const MemberColloction = () => {
   //讀取資料
   let getMemberCollection = async () => {
     let response = await axios.get(
-      API_URL + `/user/favorite_product/${currentUser.id}`
+      API_URL + `/favorite_product/all_data/${currentUser.id}`
     );
     setMemberCollection(response.data.allResults);
     console.log("喜歡ㄉ商品", response.data.allResults);
@@ -118,9 +118,9 @@ const MemberColloction = () => {
                       (comment) => comment.id === product_id)> -1 ? (
                       <div className="hidden text-center md:block mx-18 ">
                         <p className="mb-1 mr-2 note">評價</p>
-                        <h2 className=" h3">{comment.score}/5</h2>
+                        <h2 className=" h3">{comment.find((comment)=>comment.id === product_id).score}/5</h2>
 
-                        <div className="flex">{star(comment.score)}</div>
+                        <div className="flex">{star(comment.find((comment)=>comment.id === product_id).score)}</div>
                       </div>
                     ) : (
                       <div className="hidden text-center md:block mx-18 ">

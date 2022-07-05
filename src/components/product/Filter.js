@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { AiFillFilter } from "react-icons/ai";
 import { useState } from "react";
 import axios from "axios";
 import { API_URL } from "../../utils/config";
 import { clearConfigCache } from "prettier";
+import moment from "moment";
 import { useProductState } from "../../utils/redux/hooks-redux";
 
 function Filter() {
@@ -20,6 +21,12 @@ function Filter() {
   const categoryHandler = () => {
     setOpen(!open);
   };
+
+  useEffect(()=>{
+    
+  },[])
+
+  // console.log(moment().format("YYYY-MM-DD HH:MM:SS"));
   //價格filter
   const PriceChangeHandler = async (e) => {
     const res = await axios.get(API_URL + "/product/all");
@@ -79,26 +86,22 @@ function Filter() {
   const timeOrderChangeHandler = async (e) => {
     const res = await axios.get(API_URL + "/product/all");
     const newList = res.data.data;
-
+    console.log(newList);
     switch (e.target.value) {
       case "0":
         const newProduct0 = [...newList].sort((a, b) => {
-          const timeA = new Date(a.create_at).getTime().toString();
-          const timeB = new Date(b.create_at).getTime().toString();
-          return timeB - timeA;
+          return a.id - b.id;
         });
         setProduct(newProduct0);
         break;
 
-      case "1":
-        const newProduct1 = [...newList].sort((a, b) => {
-          const timeA = new Date(a.create_at).getTime().toString();
-          const timeB = new Date(b.create_at).getTime().toString();
-          console.log(new Date(a.create_at));
-          return timeA - timeB;
-        });
-        setProduct(newProduct1);
-        break;
+        case "1":
+          const newProduct1 = [...newList].sort((a, b) => {
+            return b.id - a.id;
+          });
+          setProduct(newProduct1);
+          break;
+      
       default:
         return;
     }

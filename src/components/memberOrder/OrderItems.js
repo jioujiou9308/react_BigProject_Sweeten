@@ -3,31 +3,32 @@ import { Button } from "@material-tailwind/react";
 import { useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
-import OrderDetail from "./OrderDetail";
+// import OrderDetail from "./OrderDetail";
 import axios from "axios";
 import { API_URL } from "../../utils/config";
+import { useDispatch } from "react-redux";
+import { openOrderDetail } from "../../utils/redux/modalSlice";
 
-
-
-function OrderItems({ order}) {
+function OrderItems({ order }) {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [selectedId, setSelectedId] = useState(false);
   //計算所有商品數量
-  const countTotalNum=()=>{
+  const countTotalNum = () => {
     let result = 0;
-  for(let i = 0; i <order.length;i++){
-    result += Number(order[i].memo);
-  }
-  return result;
-}
-//計算總計金額
-const countTotalPrice = () => {
-  let result = 0;
-  for (let i = 0; i < order.length; i++) {
-    result += parseInt(order[i].memo) * parseInt(order[i].price);
-  }
-  return result;
-};
+    for (let i = 0; i < order.length; i++) {
+      result += Number(order[i].memo);
+    }
+    return result;
+  };
+  //計算總計金額
+  const countTotalPrice = () => {
+    let result = 0;
+    for (let i = 0; i < order.length; i++) {
+      result += parseInt(order[i].memo) * parseInt(order[i].price);
+    }
+    return result;
+  };
 
   return (
     <>
@@ -78,19 +79,20 @@ const countTotalPrice = () => {
           <AnimatePresence>
             {selectedId == true && (
               <motion.div className="overflow-hidden">
-                <motion.h2>
-                  <OrderDetail order={order} />
-                </motion.h2>
+                <motion.h2>{/* <OrderDetail order={order} /> */}</motion.h2>
               </motion.div>
             )}
           </AnimatePresence>
 
           <div className="pt-4 text-center md:text-right">
             {selectedId == false && (
-              <motion.button onClick={() => setSelectedId(true)}>
+              <motion.button>
                 <Button
                   size="sm"
                   className="mr-3 text-white rounded-sm bg-warning"
+                  onClick={() => {
+                    dispatch(openOrderDetail(order));
+                  }}
                 >
                   訂單詳情
                 </Button>
@@ -98,7 +100,7 @@ const countTotalPrice = () => {
             )}
 
             {/* 消除detailㄉ按鈕 */}
-            {selectedId == true && (
+            {/* {selectedId == true && (
               <motion.button onClick={() => setSelectedId(false)}>
                 <Button
                   size="sm"
@@ -107,7 +109,7 @@ const countTotalPrice = () => {
                   收起訂單詳細
                 </Button>
               </motion.button>
-            )}
+            )} */}
 
             <Button
               onClick={() => {
@@ -130,7 +132,7 @@ const countTotalPrice = () => {
 
         <div className="flex justify-between mt-2 p">
           <p>金額:</p>
-          <p>{ countTotalPrice()}</p>
+          <p>{countTotalPrice()}</p>
         </div>
         <div className="flex justify-between p">
           <p>運費:</p>

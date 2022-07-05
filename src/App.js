@@ -19,6 +19,7 @@ import { useUserState } from "./utils/redux/hooks-redux";
 import { API_URL } from "./utils/config";
 import { updateUser } from "./utils/redux/userSlice";
 import "./styles.css";
+import OrderDetailModal from "./components/dialog/OrderDetailModal";
 
 // TODO 註冊 關於 上下架 訂單 課程 即期品
 
@@ -69,6 +70,7 @@ function App() {
       />
       <LoginModal />
       <SignupModal />
+      <OrderDetailModal/>
     </div>
   );
 }
