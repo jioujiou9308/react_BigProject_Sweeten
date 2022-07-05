@@ -41,13 +41,7 @@ function UserCommentCard() {
       console.log("comment", response.data.allResults);
     };
     getComment();
-
-    let getProduct = async () => {
-      let response = await axios.get(API_URL + "/product/all");
-      setProduct(response.data.data);
-      console.log(response.data.data);
-    };
-    getProduct();
+    
   }, []);
 
   return (
@@ -92,7 +86,10 @@ function UserCommentCard() {
                   <Button
                     size="sm"
                     className="rounded-sm bg-warning"
-                    onClick={() =>{}}
+                    onClick={() =>{
+                      
+                      
+                    }}
                   >
                     查看評論
                   </Button>

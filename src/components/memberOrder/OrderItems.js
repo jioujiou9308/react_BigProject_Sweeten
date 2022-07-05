@@ -7,62 +7,69 @@ import OrderDetail from "./OrderDetail";
 import axios from "axios";
 import { API_URL } from "../../utils/config";
 
-function OrderItems(props) {
+function OrderItems({ order, allOrder }) {
   const navigate = useNavigate();
-  const { id, name,  price } = props;
   const [selectedId, setSelectedId] = useState(false);
-  const [orderProduct, setOrderProduct]=useState([])
+  // const [orderProduct, setOrderProduct] = useState([]);
+  // console.log(orderProduct);
 
-  useEffect(()=>{
-    let getOrderProduct=async()=>{
-      let response=await axios.get(API_URL+`/order/${id}`)
-      setOrderProduct(response.data)
-      // console.log('orderProduct', response.data)
-    }
-    getOrderProduct()
-  },[])
+  //所有商品
+  // useEffect(() => {
+  //   let getOrderProduct = async () => {
+  //     let response = await axios.get(API_URL + "/product/all");
+  //     setOrderProduct(response.data.data);
+  //     // console.log('allproducts',response.data.data)
+  //   };
+  //   getOrderProduct();
+  // }, []);
+
+
   return (
     <>
       {/* 左欄 */}
       <div className="px-2 py-5 g-white m md:px-10 md:w-2/3 ">
         <div>
           <div>
-            <h4 className="pb-5 h4">
-              訂單編號 # {id}
-            </h4>
+            <h4 className="pb-5 h4">訂單編號 # {}</h4>
           </div>
 
           {/* 左欄最外框 */}
-          <div className="flex justify-between p-2 md:border border-line">
-            <div className="">
-              {/* 商品價格數量 */}
-              <div className="flex items-center justify-start">
-                <div className="mr-2 overflow-hidden">
-                  <img
-                    className="scale-105 "
-                    src="/images/memberCollectionAndOrder/member_order1.png"
-                    alt=""
-                  />
-                </div>
+          {order.map((v, i) => {
+            return (
+              <>
+                <div className="flex justify-between p-2 md:border border-line">
+                  <div className="">
+                    {/* 商品價格數量 */}
+                    <div className="flex items-center justify-start">
+                      <div className="mr-2 overflow-hidden">
+                        <img
+                          className="scale-105 "
+                          src="/images/memberCollectionAndOrder/member_order1.png"
+                          alt=""
+                        />
+                      </div>
 
-                <div className="mx-3">
-                  <p>商品</p>
-                  <p className="my-2">數量</p>
-                  <p>價格</p>
-                </div>
+                      <div className="mx-3">
+                        <p>商品</p>
+                        <p className="my-2">數量</p>
+                        <p>價格</p>
+                      </div>
 
-                <div>
-                  <p>{name}</p>
-                  <p className="my-2">* </p>
-                  <p>{price}</p>
+                      <div>
+                        <p>{v.name}</p>
+                        <p className="my-2">* </p>
+                        <p>{v.price}</p>
+                      </div>
+                    </div>
+                  </div>
+                  {/* 商品數量 */}
+                  <div className="self-end hidden pb-2 text-right md:block">
+                    <p>共 件商品</p>
+                  </div>
                 </div>
-              </div>
-            </div>
-            {/* 下單時間 */}
-            <div className="self-end hidden pb-2 text-right md:block">
-              <p>共 件商品</p>
-            </div>
-          </div>
+              </>
+            );
+          })}
 
           {/* 訂單詳細 */}
 
@@ -121,7 +128,7 @@ function OrderItems(props) {
 
         <div className="flex justify-between mt-2 p">
           <p>金額:</p>
-          <p>{ price}</p>
+          <p>{order.price}</p>
         </div>
         <div className="flex justify-between p">
           <p>運費:</p>
@@ -133,7 +140,7 @@ function OrderItems(props) {
         </div>
 
         <h2 className="self-end text-right md:absolute right-5 bottom-5 p">
-          總計: {price+60-30}
+          總計: {order.price + 60 - 30}
         </h2>
       </div>
     </>
