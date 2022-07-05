@@ -8,25 +8,29 @@ import moment from "moment";
 import { useProductState } from "../../utils/redux/hooks-redux";
 
 function Filter() {
+  const [allCategory, setAllCategory]=useState([])
   const [product, setProduct] = useProductState();
   const [open, setOpen] = useState(false);
   //價格範圍選項
   const priceOption = ["600以下", "600~1200", "1200以上"];
-  //口味選項
-  const flavorOption = ["巧克力", "草莓", "芋頭"];
+  //口味選項 NOTE篩出來是空陣列
+  const flavorOption = allCategory?.filter((item)=>item.id[0]==2)
+  console.log('flavorOption',flavorOption)
   //種類選項
   const categoryOption = ["蛋糕", "餅乾", "點心", "冰品"];
   // console.log(product);
+  
+  useEffect(()=>{
+    axios.get(API_URL+'/product/category').then(({data})=>{
+      setAllCategory(data)
+      console.log('categoryfilter',data)
+    })  
+  },[])
   //手機板篩選ㄉ彈跳視窗
-  const categoryHandler = () => {
+  const filterHandler = () => {
     setOpen(!open);
   };
 
-  useEffect(()=>{
-    
-  },[])
-
-  // console.log(moment().format("YYYY-MM-DD HH:MM:SS"));
   //價格filter
   const PriceChangeHandler = async (e) => {
     const res = await axios.get(API_URL + "/product/all");
@@ -82,7 +86,7 @@ function Filter() {
         return;
     }
   };
-  //上架時間排序 TODO:印出來是undefined
+  //上架時間排序 
   const timeOrderChangeHandler = async (e) => {
     const res = await axios.get(API_URL + "/product/all");
     const newList = res.data.data;
@@ -169,7 +173,7 @@ function Filter() {
       <div className="w-full px-5 md:hidden">
         <div
           className="flex items-center justify-center border-b border-line"
-          onClick={categoryHandler}
+          onClick={filterHandler}
         >
           <p className="mr-1 text-center text-dark h3">篩選 </p>
           <AiFillFilter className="icon-sm" />

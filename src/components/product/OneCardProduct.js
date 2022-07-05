@@ -64,7 +64,9 @@ const OnceCarkProduct = ({ product }) => {
             </h4>
             <div className="mr-2 text-blue-500 p">${product.price}</div>
             <div className="flex items-center ">
-              <AiOutlineMessage className="icon-sm" />
+              <AiOutlineMessage className="icon-sm"  onClick={() => {
+              navigate(`/main/product/${product.id}`);
+            }}/>
 
               {favProduct.findIndex((item) => item.product_id === product.id) >
               -1 ? (

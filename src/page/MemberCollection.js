@@ -112,7 +112,6 @@ const MemberColloction = () => {
 
                     {/* 評分 */}
                     {/* 不確定這裡這樣寫對不對QQ */}
-                    {/* TODO:不對 */}
                     {/* 有評分score變數 */}
                     {comment?.findIndex(
                       (comment) => comment.id === product_id)> -1 ? (
@@ -180,6 +179,7 @@ const MemberColloction = () => {
                               `${API_URL}/user/favorite_product/${user_id}?product_id=${product_id}`
                             );
                             // console.log(response);
+                            //NOTE API發送失敗
                             getMemberCollection();
                           }}
                         >

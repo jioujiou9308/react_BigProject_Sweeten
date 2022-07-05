@@ -29,6 +29,7 @@ function OrderItems({ order }) {
     }
     return result;
   };
+  // console.log('order',order)
 
   return (
     <>
@@ -116,10 +117,22 @@ function OrderItems({ order }) {
                 navigate("/main/customerService");
               }}
               size="sm"
-              className="text-white rounded-sm bg-warning"
+              className="mr-3 text-white rounded-sm bg-warning"
             >
               聯絡客服
             </Button>
+            {/* NOTE 要記得座新增評論ㄉ功能 */}
+            {order[0].order_status_id === 4 ? (
+              <Button
+                onClick={() => {}}
+                size="sm"
+                className="text-white rounded-sm bg-warning"
+              >
+                新增評論
+              </Button>
+            ) : (
+              <></>
+            )}
           </div>
         </div>
       </div>

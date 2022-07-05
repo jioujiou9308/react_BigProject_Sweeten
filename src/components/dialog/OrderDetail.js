@@ -37,7 +37,7 @@ function OrderDetail({ order }) {
                   </div>
                 </div>
               </div>
-              {/* TODO:還要抓數量 */}
+              {/* 抓數量 */}
               <h3 className="self-end h3">
                 小計: {parseInt(v.price) * parseInt(v.memo)}
               </h3>
