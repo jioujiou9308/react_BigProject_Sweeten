@@ -25,7 +25,7 @@ const CardCourse = (props) => {
   const { id, name, img, description, price, duration, index } = props;
   return (
     <>
-      <section className="w-full my-5 px-3 bg-white lg:max-h-[240px] lg:flex   overflow-hidden  ">
+      <section className="w-full my-5 px-3 bg-white lg:max-h-[240px] lg:flex   overflow-hidden">
         <div className=" lg:w-1/2">
           <img
             // 這裡的圖片先將高度拉滿版，在使用object-cover變正常長寬
@@ -41,7 +41,9 @@ const CardCourse = (props) => {
           <div className="w-full text-center">
             <div className="flex justify-center p">
               製作難度:
-              <div className="flex items-center ">{starLevel(level[index])}</div>
+              <div className="flex items-center ">
+                {starLevel(level[index])}
+              </div>
             </div>
             <div className="p">製作時間:{duration} min</div>
           </div>

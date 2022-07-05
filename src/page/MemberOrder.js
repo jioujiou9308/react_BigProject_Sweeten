@@ -5,20 +5,34 @@ import MemberOrderBar from "../components/memberOrder/MemberOrderBar";
 import axios from "axios";
 import { API_URL } from "../utils/config";
 import { useUserState } from "../utils/redux/hooks-redux";
+import { useParams } from "react-router-dom";
 
 function MemberOrder() {
   const step = ["全部", "待付款", "待出貨", "待收貨", "完成"];
   const [barStep, setBarStep] = useState(0);
   const [order, setOrder] = useState([]);
+  const [orderProduct, setOrderProduct]=useState([])
   const [currentUser]=useUserState()
+  const {id}=useParams()
+  
 
   useEffect(() => {
+    //get orderInfo
     let getOrder = async () => {
       let response = await axios.get(API_URL + `/order/user/${currentUser.id}`);
       setOrder(response.data.data);
-      console.log(response.data.data);
+      // console.log(response.data.data);
     };
     getOrder();
+
+    //get orderProduct
+    let getOrderProduct = async ()=>{
+      let response = await axios.get(API_URL+`/order/${id}`)
+      setOrderProduct(response.data)
+      console.log('訂單商品',response.data)
+    }
+    getOrderProduct()
+    
   }, []);
 
   //待付款ARR
