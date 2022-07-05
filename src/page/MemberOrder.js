@@ -97,7 +97,7 @@ function MemberOrder() {
             </div>
             <div className="mb-10">
               {order
-                .filter((v,i) => v[0].order_status_id == 1)
+                .filter((v,i) => v[i].order_status_id == 1)
                 .map((order, i) => {
                   return (
                     <>
@@ -117,7 +117,7 @@ function MemberOrder() {
             </div>
             <div className="mb-10">
               {order
-                .filter((v,i) => v[0].order_status_id == 2).map((order, i) => {
+                .filter((v,i) => v[i].order_status_id == 2).map((order, i) => {
                 return (
                   <>
                     <div className="mt-10 shadow-md md:flex">
@@ -136,7 +136,7 @@ function MemberOrder() {
             </div>
             <div className="mb-10">
               {order
-                .filter((v,i) => v[0].order_status_id == 3).map((order, i) => {
+                .filter((v,i) => v[i].order_status_id == 3).map((order, i) => {
                 return (
                   <>
                     <div className="mt-10 shadow-md md:flex">
@@ -155,7 +155,7 @@ function MemberOrder() {
             </div>
             <div className="mb-10">
               {order
-                .filter((v,i) => v[0].order_status_id == 4).map((order, i) => {
+                .filter((v,i) => v[i].order_status_id == 4).map((order, i) => {
                 return (
                   <>
                     <div className="mt-10 shadow-md md:flex">

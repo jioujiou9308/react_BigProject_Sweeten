@@ -10,19 +10,6 @@ import { API_URL } from "../../utils/config";
 function OrderItems({ order, allOrder }) {
   const navigate = useNavigate();
   const [selectedId, setSelectedId] = useState(false);
-  // const [orderProduct, setOrderProduct] = useState([]);
-  // console.log(orderProduct);
-
-  //所有商品
-  // useEffect(() => {
-  //   let getOrderProduct = async () => {
-  //     let response = await axios.get(API_URL + "/product/all");
-  //     setOrderProduct(response.data.data);
-  //     // console.log('allproducts',response.data.data)
-  //   };
-  //   getOrderProduct();
-  // }, []);
-
 
   return (
     <>
@@ -34,42 +21,39 @@ function OrderItems({ order, allOrder }) {
           </div>
 
           {/* 左欄最外框 */}
-          {order.map((v, i) => {
-            return (
-              <>
-                <div className="flex justify-between p-2 md:border border-line">
-                  <div className="">
-                    {/* 商品價格數量 */}
-                    <div className="flex items-center justify-start">
-                      <div className="mr-2 overflow-hidden">
-                        <img
-                          className="scale-105 "
-                          src="/images/memberCollectionAndOrder/member_order1.png"
-                          alt=""
-                        />
-                      </div>
-
-                      <div className="mx-3">
-                        <p>商品</p>
-                        <p className="my-2">數量</p>
-                        <p>價格</p>
-                      </div>
-
-                      <div>
-                        <p>{v.name}</p>
-                        <p className="my-2">* </p>
-                        <p>{v.price}</p>
-                      </div>
-                    </div>
+          {/* 如果按下訂單詳情第一項商品就消失 */}
+          {selectedId == false && (
+            <div className="flex justify-between p-2 md:border border-line">
+              <div className="">
+                {/* 商品價格數量 */}
+                <div className="flex items-center justify-start">
+                  <div className="mr-2 overflow-hidden">
+                    <img
+                      className="scale-105 "
+                      src="/images/memberCollectionAndOrder/member_order1.png"
+                      alt=""
+                    />
                   </div>
-                  {/* 商品數量 */}
-                  <div className="self-end hidden pb-2 text-right md:block">
-                    <p>共 件商品</p>
+
+                  <div className="mx-3">
+                    <p>商品</p>
+                    <p className="my-2">數量</p>
+                    <p>價格</p>
+                  </div>
+
+                  <div>
+                    <p>{order[0].name}</p>
+                    <p className="my-2">* </p>
+                    <p>{order[0].price}</p>
                   </div>
                 </div>
-              </>
-            );
-          })}
+              </div>
+              {/* 商品數量 */}
+              <div className="self-end hidden pb-2 text-right md:block">
+                <p>共 件商品</p>
+              </div>
+            </div>
+          )}
 
           {/* 訂單詳細 */}
 
@@ -77,7 +61,7 @@ function OrderItems({ order, allOrder }) {
             {selectedId == true && (
               <motion.div className="overflow-hidden">
                 <motion.h2>
-                  <OrderDetail />
+                  <OrderDetail order={order} />
                 </motion.h2>
               </motion.div>
             )}
@@ -128,7 +112,7 @@ function OrderItems({ order, allOrder }) {
 
         <div className="flex justify-between mt-2 p">
           <p>金額:</p>
-          <p>{order.price}</p>
+          <p>{}</p>
         </div>
         <div className="flex justify-between p">
           <p>運費:</p>
