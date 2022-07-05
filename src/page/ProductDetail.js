@@ -204,11 +204,6 @@ function ProductDetail() {
                     </div>
 
                     <div className="flex justify-center ">
-<<<<<<< HEAD
-                      {/* TODO:購物車按鈕好像有錯 */}
-=======
-               
->>>>>>> ec472e2cd0f3f09ef779ee9f3b7a64095d542f44
                       <Button
                         className="border-2 rounded-none border-sub"
                         variant="outlined"
@@ -235,7 +230,7 @@ function ProductDetail() {
                             let newData = [cart[0], cartList];
                             setCart(newData);
                           }
-                          setClickCount(1)
+                          setClickCount(1);
                         }}
                       >
                         <span className="text-black p">加入購物車</span>
@@ -267,7 +262,7 @@ function ProductDetail() {
                             let cartList = [...cart[1], newCount];
                             let newData = [cart[0], cartList];
                             setCart(newData);
-                            setClickCount(1)
+                            setClickCount(1);
                             navigate("/main/cart");
                           }
                         }}
@@ -329,7 +324,7 @@ function ProductDetail() {
                   <AiFillPlusCircle
                     className="icon-xl text-secondary"
                     onClick={() => {
-                      setClickCount(clickCount +1 );
+                      setClickCount(clickCount + 1);
                     }}
                   />
                 </div>
@@ -374,7 +369,7 @@ function ProductDetail() {
                         let newData = [cart[0], cartList];
                         setCart(newData);
                       }
-                      setClickCount(1)
+                      setClickCount(1);
                     }}
                   >
                     <span className="text-black p">加入購物車</span>
@@ -406,7 +401,7 @@ function ProductDetail() {
                         let newData = [cart[0], cartList];
                         setCart(newData);
                       }
-                      setClickCount(1)
+                      setClickCount(1);
                       navigate("/main/cart");
                     }}
                   >

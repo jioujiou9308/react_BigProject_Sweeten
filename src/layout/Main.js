@@ -26,7 +26,7 @@ const Main = () => {
       <div className="relative w-full p-8 bg-white shadow max-w-screen-2xl ">
         <Routes>
           <Route path="/product" element={<Product />} />
-          <Route path="/product/:id" element={<ProductDetail />} />
+          <Route path="/product/c" element={<ProductDetail />} />
           <Route path="/test" element={<Test />} />
           <Route path="/member" element={<Member />} />
           <Route path="/member/order" element={<MemberOrder />} />
@@ -35,7 +35,7 @@ const Main = () => {
           {/* <Route path="/course" element={<Course />} /> */}
           <Route path="/member/information2" element={<MemberInformation2 />} />
           <Route path="/course" element={<Course />} />
-          <Route path="/course/detail" element={<CourseDetail />} />
+          <Route path="/courseDetail" element={<CourseDetail />} />
           <Route path="/about" element={<About />} />
           <Route path="/ErrorPage" element={<ErrorPage />} />
           <Route path="/cart" element={<Cart />} />
