@@ -64,11 +64,11 @@ function UserCommentCard() {
                       <span className="mr-2 h3"> {score}/5</span>
                       {star(score)}
                     </div>
-                    {score == "-" ? (
+                    {/* {score == "-" ? (
                       <span>尚未評論</span>
                     ) : (
                       <span className="text-white">尚未評論</span>
-                    )}
+                    )} */}
                   </Typography>
                 </CardBody>
                 <CardFooter
@@ -87,7 +87,6 @@ function UserCommentCard() {
                     size="sm"
                     className="rounded-sm bg-warning"
                     onClick={() =>{
-                      
                       
                     }}
                   >

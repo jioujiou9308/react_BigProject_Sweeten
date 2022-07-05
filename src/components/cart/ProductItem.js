@@ -2,14 +2,17 @@ import {
   AiOutlinePlus,
   AiOutlineMinus,
   AiOutlineHeart,
+  AiFillHeart,
   AiOutlineDelete,
 } from "react-icons/ai";
-import { useCartState } from "../../utils/redux/hooks-redux";
+import { useCartState, useFavoriteState } from "../../utils/redux/hooks-redux";
 
 function ProductItem(props) {
-  const { name, size, flavor, count, image, price } = props;
+  const { product } = props;
+  const { name, size, flavor, count, image, price } = product;
   const [cart, setCart] = useCartState();
-
+  const [favorite, setFavorite] = useFavoriteState();
+  console.log(favorite)
   return (
     <>
       {/* each item div */}
@@ -62,8 +65,27 @@ function ProductItem(props) {
           <p className="py-4 text-sm leading-3 ">Flavor: {flavor}</p>
           <div className="flex items-center justify-between pt-4">
             <div className="flex">
-              <div className="flex items-center mr-5">
-                <AiOutlineHeart className="icon" />
+              <div
+                className="flex items-center mr-5"
+                onClick={() => {
+                  const target = favorite.findIndex(
+                    (item) => item.id === product.id
+                  );
+                  if (target > -1) {
+                    const newFavorite = favorite.filter(
+                      (item) => item.id !== product.id
+                    );
+                    setFavorite(newFavorite);
+                  } else {
+                    setFavorite([...favorite, product]);
+                  }
+                }}
+              >
+                {favorite.findIndex((item) => item.id === product.id) > -1 ? (
+                  <AiFillHeart className="icon" />
+                ) : (
+                  <AiOutlineHeart className="icon" />
+                )}
                 收藏
               </div>
               <div

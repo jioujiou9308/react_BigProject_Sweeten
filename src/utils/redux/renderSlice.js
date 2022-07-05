@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 export const renderSlice = createSlice({
   name: "render",
   initialState: {
-    courseList: [],
+    courseList: {},
     productList: [],
   },
   reducers: {

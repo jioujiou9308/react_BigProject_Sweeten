@@ -7,9 +7,18 @@ import OrderDetail from "./OrderDetail";
 import axios from "axios";
 import { API_URL } from "../../utils/config";
 
+
+
 function OrderItems({ order, i }) {
   const navigate = useNavigate();
   const [selectedId, setSelectedId] = useState(false);
+  //計算所有商品數量
+  const countTotalNum=(n)=>{
+  for(let i = 0; i <order.length;i++){
+    let result = 0;
+    result += order[i].memo;
+  }
+}
 
   return (
     <>
@@ -43,7 +52,7 @@ function OrderItems({ order, i }) {
 
                   <div>
                     <p>{order[0].name}</p>
-                    <p className="my-2">* </p>
+                    <p className="my-2">*{order[0].memo} </p>
                     <p>{order[0].price}</p>
                   </div>
                 </div>

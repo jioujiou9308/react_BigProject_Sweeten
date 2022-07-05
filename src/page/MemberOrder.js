@@ -42,25 +42,7 @@ function MemberOrder() {
   
   }, []);
 
-  // //待付款ARR
-  // const notPaidArr = order.filter((v) => {
-  //   return v.order_status_id == 1;
-  // });
-
-  // //待出貨ARR
-  // const notDeliveredArr = order.filter((v) => {
-  //   return v.order_status_id == 2;
-  // });
-
-  // //待收貨ARR
-  // const notReceivedArr = order.filter((v) => {
-  //   return v.order_status_id == 3;
-  // });
-
-  // //完成ARR
-  // const completedArr = order.filter((v) => {
-  //   return v.order_status_id == 4;
-  // });
+  
 
   return (
     <>

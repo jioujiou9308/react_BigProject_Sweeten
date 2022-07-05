@@ -8,8 +8,9 @@ import {
 import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
+import 'swiper/css/effect-fade';
 import "../components/home/styles.css";
-import { Autoplay } from "swiper";
+import { Autoplay, EffectFade } from "swiper";
 import useLoading from "../utils/hooks/useLoading";
 import load from "./loading_logo.gif";
 
@@ -53,20 +54,20 @@ const Home = (props) => {
   return (
     <WhileLoad
       onLoad={
-        <div className="relative h-screen opacity-50 ">
-          <div className="fixed flex items-center w-full h-full">
+        <div className="relative h-screen">
+          <div className="fixed flex items-center justify-center w-full h-full">
             <img
               src={load}
               className=" animate__animated animate__lightSpeedInRight"
               alt=""
             />
           </div>
-          <div className="w-full h-full bg-sub"></div>
+          <div className="w-full h-full bg-gradient-to-r from-transparent to-primary"></div>
         </div>
       }
       done={
         <>
-          <section className="py-32 bg-gradient-to-r from-secondary to-transparent">
+          <section className="py-32 bg-gradient-to-br from-secondary to-transparent">
             {/* ---------------------------------- {輪播} ---------------------------------- */}
             <div className="h-[75vh] flex items-center">
               <Swiper
@@ -75,8 +76,9 @@ const Home = (props) => {
                   delay: 3000,
                   disableOnInteraction: false,
                 }}
-                modules={[Autoplay]}
+                modules={[Autoplay, EffectFade]}
                 className="mySwiper"
+                effect="fade"
               >
                 <SwiperSlide>
                   <img src={`/images/home/banner1.jpeg`} alt="slide" />

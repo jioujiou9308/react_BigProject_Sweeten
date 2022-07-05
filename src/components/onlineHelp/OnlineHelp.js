@@ -3,7 +3,7 @@ import MessageBox from "./MessageBox";
 import InputBar from "./InputBar";
 import { io } from "socket.io-client";
 import { useEffect } from "react";
-import { useDispatch } from "react-redux/es/exports";
+import { useDispatch, useSelector } from "react-redux/es/exports";
 import { sendMsg } from "../../utils/redux/chatSlice";
 
 const socket = io("http://localhost:8001", {
@@ -12,22 +12,19 @@ const socket = io("http://localhost:8001", {
   },
 });
 
-// log = [ {side:str, msg:str[]}, {side:str, msg:str[]} ]
-
 const OnlineHelp = () => {
   const dispatch = useDispatch();
-
+  const user = useSelector((state) => state.user.user);
   useEffect(() => {
-    socket.on("connect", () => {
-      console.log("socket", socket.connected); // true
-    });
+    socket.emit("userConnect", user.id);
     socket.on("support", (res) => {
       dispatch(sendMsg(res));
     });
     return () => {
+      socket.emit("userLeave", user.id);
       socket.off("support");
     };
-  }, [dispatch]);
+  }, [dispatch, user.id]);
 
   return (
     <>
