@@ -1,4 +1,5 @@
 import React from "react";
+import { Button } from "@material-tailwind/react";
 
 const CourseContent = (props) => {
   const { lessons, swipe, toggle, lessonImage } = props;
@@ -31,13 +32,13 @@ const CourseContent = (props) => {
 
             <p className="mt-4 mb-4 opcacity-60 p">{lessons[a].description}</p>
             <div className="inline-block mt-2 mr-2">
-              <button
+              <Button
                 type="button"
-                className="focus:outline-none text-white text-sm py-2.5 px-5 rounded-md bg-gradient-to-r from-green-400 to-green-600 transform hover:scale-110"
+                className="ml-3 text-white border-2 rounded-none border-warning bg-warning"
                 onClick={toggle}
               >
-                詳細資訊
-              </button>
+                課程資訊
+              </Button>
             </div>
           </div>
         </div>

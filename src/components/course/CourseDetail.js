@@ -6,23 +6,20 @@ import { useCourseState } from "../../utils/redux/hooks-redux";
 
 const CourseDetail = (props) => {
   const navigate = useNavigate();
-  const { lessons, swipe } = props;
+  const { lessons, swipe, lessonImage } = props;
   const a = swipe;
   const [coursCart, setCoursCart] = useCourseState(null);
   const [select, setSelect] = useState(null);
   const [inputAdult, setInputAdult] = useState(null);
   const [inputChild, setInputChild] = useState(null);
-
-  // console.log(inputAdult);
-  // console.log(inputChild);
-  // console.log(select);
+  console.log(coursCart);
   console.log("這個是coursRedux", coursCart);
   // 課程介紹
   const courseDetail = [
     {
       id: 1,
-      material: "製作原料:",
-      materialIntro: "111111",
+      material: "原料:",
+      materialIntro: "老蛋白、杏仁粉、細砂糖、糖粉、鮮奶油、苦甜巧克力",
       difficulty: "製作難度:",
       difficultyIntro: [
         <AiTwotoneStar />,
@@ -32,25 +29,28 @@ const CourseDetail = (props) => {
       teacher: "授課老師:",
       teacherIntro: "陳泓霖老師",
       time: "上課時數:",
-      timeIntro: "6小時",
+      timeIntro: " 3小時",
     },
     {
       id: 2,
       material: "製作原料:",
-      materialIntro: "222222",
+      materialIntro: "低筋麵粉、砂糖、無鹽奶油、雞蛋、玉米粉、可可粉、牛奶",
       difficulty: "製作難度",
       difficultyIntro: [<AiTwotoneStar />, <AiTwotoneStar />],
       teacher: "授課老師:",
       teacherIntro: "陳應乳老師",
       time: "上課時數:",
-      timeIntro: "10小時",
+      timeIntro: " 4小時",
     },
     {
       id: 3,
       material: "製作原料:",
-      materialIntro: "333333",
+      materialIntro:
+        "消化餅乾、無鹽奶油、奶油乳酪、鮮奶油、白砂糖、檸檬汁、檸檬皮、季節水果、玉米粉/低筋麵粉",
       difficulty: "製作難度",
       difficultyIntro: [
+        <AiTwotoneStar />,
+        <AiTwotoneStar />,
         <AiTwotoneStar />,
         <AiTwotoneStar />,
         <AiTwotoneStar />,
@@ -60,17 +60,15 @@ const CourseDetail = (props) => {
       teacher: "授課老師:",
       teacherIntro: "黃雲韓老師",
       time: "上課時數:",
-      timeIntro: "5小時",
+      timeIntro: " 6小時",
     },
     {
       id: 4,
       material: "製作原料:",
-      materialIntro: "444444",
+      materialIntro:
+        "蛋黃、蜂蜜、蛋白、細砂糖、全脂奶粉、無鹽奶油、動物性鮮奶油、低筋麵粉",
       difficulty: "製作難度",
       difficultyIntro: [
-        <AiTwotoneStar />,
-        <AiTwotoneStar />,
-        <AiTwotoneStar />,
         <AiTwotoneStar />,
         <AiTwotoneStar />,
         <AiTwotoneStar />,
@@ -79,7 +77,7 @@ const CourseDetail = (props) => {
       teacher: "授課老師:",
       teacherIntro: "黃諾文老師",
       time: "上課時數:",
-      timeIntro: "3小時",
+      timeIntro: "4小時",
     },
   ];
 
@@ -90,7 +88,7 @@ const CourseDetail = (props) => {
           <div className="flex items-center justify-between mt-10">
             <p className="h2">{lessons[a].name}</p>
           </div>
-          <p className="mt-2 mb-5 h3">$ {lessons[a].price} NTD</p>
+          <p className="mt-2 mb-5 h3">$ {lessons[a].price}/人 NTD</p>
 
           {/* 課程的日期 */}
           {/* 課程的日期 */}
@@ -109,10 +107,10 @@ const CourseDetail = (props) => {
               <option value="請選擇日期" selected>
                 請選擇日期
               </option>
-              <option value="2022/07/03(日)">2022/07/03(日)</option>
-              <option value="2022/07/04(一)">2022/07/04(一)</option>
-              <option value="2022/07/05(二)">2022/07/05(二)</option>
-              <option value="2022/07/06(三)">2022/07/06(三)</option>
+              <option value="2022/07/03(日) 10:00">2022/07/03(日) 10:00</option>
+              <option value="2022/07/04(一) 13:00">2022/07/04(一) 13:00</option>
+              <option value="2022/07/19(二) 15:00">2022/07/19(二) 15:00</option>
+              <option value="2022/07/23(六) 13:00">2022/07/23(六) 13:00</option>
             </select>
           </div>
 
@@ -158,6 +156,7 @@ const CourseDetail = (props) => {
                   inputChild,
                   lessons[a].name,
                   lessons[a].price,
+                  lessonImage[a],
                 ]);
                 navigate("/main/courseDetail");
               }}
@@ -169,10 +168,10 @@ const CourseDetail = (props) => {
       </div>
       <div className="w-1/2">
         <div className="mx-8 md:mt-16 md:flex">
-          <div className="w-full md:pr-10 md:w-1/2">
+          <div className="w-full md:pr-10 ">
             <div className="mb-4">
               <h2 className="ml-2 md:ml-0 h3">{courseDetail[a].material}</h2>
-              <p className="text-justify p">{courseDetail[a].materialIntro}</p>
+              <p className="text-justify h3">{courseDetail[a].materialIntro}</p>
             </div>
             <div className="flex mb-4">
               <h2 className="ml-2 md:ml-0 h3">{courseDetail[a].difficulty}</h2>

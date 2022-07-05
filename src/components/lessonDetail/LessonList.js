@@ -3,25 +3,8 @@ import LessonItem from "./LessonItem";
 import LessonSummary from "./LessonSummary";
 import { useCourseState } from "../../utils/redux/hooks-redux";
 
-const lessonOrders = [
-  {
-    id: "12345",
-    course: "巧克力蛋糕",
-    price: "800",
-    date: "2022/9/9",
-    photo: "",
-  },
-  // {
-  //   id: "12345",
-  //   course: "巧克力蛋糕",
-  //   price: "800",
-  //   date: "2022/9/9",
-  //   photo: "",
-  // },
-];
-
 const LessonList = () => {
-  const [courseDetail, setCourseDetail] = useCourseState();
+  const [courseCart, setCourseCart] = useCourseState();
 
   return (
     <div className="px-4 py-14 md:px-6 2xl:px-20 2xl:container 2xl:mx-auto">
@@ -36,18 +19,9 @@ const LessonList = () => {
       <div className="flex flex-col items-stretch w-full mt-10 space-y-4 xl:flex-row jusitfy-center xl:space-x-8 md:space-y-6 xl:space-y-0">
         <div className="flex flex-col items-start justify-center w-full space-y-4 xl:flex-row md:space-y-6 xl:space-y-8">
           <div className="flex flex-col">
-            {lessonOrders.map((lessonOrder) => {
-              return (
-                <Fragment key={lessonOrder.id}>
-                  <LessonItem
-                    lessonOrder={lessonOrder}
-                    courseDetail={courseDetail}
-                  />
-                </Fragment>
-              );
-            })}
+            <LessonItem courseCart={courseCart} />
           </div>
-          <LessonSummary courseDetail={courseDetail} />
+          <LessonSummary courseCart={courseCart} />
         </div>
       </div>
     </div>

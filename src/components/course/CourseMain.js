@@ -76,6 +76,7 @@ const CourseMain = () => {
             lessons={lessons}
             swipe={swipe}
             detailContent={detailContent}
+            lessonImage={lessonImage}
           />
         </div>
       ) : (

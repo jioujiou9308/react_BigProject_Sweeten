@@ -2,13 +2,13 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 
 const LessonSummary = (props) => {
-  const { courseDetail } = props;
+  const { courseCart } = props;
   const navigate = useNavigate();
-  console.log(courseDetail);
-  const adult = Number(courseDetail[1]);
-  const child = Number(courseDetail[2]);
+  console.log(courseCart);
+  const adult = Number(courseCart[1]);
+  const child = Number(courseCart[2]);
   let totalPerson = adult + child;
-  let price = Number(courseDetail[4]);
+  let price = Number(courseCart[4]);
   let totalPrice = totalPerson * price;
   return (
     <>
@@ -17,26 +17,19 @@ const LessonSummary = (props) => {
           <p className="py-5 font-black h3">購物明細</p>
           <hr />
           {/* promo code */}
-          <div className="pt-5">
-            <div className="flex justify-between pt-3">
-              <p className="">折扣</p>
-              <p className="">-$150</p>
-            </div>
-          </div>
+
           {/* 明細計算 */}
           <div className="flex justify-between pt-12">
             <p className="">人數</p>
             <p className="">共{totalPerson}人</p>
           </div>
-          <div className="flex justify-between pt-5">
-            <p className="">Tax</p>
-            <p className="">$100</p>
-          </div>
         </div>
-
+        <div className="w-full mt-8 text-right">
+          {totalPerson} x {price}
+        </div>
         {/* 明細下半部 總計 */}
         <div>
-          <div className="flex items-center justify-between pt-20 pb-6 lg:pt-10">
+          <div className="flex items-center justify-between pt-10 pb-6 lg:pt-5">
             <p className="text-2xl font-semibold leading-normal">總計</p>
             <p className="text-2xl font-bold leading-normal text-right ">
               {totalPrice}
