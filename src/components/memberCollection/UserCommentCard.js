@@ -30,15 +30,14 @@ function UserCommentCard() {
   const [comment, setComment] = useState([]);
   const [currentUser] = useUserState();
   const navigate = useNavigate();
-  const [product, setProduct] = useState();
 
   useEffect(() => {
     let getComment = async () => {
       let response = await axios.get(
         API_URL + `/user/comment/${currentUser.id}`
       );
-      setComment(response.data.allResults);
-      console.log("comment", response.data.allResults);
+      setComment(response.data);
+      console.log("comment", response.data);
     };
     getComment();
     
@@ -47,8 +46,8 @@ function UserCommentCard() {
   return (
     <>
       <div className="flex flex-wrap justify-around px-10">
-        {comment.map((comment, i) => {
-          const { id, product_name, score } = comment;
+        {comment?.map((comment, i) => {
+          const { id, product_name, score ,product_id} = comment;
           return (
             <>
               <Card className="p-0 mt-6 rounded-sm w-60">
@@ -75,19 +74,21 @@ function UserCommentCard() {
                   divider
                   className="flex items-center justify-between py-3"
                 >
-                  <Typography
+                  {/* <Typography
                     variant="small"
                     color="grey"
                     className="flex gap-1"
                   >
-                  {/* TODO:評論和按鈕還沒串完 */}
-                    <span className="note">{}則評論</span>
-                  </Typography>
+                
+                    <span className="note">{()=>{
+                      
+                    }}則評論</span>
+                  </Typography> */}
                   <Button
                     size="sm"
-                    className="rounded-sm bg-warning"
+                    className="mx-auto rounded-sm bg-warning"
                     onClick={() =>{
-                      
+                      navigate(`/main/product/${id}`)
                     }}
                   >
                     查看評論

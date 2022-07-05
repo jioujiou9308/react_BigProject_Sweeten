@@ -19,6 +19,7 @@ import {
 } from "../utils/redux/hooks-redux";
 import { calcLength } from "framer-motion";
 import { useNavigate } from "react-router-dom";
+import { clearConfigCache } from "prettier";
 
 //生成評價星星
 const star = (score) => {
@@ -57,11 +58,13 @@ const MemberColloction = () => {
       let response = await axios.get(
         API_URL + `/user/comment/${currentUser.id}`
       );
-      setComment(response.data.allResults);
-      // console.log(response.data);
+      setComment(response.data);
+      console.log("comment", response.data);
     };
     getComment();
   }, []);
+
+  
   return (
     <>
       <div className="mx-0 ">
@@ -77,7 +80,7 @@ const MemberColloction = () => {
           </h2>
 
           {isOn == 1 &&
-            memberCollection.map((v, i) => {
+            memberCollection?.map((v, i) => {
               const { user_id, product_id, id, name, price } = v;
               return (
                 <>
@@ -111,26 +114,23 @@ const MemberColloction = () => {
                     {/* 不確定這裡這樣寫對不對QQ */}
                     {/* TODO:不對 */}
                     {/* 有評分score變數 */}
-                    <div className="hidden text-center md:block mx-18 ">
-                      <p className="mb-1 mr-2 note">
-                        {comment.length > 0 ? "評價" : "尚未評價"}
-                      </p>
-                      <h2 className=" h3">
-                        {comment.length > 0 ? comment[i]?.score : "-"}/5
-                      </h2>
+                    {comment?.findIndex(
+                      (comment) => comment.id === product_id)> -1 ? (
+                      <div className="hidden text-center md:block mx-18 ">
+                        <p className="mb-1 mr-2 note">評價</p>
+                        <h2 className=" h3">{comment.score}/5</h2>
 
-                      <div className="flex">
-                        {comment.length > 0 ? star(comment[i]?.score) : star(0)}
+                        <div className="flex">{star(comment.score)}</div>
                       </div>
-                    </div>
+                    ) : (
+                      <div className="hidden text-center md:block mx-18 ">
+                        <p className="mr-2 note">尚未評價</p>
+                        <h2 className=" h3">-/5</h2>
+                        <div className="flex">{star(0)}</div>
+                      </div>
+                    )}
+
                     {/* 沒有評分 */}
-                    {/* <div className="hidden text-center md:block mx-18 ">
-                      <p className="mr-2 note">
-              尚未評價
-                      </p>
-                      <h2 className=" h3">-/5</h2>
-                      <div className="flex">{star(0)}</div>
-                    </div> */}
 
                     {/* 移除&購買 */}
                     <div className="flex-col md:ml-4 ">
@@ -179,7 +179,7 @@ const MemberColloction = () => {
                             let response = await axios.delete(
                               `${API_URL}/user/favorite_product/${user_id}?product_id=${product_id}`
                             );
-                            console.log(response);
+                            // console.log(response);
                             getMemberCollection();
                           }}
                         >
