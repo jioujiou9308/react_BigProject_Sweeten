@@ -13,8 +13,6 @@ function CreateComment({ order, v, i }) {
   const [contentInput, setContentInput] = useState("");
   console.log("v", v);
 
-
-
   useEffect(() => {
     let getMyComment = async () => {
       let response = await axios.get(
@@ -46,73 +44,103 @@ function CreateComment({ order, v, i }) {
 
             <div className="mx-3 p">
               <p>商品</p>
-              {myComment.findIndex((item) => parseInt(item.id) === parseInt(v.product_id)) === -1 ? (
-                <>
-                  <p className="my-2">分數</p>
-                  <p>評論</p>
-                </>
-              ) : (
-                <></>
-              )}
+              <p className="my-2">分數</p>
+              <p>評論</p>
             </div>
 
             <div className="p">
               <p className="mb-1">{v.name}</p>
 
-              {myComment.findIndex((item) => parseInt(item.id) === parseInt(v.product_id)) === -1 ?(<>
-                <Input
-                variant="outlined"
-                label="請輸入分數"
-                type="number"
-                className=""
-                min={1}
-                max={5}
-                color="amber"
-                value={scoreInput}
-                onChange={(e) => {
-                //   setScoreInput(e.target.value);
-                }}
-              />
+              {myComment.findIndex(
+                (item) => parseInt(item.id) === parseInt(v.product_id)
+              ) === -1 ? (
+                <>
+                  {/* score input */}
+                  <div className="mb-1">
+                    <Input
+                      variant="outlined"
+                      label="請輸入分數"
+                      type="number"
+                      min={1}
+                      max={5}
+                      color="amber"
+                      value={scoreInput}
+                      onChange={(e) => {
+                        //   setScoreInput(e.target.value);
+                      }}
+                    />
+                  </div>
+                  {/* 評論textarea */}
+                  <div>
+                    <Textarea
+                      variant="outlined"
+                      label="請輸入評論..."
+                      color="amber"
+                      className="rounded-sm"
+                      value={contentInput}
+                      maxLength={200}
+                      minLength={20}
+                      onChange={(e) => {
+                        setContentInput(e.target.value);
+                        //   console.log(e.target.value)
+                      }}
+                    />
+                  </div>
+                </>
+              ) : (
+                <>
+                  {/* 評論過ㄉ分數 */}
 
-              <Textarea
-                variant="outlined"
-                label="請輸入評論..."
-                color="amber"
-                className="rounded-sm"
-                value={contentInput}
-                maxLength={200}
-                minLength={20}
-                onChange={(e) => {
-                  setContentInput(e.target.value);
-                //   console.log(e.target.value)
-                  
-                }}
-              />
-              </>):(<></>)}
-              
+                  <div className="my-2">
+                    {
+                      myComment[
+                        myComment.findIndex(
+                          (item) => parseInt(item.id) === parseInt(v.product_id)
+                        )
+                      ].score
+                    }
+                  </div>
+
+                  {/* 評論過ㄉ評論 */}
+                  <div>
+                    {
+                      myComment[
+                        myComment.findIndex(
+                          (item) => parseInt(item.id) === parseInt(v.product_id)
+                        )
+                      ].content
+                    }
+                  </div>
+                </>
+              )}
             </div>
           </div>
           <div>
-          {myComment.findIndex((item) => parseInt(item.id) === parseInt(v.product_id)) === -1 ?(<>
-            <Button
-              size="sm"
-              className="rounded-sm translate-y-36 bg-warning"
-              onClick={async (e) => {
-                e.preventDefault();
-                await axios.post(API_URL + "/user/comment", {
-                  user_id: currentUser.id,
-                  product_id: order[i].product_id,
-                  score: scoreInput,
-                  content: contentInput,
-                });
-                setContentInput("");
-                setScoreInput("");
-              }}
-            >
-              提交評論
-            </Button>
-          </>):(<>您已評論過</>)}
-            
+            {myComment.findIndex(
+              (item) => parseInt(item.id) === parseInt(v.product_id)
+            ) === -1 ? (
+              <>
+                <Button
+                  size="sm"
+                  className="rounded-sm translate-y-36 bg-warning"
+                  onClick={async (e) => {
+                    e.preventDefault();
+                    await axios.post(API_URL + "/user/comment", {
+                      user_id: currentUser.id,
+                      product_id: order[i].product_id,
+                      score: scoreInput,
+                      content: contentInput,
+                    });
+                    setContentInput("");
+                    setScoreInput("");
+                  }}
+                >
+                  提交評論
+                </Button>
+              </>
+            ) : (
+              <>您已評論過</>
+            )}
           </div>
         </div>
       </div>
