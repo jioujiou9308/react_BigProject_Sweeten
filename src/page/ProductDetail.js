@@ -50,10 +50,10 @@ function ProductDetail() {
     //抓所有評論
     let getComment = async () => {
       let response = await axios.get(
-        `${API_URL}/product/comment/product/${id}`
+        `${API_URL}/product/comment/${id}`
       );
       setComment(response.data);
-      // console.log(response.data);
+      console.log('comment',response.data);
     };
     getComment();
     //看喜歡ㄉproduct有哪些
