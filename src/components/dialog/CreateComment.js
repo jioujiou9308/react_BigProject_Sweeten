@@ -12,16 +12,17 @@ function CreateComment({ order, v, i }) {
   const [scoreInput, setScoreInput] = useState("");
   const [contentInput, setContentInput] = useState("");
   console.log("v", v);
-
+//定義抓commentㄉfunc
+  let getMyComment = async () => {
+    let response = await axios.get(
+      API_URL + `/user/comment/${currentUser.id}`
+    );
+    setMyComment(response.data);
+    console.log("mycomment", response.data);
+  };
+  getMyComment();
+  
   useEffect(() => {
-    let getMyComment = async () => {
-      let response = await axios.get(
-        API_URL + `/user/comment/${currentUser.id}`
-      );
-      setMyComment(response.data);
-      console.log("mycomment", response.data);
-    };
-    getMyComment();
   }, []);
   return (
     <>
@@ -66,7 +67,7 @@ function CreateComment({ order, v, i }) {
                       color="amber"
                       value={scoreInput}
                       onChange={(e) => {
-                        //   setScoreInput(e.target.value);
+                          setScoreInput(e.target.value);
                       }}
                     />
                   </div>
@@ -131,8 +132,10 @@ function CreateComment({ order, v, i }) {
                       score: scoreInput,
                       content: contentInput,
                     });
+                    getMyComment();
                     setContentInput("");
                     setScoreInput("");
+                    
                   }}
                 >
                   提交評論
