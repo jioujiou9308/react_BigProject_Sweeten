@@ -1,24 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { Input, Button, Select, Option } from "@material-tailwind/react";
 import axios from "axios";
-import { useDropzone } from "react-dropzone";
-//import { FaCamera } from "react-icons/fa";
 import { motion } from "framer-motion";
 import MenuTag from "../components/menuTag/MenuTag";
 import { useUserState } from "../utils/redux/hooks-redux";
 import { API_URL } from "../utils/config";
-
+const genders = ["選擇性別", "男", "女", "不提供"];
 
 const MemberInformation = () => {
-  // react-dropzone
-  const { acceptedFiles, getRootProps, getInputProps } = useDropzone();
-
-  const files = acceptedFiles.map((file) => (
-    <li key={file.path}>
-      {file.path} - {file.size} bytes
-    </li>
-  ));
-
   const [user] = useUserState();
   console.log(user.id);
   const [member, setMember] = useState({
@@ -28,7 +17,7 @@ const MemberInformation = () => {
     phone: "",
     birthday: "",
     gender_id: "",
-    photo: "",
+    user_photo_id: "",
   });
   console.log(member);
   function handleChange(e) {
@@ -43,12 +32,51 @@ const MemberInformation = () => {
     let getUser = async () => {
       let response = await axios.get(`${API_URL}/user/${user.id}`, member);
       console.log(response.data[0]);
-      setMember(response.data[0]);
+      setMember({
+        full_name: response.data[0].full_name,
+        email: response.data[0].email,
+        phone: response.data[0].phone,
+        birthday: response.data[0].birthday,
+        gender_id: response.data[0].gender_id,
+        user_photo_id: response.data[0].user_photo_id,
+      });
     };
     getUser();
   }, []);
 
+  // ----------會員照片上傳-------------
+  const [path, setPath] = useState("");
+  const [userPhoto, setUserPhoto] = useState({
+    id: user.id,
+    photo: "",
+  });
+  console.log(userPhoto);
 
+  function handlePhoto(e) {
+    setUserPhoto({ ...userPhoto, photo: e.target.files[0] });
+
+    let render = new FileReader();
+    render.onload = () => {
+      setPath(render.result);
+    };
+    render?.readAsDataURL(e?.target?.files[0]);
+    e.target.value = "";
+  }
+
+  // -------- 修改會員資料進資料庫 --------
+
+  async function handlePhotoSubmit(e) {
+    console.log("13", userPhoto);
+
+    try {
+      let formData = new FormData();
+      formData.append("id", userPhoto.id);
+      formData.append("photo", userPhoto.photo);
+      axios.post(`${API_URL}/user/photo`, formData);
+    } catch (e) {
+      console.error(e);
+    }
+  }
 
   async function handleSubmit(e) {
     try {
@@ -57,12 +85,6 @@ const MemberInformation = () => {
       console.log(e);
     }
   }
-
-
-
-
-
-
 
   return (
     <div className="mx-auto">
@@ -107,7 +129,6 @@ const MemberInformation = () => {
                   />
                 </div>
               </div>
-
               {/* 手機號碼 */}
               <div className="flex flex-col mt-8 md:ml-12 md:mt-0">
                 <div className="flex flex-col">
@@ -150,7 +171,7 @@ const MemberInformation = () => {
                   <div className="flex items-end w-64 gap-4">
                     <Select
                       variant="standard"
-                      label="性別"
+                      label={genders[member.gender_id]}
                       type="text"
                       color="brown"
                       id="gender_id"
@@ -209,20 +230,39 @@ const MemberInformation = () => {
 
         {/* 拖曳區*/}
         <div className="xl:w-2/5 lg:w-2/5 pt-5 pb-5 xl:pr-5 xl:pl-0 mt-20">
-          <div
-            {...getRootProps({ className: "dropzone" })}
-            className="border-2 border-dashed h-80"
-          >
-            <Input
+          <div className="border-2 border-dashed h-80 w-80 relative">
+            <input
+              name="photo"
               type="file"
-              className="border-dashed h-60 w-80"
+              id="photo"
+              className="w-full h-full object-cover opacity-0 "
               accept="image/*"
-              {...getInputProps()}
+              onChange={handlePhoto}
             />
-            {/* <IconButton type="file" variant="text" className="">
-              <FaCamera className="icon-lg" color="gray" />
-            </IconButton> */}
-            <p className="p text-center">請拖曳圖片至此</p>
+            <Button
+              size="sm"
+              color="brown"
+              variant="outlined"
+              className="border rounded mt-4 mx-28"
+              type="submit"
+              onClick={handlePhotoSubmit}
+            >
+              <p className="font-medium text-center">上傳照片</p>
+            </Button>
+            {/* 預覽圖片 */}
+            {userPhoto.photo !== "" ? (
+              <>
+                <div className="w-full h-full text-center">
+                  <img
+                    alt=""
+                    className="w-auto h-full m-auto object-cover absolute top-0 "
+                    src={path}
+                  />
+                </div>
+              </>
+            ) : (
+              <></>
+            )}
           </div>
         </div>
       </div>

@@ -31,13 +31,13 @@ const FloatingBt = () => {
         )}
       </AnimatePresence>
 
-      <div className=" fixed bottom-3 bg-primary rounded-full right-3 z-50">
+      <div className=" fixed bottom-3 bg-primary rounded-full right-3 z-50 overflow-hidden">
         <motion.IconButton
           onClick={() => {
             setOpenOnlineHelp(!openOnlineHelp);
           }}
         >
-          <IconButton variant="text">
+          <IconButton variant="text" className="">
             <RiCustomerService2Fill className="icon-lg" color="gray" />
           </IconButton>
         </motion.IconButton>
