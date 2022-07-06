@@ -10,9 +10,9 @@ import { AiOutlineStar, AiFillStar } from "react-icons/ai";
 function CreateComment({ order, v, i }) {
   const [currentUser] = useUserState();
   const [myComment, setMyComment] = useState([]);
-//   const [scoreInput, setScoreInput] = useState("");
+  //   const [scoreInput, setScoreInput] = useState("");
   const [contentInput, setContentInput] = useState("");
-  const [star, setStar]= useState(0)
+  const [star, setStar] = useState(0);
   console.log("v", v);
   //定義抓commentㄉfunc
   let getMyComment = async () => {
@@ -26,9 +26,23 @@ function CreateComment({ order, v, i }) {
     let result = [];
     for (let i = 1; i <= 5; i++) {
       if (i <= n) {
-        result.push(<AiFillStar />);
+        result.push(
+          <AiFillStar
+            onClick={() => {
+            //   console.log("fill " + i);
+            setStar(i)
+            }}
+          />
+        );
       } else {
-        result.push(<AiOutlineStar />);
+        result.push(
+          <AiOutlineStar
+            onClick={() => {
+            //   console.log("Outline " + i);
+            setStar(i)
+            }}
+          />
+        );
       }
     }
     return result;
