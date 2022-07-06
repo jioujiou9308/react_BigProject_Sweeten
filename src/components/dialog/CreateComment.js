@@ -5,24 +5,37 @@ import { API_URL } from "../../utils/config";
 import { useUserState } from "../../utils/redux/hooks-redux";
 import { comment } from "postcss";
 import { Button } from "@material-tailwind/react";
+import { AiOutlineStar, AiFillStar } from "react-icons/ai";
 
 function CreateComment({ order, v, i }) {
   const [currentUser] = useUserState();
   const [myComment, setMyComment] = useState([]);
-  const [scoreInput, setScoreInput] = useState("");
+//   const [scoreInput, setScoreInput] = useState("");
   const [contentInput, setContentInput] = useState("");
+  const [star, setStar]= useState(0)
   console.log("v", v);
-//定義抓commentㄉfunc
+  //定義抓commentㄉfunc
   let getMyComment = async () => {
-    let response = await axios.get(
-      API_URL + `/user/comment/${currentUser.id}`
-    );
+    let response = await axios.get(API_URL + `/user/comment/${currentUser.id}`);
     setMyComment(response.data);
     console.log("mycomment", response.data);
   };
-  getMyComment();
-  
+
+  //生成星星ㄉfunc
+  const getStar = (n) => {
+    let result = [];
+    for (let i = 1; i <= 5; i++) {
+      if (i <= n) {
+        result.push(<AiFillStar />);
+      } else {
+        result.push(<AiOutlineStar />);
+      }
+    }
+    return result;
+  };
+
   useEffect(() => {
+    getMyComment();
   }, []);
   return (
     <>
@@ -50,15 +63,15 @@ function CreateComment({ order, v, i }) {
             </div>
 
             <div className="p">
-              <p className="mb-1">{v.name}</p>
+              <p className="">{v.name}</p>
 
               {myComment.findIndex(
                 (item) => parseInt(item.id) === parseInt(v.product_id)
               ) === -1 ? (
                 <>
                   {/* score input */}
-                  <div className="mb-1">
-                    <Input
+                  <div className="flex items-center my-2">
+                    {/* <Input
                       variant="outlined"
                       label="請輸入分數"
                       type="number"
@@ -69,7 +82,9 @@ function CreateComment({ order, v, i }) {
                       onChange={(e) => {
                           setScoreInput(e.target.value);
                       }}
-                    />
+                    /> */}
+                    <div className="flex mr-3">{getStar(star)}</div>
+                    <div>{star}/5</div>
                   </div>
                   {/* 評論textarea */}
                   <div>
@@ -92,14 +107,30 @@ function CreateComment({ order, v, i }) {
                 <>
                   {/* 評論過ㄉ分數 */}
 
-                  <div className="my-2">
-                    {
-                      myComment[
-                        myComment.findIndex(
-                          (item) => parseInt(item.id) === parseInt(v.product_id)
-                        )
-                      ].score
-                    }
+                  <div className="flex items-center my-2">
+                    {/* 星星 */}
+                    <div className="flex mr-3">
+                      {getStar(
+                        myComment[
+                          myComment.findIndex(
+                            (item) =>
+                              parseInt(item.id) === parseInt(v.product_id)
+                          )
+                        ].score
+                      )}
+                    </div>
+                    {/* 分數 */}
+                    <div>
+                      {
+                        myComment[
+                          myComment.findIndex(
+                            (item) =>
+                              parseInt(item.id) === parseInt(v.product_id)
+                          )
+                        ].score
+                      }
+                      /5
+                    </div>
                   </div>
 
                   {/* 評論過ㄉ評論 */}
@@ -129,13 +160,12 @@ function CreateComment({ order, v, i }) {
                     await axios.post(API_URL + "/user/comment", {
                       user_id: currentUser.id,
                       product_id: order[i].product_id,
-                      score: scoreInput,
+                      score: star,
                       content: contentInput,
                     });
                     getMyComment();
                     setContentInput("");
-                    setScoreInput("");
-                    
+                    setStar(0);
                   }}
                 >
                   提交評論
