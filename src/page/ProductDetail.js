@@ -44,17 +44,17 @@ function ProductDetail() {
     let getProductDetail = async () => {
       let response = await axios.get(`${API_URL}/product/${id}`);
       setProductDetail(response.data);
-      // console.log(response.data);
+      console.log(response.data);
     };
     getProductDetail();
     //抓所有評論
     let getComment = async () => {
       console.log("fetch");
       let response = await axios.get(
-        `${API_URL}/product/comment/product/${id}`
+        `${API_URL}/product/comment/${id}`
       );
       setComment(response.data);
-      // console.log(response.data);
+      console.log('comment',response.data);
     };
     getComment();
     //看喜歡ㄉproduct有哪些
@@ -292,7 +292,7 @@ function ProductDetail() {
                     variant="outlined"
                     className="rounded-full select-none text-line border-line"
                     onClick={
-                      //  TODO:要做新增刪除
+                     
                       favSwitchHandler
                     }
                   >

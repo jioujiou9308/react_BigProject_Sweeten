@@ -60,7 +60,7 @@ function YouMayLikeProduct() {
         }}
         navigation={true}
         modules={[Pagination, Navigation]}
-        className="mySwiper"
+        className="mySwiper "
       >
         {products.map((product, i) => {
           const { id, name, price, img } = product;

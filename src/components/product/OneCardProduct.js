@@ -14,6 +14,8 @@ const OnceCarkProduct = ({ product }) => {
   const [favProduct, setFavProduct] = useFavoriteState();
   const [currentUser] = useUserState();
   const [cart, setCart] = useCartState();
+  // console.log("最愛商品", favProduct);
+  // console.log("所有商品", product);
 
   const favSwitchHander = async () => {
     if (favProduct.findIndex((item) => item.product_id === product.id) > -1) {
@@ -60,11 +62,16 @@ const OnceCarkProduct = ({ product }) => {
             <h4 className="w-full text-lg font-medium dark:text-gray-200">
               {product.name}
             </h4>
-            <div className="mr-2 text-blue-500 p">${product.price}</div>
+            <div className="mr-1 text-blue-500 p">${product.price}</div>
             <div className="flex items-center ">
-              <AiOutlineMessage className="icon-sm" />
+              <AiOutlineMessage
+                className="icon-sm"
+                onClick={() => {
+                  navigate(`/main/product/${product.id}`);
+                }}
+              />
 
-              {favProduct.findIndex((item) => item.product_id === product.id) >
+              {favProduct?.findIndex((item) => item.product_id === product.id) >
               -1 ? (
                 <AiFillHeart
                   className="icon-sm text-secondary"

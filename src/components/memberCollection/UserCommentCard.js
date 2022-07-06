@@ -30,25 +30,22 @@ function UserCommentCard() {
   const [comment, setComment] = useState([]);
   const [currentUser] = useUserState();
   const navigate = useNavigate();
-  const [product, setProduct] = useState();
+
+  let getComment = async () => {
+    let response = await axios.get(API_URL + `/user/comment/${currentUser.id}`);
+    setComment(response.data);
+    console.log("comment", response.data);
+  };
 
   useEffect(() => {
-    let getComment = async () => {
-      let response = await axios.get(
-        API_URL + `/user/comment/${currentUser.id}`
-      );
-      setComment(response.data.allResults);
-      console.log("comment", response.data.allResults);
-    };
     getComment();
-    
   }, []);
 
   return (
     <>
       <div className="flex flex-wrap justify-around px-10">
-        {comment.map((comment, i) => {
-          const { id, product_name, score } = comment;
+        {comment?.map((comment, i) => {
+          const { id, product_name, score, comment_id } = comment;
           return (
             <>
               <Card className="p-0 mt-6 rounded-sm w-60">
@@ -64,34 +61,39 @@ function UserCommentCard() {
                       <span className="mr-2 h3"> {score}/5</span>
                       {star(score)}
                     </div>
-                    {score == "-" ? (
+                    {/* {score == "-" ? (
                       <span>尚未評論</span>
                     ) : (
                       <span className="text-white">尚未評論</span>
-                    )}
+                    )} */}
                   </Typography>
                 </CardBody>
                 <CardFooter
                   divider
-                  className="flex items-center justify-between py-3"
+                  className="flex items-center justify-between px-5 py-3"
                 >
-                  <Typography
-                    variant="small"
-                    color="grey"
-                    className="flex gap-1"
-                  >
-                  {/* TODO:評論和按鈕還沒串完 */}
-                    <span className="note">{}則評論</span>
-                  </Typography>
                   <Button
                     size="sm"
                     className="rounded-sm bg-warning"
-                    onClick={() =>{
-                      
-                      
+                    onClick={() => {
+                      navigate(`/main/product/${id}`);
                     }}
                   >
-                    查看評論
+                    查看所有評論
+                  </Button>
+
+                  <Button
+                    size="sm"
+                    color="amber"
+                    variant="outlined"
+                    className="bg-white rounded-sm "
+                    onClick={async () => {
+                      //NOTE 刪不掉 
+                      await axios.delete(API_URL + `/product/comment/${comment_id}`);
+                      getComment();
+                    }}
+                  >
+                    刪除評論
                   </Button>
                 </CardFooter>
               </Card>

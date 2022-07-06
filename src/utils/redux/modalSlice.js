@@ -18,8 +18,17 @@ export const modalSlice = createSlice({
         delete state[key];
       }
     },
+    openOrderDetail: (state, action) => {
+      state.orderDetail = !state.orderDetail;
+      state.payload = action.payload;
+    },
+    openAddComment: (state, action) => {
+      state.addComment = !state.addComment;
+      state.payload = action.payload;
+    },
   },
 });
 
-export const { openLogin, openSignup, closeModal } = modalSlice.actions;
+export const { openLogin, openSignup, closeModal, openOrderDetail, openAddComment } =
+  modalSlice.actions;
 export default modalSlice.reducer;
