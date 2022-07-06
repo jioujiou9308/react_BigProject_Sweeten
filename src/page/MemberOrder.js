@@ -7,7 +7,7 @@ import { API_URL } from "../utils/config";
 import { useProductState, useUserState } from "../utils/redux/hooks-redux";
 import { useParams } from "react-router-dom";
 import { motion } from "framer-motion";
-import AddComment from "../components/memberOrder/AddComment";
+
 
 function MemberOrder() {
   const step = ["全部", "待付款", "待出貨", "待收貨", "完成"];
@@ -180,7 +180,7 @@ function MemberOrder() {
           </>
         )}
       </div>
-      <AddComment order={ order }/>
+      
     </>
   );
 }

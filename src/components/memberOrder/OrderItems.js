@@ -7,7 +7,7 @@ import { useState } from "react";
 import axios from "axios";
 import { API_URL } from "../../utils/config";
 import { useDispatch } from "react-redux";
-import { openOrderDetail } from "../../utils/redux/modalSlice";
+import { openOrderDetail, openAddComment } from "../../utils/redux/modalSlice";
 
 function OrderItems({ order }) {
   const navigate = useNavigate();
@@ -124,7 +124,10 @@ function OrderItems({ order }) {
             {/* NOTE 要記得座新增評論ㄉ功能 */}
             {order[0].order_status_id === 4 ? (
               <Button
-                onClick={() => {}}
+                onClick={() => {
+                  dispatch(openAddComment(order));
+                  // console.log("open");
+                }}
                 size="sm"
                 className="text-white rounded-sm bg-warning"
               >
