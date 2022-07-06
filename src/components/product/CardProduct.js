@@ -53,7 +53,7 @@ const CardProduct = () => {
 
           <ul className="flex items-center justify-center">
             <li
-              className="mr-4"
+              className="mr-4 cursor-pointer"
               onClick={() => {
                 const { cur } = pageInfo;
                 cur > 1 && setPageInfo({ ...pageInfo, cur: cur - 1 });
@@ -63,7 +63,7 @@ const CardProduct = () => {
             </li>
             {getPage()}
             <li
-              className="ml-4"
+              className="ml-4 cursor-pointer"
               onClick={() => {
                 const { cur, total } = pageInfo;
                 cur < total && setPageInfo({ ...pageInfo, cur: cur + 1 });

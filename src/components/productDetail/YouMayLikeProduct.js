@@ -12,6 +12,7 @@ import "../../styles.css";
 
 // import required modules
 import { Pagination, Navigation } from "swiper";
+import { useNavigate } from "react-router-dom";
 
 //假資料們
 const products = [
@@ -67,8 +68,9 @@ const products = [
   },
 ];
 
-//TODO 會被aside擋住，無法滿版
+
 function YouMayLikeProduct() {
+  const navigate = useNavigate()
   return (
     <>
       <Swiper
@@ -94,8 +96,10 @@ function YouMayLikeProduct() {
                     <img src={img} alt="" />
                   </div>
                   <div className="text-center w-36">
-                    <p className="py-1 text-white p bg-secondary note-words">
-                      加入購物車
+                    <p className="py-1 text-white cursor-pointer p bg-secondary note-words" onClick={()=>{
+                      navigate('/main/product/16');
+                    }}>
+                      查看商品
                     </p>
                     <p className="p">{name}</p>
                     <p className="note">$ {price}</p>

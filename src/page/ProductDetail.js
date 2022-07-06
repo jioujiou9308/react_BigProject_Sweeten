@@ -1,3 +1,4 @@
+import toast, { Toaster } from 'react-hot-toast';
 import React, { useEffect, useState } from "react";
 import {
   AiFillHeart,
@@ -85,6 +86,7 @@ function ProductDetail() {
     }
     return elementArr;
   };
+  const notify = () => toast('Here is your toast.');
 
   const favSwitchHandler = async () => {
     if (isFavor.length < 1) {
@@ -94,6 +96,7 @@ function ProductDetail() {
         user_id: currentUser.id,
         product_id: id,
       });
+
       getFavProduct();
     } else {
       //isFavor長度大於0要delete
@@ -171,7 +174,7 @@ function ProductDetail() {
                   </div>
 
                   {/* 右欄尺寸桌機板 */}
-                  <p className="mt-4 mb-2 p">尺寸</p>
+                  <p className="mt-4 mb-2 p" >尺寸</p>
                   {/* 尺寸按鈕桌機板  小字尺寸*/}
 
                   <button className="px-1 mr-5 size-btn-desk bg-light">
@@ -188,7 +191,7 @@ function ProductDetail() {
                   <div className="flex items-center justify-between mt-8">
                     <div className="flex">
                       <AiFillMinusCircle
-                        className="icon-lg text-secondary"
+                        className="cursor-pointer icon-lg text-secondary"
                         onClick={() => {
                           if (clickCount > 1) {
                             setClickCount(clickCount - 1);
@@ -197,7 +200,7 @@ function ProductDetail() {
                       />
                       <p className="mx-3">{clickCount}</p>
                       <AiFillPlusCircle
-                        className="icon-lg text-secondary"
+                        className="cursor-pointer icon-lg text-secondary"
                         onClick={() => {
                           setClickCount(clickCount + 1);
                         }}
@@ -275,9 +278,9 @@ function ProductDetail() {
                 </div>
               </div>
               {/* 展示圖手機板 */}
-              <div className="mx-4 md:hidden">
+              <div className="md:hidden">
                 <img
-                  className="max-w-full px-8 pt-10 mb-8"
+                  className="max-w-full px-2 pt-10 mb-8"
                   src={
                     process.env.PUBLIC_URL +
                     "/images/productDetail/product_demo1_upper.png"
@@ -287,10 +290,10 @@ function ProductDetail() {
 
                 {/* 愛心圖示手機板 */}
                 <div className="flex justify-end my-4">
-                  {/* FIXME rounded-full 也無法變完全圓*/}
+                  
                   <Button
                     variant="outlined"
-                    className="rounded-full select-none text-line border-line"
+                    className="mr-3 rounded-full select-none text-line border-line"
                     onClick={
                      
                       favSwitchHandler
@@ -305,16 +308,16 @@ function ProductDetail() {
                 </div>
 
                 {/* 標題+價錢手機板 */}
-                <div className="flex justify-between px-2">
+                <div className="flex items-center justify-between px-5">
                   {/* 手機板標題字體ㄉclassname */}
-                  <p className="h2">{name}</p>
+                  <p className="h3">{name}</p>
                   <p className="h3">$ {price} NTD</p>
                 </div>
 
                 {/* 數量加減手機板 */}
                 <div className="flex items-center my-5 ml-5">
                   <AiFillMinusCircle
-                    className="icon-xl text-secondary"
+                    className="cursor-pointer icon-xl text-secondary"
                     onClick={() => {
                       if (clickCount > 1) {
                         setClickCount(clickCount - 1);
@@ -323,7 +326,7 @@ function ProductDetail() {
                   />
                   <p className="mx-5">{clickCount}</p>
                   <AiFillPlusCircle
-                    className="icon-xl text-secondary"
+                    className="cursor-pointer icon-xl text-secondary"
                     onClick={() => {
                       setClickCount(clickCount + 1);
                     }}
@@ -339,11 +342,11 @@ function ProductDetail() {
                   <button className="px-2 ml-5 size-btn-desk ">8吋</button>
                 </div>
 
-                <h2 className="my-5 p">商品參與的優惠活動</h2>
-                <p className="mt-2 text-center p w-28 bg-primary">父親節特惠</p>
+                <h2 className="mx-5 my-5 p">商品參與的優惠活動</h2>
+                <p className="mx-5 mt-2 text-center p w-28 bg-primary">父親節特惠</p>
 
                 {/* 加入購物車按鈕手機板 */}
-                <div className="flex justify-between my-6">
+                <div className="flex justify-around my-6">
                   <Button
                     className="px-4 py-1 border-2 rounded-none border-sub"
                     variant="outlined"
@@ -421,18 +424,18 @@ function ProductDetail() {
               <div className="mx-8 md:mt-16 md:flex">
                 <div className="w-full md:w-2/5">
                   <div className="mb-4">
-                    <h2 className="ml-2 h2 md:ml-0">商品說明：</h2>
-                    <p className="text-justify p">{description}</p>
+                    <h2 className=" h2 md:ml-0">商品說明：</h2>
+                    <p className="text-justify p">{description.split('。')[0]}。</p>
                   </div>
 
                   <div className="mb-4">
-                    <h2 className="m-2 h2 md:ml-0">成分：</h2>
-                    <p className="text-justify p">{description}</p>
+                    <h2 className=" h2">成分：</h2>
+                    <p className="text-justify p">{description.split('。')[1]}。</p>
                   </div>
 
                   <div>
-                    <h2 className="ml-2 md:ml-0 h2">過敏原：</h2>
-                    <p className="text-justify p">{description}</p>
+                    <h2 className=" h2">過敏原：</h2>
+                    <p className="text-justify p">{description.split('。')[2]}。</p>
                   </div>
                 </div>
 
@@ -440,9 +443,9 @@ function ProductDetail() {
                   {/* 評論區 上半部*/}
                 
                   <div className="flex justify-between w-full h-1/5">
-                    <div className="flex items-center justify-around w-full my-7">
+                    <div className="flex items-center justify-between w-full md:justify-between my-7">
                       <div>
-                        <h2 className="h2">商品評論</h2>
+                        <h2 className="h2 md:ml-8">商品評論</h2>
                         <p className="md:hidden p">({comment.length}則評論)</p>
                       </div>
 
@@ -455,10 +458,7 @@ function ProductDetail() {
                       </div>
                     </div>
 
-                    <div className="items-center hidden md:w-2/5 md:justify-end md:flex text-secondary">
-                      {/* <p className="p">查看全部</p> */}
-                      <AiOutlineRight className="pt-2" />
-                    </div>
+                    
                   </div>
 
                   {/* 評論區 下半部使用者 */}

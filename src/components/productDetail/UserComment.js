@@ -42,7 +42,7 @@ const UserComment = () => {
           const { id, user_id, content, score } = comment;
           return (
             <>
-              <div className="flex justify-center py-4 ml-10 md:justify-start md:border-b-2">
+              <div className="flex justify-center py-4 md:ml-10 md:justify-start md:border-b-2">
                 <div className="overflow-hidden border-2 rounded-full md:mr-8 mr-14 bg-theme w-14">
                   <img src="/images/productDetail/user 1.png" alt="" />
                 </div>

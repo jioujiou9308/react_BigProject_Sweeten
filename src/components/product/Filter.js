@@ -6,14 +6,14 @@ import { API_URL } from "../../utils/config";
 import { clearConfigCache } from "prettier";
 import moment from "moment";
 import { useProductState } from "../../utils/redux/hooks-redux";
-
+//NOTE 列表跑版 篩選只有價錢跳出來
 function Filter() {
   const [allCategory, setAllCategory] = useState([]);
   const [product, setProduct] = useProductState();
   const [open, setOpen] = useState(false);
   //價格範圍選項
   const priceOption = ["600以下", "600~1200", "1200以上"];
-  //口味選項 NOTE篩出來是空陣列
+  //口味選項
   const flavorOption = allCategory?.filter((item) => String(item.id)[0] == 2);
   console.log("flavorOption", flavorOption);
   //種類選項
@@ -62,57 +62,65 @@ function Filter() {
     }
   };
   //口味filter
-  const flavorChangeHandler =async (e) => {
-    switch(e.target.value){
-      case '0':
-        let getfilteredCategory0= async()=>{
-          let response = await axios.get(API_URL+`/product/category/20${e.target.value}`)
-          setProduct(response.data.data)
-          console.log(response.data.data)
-        }
+  const flavorChangeHandler = async (e) => {
+    switch (e.target.value) {
+      case "0":
+        let getfilteredCategory0 = async () => {
+          let response = await axios.get(
+            API_URL + `/product/category/20${e.target.value}`
+          );
+          setProduct(response.data.data);
+          console.log(response.data.data);
+        };
         getfilteredCategory0();
         break;
 
-        case '1':
-          let getfilteredCategory1= async()=>{
-            let response = await axios.get(API_URL+`/product/category/20${e.target.value}`)
-            setProduct(response.data.data)
-            console.log(response.data.data)
-          }
-          getfilteredCategory1();
-          break;
+      case "1":
+        let getfilteredCategory1 = async () => {
+          let response = await axios.get(
+            API_URL + `/product/category/20${e.target.value}`
+          );
+          setProduct(response.data.data);
+          console.log(response.data.data);
+        };
+        getfilteredCategory1();
+        break;
 
-          case '2':
-            let getfilteredCategory2= async()=>{
-              let response = await axios.get(API_URL+`/product/category/20${e.target.value}`)
-              setProduct(response.data.data)
-              console.log(response.data.data)
-            }
-            getfilteredCategory2();
-          break;
+      case "2":
+        let getfilteredCategory2 = async () => {
+          let response = await axios.get(
+            API_URL + `/product/category/20${e.target.value}`
+          );
+          setProduct(response.data.data);
+          console.log(response.data.data);
+        };
+        getfilteredCategory2();
+        break;
 
-          case '3':
-            let getfilteredCategory3= async()=>{
-              let response = await axios.get(API_URL+`/product/category/20${e.target.value}`)
-              setProduct(response.data.data)
-              console.log(response.data.data)
-            }
-            getfilteredCategory3();
-          break;
+      case "3":
+        let getfilteredCategory3 = async () => {
+          let response = await axios.get(
+            API_URL + `/product/category/20${e.target.value}`
+          );
+          setProduct(response.data.data);
+          console.log(response.data.data);
+        };
+        getfilteredCategory3();
+        break;
 
-          case '4':
-            let getfilteredCategory4= async()=>{
-              let response = await axios.get(API_URL+`/product/category/20${e.target.value}`)
-              setProduct(response.data.data)
-              console.log(response.data.data)
-            }
-            getfilteredCategory4();
-            break;
-          
+      case "4":
+        let getfilteredCategory4 = async () => {
+          let response = await axios.get(
+            API_URL + `/product/category/20${e.target.value}`
+          );
+          setProduct(response.data.data);
+          console.log(response.data.data);
+        };
+        getfilteredCategory4();
+        break;
 
-          default:
-            return;
-        
+      default:
+        return;
     }
   };
   //價格排序
@@ -168,7 +176,7 @@ function Filter() {
       {/* <div className="hidden md:pr-5 md:border-r md:block rounded-sm min-w-[15rem] lg:w-1/4 h-max border-line"> */}
       <div className="hidden md:block md:pr-5 md:border-r rounded-sm min-w-[15rem] lg:w-1/4 h-max border-line">
         {/* filter&clear filter */}
-        <div className="flex items-center p-1 border-b-2 border-line">
+        <div className="flex items-center p-1 border-b-2 border-line ">
           <p className="pr-2 p">篩選 </p>
           <AiFillFilter />
         </div>
@@ -179,7 +187,7 @@ function Filter() {
             {/* 價格範圍 */}
             <select
               onChange={PriceChangeHandler}
-              className="w-full px-4 py-3 text-sm bg-gray-100 border-transparent rounded-none focus:border-gray-500 focus:bg-white focus:ring-0"
+              className="w-full px-4 py-3 text-sm bg-gray-100 border-transparent rounded-none cursor-pointer focus:border-gray-500 focus:bg-white focus:ring-0"
             >
               <option>價格範圍</option>
               {priceOption.map((v, i) => {
@@ -190,7 +198,7 @@ function Filter() {
             {/* 口味 */}
             <select
               onChange={flavorChangeHandler}
-              className="hidden w-full px-4 py-3 text-sm bg-gray-100 border-transparent rounded-none md:block focus:border-gray-500 focus:bg-white focus:ring-0"
+              className="hidden w-full px-4 py-3 text-sm bg-gray-100 border-transparent rounded-none cursor-pointer md:block focus:border-gray-500 focus:bg-white focus:ring-0"
             >
               <option value="">口味</option>
               {flavorOption.map((v, i) => {
@@ -201,7 +209,7 @@ function Filter() {
             {/* 上架時間 */}
             <select
               onChange={timeOrderChangeHandler}
-              className="hidden w-full px-4 py-3 text-sm bg-gray-100 border-transparent rounded-none md:block focus:border-gray-500 focus:bg-white focus:ring-0"
+              className="hidden w-full px-4 py-3 text-sm bg-gray-100 border-transparent rounded-none cursor-pointer md:block focus:border-gray-500 focus:bg-white focus:ring-0"
             >
               <option value="">上架時間</option>
               <option value="0">最新到最舊</option>
@@ -211,7 +219,7 @@ function Filter() {
             {/* 價格排序 */}
             <select
               onChange={priceOrderChangeHandler}
-              className="hidden w-full px-4 py-3 text-sm bg-gray-100 border-transparent rounded-none md:block focus:border-gray-500 focus:bg-white focus:ring-0"
+              className="hidden w-full px-4 py-3 text-sm bg-gray-100 border-transparent rounded-none cursor-pointer md:block focus:border-gray-500 focus:bg-white focus:ring-0"
             >
               <option value="">價格排序</option>
               <option value="0">由高到低</option>
@@ -227,7 +235,7 @@ function Filter() {
           className="flex items-center justify-center border-b border-line"
           onClick={filterHandler}
         >
-          <p className="mr-1 text-center text-dark h3">篩選 </p>
+          <p className="mr-1 text-center cursor-pointer text-dark h3">篩選 </p>
           <AiFillFilter className="icon-sm" />
         </div>
         <div className="overflow-hidden ">
@@ -238,21 +246,30 @@ function Filter() {
               data-aos-easing="ease-in-out"
               data-aos-duration="500"
             >
-              <select className="w-full px-4 py-3 text-sm bg-gray-100 border-transparent rounded-none focus:border-gray-500 focus:bg-white focus:ring-0">
-                <option value="">價格範圍</option>
+              <select
+                onChange={PriceChangeHandler}
+                className="w-full px-4 py-3 text-sm bg-gray-100 border-transparent rounded-none cursor-pointer focus:border-gray-500 focus:bg-white focus:ring-0"
+              >
+                <option>價格範圍</option>
                 {priceOption.map((v, i) => {
                   return <option value={i}>{v}</option>;
                 })}
               </select>
 
-              <select className="hidden w-full px-4 py-3 text-sm bg-gray-100 border-transparent rounded-none md:block focus:border-gray-500 focus:bg-white focus:ring-0">
+              <select
+                onChange={flavorChangeHandler}
+                className="hidden w-full px-4 py-3 text-sm bg-gray-100 border-transparent rounded-none cursor-pointer md:block focus:border-gray-500 focus:bg-white focus:ring-0"
+              >
                 <option value="">口味</option>
                 {flavorOption.map((v, i) => {
-                  return <option value={i}>{v}</option>;
+                  return <option value={i}>{v.name}</option>;
                 })}
               </select>
 
-              <select className="hidden w-full px-4 py-3 text-sm bg-gray-100 border-transparent rounded-none md:block focus:border-gray-500 focus:bg-white focus:ring-0">
+              <select
+                className="hidden w-full px-4 py-3 text-sm bg-gray-100 border-transparent rounded-none md:block focus:border-gray-500 focus:bg-white focus:ring-0"
+                onChange={timeOrderChangeHandler}
+              >
                 <option value="">上架時間</option>
                 <option value="0">最新到最舊</option>
                 <option value="1">最舊到最新</option>

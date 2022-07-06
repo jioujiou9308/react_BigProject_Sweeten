@@ -51,7 +51,7 @@ const OnceCarkProduct = ({ product }) => {
       <div className=" mb-6 mx-1 xl:w-[13rem]">
         <div className="flex flex-col items-center justify-center mr-1 ">
           <img
-            className="object-cover w-full rounded-sm h-[15rem]"
+            className="object-cover w-full cursor-pointer rounded-sm h-[15rem]"
             src="/images/course/hand.jpg"
             alt="T-Shirt"
             onClick={() => {
@@ -64,18 +64,18 @@ const OnceCarkProduct = ({ product }) => {
             </h4>
             <div className="mr-1 text-blue-500 p">${product.price}</div>
             <div className="flex items-center ">
-              <AiOutlineMessage className="icon-sm"  onClick={() => {
+              <AiOutlineMessage className="cursor-pointer icon-sm"  onClick={() => {
               navigate(`/main/product/${product.id}`);
             }}/>
 
               {favProduct?.findIndex((item) => item.product_id === product.id) >
               -1 ? (
                 <AiFillHeart
-                  className="icon-sm text-secondary"
+                  className="cursor-pointer icon-sm text-secondary"
                   onClick={favSwitchHander}
                 />
               ) : (
-                <AiOutlineHeart className="icon-sm" onClick={favSwitchHander} />
+                <AiOutlineHeart className="cursor-pointer icon-sm" onClick={favSwitchHander} />
               )}
             </div>
           </div>

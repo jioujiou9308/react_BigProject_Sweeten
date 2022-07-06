@@ -10,7 +10,7 @@ function MemberCollectionBar(props) {
     <>
       <div className="grid grid-cols-2 px-6 p">
         <div
-          className="pb-2 text-center"
+          className="pb-2 text-center cursor-pointer"
           onClick={() => {
             setX(0);
             setIsOn(1);
@@ -24,7 +24,7 @@ function MemberCollectionBar(props) {
             setIsOn(2);
           }}
         >
-          <p className="pb-2 text-center">評論</p>
+          <p className="pb-2 text-center cursor-pointer">評論</p>
         </div>
         <motion.div
           className="border border-dark w-50"

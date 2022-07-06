@@ -84,8 +84,8 @@ const MemberColloction = () => {
               return (
                 <>
                   {/* 圖片 備註 評分*/}
-                  <div className="flex items-center justify-around px-0 py-1 border-b md:py-6 md:px-8">
-                    <div className="overflow-hidden ">
+                  <div className="flex items-center justify-between px-0 py-1 border-b md:justify-around md:py-6 md:px-8">
+                    <div className="overflow-hidden scale-75 md:scale-100">
                       <img
                         className=""
                         src="/images/memberCollectionAndOrder/member_order1.png"
@@ -109,7 +109,6 @@ const MemberColloction = () => {
                       </button>
                     </div>
                     {/* 評分 */}
-                    {/* 不確定這裡這樣寫對不對QQ */}
                     {/* 有評分score變數 */}
                     {comment?.findIndex(
                       (comment) => comment.id === product_id
@@ -132,20 +131,20 @@ const MemberColloction = () => {
                         </div>
                       </div>
                     ) : (
+                   
                       <div className="hidden text-center md:block mx-18 ">
                         <p className="mr-2 note">尚未評價</p>
                         <h2 className=" h3">-/5</h2>
                         <div className="flex">{star(0)}</div>
                       </div>
                     )}
-
-                    {/* 沒有評分 */}
+ {/* 沒有評分 */}
 
                     {/* 移除&購買 */}
                     <div className="flex-col md:ml-4 ">
                       <Button
                         size="sm"
-                        className="flex items-center mb-3 rounded-sm md:p bg-warning"
+                        className="flex items-center px-2 mb-3 rounded-sm md:px-4 md:p bg-warning"
                         onClick={() => {
                           let productIndex = cart[1].findIndex(function (
                             data,
@@ -179,7 +178,7 @@ const MemberColloction = () => {
                         size="sm"
                         color="amber"
                         variant="outlined"
-                        className="rounded-sm md:p"
+                        className="px-2 rounded-sm md:p md:px-4"
                       >
                         <span
                           className="flex items-center "
