@@ -82,114 +82,128 @@ const CourseDetail = (props) => {
   ];
 
   return (
-    <div className="flex mt-5 mb-5 border border-red-500 h-96">
-      <div className="w-2/5 ml-10">
-        <div className="w-full bg-white">
-          <div className="flex items-center justify-between mt-10">
-            <p className="h2">{lessons[a].name}</p>
-          </div>
-          <p className="mt-2 mb-5 h3">$ {lessons[a].price}/人 NTD</p>
-
-          {/* 課程的日期 */}
-          {/* 課程的日期 */}
-          <div>
-            <p className="mt-2 text-sm leading-none text-gray-800 md:mt-0">
-              <span className="font-semibold text-gray-300">時段</span>
-            </p>
-            <select
-              id="date"
-              defaultValue="Select date"
-              className="w-full py-2 text-sm text-center transition-all duration-150 ease-linear bg-white border-0 rounded shadow placeholder-primary text-blueGray-600 focus:outline-none focus:ring"
-              onChange={(e) => {
-                setSelect(e.target.value);
-              }}
-            >
-              <option value="請選擇日期" selected>
-                請選擇日期
-              </option>
-              <option value="2022/07/03(日) 10:00">2022/07/03(日) 10:00</option>
-              <option value="2022/07/04(一) 13:00">2022/07/04(一) 13:00</option>
-              <option value="2022/07/19(二) 15:00">2022/07/19(二) 15:00</option>
-              <option value="2022/07/23(六) 13:00">2022/07/23(六) 13:00</option>
-            </select>
-          </div>
-
-          <p className="mt-5 p">參加人數</p>
-          <div className="flex flex-col gap-2 sm:flex-row sm:gap-0">
-            <div className="sm:-mr-8">
-              <label htmlFor="adult">大人：</label>
-              <input
-                id="adult"
-                type="number"
-                className="w-1/2 py-2 text-sm transition-all duration-150 ease-linear bg-white border-0 rounded shadow placeholder-blueGray-300 text-blueGray-600 focus:outline-none focus:ring"
-                min="0"
-                placeholder="請輸入人數"
-                onChange={(e) => {
-                  setInputAdult(e.target.value);
-                }}
-              />
-              人,
+    <div className="flex h-full mt-5 mb-5 ">
+      <div className="flex flex-wrap h-full">
+        <div className="w-full ml-10 mr-10 lg:w-2/5">
+          <div className="w-full bg-white">
+            <div className="flex items-center justify-between mt-10">
+              <p className="h2">{lessons[a].name}</p>
             </div>
+            <p className="mt-2 mb-5 h3">$ {lessons[a].price}/人 NTD</p>
+
+            {/* 課程的日期 */}
+            {/* 課程的日期 */}
             <div>
-              <label htmlFor="kid">小孩：</label>
-              <input
-                id="kid"
-                type="number"
-                className="w-1/2 py-2 text-sm transition-all duration-150 ease-linear bg-white border-0 rounded shadow placeholder-blueGray-300 text-blueGray-600 focus:outline-none focus:ring"
-                min="0"
-                placeholder="請輸入人數"
+              <p className="mt-2 text-sm leading-none text-gray-800 md:mt-0">
+                <span className="font-semibold text-gray-300">時段</span>
+              </p>
+              <select
+                id="date"
+                defaultValue="Select date"
+                className="w-full py-2 text-sm text-center transition-all duration-150 ease-linear bg-white border-0 rounded shadow placeholder-primary text-blueGray-600 focus:outline-none focus:ring"
                 onChange={(e) => {
-                  setInputChild(e.target.value);
+                  setSelect(e.target.value);
                 }}
-              />{" "}
-              人
+              >
+                <option value="請選擇日期" selected>
+                  請選擇日期
+                </option>
+                <option value="2022/07/03(日) 10:00">
+                  2022/07/03(日) 10:00
+                </option>
+                <option value="2022/07/04(一) 13:00">
+                  2022/07/04(一) 13:00
+                </option>
+                <option value="2022/07/19(二) 15:00">
+                  2022/07/19(二) 15:00
+                </option>
+                <option value="2022/07/23(六) 13:00">
+                  2022/07/23(六) 13:00
+                </option>
+              </select>
             </div>
-          </div>
-          <div className="mt-8 ">
-            <Button
-              className="ml-3 text-white border-2 rounded-none border-warning bg-warning"
-              variant="filled"
-              onClick={() => {
-                setCoursCart([
-                  select,
-                  inputAdult,
-                  inputChild,
-                  lessons[a].name,
-                  lessons[a].price,
-                  lessonImage[a],
-                ]);
-                navigate("/main/courseDetail");
-              }}
-            >
-              <span className="">立即購買</span>
-            </Button>
+
+            <p className="mt-5 p">參加人數</p>
+            <div className="flex flex-col gap-2 sm:flex-row sm:gap-0">
+              <div className="sm:-mr-8">
+                <label htmlFor="adult">大人：</label>
+                <input
+                  required
+                  id="adult"
+                  type="number"
+                  className="w-1/2 py-2 text-sm transition-all duration-150 ease-linear bg-white border-0 rounded shadow placeholder-blueGray-300 text-blueGray-600 focus:outline-none focus:ring"
+                  min="0"
+                  placeholder="請輸入人數"
+                  onChange={(e) => {
+                    setInputAdult(e.target.value);
+                  }}
+                />
+                人,
+              </div>
+              <div>
+                <label htmlFor="kid">小孩：</label>
+                <input
+                  required
+                  id="kid"
+                  type="number"
+                  className="w-1/2 py-2 text-sm transition-all duration-150 ease-linear bg-white border-0 rounded shadow placeholder-blueGray-300 text-blueGray-600 focus:outline-none focus:ring"
+                  min="0"
+                  placeholder="請輸入人數"
+                  onChange={(e) => {
+                    setInputChild(e.target.value);
+                  }}
+                />{" "}
+                人
+              </div>
+            </div>
+            <div className="mt-8 ">
+              <Button
+                className="ml-3 text-white border-2 rounded-none border-warning bg-warning"
+                variant="filled"
+                onClick={() => {
+                  setCoursCart([
+                    select,
+                    inputAdult,
+                    inputChild,
+                    lessons[a].name,
+                    lessons[a].price,
+                    lessonImage[a],
+                  ]);
+                  navigate("/main/courseDetail");
+                }}
+              >
+                <span className="">立即購買</span>
+              </Button>
+            </div>
           </div>
         </div>
-      </div>
-      <div className="w-1/2">
-        <div className="mx-8 md:mt-16 md:flex">
-          <div className="w-full md:pr-10 ">
-            <div className="mb-4">
-              <h2 className="ml-2 md:ml-0 h3">{courseDetail[a].material}</h2>
-              <p className="text-justify h3">{courseDetail[a].materialIntro}</p>
-            </div>
-            <div className="flex mb-4">
-              <h2 className="ml-2 md:ml-0 h3">{courseDetail[a].difficulty}</h2>
-              <h2 className="flex text-yellow-500 h2">
-                {courseDetail[a].difficultyIntro}
-              </h2>
-            </div>
-            <div className="mb-4">
-              <h2 className="ml-2 md:ml-0 h3">
-                {courseDetail[a].teacher}
-                {courseDetail[a].teacherIntro}
-              </h2>
-            </div>
-            <div className="mb-4">
-              <h2 className="ml-2 md:ml-0 h3">
-                {courseDetail[a].time}
-                {courseDetail[a].timeIntro}
-              </h2>
+        <div className="w-full mt-5 lg:w-1/2">
+          <div className="mx-8 md:mt-16 md:flex">
+            <div className="w-full md:pr-10 ">
+              <div className="mb-4">
+                <h2 className=" md:ml-0 h3">{courseDetail[a].material}</h2>
+                <p className="text-justify h3">
+                  {courseDetail[a].materialIntro}
+                </p>
+              </div>
+              <div className="flex mb-4">
+                <h2 className=" md:ml-0 h3">{courseDetail[a].difficulty}</h2>
+                <h2 className="flex text-yellow-500 h2">
+                  {courseDetail[a].difficultyIntro}
+                </h2>
+              </div>
+              <div className="mb-4">
+                <h2 className=" md:ml-0 h3">
+                  {courseDetail[a].teacher}
+                  {courseDetail[a].teacherIntro}
+                </h2>
+              </div>
+              <div className="mb-4">
+                <h2 className=" md:ml-0 h3">
+                  {courseDetail[a].time}
+                  {courseDetail[a].timeIntro}
+                </h2>
+              </div>
             </div>
           </div>
         </div>

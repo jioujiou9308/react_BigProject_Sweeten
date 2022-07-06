@@ -5,29 +5,34 @@ import { API_URL } from "../../utils/config";
 import CourseContent from "./CourseContent";
 import CourseHeader from "./CourseHeader";
 import CourseIntro from "./CourseIntro";
+
 import CourseDetail from "./CourseDetail";
 // import LessonList from "../courseDetail/LessonList";
 
 const image = [
   {
     image1: "/images/courseDetail/lesson1/lesson1.jpg",
-    image2: "/images/courseDetail/lesson1/lesson2.jpg",
+    image2: "/images/courseDetail/lesson1/chef.jpg",
     image3: "/images/courseDetail/lesson1/lesson3.jpg",
+    name: "手工馬卡龍",
   },
   {
     image1: "/images/courseDetail/lesson2/cookie1.jpg",
-    image2: "/images/courseDetail/lesson2/cookie2.jpg",
+    image2: "/images/courseDetail/lesson2/chef.jpg",
     image3: "/images/courseDetail/lesson2/cookie3.jpg",
+    name: "手工餅乾製作",
   },
   {
     image1: "/images/courseDetail/lesson3/tar1.jpg",
-    image2: "/images/courseDetail/lesson3/tar2.jpg",
+    image2: "/images/courseDetail/lesson3/chef.jpg",
     image3: "/images/courseDetail/lesson3/tar3.jpg",
+    name: "新鮮水果塔",
   },
   {
     image1: "/images/courseDetail/lesson4/cake1.jpg",
-    image2: "/images/courseDetail/lesson4/cake2.jpg",
+    image2: "/images/courseDetail/lesson4/chef.jpg",
     image3: "/images/courseDetail/lesson4/cake3.jpg",
+    name: "新鮮生乳捲",
   },
 ];
 const CourseMain = () => {
@@ -54,13 +59,15 @@ const CourseMain = () => {
   // console.log(lessons);
   return (
     <>
-      <CourseHeader />
-      <CourseIntro />
-      <div className="mb-10 ">
+      <div className="mb-10">
+        <CourseHeader />
+      </div>
+      <div className="mb-20 ">
         <CourseSwiper
           lessons={lessons}
           setSwipe={setSwipe}
           lessonImage={lessonImage}
+          swipe={swipe}
         />
       </div>
       <CourseContent
