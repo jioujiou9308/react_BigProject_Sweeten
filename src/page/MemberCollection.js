@@ -108,7 +108,6 @@ const MemberColloction = () => {
                         母親節特賣
                       </button>
                     </div>
-
                     {/* 評分 */}
                     {/* 不確定這裡這樣寫對不對QQ */}
                     {/* 有評分score變數 */}
@@ -190,7 +189,7 @@ const MemberColloction = () => {
                               `${API_URL}/user/favorite_product/${user_id}?product_id=${product_id}`
                             );
                             // console.log(response);
-                            //NOTE API發送失敗
+                         
                             axios
                               .get(
                                 API_URL +

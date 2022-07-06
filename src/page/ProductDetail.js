@@ -49,6 +49,7 @@ function ProductDetail() {
     getProductDetail();
     //抓所有評論
     let getComment = async () => {
+      console.log("fetch");
       let response = await axios.get(
         `${API_URL}/product/comment/${id}`
       );

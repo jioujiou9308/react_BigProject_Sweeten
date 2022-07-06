@@ -13,8 +13,7 @@ function MemberOrder() {
   const step = ["全部", "待付款", "待出貨", "待收貨", "完成"];
   const [barStep, setBarStep] = useState(0);
   const [order, setOrder] = useState([]);
-  const [allOrder, setAllOrder] = useState([]);
-
+  const [orderProduct, setOrderProduct] = useState([]);
   const [currentUser] = useUserState();
 
   useEffect(() => {
