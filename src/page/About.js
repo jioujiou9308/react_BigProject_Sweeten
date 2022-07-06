@@ -90,7 +90,7 @@ function About() {
         </div>
 
         {/* 照片牆 */}
-        <div className="h-14 ml-10 mt-40 bg-gradient-to-r pb-[6px] from-secondary to-transparent">
+        <div className="h-14  mt-40 bg-gradient-to-r pb-[6px] from-secondary to-transparent">
           <div className="h-12 p-0 bg-white">
             <h1
               className=" flex h-12 lg:text-4xl text-2xl font-bold leading-9  tracking-[.3em]"
@@ -101,7 +101,7 @@ function About() {
             </h1>
           </div>
         </div>
-        <span className="mx-10 my-5 leading-9 p">
+        <span className="my-5 leading-9 md:mx-10 p">
           近年來，風格獨立甜點店一間間開起，各色甜點創作不僅滿足甜點迷的味蕾，也形塑出多元甜點文化。事實上台灣常民生活與甜點的美味關係其來有自。早從日治時期開始，台灣人便可以在喫茶店裡享用兼具和洋風味的「洋菓子」；到了美援時期，在美國推廣小麥的背景下，街邊開起一間間「西點麵包店」，西點師傅們在「台灣區麵麥食品推廣執行委員會」教導下，以當時看來科學化的先進技術，製作出充滿美式風格的西點麵包，成為許多人的童年回憶。
         </span>
         <div className="relative flex flex-wrap items-start justify-center px-4 mt-20 2xl:px-1 lg:px-12">
@@ -258,7 +258,7 @@ function About() {
         </div>
       </div>
       {/*師資*/}
-      <div className="h-14 ml-10 mt-40 bg-gradient-to-r pb-[6px] from-secondary to-transparent">
+      <div className="h-14  mt-40 bg-gradient-to-r pb-[6px] from-secondary to-transparent">
         <div className="h-12 p-0 bg-white">
           <h1
             className=" flex h-12 lg:text-4xl text-2xl font-bold leading-9  tracking-[.3em]"
@@ -272,7 +272,7 @@ function About() {
       <div className="flex flex-wrap justify-around mt-8 mb-20">
         {/* Each Teacher */}
         <div
-          className="flex items-center p-2 hover:bg-primary"
+          className="flex items-center w-full p-2 lg:w-1/4 sm:w-1/2 hover:bg-primary"
           data-aos="flip-left"
           data-aos-duration="2000"
         >
@@ -287,7 +287,7 @@ function About() {
           </div>
         </div>
         <div
-          className="flex items-center p-2 hover:bg-primary"
+          className="flex items-center w-full p-2 lg:w-1/4 sm:w-1/2 hover:bg-primary"
           data-aos="flip-left"
           data-aos-duration="2000"
         >
@@ -302,7 +302,7 @@ function About() {
           </div>
         </div>
         <div
-          className="flex items-center p-2 hover:bg-primary"
+          className="flex items-center w-full p-2 lg:w-1/4 sm:w-1/2 hover:bg-primary"
           data-aos="flip-left"
           data-aos-duration="2000"
         >
@@ -317,7 +317,7 @@ function About() {
           </div>
         </div>
         <div
-          className="flex items-center p-2 hover:bg-primary"
+          className="flex items-center w-full p-2 lg:w-1/4 sm:w-1/2 hover:bg-primary"
           data-aos="flip-left"
           data-aos-duration="2000"
         >

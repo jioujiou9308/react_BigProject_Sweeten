@@ -8,7 +8,7 @@ import {
 import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-import 'swiper/css/effect-fade';
+import "swiper/css/effect-fade";
 import "../components/home/styles.css";
 import { Autoplay, EffectFade } from "swiper";
 import useLoading from "../utils/hooks/useLoading";
@@ -80,7 +80,7 @@ const Home = (props) => {
                 className="mySwiper"
                 effect="fade"
               >
-                <SwiperSlide>
+                <SwiperSlide className="object-cover h-full">
                   <img src={`/images/home/banner1.jpeg`} alt="slide" />
                 </SwiperSlide>
                 <SwiperSlide>
