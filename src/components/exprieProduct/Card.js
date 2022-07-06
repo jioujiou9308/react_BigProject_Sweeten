@@ -12,7 +12,8 @@ const Card = (props) => {
   const [restCount, setRestCount] = useState(product.count);
   console.log(cart[1]);
   //折扣的價格
-  const secondPrice = Math.ceil(product.price * 0.79);
+  let priceOff = product.discount / 100;
+  const secondPrice = Math.ceil(Math.ceil(product.price * priceOff) / 10) * 10;
   //現在的時間->轉換成時間戳記
   const dateNow = new Date();
   const timeNow = dateNow.getTime();
@@ -22,7 +23,7 @@ const Card = (props) => {
   console.log(expireTime);
   //相減剩餘的時間(時間戳記)
   let restTime = Math.floor((expireTime - timeNow) / 1000);
-
+  console.log(cart[1]);
   useEffect(() => {
     let countDown = setInterval(() => {
       if (restTime < 1) {
@@ -106,7 +107,11 @@ const Card = (props) => {
                     let newData = [cart[0], cartList];
                     setCart(newData);
                   } else {
-                    let newProductCount = { ...product, count: 1 };
+                    let newProductCount = {
+                      ...product,
+                      count: 1,
+                      price: secondPrice,
+                    };
                     let cartList = [...cart[1], newProductCount];
                     let newData = [cart[0], cartList];
                     setCart(newData);

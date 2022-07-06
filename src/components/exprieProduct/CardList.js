@@ -15,7 +15,7 @@ const CardList = () => {
   const [expireProuct, setExpireProduct] = useState([]);
   //新增進購物車的功能
   // const [carData, setCartData] = useCartState([]);
-
+  console.log(expireProuct);
   //從後端抓資料到前端
   useEffect(() => {
     let getExpireProduct = async () => {
@@ -25,7 +25,6 @@ const CardList = () => {
         },
       });
       setExpireProduct(response.data.data);
-      console.log(response);
       setLastPage(response.data.pagination.totalPage);
 
       // console.log(response.data.pagination.totalPage);

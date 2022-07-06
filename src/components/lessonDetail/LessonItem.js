@@ -23,40 +23,30 @@ const LessonItem = (props) => {
               <h3 className="text-xl font-semibold leading-6 text-gray-800 xl:text-2xl ">
                 課程：{courseCart[3]}
               </h3>
-              <div>
-                <p>課程說明</p>
-                <p>
-                  1.產品為新鮮製做的蛋糕，如有不能吃的成分請事先告知。三歲前的小朋友請避開巧克力等含咖啡因或含酒精的成分
-                </p>
-              </div>
-
-              <div className="w-full">
-                <p className="text-base font-black text-right">
-                  價格: {courseCart[4]}
-                </p>
+              <div className="w-full ">
+                {/* 人數 */}
+                <div className="text-gray-800 p">人數</div>
+                <div className="sm:flex-row sm:gap-0">
+                  <p className="p">大人： {courseCart[1]}</p>
+                  <p className="p">小孩：{courseCart[2]}</p>
+                </div>
+                {/* 時段 */}
+                <div>
+                  <div className="text-sm leading-none text-gray-800 md:mt-0">
+                    時段
+                  </div>
+                  <p>{courseCart[0]}</p>
+                  <p className="text-base font-black text-right">
+                    價格: {courseCart[4]}
+                  </p>
+                </div>
+                {/* 按鈕 */}
               </div>
             </div>
           </div>
         </div>
         {/* 人數時段 */}
-        <div className="flex flex-col items-start justify-between w-full p-5 border-b border-gray-200 md:flex-row sm:pr-0">
-          {/* 人數 */}
-          <div>
-            <div className="leading-none text-gray-800 p">人數</div>
-            <div className="flex flex-col gap-2 sm:flex-row sm:gap-0">
-              <p className="p">大人： {courseCart[1]}</p>
-              <p className="p">小孩：{courseCart[2]}</p>
-            </div>
-          </div>
-          {/* 時段 */}
-          <div>
-            <div className="mt-2 text-sm leading-none text-gray-800 md:mt-0">
-              時段
-            </div>
-            <p>{courseCart[0]}</p>
-          </div>
-          {/* 按鈕 */}
-        </div>
+
         {/* 注意事項 */}
         <div className="flex flex-col items-start justify-start w-full p-5">
           <p className="text-warning">注意事項：</p>
@@ -72,6 +62,16 @@ const LessonItem = (props) => {
           </p>
           <p>
             • 3次（含）以上訂位未到且未做取消者，半年內將無法再使用線上訂位。
+          </p>
+          <p>• 若有相關問題請至官網線上客服，有專人問您服務。</p>
+        </div>
+        <div>
+          <p>課程說明</p>
+          <p>
+            1.產品為新鮮製，如有不能吃的成分請事先告知。三歲前的小朋友請避開巧克力等含咖啡因或含酒精的成分
+          </p>
+          <p>
+            2.產品為新鮮製，如有不能吃的成分請事先告知。三歲前的小朋友請避開巧克力等含咖啡因或含酒精的成分
           </p>
         </div>
       </div>
