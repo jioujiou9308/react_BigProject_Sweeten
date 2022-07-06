@@ -128,6 +128,7 @@ const CourseDetail = (props) => {
               <div className="sm:-mr-8">
                 <label htmlFor="adult">大人：</label>
                 <input
+                  required
                   id="adult"
                   type="number"
                   className="w-1/2 py-2 text-sm transition-all duration-150 ease-linear bg-white border-0 rounded shadow placeholder-blueGray-300 text-blueGray-600 focus:outline-none focus:ring"
@@ -142,6 +143,7 @@ const CourseDetail = (props) => {
               <div>
                 <label htmlFor="kid">小孩：</label>
                 <input
+                  required
                   id="kid"
                   type="number"
                   className="w-1/2 py-2 text-sm transition-all duration-150 ease-linear bg-white border-0 rounded shadow placeholder-blueGray-300 text-blueGray-600 focus:outline-none focus:ring"

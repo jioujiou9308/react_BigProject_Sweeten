@@ -89,7 +89,7 @@ const Card = (props) => {
             </div>
             {restCount > 0 ? (
               <button
-                className="flex items-center justify-center w-full px-2 py-2 mt-4 text-white rounded-sm opacity-100 hover:opacity-80 bg-dark focus:outline-none "
+                className="flex items-center justify-center w-full px-2 py-2 mt-4 text-white rounded-sm opacity-100 hover:opacity-80 bg-secondary focus:outline-none"
                 onClick={() => {
                   const { product } = props;
                   let productIndex = cart[1].findIndex(function (data, index) {
@@ -101,6 +101,7 @@ const Card = (props) => {
                     let newProductCount = {
                       ...product,
                       count: cart[1][productIndex].count + 1,
+                      price: secondPrice,
                     };
                     let cartList = [...cart[1]];
                     cartList[productIndex] = newProductCount;
@@ -119,11 +120,11 @@ const Card = (props) => {
                   setRestCount(restCount - 1);
                 }}
               >
-                <span className="mx-1">加入購物車</span>
+                <span className="mx-1 ">加入購物車</span>
               </button>
             ) : (
               <button className="flex items-center justify-center w-full px-2 py-2 mt-4 text-white rounded-sm opacity-100 hover:opacity-80 bg-dark focus:outline-none ">
-                <span className="mx-1">已經售罄</span>
+                <span className="mx-1">沒有庫存</span>
               </button>
             )}
           </div>

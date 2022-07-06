@@ -37,10 +37,10 @@ const CourseContent = (props) => {
             <div className="inline-block mt-2 mr-2">
               <button
                 type="button"
-                className="ml-3 text-white border-2 rounded-none border-warning bg-warning"
+                className="p-2 ml-3 text-white border-2 rounded-none border-warning bg-warning"
                 onClick={toggle}
               >
-                課程資訊
+                預約課程
               </button>
             </div>
           </div>
