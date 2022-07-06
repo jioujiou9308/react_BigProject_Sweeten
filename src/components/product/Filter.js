@@ -8,24 +8,24 @@ import moment from "moment";
 import { useProductState } from "../../utils/redux/hooks-redux";
 
 function Filter() {
-  const [allCategory, setAllCategory]=useState([])
+  const [allCategory, setAllCategory] = useState([]);
   const [product, setProduct] = useProductState();
   const [open, setOpen] = useState(false);
   //價格範圍選項
   const priceOption = ["600以下", "600~1200", "1200以上"];
   //口味選項 NOTE篩出來是空陣列
-  const flavorOption = allCategory?.filter((item)=>item.id[0]==2)
-  console.log('flavorOption',flavorOption)
+  const flavorOption = allCategory?.filter((item) => String(item.id)[0] == 2);
+  console.log("flavorOption", flavorOption);
   //種類選項
   const categoryOption = ["蛋糕", "餅乾", "點心", "冰品"];
-  // console.log(product);
-  
-  useEffect(()=>{
-    axios.get(API_URL+'/product/category').then(({data})=>{
-      setAllCategory(data)
-      console.log('categoryfilter',data)
-    })  
-  },[])
+  console.log(product);
+
+  useEffect(() => {
+    axios.get(API_URL + "/product/category").then(({ data }) => {
+      setAllCategory(data);
+      // console.log("categoryfilter", data);
+    });
+  }, []);
   //手機板篩選ㄉ彈跳視窗
   const filterHandler = () => {
     setOpen(!open);
@@ -62,7 +62,59 @@ function Filter() {
     }
   };
   //口味filter
-  const flavorChangeHandler = () => {};
+  const flavorChangeHandler =async (e) => {
+    switch(e.target.value){
+      case '0':
+        let getfilteredCategory0= async()=>{
+          let response = await axios.get(API_URL+`/product/category/20${e.target.value}`)
+          setProduct(response.data.data)
+          console.log(response.data.data)
+        }
+        getfilteredCategory0();
+        break;
+
+        case '1':
+          let getfilteredCategory1= async()=>{
+            let response = await axios.get(API_URL+`/product/category/20${e.target.value}`)
+            setProduct(response.data.data)
+            console.log(response.data.data)
+          }
+          getfilteredCategory1();
+          break;
+
+          case '2':
+            let getfilteredCategory2= async()=>{
+              let response = await axios.get(API_URL+`/product/category/20${e.target.value}`)
+              setProduct(response.data.data)
+              console.log(response.data.data)
+            }
+            getfilteredCategory2();
+          break;
+
+          case '3':
+            let getfilteredCategory3= async()=>{
+              let response = await axios.get(API_URL+`/product/category/20${e.target.value}`)
+              setProduct(response.data.data)
+              console.log(response.data.data)
+            }
+            getfilteredCategory3();
+          break;
+
+          case '4':
+            let getfilteredCategory4= async()=>{
+              let response = await axios.get(API_URL+`/product/category/20${e.target.value}`)
+              setProduct(response.data.data)
+              console.log(response.data.data)
+            }
+            getfilteredCategory4();
+            break;
+          
+
+          default:
+            return;
+        
+    }
+  };
   //價格排序
   const priceOrderChangeHandler = async (e) => {
     const res = await axios.get(API_URL + "/product/all");
@@ -86,7 +138,7 @@ function Filter() {
         return;
     }
   };
-  //上架時間排序 
+  //上架時間排序
   const timeOrderChangeHandler = async (e) => {
     const res = await axios.get(API_URL + "/product/all");
     const newList = res.data.data;
@@ -99,13 +151,13 @@ function Filter() {
         setProduct(newProduct0);
         break;
 
-        case "1":
-          const newProduct1 = [...newList].sort((a, b) => {
-            return b.id - a.id;
-          });
-          setProduct(newProduct1);
-          break;
-      
+      case "1":
+        const newProduct1 = [...newList].sort((a, b) => {
+          return b.id - a.id;
+        });
+        setProduct(newProduct1);
+        break;
+
       default:
         return;
     }
@@ -142,7 +194,7 @@ function Filter() {
             >
               <option value="">口味</option>
               {flavorOption.map((v, i) => {
-                return <option value={i}>{v}</option>;
+                return <option value={i}>{v.name}</option>;
               })}
             </select>
 
