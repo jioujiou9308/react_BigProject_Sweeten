@@ -1,7 +1,7 @@
 import React from "react";
 import { RiCustomerService2Fill } from "react-icons/ri";
 import { IconButton } from "@material-tailwind/react";
-import CustomerService from "../../page/CustomerService";
+import OnlineHelp from "./OnlineHelp";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -23,7 +23,7 @@ const FloatingBt = () => {
             className=" fixed top-100 md:right-10 right-0 border-2 border-line rounded-sm bg-white z-50"
           >
             <motion.h5>
-              <CustomerService />
+              <OnlineHelp />
             </motion.h5>
           </motion.div>
         ) : (

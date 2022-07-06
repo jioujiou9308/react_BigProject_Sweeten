@@ -5,6 +5,9 @@ import { motion } from "framer-motion";
 import MenuTag from "../components/menuTag/MenuTag";
 import { useUserState } from "../utils/redux/hooks-redux";
 import { API_URL } from "../utils/config";
+
+//----------------------會員資訊-----------------------
+
 const genders = ["選擇性別", "男", "女", "不提供"];
 
 const MemberInformation = () => {
@@ -44,7 +47,16 @@ const MemberInformation = () => {
     getUser();
   }, []);
 
-  // ----------會員照片上傳-------------
+  // -------- 修改會員資料進資料庫 --------
+  async function handleSubmit(e) {
+    try {
+      axios.patch(`${API_URL}/user/${user.id}`, member);
+    } catch (e) {
+      console.log(e);
+    }
+  }
+
+  //-------------------------會員照片--------------------------------
   const [path, setPath] = useState("");
   const [userPhoto, setUserPhoto] = useState({
     id: user.id,
@@ -52,6 +64,7 @@ const MemberInformation = () => {
   });
   console.log(userPhoto);
 
+  // ----------會員照片上傳-------------
   function handlePhoto(e) {
     setUserPhoto({ ...userPhoto, photo: e.target.files[0] });
 
@@ -63,11 +76,9 @@ const MemberInformation = () => {
     e.target.value = "";
   }
 
-  // -------- 修改會員資料進資料庫 --------
+  // -------- 新增會員片進資料庫 --------
 
   async function handlePhotoSubmit(e) {
-    console.log("13", userPhoto);
-
     try {
       let formData = new FormData();
       formData.append("id", userPhoto.id);
@@ -78,13 +89,7 @@ const MemberInformation = () => {
     }
   }
 
-  async function handleSubmit(e) {
-    try {
-      axios.patch(`${API_URL}/user/${user.id}`, member);
-    } catch (e) {
-      console.log(e);
-    }
-  }
+ 
 
   return (
     <div className="mx-auto">
@@ -103,12 +108,27 @@ const MemberInformation = () => {
             ></motion.div>
             {/* 大頭照 */}
             <div className="flex flex-wrap items-center px-2 sm:flex-row">
-              <div className="relative w-32 h-32 mt-6 mb-4 mr-4 lg:mb-0">
+              <div className="relative w-40 h-40 mt-6 rounded-full border object-cover">
                 <img
-                  src="https://tuk-cdn.s3.amazonaws.com/assets/components/avatars/a_3_7.png"
+                  value="userPhoto"
+                  src={`${process.env.PUBLIC_URL}/images/memberInformation/user_small.png`}
                   alt=""
-                  className="w-full h-full overflow-hidden rounded-full shadow"
+                  className="w-full h-full rounded-full opacity-40 object-cover"
                 />
+                {/* 預覽圖片 */}
+                {userPhoto.photo !== "" ? (
+                  <>
+                    <div className="w-full h-full text-center">
+                      <img
+                        alt=""
+                        className="w-auto h-full m-auto object-cover absolute top-0 rounded-full"
+                        src={path}
+                      />
+                    </div>
+                  </>
+                ) : (
+                  <></>
+                )}
               </div>
             </div>
             {/* 表單 */}
@@ -239,6 +259,13 @@ const MemberInformation = () => {
               accept="image/*"
               onChange={handlePhoto}
             />
+            <img
+              value="photo"
+              src={`${process.env.PUBLIC_URL}/images/memberInformation/uploadImg.png`}
+              alt=""
+              className="top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-1/2 h-1/3 object-cover absolute opacity-40"
+            />
+
             <Button
               size="sm"
               color="brown"
