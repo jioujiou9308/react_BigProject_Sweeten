@@ -438,7 +438,7 @@ function ProductDetail() {
 
                 <div className="overflow-auto md:px-10 md:w-3/5">
                   {/* 評論區 上半部*/}
-                  {/* //TODO:評論藥可以展開 */}
+                
                   <div className="flex justify-between w-full h-1/5">
                     <div className="flex items-center justify-around w-full my-7">
                       <div>
@@ -456,7 +456,7 @@ function ProductDetail() {
                     </div>
 
                     <div className="items-center hidden md:w-2/5 md:justify-end md:flex text-secondary">
-                      <p className="p">查看全部</p>
+                      {/* <p className="p">查看全部</p> */}
                       <AiOutlineRight className="pt-2" />
                     </div>
                   </div>
@@ -467,7 +467,7 @@ function ProductDetail() {
                   </div>
 
                   <div className="flex items-center justify-start mt-4 mb-12 ml-8 text-secondary md:hidden ">
-                    <p className="p">查看全部</p>
+                    {/* <p className="p">查看全部</p> */}
                     <AiOutlineRight />
                   </div>
                 </div>

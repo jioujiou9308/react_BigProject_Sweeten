@@ -6,7 +6,7 @@ body {
 }
 
 body {
-  background: #eee;
+  background: #FAD2BC;
   font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
   font-size: 14px;
   color: #000;
@@ -58,7 +58,7 @@ body {
 }
 
 .swiper-slide {
-  background: #fad2bc;
+  background: #fad2bc !important;
 }
 .swiper-pagination-bullet-active {
   background: #f39898;

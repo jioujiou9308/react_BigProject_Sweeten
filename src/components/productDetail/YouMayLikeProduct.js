@@ -37,7 +37,29 @@ const products = [
       process.env.PUBLIC_URL + "/images/productDetail/product_demo1_lower.png",
   },
   {
-    id: 4,
+    id: 5,
+    name: "巧克力蛋糕",
+    price: 900,
+    img:
+      process.env.PUBLIC_URL + "/images/productDetail/product_demo1_lower.png",
+  },
+  {
+    id: 6,
+    name: "巧克力蛋糕",
+    price: 300,
+    img:
+      process.env.PUBLIC_URL + "/images/productDetail/product_demo1_lower.png",
+  },
+ 
+  {
+    id: 8,
+    name: "巧克力蛋糕",
+    price: 3100,
+    img:
+      process.env.PUBLIC_URL + "/images/productDetail/product_demo1_lower.png",
+  },
+  {
+    id: 9,
     name: "巧克力蛋糕",
     price: 300,
     img:
@@ -66,7 +88,7 @@ function YouMayLikeProduct() {
           const { id, name, price, img } = product;
           return (
             <>
-              <SwiperSlide>
+              <SwiperSlide className="bg-sub">
                 <div className="pb-12 ">
                   <div className="h-32 overflow-hidden w-36">
                     <img src={img} alt="" />
