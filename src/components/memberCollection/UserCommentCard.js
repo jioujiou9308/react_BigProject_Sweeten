@@ -45,7 +45,7 @@ function UserCommentCard() {
     <>
       <div className="flex flex-wrap justify-around px-10">
         {comment?.map((comment, i) => {
-          const { id, product_name, score, product_id } = comment;
+          const { id, product_name, score, comment_id } = comment;
           return (
             <>
               <Card className="p-0 mt-6 rounded-sm w-60">
@@ -89,7 +89,7 @@ function UserCommentCard() {
                     className="bg-white rounded-sm "
                     onClick={async () => {
                       //NOTE 刪不掉 
-                      await axios.delete(API_URL + `/product/comment/${id}`);
+                      await axios.delete(API_URL + `/product/comment/${comment_id}`);
                       getComment();
                     }}
                   >
