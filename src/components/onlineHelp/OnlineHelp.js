@@ -16,7 +16,7 @@ const OnlineHelp = () => {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user.user);
   useEffect(() => {
-    socket.emit("userConnect", user.id);
+    socket.emit("userConnect", user);
     socket.on("support", (res) => {
       dispatch(sendMsg(res));
     });
@@ -24,7 +24,7 @@ const OnlineHelp = () => {
       socket.emit("userLeave", user.id);
       socket.off("support");
     };
-  }, [dispatch, user.id]);
+  }, [dispatch]);
 
   return (
     <>
