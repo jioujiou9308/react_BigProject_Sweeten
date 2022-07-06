@@ -41,15 +41,15 @@ const MemberColloction = () => {
   const [memberCollection, setMemberCollection] = useFavoriteState();
   const [comment, setComment] = useState([]);
   const [currentUser] = useUserState();
-  console.log(comment);
+  console.log(currentUser);
 
   //讀取資料
   let getMemberCollection = async () => {
     let response = await axios.get(
-      API_URL + `/favorite_product/all_data/${currentUser.id}`
+      API_URL + `/user/favorite_product/all_data/${currentUser.id}`
     );
-    setMemberCollection(response.data.allResults);
-    console.log("喜歡ㄉ商品", response.data.allResults);
+    setMemberCollection(response.data);
+    console.log("喜歡ㄉ商品", response.data);
   };
   useEffect(() => {
     getMemberCollection();
@@ -62,9 +62,8 @@ const MemberColloction = () => {
       console.log("comment", response.data);
     };
     getComment();
-  }, []);
+  }, [currentUser]);
 
-  
   return (
     <>
       <div className="mx-0 ">
@@ -114,12 +113,24 @@ const MemberColloction = () => {
                     {/* 不確定這裡這樣寫對不對QQ */}
                     {/* 有評分score變數 */}
                     {comment?.findIndex(
-                      (comment) => comment.id === product_id)> -1 ? (
+                      (comment) => comment.id === product_id
+                    ) > -1 ? (
                       <div className="hidden text-center md:block mx-18 ">
                         <p className="mb-1 mr-2 note">評價</p>
-                        <h2 className=" h3">{comment.find((comment)=>comment.id === product_id).score}/5</h2>
+                        <h2 className=" h3">
+                          {
+                            comment.find((comment) => comment.id === product_id)
+                              .score
+                          }
+                          /5
+                        </h2>
 
-                        <div className="flex">{star(comment.find((comment)=>comment.id === product_id).score)}</div>
+                        <div className="flex">
+                          {star(
+                            comment.find((comment) => comment.id === product_id)
+                              .score
+                          )}
+                        </div>
                       </div>
                     ) : (
                       <div className="hidden text-center md:block mx-18 ">
@@ -180,7 +191,15 @@ const MemberColloction = () => {
                             );
                             // console.log(response);
                             //NOTE API發送失敗
-                            getMemberCollection();
+                            axios
+                              .get(
+                                API_URL +
+                                  `/user/favorite_product/all_data/${currentUser.id}`
+                              )
+                              .then(({ data }) => {
+                                setMemberCollection(data);
+                              })
+                              .catch((e) => console.log(e));
                           }}
                         >
                           移除收藏 <AiOutlineDelete className="icon-sm" />

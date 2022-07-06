@@ -68,7 +68,7 @@ const OnceCarkProduct = ({ product }) => {
               navigate(`/main/product/${product.id}`);
             }}/>
 
-              {favProduct.findIndex((item) => item.product_id === product.id) >
+              {favProduct?.findIndex((item) => item.product_id === product.id) >
               -1 ? (
                 <AiFillHeart
                   className="icon-sm text-secondary"
