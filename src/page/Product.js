@@ -18,7 +18,10 @@ const Product = () => {
   const [products, setProducts] = useProductState();
   const [currentUser] = useUserState();
   const [favProduct, setFavProduct] = useFavoriteState();
-
+  const [allCategory,setAllCategory ]=useState([])
+  const categoryTag = allCategory?.filter((item)=>String(item.id)[0]==1)
+  console.log('categorytag', categoryTag);
+  
   console.log(products.length, "product count");
   useEffect(() => {
     //抓所有商品(沒有分頁)
@@ -36,13 +39,19 @@ const Product = () => {
         setFavProduct(data);
       })
       .catch((e) => console.log(e));
+
+      //抓catecoryTag
+      axios.get(API_URL+'/product/category').then(({data})=>{
+        setAllCategory(data)
+        console.log('categorytag',data)
+      }).catch((e) => console.log(e));
   }, []);
 
   // console.log("最愛商品", favProduct);
   return (
     <>
       <div className=" md:flex">
-        <MenuTag setProducts={setProducts} products={products} />
+        <MenuTag setProducts={setProducts} products={products} categoryTag={categoryTag}/>
         {/* filter section */}
         <Filter />
         {/* card list  */}
