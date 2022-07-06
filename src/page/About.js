@@ -17,7 +17,7 @@ function About() {
             <div className="h-14  mt-10 bg-gradient-to-r pb-[6px] from-secondary to-transparent">
               <div className="h-12 p-0 bg-white">
                 <h1
-                  className=" flex  h-12 text-4xl  font-bold leading-9  tracking-[.5em] pr-20"
+                  className=" flex h-12 lg:text-4xl text-2xl font-bold leading-9  tracking-[.3em]"
                   data-aos="fade-in-left"
                   data-aos-duration="3000"
                 >
@@ -43,41 +43,47 @@ function About() {
           </div>
 
           <div
-            className="relative w-1/2 mt-5"
+            className="relative w-full mt-5 md:w-1/2"
             data-aos="fade-in"
             data-aos-duration="2000"
           >
-            <div className="absolute invisible w-full h-full border-2 md:visible -top-2 -right-2 border-line"></div>
+            <div className="absolute invisible w-full h-full border-2 md:visible -top-2 -right-2 border-line">
+              <img
+                src={`${process.env.PUBLIC_URL}/images/about/aboutwall13.jpeg`}
+                className="object-cover w-full h-full "
+                alt="about jpg"
+              />
+            </div>
             <div className="absolute invisible w-full h-full border-2 md:visible -bottom-2 -left-2 border-line"></div>
-            <div className="mx-10 my-10 bg-opacity-50">
+            <div className="mx-10 my-10 font-bold bg-opacity-50">
               <p
-                className="leading-8 p"
+                className="px-2 leading-8 bg-white bg-opacity-80 max-w-max p"
                 data-aos="flip-left"
                 data-aos-duration="1000"
               >
-                甜點，是生活裡的享受，
+                甜點，是生活裡的享受
                 <br />
-                是給自己溫柔地犒賞。
+                是給自己溫柔地犒賞
               </p>
               <br />
               <p
-                className="leading-8 text-center p"
+                className="px-2 mx-auto leading-8 text-center bg-white bg-opacity-80 max-w-max p"
                 data-aos="flip-left"
                 data-aos-duration="2000"
               >
-                每一個微笑的時刻，
+                每一個微笑的時刻
                 <br />
-                每一個值得慶祝的時刻，
+                每一個值得慶祝的時刻
               </p>
               <br />
               <p
-                className="leading-8 text-end p"
+                className="px-2 ml-auto leading-8 bg-white bg-opacity-80 text-end max-w-max p"
                 data-aos="flip-left"
                 data-aos-duration="3000"
               >
-                無論什麼時候，
+                無論什麼時候
                 <br />
-                都是適合吃甜點的好時光。
+                都是適合吃甜點的好時光
               </p>
             </div>
           </div>
@@ -87,7 +93,7 @@ function About() {
         <div className="h-14 ml-10 mt-40 bg-gradient-to-r pb-[6px] from-secondary to-transparent">
           <div className="h-12 p-0 bg-white">
             <h1
-              className=" flex  h-12 text-4xl  font-bold leading-9  tracking-[.5em] pr-20"
+              className=" flex h-12 lg:text-4xl text-2xl font-bold leading-9  tracking-[.3em]"
               data-aos="fade-in-left"
               data-aos-duration="2000"
             >
@@ -255,7 +261,7 @@ function About() {
       <div className="h-14 ml-10 mt-40 bg-gradient-to-r pb-[6px] from-secondary to-transparent">
         <div className="h-12 p-0 bg-white">
           <h1
-            className=" flex  h-12 text-4xl  font-bold leading-9  tracking-[.5em] pr-20"
+            className=" flex h-12 lg:text-4xl text-2xl font-bold leading-9  tracking-[.3em]"
             data-aos="fade-in-left"
             data-aos-duration="2000"
           >
@@ -336,7 +342,7 @@ function About() {
         <div className="h-14 text-center mt-10 bg-gradient-to-r pb-[6px] from-secondary to-transparent">
           <div className="h-12 p-0 bg-white">
             <h1
-              className=" flex  h-12 text-4xl  font-bold leading-9  tracking-[.5em] pr-20"
+              className=" flex h-12 lg:text-4xl text-2xl font-bold leading-9  tracking-[.3em]"
               data-aos="fade-in-left"
               data-aos-duration="2000"
             >
@@ -564,7 +570,7 @@ function About() {
             data-aos-easing="ease-in"
             data-aos-duration="2000"
           >
-            <h1 className="text-4xl font-semibold leading-9 text-center text-white">
+            <h1 className=" flex h-12 text-white lg:text-4xl text-2xl font-bold leading-9  tracking-[.3em]">
               訂閱我們
             </h1>
             <p className="mt-6 text-base leading-normal text-center text-white">
@@ -582,10 +588,10 @@ function About() {
           </div>
         </div>
       </div>
-      <blockquote class="text-2xl font-semibold italic text-center mt-20 mb-10">
+      <blockquote className="mt-20 mb-10 text-2xl italic font-semibold text-center">
         Let us&nbsp;
-        <span class="before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-secondary relative inline-block">
-          <span class="relative text-white">sweeten</span>
+        <span className="relative inline-block before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-secondary">
+          <span className="relative text-white">sweeten</span>
         </span>
         &nbsp;up your life.
       </blockquote>
