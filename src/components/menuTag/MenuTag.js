@@ -4,11 +4,11 @@ import Tag from "./Tag";
 import axios from 'axios'
 import { API_URL } from "../../utils/config";
 
-const titleList = ["蛋糕", "餅乾", "點心", "冰品"];
+// const titleList = ["蛋糕", "餅乾", "點心", "冰品"];
 
 const MenuTag = () => {
   const [allCategory,setAllCategory ]=useState([])
-  const categoryTag = allCategory?.filter((item)=>item.id[0]==1)
+  const categoryTag = allCategory?.filter((item)=>String(item.id)[0]==1)
   //NOTE categoryTag是空陣列
   console.log('categorytag', categoryTag);
   useEffect(()=>{
@@ -19,8 +19,8 @@ const MenuTag = () => {
   },[])
   return (
     <div className="absolute top-0 flex overflow-hidden -translate-y-full">
-      {titleList.map((title, i) => (
-        <Tag key={title} title={title} i={i} />
+      {categoryTag.map((title, i) => (
+        <Tag key={title} title={title.name} i={i} id={title.id}/>
       ))}
     </div>
   );

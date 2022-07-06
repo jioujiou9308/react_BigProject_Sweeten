@@ -62,7 +62,7 @@ const OnceCarkProduct = ({ product }) => {
             <h4 className="w-full text-lg font-medium dark:text-gray-200">
               {product.name}
             </h4>
-            <div className="mr-2 text-blue-500 p">${product.price}</div>
+            <div className="mr-1 text-blue-500 p">${product.price}</div>
             <div className="flex items-center ">
               <AiOutlineMessage className="icon-sm"  onClick={() => {
               navigate(`/main/product/${product.id}`);
