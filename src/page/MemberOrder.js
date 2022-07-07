@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import OrderItems from "../components/memberOrder/OrderItems";
-import MemberSearchBar from "../components/memberCollection/MemberSearchBar";
+import MemberOrderSearch from "../components/memberOrder/MemberOrderSearch";
 import MemberOrderBar from "../components/memberOrder/MemberOrderBar";
 import axios from "axios";
 import { API_URL } from "../utils/config";
@@ -47,7 +47,7 @@ console.log(searchWord)
           <MemberOrderBar setBarStep={setBarStep} step={step} />
         </div>
         <div className="mb-6">
-          <MemberSearchBar searchWord={searchWord} setSearchWord={setSearchWord} />
+          <MemberOrderSearch searchWord={searchWord} setSearchWord={setSearchWord} />
         </div>
 
         {barStep == 0 && (
@@ -65,11 +65,11 @@ console.log(searchWord)
               <h1 className="mt-4 text-center h2">尚無項目</h1>
             )}
             <div className="mb-10" data-aos="fade-right">
-              {order.map((order, i) => {
+              {order?.map((order, i) => {
                 return (
                   <>
                     <div className="mt-10 shadow-md md:flex">
-                      <OrderItems order={order} />
+                      <OrderItems order={order}/>
                     </div>
                   </>
                 );

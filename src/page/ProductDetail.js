@@ -28,6 +28,7 @@ function ProductDetail() {
   const [comment, setComment] = useState([]);
   const [currentUser] = useUserState();
   const [cart, setCart] = useCartState();
+ 
   const { id } = useParams();
   const navigate = useNavigate();
   // console.log(id);
@@ -505,9 +506,9 @@ function ProductDetail() {
       })}
 
       {/* 你可能也會喜歡 */}
-      <div className="hidden my-8 bg-sub md:block">
+      <div className="hidden mt-8 bg-sub md:block">
         <p
-          className="pt-3 pb-6 text-center h2"
+          className="pt-3 text-center h2"
           
         >
           你可能也會喜歡

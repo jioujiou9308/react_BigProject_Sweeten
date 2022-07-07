@@ -3,6 +3,7 @@ import { AiOutlineRight, AiOutlineLeft } from "react-icons/ai";
 import React, { useRef, useState } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Link } from "react-router-dom";
 
 // Import Swiper styles
 import "swiper/css";
@@ -71,6 +72,7 @@ const products = [
 
 function YouMayLikeProduct() {
   const navigate = useNavigate()
+  const [getThere, setGetThere]=useState(1)
   return (
     <>
       <Swiper
@@ -91,16 +93,18 @@ function YouMayLikeProduct() {
           return (
             <>
               <SwiperSlide className="bg-sub">
-                <div className="pb-12 ">
-                  <div className="h-32 overflow-hidden w-36">
-                    <img src={img} alt="" />
+                <div className="">
+                  <div className="overflow-hidden cursor-pointer h-36 w-44">
+                    <img src={img} alt=""  onClick={()=>{
+                      setGetThere(id)
+                      navigate(`/main/product/${getThere}`);
+                    }}/>
                   </div>
-                  <div className="text-center w-36">
-                    <p className="py-1 text-white cursor-pointer p bg-secondary note-words" onClick={()=>{
-                      navigate(`/main/product/${id}`);
-                    }}>
+                 
+                  <div className="text-center w-44">
+                     <Link to ={`/main/product/${getThere}`} onClick={()=>{setGetThere(id)}}><p className="py-1 text-white cursor-pointer p bg-secondary note-words" >
                       查看商品
-                    </p>
+                    </p></Link>
                     <p className="p">{name}</p>
                     <p className="note">$ {price}</p>
                   </div>

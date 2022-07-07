@@ -6,7 +6,7 @@ import { API_URL } from "../../utils/config";
 import { clearConfigCache } from "prettier";
 import moment from "moment";
 import { useProductState } from "../../utils/redux/hooks-redux";
-//NOTE 列表跑版 篩選只有價錢跳出來
+
 function Filter() {
   const [allCategory, setAllCategory] = useState([]);
   const [product, setProduct] = useProductState();
@@ -16,8 +16,7 @@ function Filter() {
   //口味選項
   const flavorOption = allCategory?.filter((item) => String(item.id)[0] == 2);
   console.log("flavorOption", flavorOption);
-  //種類選項
-  const categoryOption = ["蛋糕", "餅乾", "點心", "冰品"];
+  
   console.log(product);
 
   useEffect(() => {
@@ -267,7 +266,7 @@ function Filter() {
               </select>
 
               <select
-                className="w-full px-4 py-3 text-sm bg-gray-100 border-transparent rounded-none  md:block focus:border-gray-500 focus:bg-white focus:ring-0"
+                className="w-full px-4 py-3 text-sm bg-gray-100 border-transparent rounded-none md:block focus:border-gray-500 focus:bg-white focus:ring-0"
                 onChange={timeOrderChangeHandler}
               >
                 <option value="">上架時間</option>
