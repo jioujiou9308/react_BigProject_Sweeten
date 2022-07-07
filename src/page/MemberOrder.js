@@ -14,7 +14,8 @@ function MemberOrder() {
   const [order, setOrder] = useState([]);
   const [orderProduct, setOrderProduct] = useState([]);
   const [currentUser] = useUserState();
-
+  const [searchWord, setSearchWord]=useState('')
+console.log(searchWord)
   useEffect(() => {
     //拿個人所有訂單_product
     let getOrder = async () => {
@@ -46,7 +47,7 @@ function MemberOrder() {
           <MemberOrderBar setBarStep={setBarStep} step={step} />
         </div>
         <div className="mb-6">
-          <MemberSearchBar />
+          <MemberSearchBar searchWord={searchWord} setSearchWord={setSearchWord} />
         </div>
 
         {barStep == 0 && (

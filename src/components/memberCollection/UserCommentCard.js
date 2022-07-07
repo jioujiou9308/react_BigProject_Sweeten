@@ -27,7 +27,8 @@ const star = (score) => {
   return arr;
 };
 
-function UserCommentCard() {
+function UserCommentCard(props) {
+  const {searchWord}=props
   const [comment, setComment] = useState([]);
   const [currentUser] = useUserState();
   const navigate = useNavigate();
@@ -45,7 +46,7 @@ function UserCommentCard() {
   return (
     <>
       <div className="flex flex-wrap justify-around px-10">
-        {comment?.map((comment, i) => {
+        {comment.filter((item)=>item.name?.includes(searchWord)||item.id?.includes(searchWord))?.map((comment, i) => {
           const { id, product_name, score, comment_id } = comment;
           return (
             <>

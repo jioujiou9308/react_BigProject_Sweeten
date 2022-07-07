@@ -60,10 +60,10 @@ const CardProduct = () => {
             onLoad={
               // <BeatLoader color="red" size='17' />
               <motion.div
-                className="text-secondary"
+                className="text-center text-secondary"
                 initial={{
                   y: 40,
-                  x: 300,
+                  x: 390,
                   opacity: 1,
                   scale: 4,
                   borderRadius: 50,
