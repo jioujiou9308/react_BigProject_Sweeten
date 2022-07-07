@@ -5,6 +5,7 @@ import { API_URL } from "../../utils/config";
 import CourseContent from "./CourseContent";
 import CourseHeader from "./CourseHeader";
 import CourseIntro from "./CourseIntro";
+import useLoading from "../../utils/hooks/useLoading";
 
 import CourseDetail from "./CourseDetail";
 // import LessonList from "../courseDetail/LessonList";
@@ -36,6 +37,7 @@ const image = [
   },
 ];
 const CourseMain = () => {
+  const [WhileLoading, runLoad] = useLoading(); // loading
   const [swipe, setSwipe] = useState(0);
   const [lessonImage, setLessonImage] = useState(image);
   const [lessons, setLessons] = useState([true]);
@@ -54,28 +56,35 @@ const CourseMain = () => {
       // console.log(response.data);
       // console.log(response.data[0]);
     };
+    // runLoad(async () => {
+    // await getLesson();
+    // }, 1000);
     getLesson();
   }, []);
   // console.log(lessons);
   return (
     <>
+      {/* <WhileLoading done={<h1>done</h1>} onLoad={<h1>loading</h1>} /> */}
+      {/* <button onClick={() => {}}>按我</button> */}
       <div className="mb-10">
         <CourseHeader />
       </div>
       <div className="mb-20 ">
-        <CourseSwiper
+        <CourseSwiper // 這個
           lessons={lessons}
           setSwipe={setSwipe}
           lessonImage={lessonImage}
           swipe={swipe}
+          runLoad={runLoad}
         />
       </div>
-      <CourseContent
+      <CourseContent // 這個
         swipe={swipe}
         lessons={lessons}
         setDetailContent={setDetailContent}
         toggle={toggle}
         lessonImage={lessonImage}
+        WhileLoading={WhileLoading}
       />
       {detailContent === true ? (
         <div data-aos="flip-up">

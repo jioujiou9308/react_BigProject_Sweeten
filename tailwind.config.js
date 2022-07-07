@@ -30,13 +30,12 @@ module.exports = withMT({
         "20vh": "20vh", // homepage-mask
       },
       keyframes: {
-        slideScale: {
-          "0%": { transform: "scale(1)" },
-          "100%": { transform: "scale(1.2)" },
+        load: {
+          "50%": { opacity: 0.5 },
         },
       },
       animation: {
-        slideScale: "slideScale 3s ease-in-out ",
+        load: "load 1.3s ease-in-out infinite ",
       },
     },
   },
