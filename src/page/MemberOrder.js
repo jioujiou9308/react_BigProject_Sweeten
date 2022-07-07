@@ -57,13 +57,13 @@ function MemberOrder() {
             <motion.div
               initial={{ width: 0 }}
               animate={{ width: "auto" }}
-              transition={{ ease: "easeOut", duration: 2 }}
+              transition={{ ease: "easeOut", duration: 1.5 }}
               className="bg-gradient-to-r pb-[5px] from-sub to-transparent mx-5"
             ></motion.div>
             {order.length == 0 && (
               <h1 className="mt-4 text-center h2">尚無項目</h1>
             )}
-            <div className="mb-10">
+            <div className="mb-10" data-aos="fade-right">
               {order.map((order, i) => {
                 return (
                   <>
@@ -90,7 +90,7 @@ function MemberOrder() {
             {order.filter((v, i) => v[i]?.order_status_id == 1).length == 0 && (
               <h1 className="mt-4 text-center h2">尚無項目</h1>
             )}
-            <div className="mb-10">
+            <div className="mb-10" data-aos="fade-right">
               {order
                 .filter((v, i) => v[i]?.order_status_id == 1)
                 .map((order, i) => {
@@ -119,7 +119,7 @@ function MemberOrder() {
              {order.filter((v, i) => v[i]?.order_status_id == 2).length == 0 && (
               <h1 className="mt-4 text-center h2">尚無項目</h1>
             )}
-            <div className="mb-10">
+            <div className="mb-10" data-aos="fade-right">
               {order
                 .filter((v, i) => v[i]?.order_status_id == 2)
                 .map((order, i) => {
@@ -148,7 +148,7 @@ function MemberOrder() {
              {order.filter((v, i) => v[i]?.order_status_id == 3).length == 0 && (
               <h1 className="mt-4 text-center h2">尚無項目</h1>
             )}
-            <div className="mb-10">
+            <div className="mb-10" data-aos="fade-right">
               {order
                 .filter((v, i) => v[i]?.order_status_id == 3)
                 .map((order, i) => {
@@ -177,7 +177,7 @@ function MemberOrder() {
              {order.filter((v, i) => v[i]?.order_status_id == 4).length == 0 && (
               <h1 className="mt-4 text-center h2">尚無項目</h1>
             )}
-            <div className="mb-10">
+            <div className="mb-10" data-aos="fade-right">
               {order
                 .filter((v, i) => v[i]?.order_status_id == 4)
                 .map((order, i) => {
