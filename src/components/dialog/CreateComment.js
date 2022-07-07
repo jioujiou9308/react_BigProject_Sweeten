@@ -88,12 +88,12 @@ function CreateComment({ order, v, i }) {
             <div className="overflow-hidden md:mr-2">
               <img
                 className="scale-105 "
-                src={`${process.env.PUBLIC_URL}/images/memberCollectionAndOrder/member_order1.png`}
-                alt=""
+                src={`http://localhost:8001/public/product/${v.product_id}.jpg`}
+                alt="product"
               />
             </div>
 
-            <div className="md:mx-3 md:p">
+            <div className=" md:mx-3 md:p">
               <p>商品</p>
               <p className="my-2">分數</p>
               <p>評論</p>
@@ -211,8 +211,8 @@ function CreateComment({ order, v, i }) {
           <div className="scale-75">
             <img
               className=""
-              src={`${process.env.PUBLIC_URL}/images/memberCollectionAndOrder/member_order1.png`}
-              alt=""
+              src={`http://localhost:8001/public/product/${v.product_id}.jpg`}
+              alt="product"
             />
           </div>
 

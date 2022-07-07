@@ -1,5 +1,5 @@
 import axios from "axios";
-import { React, useEffect, useState } from "react";
+import { React, useEffect, useState , editState} from "react";
 import { AiOutlineMessage, AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -87,7 +87,7 @@ const OnceCarkProduct = ({ product}) => {
             <div className="flex flex-col items-center justify-center mr-1 ">
               <img
                 className="object-cover w-full cursor-pointer rounded-sm h-[15rem]"
-                src="/images/course/hand.jpg"
+                src={`http://localhost:8001/public/product/${product.id}.jpg`}
                 alt="T-Shirt"
                 onClick={() => {
                   navigate(`/main/product/${product.id}`);

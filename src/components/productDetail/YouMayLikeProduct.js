@@ -21,35 +21,35 @@ const products = [
     name: "葡萄柚蛋糕",
     price: 500,
     img:
-      process.env.PUBLIC_URL + "/images/productDetail/product_demo1_lower.png",
+    "http://localhost:8001/public/product/1657186358833.jpg",
   },
   {
     id: 2,
     name: "柚蛋糕",
     price: 470,
     img:
-      process.env.PUBLIC_URL + "/images/productDetail/product_demo1_lower.png",
+    "http://localhost:8001/public/product/1657186358833.jpg",
   },
   {
     id: 3,
     name: "草莓蛋糕",
     price: 700,
     img:
-      process.env.PUBLIC_URL + "/images/productDetail/product_demo1_lower.png",
+    "http://localhost:8001/public/product/1657186358833.jpg",
   },
   {
     id: 5,
     name: "巧克力蛋糕",
     price: 900,
     img:
-      process.env.PUBLIC_URL + "/images/productDetail/product_demo1_lower.png",
+    "http://localhost:8001/public/product/1657186358833.jpg",
   },
   {
     id: 6,
     name: "巧克力蛋糕",
     price: 300,
     img:
-      process.env.PUBLIC_URL + "/images/productDetail/product_demo1_lower.png",
+    "http://localhost:8001/public/product/1657186358833.jpg",
   },
  
   {
@@ -57,14 +57,14 @@ const products = [
     name: "巧克力蛋糕",
     price: 3100,
     img:
-      process.env.PUBLIC_URL + "/images/productDetail/product_demo1_lower.png",
+    "http://localhost:8001/public/product/1657186358833.jpg",
   },
   {
     id: 9,
     name: "巧克力蛋糕",
     price: 300,
     img:
-      process.env.PUBLIC_URL + "/images/productDetail/product_demo1_lower.png",
+    "http://localhost:8001/public/product/1657186358833.jpg",
   },
 ];
 
@@ -97,7 +97,7 @@ function YouMayLikeProduct() {
                   </div>
                   <div className="text-center w-36">
                     <p className="py-1 text-white cursor-pointer p bg-secondary note-words" onClick={()=>{
-                      navigate('/main/product/16');
+                      navigate(`/main/product/${id}`);
                     }}>
                       查看商品
                     </p>

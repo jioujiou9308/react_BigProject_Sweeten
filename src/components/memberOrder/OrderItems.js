@@ -50,8 +50,8 @@ function OrderItems({ order }) {
                   <div className="mr-2 overflow-hidden">
                     <img
                       className="scale-105 "
-                      src="/images/memberCollectionAndOrder/member_order1.png"
-                      alt=""
+                      src={`http://localhost:8001/public/product/${order[0].product_id}.jpg`}
+                      alt="product"
                     />
                   </div>
 

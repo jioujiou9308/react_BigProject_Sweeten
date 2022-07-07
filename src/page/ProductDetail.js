@@ -119,8 +119,8 @@ function ProductDetail() {
                 {/* demo大圖(左側)桌機板 */}
                 <div className="w-2/5 mt-8 mr-16 ml-7">
                   <img
-                    className="max-w-full"
-                    src={`${process.env.PUBLIC_URL}/images/productDetail/product_demo1_upper.png`}
+                    className="max-w-full mx-auto"
+                    src={`http://localhost:8001/public/product/${id}.jpg`}
                     alt=""
                   />
                   {/* DEMO左側三張小圖 */}
@@ -292,11 +292,8 @@ function ProductDetail() {
               {/* 展示圖手機板 */}
               <div className="md:hidden">
                 <img
-                  className="max-w-full px-2 pt-10 mb-8"
-                  src={
-                    process.env.PUBLIC_URL +
-                    "/images/productDetail/product_demo1_upper.png"
-                  }
+                  className="max-w-full px-2 pt-10 mx-auto b-8 m"
+                  src={`http://localhost:8001/public/product/${id}.jpg`}
                   alt=""
                 />
 

@@ -53,7 +53,7 @@ function UserCommentCard(props) {
               <Card className="p-0 mt-6 rounded-sm w-60">
                 <CardBody className="text-center">
                   <img
-                    src="/images/memberCollectionAndOrder/member_order1.png"
+                    src={`http://localhost:8001/public/product/${id}.jpg`}
                     alt="img-blur-shadow"
                     className="mx-auto mb-6 w-[200px]"
                   />

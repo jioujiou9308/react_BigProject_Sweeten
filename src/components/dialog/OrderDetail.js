@@ -1,7 +1,7 @@
 import React from "react";
 
 function OrderDetail({ order }) {
-  
+  // console.log(order)
   return (
     <>
       {order.map((v, i) => {
@@ -19,20 +19,20 @@ function OrderDetail({ order }) {
                   <div className="mr-2 overflow-hidden">
                     <img
                       className="scale-105 "
-                      src={`${process.env.PUBLIC_URL}/images/memberCollectionAndOrder/member_order1.png`}
-                      alt=""
+                      src={`http://localhost:8001/public/product/${v.product_id}.jpg`}
+                      alt="product"
                     />
                   </div>
 
-                  <div className="mx-3">
+                  <div className="mx-3 md:p">
                     <p>商品</p>
-                    <p className="my-2">價格</p>
+                    <p className="my-2 md:my-8">價格</p>
                     <p>數量</p>
                   </div>
 
-                  <div>
+                  <div className="mx-3 md:p">
                     <p>{v.name}</p>
-                    <p className="my-2">{v.price}</p>
+                    <p className="my-2 md:my-8">{v.price}</p>
                     <p>* {v.memo}</p>
                   </div>
                 </div>

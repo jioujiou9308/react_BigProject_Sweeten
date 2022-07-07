@@ -105,8 +105,8 @@ const MemberColloction = () => {
                       <div className="overflow-hidden scale-75 md:scale-100">
                         <img
                           className=""
-                          src="/images/memberCollectionAndOrder/member_order1.png"
-                          alt=""
+                          src={`http://localhost:8001/public/product/${product_id}.jpg`}
+                          alt="collection"
                         />
                       </div>
                       {/* 商品價格活動 */}

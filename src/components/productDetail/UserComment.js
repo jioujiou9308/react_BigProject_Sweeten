@@ -31,6 +31,17 @@ const UserComment = () => {
     return elementArr;
   };
 
+  //生成字母
+  const getLetter=()=>{
+    let arr = ['A','B','C','S','G','W','K','P'];
+    let letter = '';
+    for(let i = 0; i <1;i++){
+      letter+=arr[Math.floor(Math.random()*8)]
+    }
+    return letter
+    
+  }
+
   return (
     <>
       {comment.length == 0 ? (
@@ -43,8 +54,9 @@ const UserComment = () => {
           return (
             <>
               <div className="flex justify-center py-4 md:ml-10 md:justify-start md:border-b-2">
-                <div className="overflow-hidden border-2 rounded-full md:mr-8 mr-14 bg-theme w-14">
-                  <img src="/images/productDetail/user 1.png" alt="" />
+                <div className="pt-2 overflow-hidden text-center border-2 rounded-full h3 md:mr-8 mr-14 bg-theme w-14">
+                  {/* {(Math.random()*10).toFixed(0)} */}
+                  {getLetter()}
                 </div>
 
                 <div>
