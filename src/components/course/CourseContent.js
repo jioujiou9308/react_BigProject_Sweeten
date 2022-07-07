@@ -4,6 +4,7 @@ import { Button } from "@material-tailwind/react";
 const CourseContent = (props) => {
   const { lessons, swipe, toggle, lessonImage } = props;
   let a = swipe;
+  console.log(lessonImage);
 
   // console.log(image[0].image1);
   return (
@@ -15,11 +16,26 @@ const CourseContent = (props) => {
           </div>
           <div className="absolute h-0 lg:z-20 lg:w-1/2 lg:h-2/3 lg:top-1/2 lg:-translate-y-1/2 lg:left-12">
             <div className="absolute top-0 w-full h-full translate-x-3 translate-y-3 bg-white border border-line"></div>
-
             <img
               src={lessonImage[a].image2}
               className="relative object-cover w-full h-full"
             />
+            <div
+              style={{
+                transform: "skewX(20deg) translate(40px, -43px)",
+              }}
+              className=" lg:absolute sm:px-14 lg:py-5 lg:px-28 lg:z-3 lg:opacity-80 lg:bg-yellow-300"
+            ></div>
+            <div
+              style={{
+                transform: "skewX(20deg) translate(30px, -50px)",
+              }}
+              className=" lg:absolute sm:px-14 lg:py-5 lg:px-28 lg:z-4 lg:opacity-80 lg:bg-secondary"
+            ></div>
+
+            <div className="hidden text-black lg:flex lg:font-bold lg:absolute lg:translate-x-9 lg:-translate-y-11 lg:z-4 lg:h3 sm:p">
+              {lessonImage[a].teacher}
+            </div>
           </div>
           {/* <div className=" absolute lg:z-10 bg-grey-50 sm:h-80 lg:w-1/2 lg:h-[410px] lg:top-1/2 lg:-translate-y-1/2 lg:left-12 lg:translate-x-4"></div> */}
         </div>

@@ -12,7 +12,7 @@ const Card = (props) => {
   const [timer, setTimer] = useState([0, 0, 0, 0]);
   const [timeOut, setTimeOut] = useState(false);
   const [restCount, setRestCount] = useState(product.count);
-  const [productPhoto, setProductPhoto] = useState([]);
+  // const [productPhoto, setProductPhoto] = useState([]);
 
   //折扣的價格
   let priceOff = product.discount / 100;
@@ -27,19 +27,19 @@ const Card = (props) => {
   //相減剩餘的時間(時間戳記)
   let restTime = Math.floor((expireTime - timeNow) / 1000);
   // console.log(cart[1]);
-  console.log(productPhoto);
+  // console.log(productPhoto);
   //---------------------------------------------拿商品的ID-串照片用
-  useEffect(() => {
-    // 撈出各頁產品資料
-    let getProductId = async () => {
-      let response = await axios.get(`${API_URL}/product`);
-      setProductPhoto(response.data);
+  // useEffect(() => {
+  //   // 撈出各頁產品資料
+  //   let getProductId = async () => {
+  //     let response = await axios.get(`${API_URL}/product`);
+  //     setProductPhoto(response.data);
 
-      // console.log(response.data);
-      // console.log(response.data[0]);
-    };
-    getProductId();
-  }, []);
+  //     console.log(response.data);
+  //     // console.log(response.data[0]);
+  //   };
+  //   getProductId();
+  // }, []);
   //----------------------------------------------抓即期時間
   useEffect(() => {
     let countDown = setInterval(() => {
@@ -64,12 +64,12 @@ const Card = (props) => {
   return (
     <>
       {restTime > 0 ? (
-        <div className=" mb-6 mx-1 xl:w-[16rem]">
+        <div className="w-[19rem] mb-6  xl:w-[18rem]">
           <div className="flex flex-col items-center justify-center mr-1 ">
             <img
-              className="object-cover w-full rounded-sm h-[15rem]"
+              className="object-cover w-full rounded-sm h-[20rem]"
               // --------------------------------------------------------即期品照片
-              src={`${BASE_URL} + /public/product/1.jpg`}
+              src={`http://localhost:8001/public/product/${product.product_id}.jpg`}
               alt="T-Shirt"
             />
             <div className="flex items-center justify-end w-full mt-2">

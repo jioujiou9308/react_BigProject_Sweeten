@@ -4,7 +4,7 @@ import { useState } from "react";
 import axios from "axios";
 import { API_URL } from "../../utils/config";
 import { clearConfigCache } from "prettier";
-import moment from "moment";
+
 import { useProductState } from "../../utils/redux/hooks-redux";
 
 function Filter() {
@@ -62,57 +62,65 @@ function Filter() {
     }
   };
   //口味filter
-  const flavorChangeHandler =async (e) => {
-    switch(e.target.value){
-      case '0':
-        let getfilteredCategory0= async()=>{
-          let response = await axios.get(API_URL+`/product/category/20${e.target.value}`)
-          setProduct(response.data.data)
-          console.log(response.data.data)
-        }
+  const flavorChangeHandler = async (e) => {
+    switch (e.target.value) {
+      case "0":
+        let getfilteredCategory0 = async () => {
+          let response = await axios.get(
+            API_URL + `/product/category/20${e.target.value}`
+          );
+          setProduct(response.data.data);
+          console.log(response.data.data);
+        };
         getfilteredCategory0();
         break;
 
-        case '1':
-          let getfilteredCategory1= async()=>{
-            let response = await axios.get(API_URL+`/product/category/20${e.target.value}`)
-            setProduct(response.data.data)
-            console.log(response.data.data)
-          }
-          getfilteredCategory1();
-          break;
+      case "1":
+        let getfilteredCategory1 = async () => {
+          let response = await axios.get(
+            API_URL + `/product/category/20${e.target.value}`
+          );
+          setProduct(response.data.data);
+          console.log(response.data.data);
+        };
+        getfilteredCategory1();
+        break;
 
-          case '2':
-            let getfilteredCategory2= async()=>{
-              let response = await axios.get(API_URL+`/product/category/20${e.target.value}`)
-              setProduct(response.data.data)
-              console.log(response.data.data)
-            }
-            getfilteredCategory2();
-          break;
+      case "2":
+        let getfilteredCategory2 = async () => {
+          let response = await axios.get(
+            API_URL + `/product/category/20${e.target.value}`
+          );
+          setProduct(response.data.data);
+          console.log(response.data.data);
+        };
+        getfilteredCategory2();
+        break;
 
-          case '3':
-            let getfilteredCategory3= async()=>{
-              let response = await axios.get(API_URL+`/product/category/20${e.target.value}`)
-              setProduct(response.data.data)
-              console.log(response.data.data)
-            }
-            getfilteredCategory3();
-          break;
+      case "3":
+        let getfilteredCategory3 = async () => {
+          let response = await axios.get(
+            API_URL + `/product/category/20${e.target.value}`
+          );
+          setProduct(response.data.data);
+          console.log(response.data.data);
+        };
+        getfilteredCategory3();
+        break;
 
-          case '4':
-            let getfilteredCategory4= async()=>{
-              let response = await axios.get(API_URL+`/product/category/20${e.target.value}`)
-              setProduct(response.data.data)
-              console.log(response.data.data)
-            }
-            getfilteredCategory4();
-            break;
-          
+      case "4":
+        let getfilteredCategory4 = async () => {
+          let response = await axios.get(
+            API_URL + `/product/category/20${e.target.value}`
+          );
+          setProduct(response.data.data);
+          console.log(response.data.data);
+        };
+        getfilteredCategory4();
+        break;
 
-          default:
-            return;
-        
+      default:
+        return;
     }
   };
   //價格排序
