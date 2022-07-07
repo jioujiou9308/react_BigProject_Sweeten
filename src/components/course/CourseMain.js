@@ -7,6 +7,7 @@ import CourseHeader from "./CourseHeader";
 import CourseIntro from "./CourseIntro";
 
 import CourseDetail from "./CourseDetail";
+import CourseSwiperTitle from "./CourseSwiperTitle";
 // import LessonList from "../courseDetail/LessonList";
 
 const image = [
@@ -70,14 +71,7 @@ const CourseMain = () => {
       <div className="mb-10">
         <CourseHeader />
       </div>
-      <div className="mb-20 ">
-        <CourseSwiper
-          lessons={lessons}
-          setSwipe={setSwipe}
-          lessonImage={lessonImage}
-          swipe={swipe}
-        />
-      </div>
+
       <CourseContent
         swipe={swipe}
         lessons={lessons}
@@ -97,6 +91,14 @@ const CourseMain = () => {
       ) : (
         <></>
       )}
+      <div className="mb-20 ">
+        <CourseSwiper
+          lessons={lessons}
+          setSwipe={setSwipe}
+          lessonImage={lessonImage}
+          swipe={swipe}
+        />
+      </div>
     </>
   );
 };

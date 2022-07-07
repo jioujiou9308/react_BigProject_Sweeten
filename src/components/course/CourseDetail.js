@@ -82,7 +82,7 @@ const CourseDetail = (props) => {
   ];
 
   return (
-    <div className="flex flex-wrap h-full">
+    <div className="flex flex-wrap justify-between h-full mb-10">
       <div className="w-full ml-10 mr-16 lg:w-1/3">
         <div className="w-full bg-white">
           <div className="flex items-center justify-between mt-10">
@@ -177,7 +177,7 @@ const CourseDetail = (props) => {
               </h2>
               <p className="text-justify p">{courseDetail[a].materialIntro}</p>
             </div>
-            <div className="flex mb-4">
+            <div className="flex flex-wrap mb-4">
               <h2 className="font-bold md:ml-0 h2">
                 {courseDetail[a].difficulty}
               </h2>

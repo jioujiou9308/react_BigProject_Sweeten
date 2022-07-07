@@ -6,38 +6,37 @@ const LessonItem = (props) => {
   return (
     <>
       {/* items */}
-      <div className="flex flex-col items-start justify-start w-full px-4 py-4 bg-gray-50 md:py-6 md:p-6 lg:p-8">
-        {/* <p className="text-lg font-semibold leading-6 text-gray-800 md:text-xl xl:leading-5">
-          Customer’s Cart
-        </p> */}
+      <div className="flex flex-col items-start justify-start w-full py-4 bg-gray-50 md:py-6 md:p-6 lg:p-8">
+        <h1 className="w-full text-3xl font-semibold text-center text-gray-800 lg:text-3xl lg:leading-9 lg:text-start lg:ml-5">
+          課程預約資訊
+        </h1>
         <div className="flex flex-col items-start justify-start w-full px-5 pb-5 mt-4 border-b border-gray-200 md:pb-0 md:flex-row md:space-x-6 xl:space-x-8">
-          <div className="w-full h-56 pb-5 mx-auto sm:w-2/3 md:w-3/5 lg:w-full">
+          <div className="w-full px-0 mx-auto mb-3 h-60 sm:w-2/3 md:w-3/5 lg:w-full">
             <img
               className="object-cover w-full h-full"
               src={courseCart[5].image1}
               alt=""
             />
           </div>
-          <div className="flex flex-col items-start justify-between w-full h-56 mb-5 space-y-4 md:flex-row md:space-y-0">
-            <div className="flex flex-col items-start w-full space-y-10">
-              <h3 className="text-xl font-semibold leading-6 text-gray-800 xl:text-2xl ">
-                課程：{courseCart[3]}
-              </h3>
-              <div className="w-full ">
-                {/* 人數 */}
-                <div className="text-gray-800 p">人數</div>
-                <div className="sm:flex-row">
-                  <p className="p">大人： {courseCart[1]}</p>
-                  <p className="p">小孩：{courseCart[2]}</p>
-                </div>
-                {/* 時段 */}
-                <div className="my-2 leading-none text-gray-800 p">時段</div>
-                <p>{courseCart[0]}</p>
-                <p className="text-base font-black text-right">
-                  價格: {courseCart[4]}/人
-                </p>
-              </div>
+
+          <div className="w-full ">
+            {/* 人數 */}
+            <h3 className="text-xl font-semibold leading-6 text-gray-800 xl:text-2xl ">
+              課程：{courseCart[3]}
+            </h3>
+            <div className="font-bold text-gray-800 p">人數:</div>
+            <div className="sm:flex-row">
+              <p className="p">大人： {courseCart[1]}</p>
+              <p className="p">小孩： {courseCart[2]}</p>
             </div>
+            {/* 時段 */}
+            <div className="my-2 font-bold leading-none text-gray-800 p">
+              時段:
+            </div>
+            <p>{courseCart[0]}</p>
+            <p className="text-base font-black text-right">
+              價格: {courseCart[4]}/人
+            </p>
           </div>
         </div>
         {/* 人數時段 */}
