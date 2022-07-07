@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { toast } from "react-toastify";
 import {
   Card,
   CardHeader,
@@ -88,8 +89,9 @@ function UserCommentCard() {
                     variant="outlined"
                     className="bg-white rounded-sm "
                     onClick={async () => {
-                      //NOTE 刪不掉 
+                     
                       await axios.delete(API_URL + `/product/comment/${comment_id}`);
+                      toast.info('已刪除評論')
                       getComment();
                     }}
                   >

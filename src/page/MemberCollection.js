@@ -17,6 +17,7 @@ import {
   useFavoriteState,
   useUserState,
 } from "../utils/redux/hooks-redux";
+import { toast } from "react-toastify";
 import { calcLength } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { clearConfigCache } from "prettier";
@@ -188,7 +189,7 @@ const MemberColloction = () => {
                               `${API_URL}/user/favorite_product/${user_id}?product_id=${product_id}`
                             );
                             // console.log(response);
-                         
+                            toast.info('已移除收藏')
                             axios
                               .get(
                                 API_URL +

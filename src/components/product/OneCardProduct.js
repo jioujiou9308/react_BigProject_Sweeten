@@ -2,6 +2,7 @@ import axios from "axios";
 import { React, useEffect, useState } from "react";
 import { AiOutlineMessage, AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import { API_URL } from "../../utils/config";
 import {
   useCartState,
@@ -17,12 +18,14 @@ const OnceCarkProduct = ({ product }) => {
   // console.log("最愛商品", favProduct);
   // console.log("所有商品", product);
 
+  // 加入最愛
   const favSwitchHander = async () => {
-    if (favProduct.findIndex((item) => item.product_id === product.id) > -1) {
+    if (favProduct.findIndex((item) => item.product_id === product.id) > -1 ) {
       //delete
       await axios.delete(
         `${API_URL}/user/favorite_product/${currentUser.id}?product_id=${product.id}`
       );
+      toast.info('已從最愛移除')
       // 抓所有最愛ㄉ商品(沒有分頁)
       axios
         .get(API_URL + `/user/favorite_product/all_data/${currentUser.id}`)
@@ -36,6 +39,7 @@ const OnceCarkProduct = ({ product }) => {
         user_id: currentUser.id,
         product_id: product.id,
       });
+      toast.success('已加入最愛')
       // 抓所有最愛ㄉ商品(沒有分頁)
       axios
         .get(API_URL + `/user/favorite_product/all_data/${currentUser.id}`)
@@ -45,6 +49,35 @@ const OnceCarkProduct = ({ product }) => {
         .catch((e) => console.log(e));
     }
   };
+
+  //加入購物車
+  const addCartHandler = () => {
+    if(currentUser.id != 0){
+      let productIndex = cart[1].findIndex(function (data, index) {
+      return data.name === product.name;
+    });
+    // console.log('productInx',productIndex);
+    if (productIndex > -1) {
+      let newCount = {
+        ...product,
+        count: cart[1][productIndex].count + 1,
+      };
+      let cartList = [...cart[1]];
+      cartList[productIndex] = newCount;
+      let newData = [cart[0], cartList];
+      setCart(newData);
+    } else {
+      let newCount = { ...product, count: 1 };
+      let cartList = [...cart[1], newCount];
+      let newData = [cart[0], cartList];
+      setCart(newData);
+    }
+    toast.success('已加入購物車')
+    }else{
+      toast.info('請登入會員')
+    }
+    
+  }
 
   return (
     <>
@@ -72,37 +105,17 @@ const OnceCarkProduct = ({ product }) => {
               -1 ? (
                 <AiFillHeart
                   className="cursor-pointer icon-sm text-secondary"
-                  onClick={favSwitchHander}
+                  onClick={()=>{currentUser.id !=0?( favSwitchHander()):(toast.info('請登入會員'))}}
                 />
               ) : (
-                <AiOutlineHeart className="cursor-pointer icon-sm" onClick={favSwitchHander} />
+                <AiOutlineHeart className="cursor-pointer icon-sm" onClick={()=>{currentUser.id !=0?( favSwitchHander()):(toast.info('請登入會員'))}} />
               )}
             </div>
           </div>
 
           <button
             className="flex items-center justify-center w-full px-2 py-2 mt-4 text-white rounded-sm opacity-100 hover:opacity-80 bg-secondary focus:outline-none "
-            onClick={() => {
-              let productIndex = cart[1].findIndex(function (data, index) {
-                return data.name === product.name;
-              });
-              // console.log('productInx',productIndex);
-              if (productIndex > -1) {
-                let newCount = {
-                  ...product,
-                  count: cart[1][productIndex].count + 1,
-                };
-                let cartList = [...cart[1]];
-                cartList[productIndex] = newCount;
-                let newData = [cart[0], cartList];
-                setCart(newData);
-              } else {
-                let newCount = { ...product, count: 1 };
-                let cartList = [...cart[1], newCount];
-                let newData = [cart[0], cartList];
-                setCart(newData);
-              }
-            }}
+            onClick={addCartHandler}
           >
             <span className="mx-1 bg-secondary">加入購物車</span>
           </button>

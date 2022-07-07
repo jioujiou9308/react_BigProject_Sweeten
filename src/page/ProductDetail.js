@@ -1,4 +1,4 @@
-import toast, { Toaster } from 'react-hot-toast';
+import { toast } from "react-toastify";
 import React, { useEffect, useState } from "react";
 import {
   AiFillHeart,
@@ -51,11 +51,9 @@ function ProductDetail() {
     //抓所有評論
     let getComment = async () => {
       console.log("fetch");
-      let response = await axios.get(
-        `${API_URL}/product/comment/${id}`
-      );
+      let response = await axios.get(`${API_URL}/product/comment/${id}`);
       setComment(response.data);
-      console.log('comment',response.data);
+      console.log("comment", response.data);
     };
     getComment();
     //看喜歡ㄉproduct有哪些
@@ -86,8 +84,7 @@ function ProductDetail() {
     }
     return elementArr;
   };
-  const notify = () => toast('Here is your toast.');
-
+// 加入最愛
   const favSwitchHandler = async () => {
     if (isFavor.length < 1) {
       //isFavor長度等於0要post
@@ -96,7 +93,8 @@ function ProductDetail() {
         user_id: currentUser.id,
         product_id: id,
       });
-
+        toast.success("已加入最愛");
+      
       getFavProduct();
     } else {
       //isFavor長度大於0要delete
@@ -104,10 +102,11 @@ function ProductDetail() {
       await axios.delete(
         API_URL + `/user/favorite_product/${currentUser.id}?product_id=${id}`
       );
+      toast.info('已從最愛移除')
       getFavProduct();
     }
   };
-
+ 
   return (
     <>
       {productDetail.map((v, i) => {
@@ -159,7 +158,9 @@ function ProductDetail() {
                       <Button
                         variant="outlined"
                         className="border rounded-full select-none border-line text-line"
-                        onClick={favSwitchHandler}
+                        onClick={()=>{
+                          currentUser.id !=0?(favSwitchHandler()):(toast.info('請登入會員'))
+                        }}
                       >
                         <AiFillHeart
                           className={`icon-xl select-none rounded-full ${
@@ -174,7 +175,7 @@ function ProductDetail() {
                   </div>
 
                   {/* 右欄尺寸桌機板 */}
-                  <p className="mt-4 mb-2 p" >尺寸</p>
+                  <p className="mt-4 mb-2 p">尺寸</p>
                   {/* 尺寸按鈕桌機板  小字尺寸*/}
 
                   <button className="px-1 mr-5 size-btn-desk bg-light">
@@ -212,7 +213,10 @@ function ProductDetail() {
                         className="border-2 rounded-none border-sub"
                         variant="outlined"
                         onClick={() => {
-                          let productIndex = cart[1].findIndex(function (
+                          if(currentUser.id ==0){
+                            toast.info('請登入會員')
+                          }else{
+                             let productIndex = cart[1].findIndex(function (
                             data,
                             index
                           ) {
@@ -234,7 +238,10 @@ function ProductDetail() {
                             let newData = [cart[0], cartList];
                             setCart(newData);
                           }
+                          toast.success("已加入購物車");
                           setClickCount(1);
+                          }
+                         
                         }}
                       >
                         <span className="text-black p">加入購物車</span>
@@ -244,7 +251,10 @@ function ProductDetail() {
                         className="ml-3 text-white border-2 rounded-none border-warning bg-warning"
                         variant="filled"
                         onClick={() => {
-                          let productIndex = cart[1].findIndex(function (
+                          if(currentUser.id===0){
+                            toast.info('請登入會員')
+                          }else{
+                              let productIndex = cart[1].findIndex(function (
                             data,
                             index
                           ) {
@@ -269,6 +279,8 @@ function ProductDetail() {
                             setClickCount(1);
                             navigate("/main/cart");
                           }
+                          }
+                        
                         }}
                       >
                         <span className="p">立即購買</span>
@@ -290,14 +302,12 @@ function ProductDetail() {
 
                 {/* 愛心圖示手機板 */}
                 <div className="flex justify-end my-4">
-                  
                   <Button
                     variant="outlined"
                     className="mr-3 rounded-full select-none text-line border-line"
-                    onClick={
-                     
-                      favSwitchHandler
-                    }
+                    onClick={()=>{
+                          currentUser.id !=0?(favSwitchHandler()):(toast.info('請登入會員'))
+                        }}
                   >
                     <AiFillHeart
                       className={`icon-xl select-none rounded-full  ${
@@ -343,7 +353,9 @@ function ProductDetail() {
                 </div>
 
                 <h2 className="mx-5 my-5 p">商品參與的優惠活動</h2>
-                <p className="mx-5 mt-2 text-center p w-28 bg-primary">父親節特惠</p>
+                <p className="mx-5 mt-2 text-center p w-28 bg-primary">
+                  父親節特惠
+                </p>
 
                 {/* 加入購物車按鈕手機板 */}
                 <div className="flex justify-around my-6">
@@ -351,7 +363,10 @@ function ProductDetail() {
                     className="px-4 py-1 border-2 rounded-none border-sub"
                     variant="outlined"
                     onClick={() => {
-                      let productIndex = cart[1].findIndex(function (
+                      if(currentUser.id==0){
+                        toast.info('請登入會員')
+                      }else{
+                        let productIndex = cart[1].findIndex(function (
                         data,
                         index
                       ) {
@@ -373,7 +388,11 @@ function ProductDetail() {
                         let newData = [cart[0], cartList];
                         setCart(newData);
                       }
+                      toast.success("已加入購物車");
                       setClickCount(1);
+                      }
+                      
+                      
                     }}
                   >
                     <span className="text-black p">加入購物車</span>
@@ -383,7 +402,10 @@ function ProductDetail() {
                     className="px-4 text-white border-2 rounded-none shadow-primary border-warning bg-warning"
                     variant="filled"
                     onClick={() => {
-                      let productIndex = cart[1].findIndex(function (
+                        if(currentUser.id==0){
+                          toast.info('請登入會員')
+                        }else{
+                           let productIndex = cart[1].findIndex(function (
                         data,
                         index
                       ) {
@@ -407,6 +429,10 @@ function ProductDetail() {
                       }
                       setClickCount(1);
                       navigate("/main/cart");
+                        }
+                          
+                      
+                     
                     }}
                   >
                     <span className="p">立即購買</span>
@@ -425,23 +451,29 @@ function ProductDetail() {
                 <div className="w-full md:w-2/5">
                   <div className="mb-4">
                     <h2 className=" h2 md:ml-0">商品說明：</h2>
-                    <p className="text-justify p">{description.split('。')[0]}。</p>
+                    <p className="text-justify p">
+                      {description.split("。")[0]}。
+                    </p>
                   </div>
 
                   <div className="mb-4">
                     <h2 className=" h2">成分：</h2>
-                    <p className="text-justify p">{description.split('。')[1]}。</p>
+                    <p className="text-justify p">
+                      {description.split("。")[1]}。
+                    </p>
                   </div>
 
                   <div>
                     <h2 className=" h2">過敏原：</h2>
-                    <p className="text-justify p">{description.split('。')[2]}。</p>
+                    <p className="text-justify p">
+                      {description.split("。")[2]}。
+                    </p>
                   </div>
                 </div>
 
                 <div className="overflow-auto md:px-10 md:w-3/5">
                   {/* 評論區 上半部*/}
-                
+
                   <div className="flex justify-between w-full h-1/5">
                     <div className="flex items-center justify-between w-full md:justify-between my-7">
                       <div>
@@ -457,8 +489,6 @@ function ProductDetail() {
                         </p>
                       </div>
                     </div>
-
-                    
                   </div>
 
                   {/* 評論區 下半部使用者 */}
@@ -479,7 +509,12 @@ function ProductDetail() {
 
       {/* 你可能也會喜歡 */}
       <div className="hidden my-8 bg-sub md:block">
-        <p className="pt-3 pb-6 text-center h2">你可能也會喜歡</p>
+        <p
+          className="pt-3 pb-6 text-center h2"
+          
+        >
+          你可能也會喜歡
+        </p>
 
         <YouMayLikeProduct />
       </div>
