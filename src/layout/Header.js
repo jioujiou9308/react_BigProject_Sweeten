@@ -105,7 +105,7 @@ const Header = () => {
                 {user && user.email?.split("@")[0]}
               </span>
               <AiOutlineSearch
-                className="mx-1 icon-sm"
+                className="mx-1 icon-sm "
                 onClick={() => {
                   axios
                     .get(API_URL + "/auth/check?test=123", {

@@ -4,6 +4,7 @@ import ProductItem from "./ProductItem";
 
 function OrderList() {
   const [cart, setCart] = useCartState();
+  console.log(cart);
   return (
     <>
       {cart[1].length < 1 ? (

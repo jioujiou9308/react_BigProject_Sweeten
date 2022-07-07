@@ -21,7 +21,7 @@ import {
 } from "../utils/redux/hooks-redux";
 
 function ProductDetail() {
-  const [count, setCount] = useState(2);
+  const [clickCount, setClickCount] = useState(1);
   const [favProduct, setFavProduct] = useFavoriteState();
   const [productDetail, setProductDetail] = useState([]);
   const [comment, setComment] = useState([]);
@@ -44,16 +44,17 @@ function ProductDetail() {
     let getProductDetail = async () => {
       let response = await axios.get(`${API_URL}/product/${id}`);
       setProductDetail(response.data);
-      // console.log(response.data);
+      console.log(response.data);
     };
     getProductDetail();
     //抓所有評論
     let getComment = async () => {
+      console.log("fetch");
       let response = await axios.get(
-        `${API_URL}/product/comment/product/${id}`
+        `${API_URL}/product/comment/${id}`
       );
       setComment(response.data);
-      // console.log(response.data);
+      console.log('comment',response.data);
     };
     getComment();
     //看喜歡ㄉproduct有哪些
@@ -189,31 +190,48 @@ function ProductDetail() {
                       <AiFillMinusCircle
                         className="icon-lg text-secondary"
                         onClick={() => {
-                          if (count > 1) {
-                            setCount(count - 1);
+                          if (clickCount > 1) {
+                            setClickCount(clickCount - 1);
                           }
                         }}
                       />
-                      <p className="mx-3">{count}</p>
+                      <p className="mx-3">{clickCount}</p>
                       <AiFillPlusCircle
                         className="icon-lg text-secondary"
                         onClick={() => {
-                          setCount(count + 1);
+                          setClickCount(clickCount + 1);
                         }}
                       />
                     </div>
 
                     <div className="flex justify-center ">
-                    {/* TODO:購物車按鈕好像有錯 */}
                       <Button
                         className="border-2 rounded-none border-sub"
                         variant="outlined"
                         onClick={() => {
-                          let newCart = [...cart[1]];
-                          newCart.push(v);
-                          let newData = [cart[0], newCart];
-                          setCart(newData);
-                          console.log(newData);
+                          let productIndex = cart[1].findIndex(function (
+                            data,
+                            index
+                          ) {
+                            return data.name === name;
+                          });
+                          // console.log('productInx',productIndex);
+                          if (productIndex > -1) {
+                            let newCount = {
+                              ...v,
+                              count: cart[1][productIndex].count + clickCount,
+                            };
+                            let cartList = [...cart[1]];
+                            cartList[productIndex] = newCount;
+                            let newData = [cart[0], cartList];
+                            setCart(newData);
+                          } else {
+                            let newCount = { ...v, count: clickCount };
+                            let cartList = [...cart[1], newCount];
+                            let newData = [cart[0], cartList];
+                            setCart(newData);
+                          }
+                          setClickCount(1);
                         }}
                       >
                         <span className="text-black p">加入購物車</span>
@@ -223,12 +241,31 @@ function ProductDetail() {
                         className="ml-3 text-white border-2 rounded-none border-warning bg-warning"
                         variant="filled"
                         onClick={() => {
-                          let newCart = [...cart[1]];
-                          newCart.push(v);
-                          let newData = [cart[0], newCart];
-                          setCart(newData);
-                          console.log(newData);
-                          navigate("/main/cart");
+                          let productIndex = cart[1].findIndex(function (
+                            data,
+                            index
+                          ) {
+                            return data.name === name;
+                          });
+                          // console.log('productInx',productIndex);
+                          if (productIndex > -1) {
+                            let newCount = {
+                              ...v,
+                              count: cart[1][productIndex].count + clickCount,
+                            };
+                            let cartList = [...cart[1]];
+                            cartList[productIndex] = newCount;
+                            let newData = [cart[0], cartList];
+                            setCart(newData);
+                            navigate("/main/cart");
+                          } else {
+                            let newCount = { ...v, count: clickCount };
+                            let cartList = [...cart[1], newCount];
+                            let newData = [cart[0], cartList];
+                            setCart(newData);
+                            setClickCount(1);
+                            navigate("/main/cart");
+                          }
                         }}
                       >
                         <span className="p">立即購買</span>
@@ -255,7 +292,7 @@ function ProductDetail() {
                     variant="outlined"
                     className="rounded-full select-none text-line border-line"
                     onClick={
-                      //  TODO:要做新增刪除
+                     
                       favSwitchHandler
                     }
                   >
@@ -279,16 +316,16 @@ function ProductDetail() {
                   <AiFillMinusCircle
                     className="icon-xl text-secondary"
                     onClick={() => {
-                      if (count > 1) {
-                        setCount(count - 1);
+                      if (clickCount > 1) {
+                        setClickCount(clickCount - 1);
                       }
                     }}
                   />
-                  <p className="mx-5">{count}</p>
+                  <p className="mx-5">{clickCount}</p>
                   <AiFillPlusCircle
                     className="icon-xl text-secondary"
                     onClick={() => {
-                      setCount(count + 1);
+                      setClickCount(clickCount + 1);
                     }}
                   />
                 </div>
@@ -311,14 +348,29 @@ function ProductDetail() {
                     className="px-4 py-1 border-2 rounded-none border-sub"
                     variant="outlined"
                     onClick={() => {
-                      let newCart = [...cart[1]];
-                      // console.log('新購物車',newCart)
-                      // console.log('購物車',cart[1])
-
-                      newCart.push(v);
-                      // console.log('新購物車',newCart)
-                      let newData = [cart[0], newCart];
-                      setCart(newData);
+                      let productIndex = cart[1].findIndex(function (
+                        data,
+                        index
+                      ) {
+                        return data.name === name;
+                      });
+                      // console.log('productInx',productIndex);
+                      if (productIndex > -1) {
+                        let newCount = {
+                          ...v,
+                          count: cart[1][productIndex].count + clickCount,
+                        };
+                        let cartList = [...cart[1]];
+                        cartList[productIndex] = newCount;
+                        let newData = [cart[0], cartList];
+                        setCart(newData);
+                      } else {
+                        let newCount = { ...v, count: clickCount };
+                        let cartList = [...cart[1], newCount];
+                        let newData = [cart[0], cartList];
+                        setCart(newData);
+                      }
+                      setClickCount(1);
                     }}
                   >
                     <span className="text-black p">加入購物車</span>
@@ -328,15 +380,29 @@ function ProductDetail() {
                     className="px-4 text-white border-2 rounded-none shadow-primary border-warning bg-warning"
                     variant="filled"
                     onClick={() => {
-                      let newCart = [...cart[1]];
-                      // console.log('新購物車',newCart)
-                      // console.log('購物車',cart[1])
-
-                      newCart.push(v);
-                      // console.log('新購物車',newCart)
-                      let newData = [cart[0], newCart];
-                      setCart(newData);
-
+                      let productIndex = cart[1].findIndex(function (
+                        data,
+                        index
+                      ) {
+                        return data.name === name;
+                      });
+                      // console.log('productInx',productIndex);
+                      if (productIndex > -1) {
+                        let newCount = {
+                          ...v,
+                          count: cart[1][productIndex].count + clickCount,
+                        };
+                        let cartList = [...cart[1]];
+                        cartList[productIndex] = newCount;
+                        let newData = [cart[0], cartList];
+                        setCart(newData);
+                      } else {
+                        let newCount = { ...v, count: clickCount };
+                        let cartList = [...cart[1], newCount];
+                        let newData = [cart[0], cartList];
+                        setCart(newData);
+                      }
+                      setClickCount(1);
                       navigate("/main/cart");
                     }}
                   >

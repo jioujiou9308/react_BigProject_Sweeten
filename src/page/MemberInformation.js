@@ -45,7 +45,7 @@ const MemberInformation = () => {
         <motion.div
           initial={{ width: 0 }}
           animate={{ width: "auto" }}
-          transition={{ ease: "easeOut", duration: 2, delay: 1 }}
+          transition={{ ease: "easeOut", duration: 2 }}
           className="bg-gradient-to-r pb-[5px] from-sub to-transparent"
         ></motion.div>
         {/* 大頭照 */}

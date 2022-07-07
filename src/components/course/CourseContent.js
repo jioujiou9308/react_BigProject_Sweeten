@@ -1,47 +1,51 @@
 import React from "react";
+import { Button } from "@material-tailwind/react";
 
 const CourseContent = (props) => {
-  const { lessons, swipe } = props;
+  const { lessons, swipe, toggle, lessonImage } = props;
   let a = swipe;
+
+  // console.log(image[0].image1);
   return (
     <>
-      {lessons.name && (
-        <div class=" h-full lg:flex">
-          <div class="relative w-full lg:-translate-x-5 ">
-            <div class="  h-0 lg:w-4/6 lg:h-full lg:ml-auto lg:mr-4">
-              <img
-                src={"/images/courseDetial/course_demo_upper.png"}
-                className="object-cover h-full"
-              />
-            </div>
-            <div class=" absolute lg:z-20  h-0  lg:w-1/2 lg:h-2/3  lg:top-1/2 lg:-translate-y-1/2 lg:left-12">
-              <img
-                src={"/images/productDetail/product_demo2_lower.png"}
-                className="object-cover w-full h-full"
-              />
-            </div>
-            <div class=" absolute lg:z-10 bg-grey-50 sm:h-80 lg:w-1/2 lg:h-[410px] lg:top-1/2 lg:-translate-y-1/2 lg:left-12 lg:translate-x-4"></div>
+      <div className="h-full mb-5 lg:flex">
+        <div className="relative w-full lg:-translate-x-5 ">
+          <div className="h-0 lg:w-4/6 lg:h-full lg:ml-auto lg:mr-4">
+            <img src={lessonImage[a].image3} className="object-cover h-full" />
           </div>
-          <div class=" max-w-md mx-auto xl:max-w-xl min-w-0 break-words bg-white w-full    mt-16 border-black border">
-            <div class=" mx-4 -mt-6 -translate-y-16">
-              <img class="w-auto rounded-lg" src={"/images/course/hand.jpg"} />
-            </div>
-            <div class="pb-10 px-10  -mt-5">
-              <div class="h1">{lessons[a].name}</div>
+          <div className="absolute h-0 lg:z-20 lg:w-1/2 lg:h-2/3 lg:top-1/2 lg:-translate-y-1/2 lg:left-12">
+            <div className="absolute top-0 w-full h-full translate-x-3 translate-y-3 bg-white border border-line"></div>
 
-              <p class="opcacity-60 mb-4 p mt-4">{lessons[a].description}</p>
-              <div class="inline-block mr-2 mt-2">
-                <button
-                  type="button"
-                  class="focus:outline-none text-white text-sm py-2.5 px-5 rounded-md bg-gradient-to-r from-green-400 to-green-600 transform hover:scale-110"
-                >
-                  Read More
-                </button>
-              </div>
+            <img
+              src={lessonImage[a].image2}
+              className="relative object-cover w-full h-full"
+            />
+          </div>
+          {/* <div className=" absolute lg:z-10 bg-grey-50 sm:h-80 lg:w-1/2 lg:h-[410px] lg:top-1/2 lg:-translate-y-1/2 lg:left-12 lg:translate-x-4"></div> */}
+        </div>
+        <div className="w-full max-w-md min-w-0 mx-auto mt-16 break-words bg-white border border-black xl:max-w-xl">
+          <div className="mx-4 -mt-6 -translate-y-16 ">
+            <img
+              className="object-cover w-full m-auto rounded-lg h-80 lg:h-96"
+              src={lessonImage[a].image1}
+            />
+          </div>
+          <div className="px-10 pb-10 -mt-5">
+            <div className="h1">{lessons[a]?.name}</div>
+
+            <p className="mt-4 mb-4 opcacity-60 p">{lessons[a]?.description}</p>
+            <div className="inline-block mt-2 mr-2">
+              <button
+                type="button"
+                className="p-2 ml-3 text-white border-2 rounded-none border-warning bg-warning"
+                onClick={toggle}
+              >
+                預約課程
+              </button>
             </div>
           </div>
         </div>
-      )}
+      </div>
     </>
   );
 };
