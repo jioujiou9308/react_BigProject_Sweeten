@@ -2,10 +2,11 @@ import React from "react";
 import { API_URL } from "../../utils/config";
 import { useCartState, useUserState } from "../../utils/redux/hooks-redux";
 
-const Ecpay = () => {
+const Ecpay = ({ fields }) => {
   const [cart] = useCartState();
   const [user] = useUserState();
   const [info, products] = cart;
+  console.log(cart[0]);
   /* ----------------------------------- 總價錢 ---------------------------------- */
   const amount = () =>
     products.reduce((pre, cur) => {
@@ -35,7 +36,11 @@ const Ecpay = () => {
           placeholder="商品名#分隔"
         />
         <input type="text" value={JSON.stringify(cart[1])} name="products" />
-        <input type="text" value={"桃園聖德基督學院"} name="address" />
+        <input
+          type="text"
+          value={`${fields.cityData} ${fields.address}`}
+          name="address"
+        />
         <input type="text" value={1} name="order_status_id" />
         <input type="text" value={user.id} name="user_id" />
         <p>{"-form action-> server -redirect-> ecpay -redirect-> local"}</p>
