@@ -4,7 +4,9 @@ import axios from "axios";
 import { motion } from "framer-motion";
 import MenuTag from "../components/menuTag/MenuTag";
 import { useUserState } from "../utils/redux/hooks-redux";
-import { API_URL } from "../utils/config";
+import { API_URL, IMAGE_URL } from "../utils/config";
+import { toast } from "react-toastify";
+
 
 //----------------------會員資訊-----------------------
 
@@ -21,6 +23,7 @@ const MemberInformation = () => {
     birthday: "",
     gender_id: "",
     user_photo_id: "",
+    path: "",
   });
   console.log(member);
   function handleChange(e) {
@@ -33,6 +36,8 @@ const MemberInformation = () => {
   // -------- 取得會員的資料 --------
   useEffect(() => {
     let getUser = async () => {
+      // let path = `${IMAGE_URL}/user/${user.id}`;
+      // let response = await axios.get(`${API_URL}/user/${user.id}`, member);
       let response = await axios.get(`${API_URL}/user/${user.id}`, member);
       console.log(response.data[0]);
       setMember({
@@ -42,15 +47,20 @@ const MemberInformation = () => {
         birthday: response.data[0].birthday,
         gender_id: response.data[0].gender_id,
         user_photo_id: response.data[0].user_photo_id,
+        path: response.data[0].path,
       });
+      console.log(response.data[0]);
     };
     getUser();
   }, []);
 
   // -------- 修改會員資料進資料庫 --------
   async function handleSubmit(e) {
+    e.preventDefault();
     try {
       axios.patch(`${API_URL}/user/${user.id}`, member);
+      toast.success("會員資料修改成功!");
+      setMember({ ...member });
     } catch (e) {
       console.log(e);
     }
@@ -79,7 +89,9 @@ const MemberInformation = () => {
   // -------- 新增會員片進資料庫 --------
 
   async function handlePhotoSubmit(e) {
+    e.preventDefault();
     try {
+      toast.success("會員照片上傳成功!");
       let formData = new FormData();
       formData.append("id", userPhoto.id);
       formData.append("photo", userPhoto.photo);
@@ -89,7 +101,8 @@ const MemberInformation = () => {
     }
   }
 
- 
+  // 頁面重整 function
+  
 
   return (
     <div className="mx-auto">
@@ -110,7 +123,7 @@ const MemberInformation = () => {
             <div className="flex flex-wrap items-center px-2 sm:flex-row">
               <div className="relative w-40 h-40 mt-6 rounded-full border object-cover">
                 <img
-                  value="userPhoto"
+                  value=""
                   src={`${process.env.PUBLIC_URL}/images/memberInformation/user_small.png`}
                   alt=""
                   className="w-full h-full rounded-full opacity-40 object-cover"
@@ -127,7 +140,15 @@ const MemberInformation = () => {
                     </div>
                   </>
                 ) : (
-                  <></>
+                  <>
+                    <div className="w-full h-full text-center">
+                      <img
+                        alt=""
+                        className="w-auto h-full m-auto object-cover absolute top-0 rounded-full"
+                        src={`http://localhost:8001/public${member.path}`}
+                      />
+                    </div>
+                  </>
                 )}
               </div>
             </div>
