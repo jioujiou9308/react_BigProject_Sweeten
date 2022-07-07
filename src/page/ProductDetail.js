@@ -468,7 +468,7 @@ function ProductDetail() {
 
                   <div className="flex items-center justify-start mt-4 mb-12 ml-8 text-secondary md:hidden ">
                     {/* <p className="p">查看全部</p> */}
-                    <AiOutlineRight />
+                    {/* <AiOutlineRight /> */}
                   </div>
                 </div>
               </div>

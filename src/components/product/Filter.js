@@ -258,7 +258,7 @@ function Filter() {
 
               <select
                 onChange={flavorChangeHandler}
-                className="hidden w-full px-4 py-3 text-sm bg-gray-100 border-transparent rounded-none cursor-pointer md:block focus:border-gray-500 focus:bg-white focus:ring-0"
+                className="w-full px-4 py-3 text-sm bg-gray-100 border-transparent rounded-none cursor-pointer md:block focus:border-gray-500 focus:bg-white focus:ring-0"
               >
                 <option value="">口味</option>
                 {flavorOption.map((v, i) => {
@@ -267,7 +267,7 @@ function Filter() {
               </select>
 
               <select
-                className="hidden w-full px-4 py-3 text-sm bg-gray-100 border-transparent rounded-none md:block focus:border-gray-500 focus:bg-white focus:ring-0"
+                className="w-full px-4 py-3 text-sm bg-gray-100 border-transparent rounded-none  md:block focus:border-gray-500 focus:bg-white focus:ring-0"
                 onChange={timeOrderChangeHandler}
               >
                 <option value="">上架時間</option>

@@ -51,9 +51,11 @@ const CardProduct = () => {
             ))}
           </div>
 
-          <ul className="flex items-center justify-center">
+        
+              {/* 桌機分頁 */}
+          <ul className="flex flex-wrap items-center justify-center">
             <li
-              className="mr-4 cursor-pointer"
+              className="hidden mr-4 cursor-pointer md:block"
               onClick={() => {
                 const { cur } = pageInfo;
                 cur > 1 && setPageInfo({ ...pageInfo, cur: cur - 1 });
@@ -62,14 +64,22 @@ const CardProduct = () => {
               上一頁
             </li>
             {getPage()}
+             {/* 桌機分頁 */}
             <li
-              className="ml-4 cursor-pointer"
+              className="hidden ml-4 cursor-pointer md:block"
               onClick={() => {
                 const { cur, total } = pageInfo;
                 cur < total && setPageInfo({ ...pageInfo, cur: cur + 1 });
               }}
             >
               下一頁
+            </li>
+          </ul>
+
+          {/* 手機板分頁 */}
+          <ul  className="mt-4 text-center md:hidden p">
+            <li className="mr-4 cursor-pointer" >
+              頁數
             </li>
           </ul>
         </div>
