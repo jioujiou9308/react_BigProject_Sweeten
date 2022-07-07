@@ -46,10 +46,10 @@ function OrderItems({ order }) {
             <div className="flex justify-between p-2 md:border border-line">
               <div className="">
                 {/* 商品價格數量 */}
-                <div className="flex items-center justify-start">
-                  <div className="mr-2 overflow-hidden">
+                <div className="flex items-center justify-start ">
+                  <div className="mr-2 overflow-hidden w-[70px]">
                     <img
-                      className="scale-105 "
+                      className="object-contain "
                       src={`http://localhost:8001/public/product/${order[0].product_id}.jpg`}
                       alt="product"
                     />

@@ -85,9 +85,9 @@ function CreateComment({ order, v, i }) {
         {/* 商品價格數量 */}
         <div className="flex justify-between w-full">
           <div className="flex justify-start ">
-            <div className="overflow-hidden md:mr-2">
+            <div className="mr-2 overflow-hidden w-[120px]">
               <img
-                className="scale-105 "
+                className="object-contain "
                 src={`http://localhost:8001/public/product/${v.product_id}.jpg`}
                 alt="product"
               />
@@ -208,9 +208,9 @@ function CreateComment({ order, v, i }) {
 
       <div className="w-full p-2 mb-2 border border-line md:hidden">
         <div className="flex justify-around p">
-          <div className="scale-75">
+          <div className="w-[80px] ">
             <img
-              className=""
+              className="object-contain "
               src={`http://localhost:8001/public/product/${v.product_id}.jpg`}
               alt="product"
             />

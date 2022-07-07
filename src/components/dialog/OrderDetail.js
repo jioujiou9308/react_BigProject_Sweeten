@@ -16,9 +16,9 @@ function OrderDetail({ order }) {
               {/* 商品價格數量 */}
               <div className="justify-between ">
                 <div className="flex items-center justify-start">
-                  <div className="mr-2 overflow-hidden">
+                  <div className="mr-2 overflow-hidden w-[70px] md:w-[120px]">
                     <img
-                      className="scale-105 "
+                      className="object-contain "
                       src={`http://localhost:8001/public/product/${v.product_id}.jpg`}
                       alt="product"
                     />
@@ -26,13 +26,13 @@ function OrderDetail({ order }) {
 
                   <div className="mx-3 md:p">
                     <p>商品</p>
-                    <p className="my-2 md:my-8">價格</p>
+                    <p className="my-2 ">價格</p>
                     <p>數量</p>
                   </div>
 
                   <div className="mx-3 md:p">
                     <p>{v.name}</p>
-                    <p className="my-2 md:my-8">{v.price}</p>
+                    <p className="my-2 ">{v.price}</p>
                     <p>* {v.memo}</p>
                   </div>
                 </div>

@@ -102,9 +102,9 @@ const MemberColloction = () => {
                   <>
                     {/* 圖片 備註 評分*/}
                     <div className="flex items-center justify-between px-0 py-1 border-b md:justify-around md:py-6 md:px-8">
-                      <div className="overflow-hidden scale-75 md:scale-100">
+                      <div className="overflow-hidden w-[70px] md:scale-100">
                         <img
-                          className=""
+                          className="object-contain"
                           src={`http://localhost:8001/public/product/${product_id}.jpg`}
                           alt="collection"
                         />
