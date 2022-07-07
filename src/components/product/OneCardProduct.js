@@ -17,7 +17,6 @@ const OnceCarkProduct = ({ product}) => {
   const [favProduct, setFavProduct] = useFavoriteState();
   const [currentUser] = useUserState();
   const [cart, setCart] = useCartState();
- 
   // console.log("最愛商品", favProduct);
   // console.log("所有商品", product);
 

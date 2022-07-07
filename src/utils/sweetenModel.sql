@@ -99,7 +99,7 @@ CREATE TABLE `lesson_photo` (
 );
 
 CREATE TABLE `order_info` (
-  `id` int PRIMARY KEY AUTO_INCREMENT,
+  `id` varchar(255) PRIMARY KEY,
   `user_id` varchar(255),
   `order_status_id` int,
   `address` varchar(255),
@@ -109,7 +109,7 @@ CREATE TABLE `order_info` (
 
 CREATE TABLE `order_product` (
   `id` int PRIMARY KEY AUTO_INCREMENT,
-  `order_info_id` int,
+  `order_info_id` varchar(255),
   `product_id` int,
   `coupon_id` int DEFAULT 0,
   `memo` varchar(255),
