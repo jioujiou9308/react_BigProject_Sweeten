@@ -229,7 +229,7 @@ const Home = (props) => {
                   data-aos="fade-in-up"
                   data-aos-easing="ease-in"
                   data-aos-duration="1000"
-                  data-aos-delay="1000"
+                  // data-aos-delay="1000"
                 >
                   <img
                     src="./images/home/section1-1.jpg"
@@ -251,7 +251,7 @@ const Home = (props) => {
                     data-aos="zoom-out-right"
                     data-aos-duration="1000"
                     data-aos-easing="ease-out"
-                    data-aos-delay="1300"
+                    data-aos-delay="300"
                   />
                   <img
                     src="./images/home/section1-3.jpg"
@@ -260,7 +260,7 @@ const Home = (props) => {
                     data-aos="zoom-out-right"
                     data-aos-duration="1000"
                     data-aos-easing="ease-out"
-                    data-aos-delay="1600"
+                    data-aos-delay="600"
                   />
                 </div>
               </div>
@@ -273,14 +273,14 @@ const Home = (props) => {
                 <motion.div
                   initial={{ scale: 1.5, opacity: 0, x: "-25%" }}
                   whileInView={{ scale: 1, opacity: 1, y: "-20%" }}
-                  transition={{ duration: 2, ease: "easeOut", delay: 2 }}
+                  transition={{ duration: 2, ease: "easeOut", delay: 1 }}
                   className=" lg:border-2 border-line absolute -translate-x-1/4 -translate-y-[20%] w-[150%] h-[150%]"
                 ></motion.div>
                 <div
                   data-aos="fade-zoom-in"
                   data-aos-easing="ease-in"
                   data-aos-duration="3000"
-                  data-aos-delay="2500"
+                  data-aos-delay="1300"
                 >
                   <h1 className="relative text-4xl font-semibold leading-9 ">
                     <p className="absolute text-2xl font-bold -translate-y-full opacity-30 ">

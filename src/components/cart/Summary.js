@@ -16,7 +16,7 @@ function Summary(props) {
     totalCount = totalCount + v.count;
   });
 
-  const plusTax = temPrice * productsInOrder[0].tax + temPrice;
+  const plusTax = Math.ceil(temPrice * productsInOrder[0].tax) + temPrice;
 
   const totalPrice = plusTax + productsInOrder[0].fee;
 
@@ -66,7 +66,7 @@ function Summary(props) {
           </div>
           <div className="flex justify-between pt-5">
             <p className="">Tax</p>
-            <p className="">${temPrice * productsInOrder[0].tax}</p>
+            <p className="">${Math.ceil(temPrice * productsInOrder[0].tax)}</p>
           </div>
           <div className="flex justify-between pt-5">
             <p className="">運費</p>
@@ -89,7 +89,7 @@ function Summary(props) {
             Checkout
           </button>
           {onClickBtn ? (
-            <div className="text-warning text-center mx-auto absolute bottom-2 left-1/2 -translate-x-1/2">
+            <div className="absolute mx-auto text-center -translate-x-1/2 text-warning bottom-2 left-1/2">
               <p className="mt-3">請先登入帳戶</p>
             </div>
           ) : (
