@@ -6,16 +6,13 @@ const Ecpay = () => {
   const [cart] = useCartState();
   const [user] = useUserState();
   const [info, products] = cart;
-
   /* ----------------------------------- 總價錢 ---------------------------------- */
   const amount = () =>
     products.reduce((pre, cur) => {
-      console.log(cur);
       return pre + cur.count * cur.price;
     }, 0);
   const fee = info.fee,
     tax = info.tax * amount();
-  console.log((amount() + fee + tax).toFixed(0));
   /* ---------------------------------- 商品描述 ---------------------------------- */
   const itemName = `sweeten食甜 #用戶 ${user.email}`;
   const desc = `小計:${amount()} 稅率:${(info.tax * 100).toFixed(1)} 運費:${
@@ -37,6 +34,10 @@ const Ecpay = () => {
           name="ItemName"
           placeholder="商品名#分隔"
         />
+        <input type="text" value={JSON.stringify(cart[1])} name="products" />
+        <input type="text" value={"桃園聖德基督學院"} name="address" />
+        <input type="text" value={1} name="order_status_id" />
+        <input type="text" value={user.id} name="user_id" />
         <p>{"-form action-> server -redirect-> ecpay -redirect-> local"}</p>
         <p>
           信用卡號：4311-9522-2222-2222 <br />
