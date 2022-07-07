@@ -8,11 +8,12 @@ import {
 import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-import 'swiper/css/effect-fade';
+import "swiper/css/effect-fade";
 import "../components/home/styles.css";
 import { Autoplay, EffectFade } from "swiper";
 import useLoading from "../utils/hooks/useLoading";
 import load from "./loading_logo.gif";
+import { useNavigate } from "react-router-dom";
 
 const s1Post = {
   title: "我們的堅持",
@@ -43,11 +44,29 @@ const s1Feature = [
 ];
 
 const Home = (props) => {
+  // useState
   const [show, setShow] = useState(false);
   const [show2, setShow2] = useState(false);
   const [show3, setShow3] = useState(false);
   const [show4, setShow4] = useState(false);
   const [WhileLoad, runLoad] = useLoading();
+
+  // navigate
+  const navigate = useNavigate();
+  function navigateToProduct(e) {
+    navigate("/main/product");
+    window.scrollTo({ top: 0, left: 0 });
+  }
+  function navigateToCourse(e) {
+    navigate("/main/course");
+    window.scrollTo({ top: 0, left: 0 });
+  }
+  function navigateToExpireProduct(e) {
+    navigate("/main/expireProduct");
+    window.scrollTo({ top: 0, left: 0 });
+  }
+
+  // useEffect
   useEffect(() => {
     runLoad(() => {}, 4000);
   }, [runLoad]);
@@ -697,7 +716,10 @@ const Home = (props) => {
                       </p>
                     </div>
                     <div className="w-2/3 px-4 md:w-auto whitespace-nowrap">
-                      <button className="w-full py-4 text-base font-medium leading-none text-center transition duration-150 bg-white px-11 hover:bg-gray-300 focus:outline-none">
+                      <button
+                        className="w-full py-4 text-base font-medium leading-none text-center transition duration-150 bg-white px-11 hover:bg-gray-300 focus:outline-none"
+                        onClick={navigateToProduct}
+                      >
                         前往查看商品
                       </button>
                     </div>
@@ -725,7 +747,10 @@ const Home = (props) => {
                       </p>
                     </div>
                     <div className="w-2/3 px-4 md:w-auto whitespace-nowrap">
-                      <button className="w-full px-8 py-4 text-base font-medium leading-none text-center transition duration-150 bg-white hover:bg-gray-300 focus:outline-none">
+                      <button
+                        className="w-full px-8 py-4 text-base font-medium leading-none text-center transition duration-150 bg-white hover:bg-gray-300 focus:outline-none"
+                        onClick={navigateToExpireProduct}
+                      >
                         前往即期品專區
                       </button>
                     </div>
@@ -754,7 +779,10 @@ const Home = (props) => {
                       </p>
                     </div>
                     <div className="w-2/3 px-4 md:w-auto whitespace-nowrap">
-                      <button className="w-full py-4 text-base font-medium leading-none text-center transition duration-150 bg-white px-11 hover:bg-gray-300 focus:outline-none">
+                      <button
+                        className="w-full py-4 text-base font-medium leading-none text-center transition duration-150 bg-white px-11 hover:bg-gray-300 focus:outline-none"
+                        onClick={navigateToCourse}
+                      >
                         前往查看課程
                       </button>
                     </div>
