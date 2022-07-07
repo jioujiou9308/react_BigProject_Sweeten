@@ -78,12 +78,16 @@ const MemberColloction = () => {
           <h2 className="hidden py-2 border-b h2 md:block">
             {isOn == 1 ? "我的收藏" : "商品評論"}
           </h2>
-
+          {/* 如果內容為空會顯示 */}
+          {isOn == 1 && memberCollection.length==0 && <h1  className="mt-4 text-center h2">尚無項目</h1> }
+          {isOn != 1 && comment.length==0 && <h1  className="mt-4 text-center h2">尚無項目</h1>}
+          
           {isOn == 1 &&
             memberCollection?.map((v, i) => {
               const { user_id, product_id, id, name, price } = v;
               return (
                 <>
+                
                   {/* 圖片 備註 評分*/}
                   <div className="flex items-center justify-between px-0 py-1 border-b md:justify-around md:py-6 md:px-8">
                     <div className="overflow-hidden scale-75 md:scale-100">

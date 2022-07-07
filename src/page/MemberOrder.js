@@ -8,7 +8,6 @@ import { useProductState, useUserState } from "../utils/redux/hooks-redux";
 import { useParams } from "react-router-dom";
 import { motion } from "framer-motion";
 
-
 function MemberOrder() {
   const step = ["全部", "待付款", "待出貨", "待收貨", "完成"];
   const [barStep, setBarStep] = useState(0);
@@ -61,6 +60,9 @@ function MemberOrder() {
               transition={{ ease: "easeOut", duration: 2 }}
               className="bg-gradient-to-r pb-[5px] from-sub to-transparent mx-5"
             ></motion.div>
+            {order.length == 0 && (
+              <h1 className="mt-4 text-center h2">尚無項目</h1>
+            )}
             <div className="mb-10">
               {order.map((order, i) => {
                 return (
@@ -85,6 +87,9 @@ function MemberOrder() {
               transition={{ ease: "easeOut", duration: 2 }}
               className="bg-gradient-to-r pb-[5px] from-sub to-transparent mx-5"
             ></motion.div>
+            {order.filter((v, i) => v[i]?.order_status_id == 1).length == 0 && (
+              <h1 className="mt-4 text-center h2">尚無項目</h1>
+            )}
             <div className="mb-10">
               {order
                 .filter((v, i) => v[i]?.order_status_id == 1)
@@ -111,6 +116,9 @@ function MemberOrder() {
               transition={{ ease: "easeOut", duration: 2 }}
               className="bg-gradient-to-r pb-[5px] from-sub to-transparent mx-5"
             ></motion.div>
+             {order.filter((v, i) => v[i]?.order_status_id == 2).length == 0 && (
+              <h1 className="mt-4 text-center h2">尚無項目</h1>
+            )}
             <div className="mb-10">
               {order
                 .filter((v, i) => v[i]?.order_status_id == 2)
@@ -137,6 +145,9 @@ function MemberOrder() {
               transition={{ ease: "easeOut", duration: 2 }}
               className="bg-gradient-to-r pb-[5px] from-sub to-transparent mx-5"
             ></motion.div>
+             {order.filter((v, i) => v[i]?.order_status_id == 3).length == 0 && (
+              <h1 className="mt-4 text-center h2">尚無項目</h1>
+            )}
             <div className="mb-10">
               {order
                 .filter((v, i) => v[i]?.order_status_id == 3)
@@ -163,6 +174,9 @@ function MemberOrder() {
               transition={{ ease: "easeOut", duration: 2 }}
               className="bg-gradient-to-r pb-[5px] from-sub to-transparent mx-5"
             ></motion.div>
+             {order.filter((v, i) => v[i]?.order_status_id == 4).length == 0 && (
+              <h1 className="mt-4 text-center h2">尚無項目</h1>
+            )}
             <div className="mb-10">
               {order
                 .filter((v, i) => v[i]?.order_status_id == 4)
@@ -179,7 +193,6 @@ function MemberOrder() {
           </>
         )}
       </div>
-      
     </>
   );
 }
