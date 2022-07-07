@@ -87,9 +87,9 @@ const CourseDetail = (props) => {
         <div className="w-full ml-10 mr-10 lg:w-2/5">
           <div className="w-full bg-white">
             <div className="flex items-center justify-between mt-10">
-              <p className="h2">{lessons[a].name}</p>
+              <p className="h2">{lessons[a]?.name}</p>
             </div>
-            <p className="mt-2 mb-5 h3">$ {lessons[a].price}/人 NTD</p>
+            <p className="mt-2 mb-5 h3">$ {lessons[a]?.price}/人 NTD</p>
 
             {/* 課程的日期 */}
             {/* 課程的日期 */}
@@ -165,8 +165,8 @@ const CourseDetail = (props) => {
                     select,
                     inputAdult,
                     inputChild,
-                    lessons[a].name,
-                    lessons[a].price,
+                    lessons[a]?.name,
+                    lessons[a]?.price,
                     lessonImage[a],
                   ]);
                   navigate("/main/courseDetail");
