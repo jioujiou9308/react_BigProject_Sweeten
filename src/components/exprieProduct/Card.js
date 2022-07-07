@@ -51,7 +51,7 @@ const Card = (props) => {
           <div className="flex flex-col items-center justify-center mr-1 ">
             <img
               className="object-cover w-full rounded-sm h-[15rem]"
-              src="/"
+              src={`http://localhost:8001/public/product/${product.product_id}.jpg`}
               alt="T-Shirt"
             />
             <div className="flex items-center justify-end w-full mt-2">
