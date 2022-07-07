@@ -17,7 +17,7 @@ function About() {
             <div className="lg:h-14 h-24  mt-10 bg-gradient-to-r pb-[6px] from-secondary to-transparent">
               <div className="h-20 p-0 bg-white lg:h-12">
                 <h1
-                  className=" flex  h-12 text-4xl  font-bold leading-9  tracking-[.5em] pr-20"
+                  className=" flex h-12 lg:text-4xl text-2xl font-bold leading-9  tracking-[.3em]"
                   data-aos="fade-in-left"
                   data-aos-duration="3000"
                 >
@@ -43,41 +43,48 @@ function About() {
           </div>
 
           <div
-            className="relative mt-5 md:w-1/2"
+            // className="relative mt-5 md:w-1/2"
+            className="relative w-full mt-5 md:w-1/2"
             data-aos="fade-in"
             data-aos-duration="2000"
           >
-            <div className="absolute invisible w-full h-full border-2 md:visible -top-2 -right-2 border-line"></div>
+            <div className="absolute invisible w-full h-full border-2 md:visible -top-2 -right-2 border-line">
+              <img
+                src={`${process.env.PUBLIC_URL}/images/about/aboutwall13.jpeg`}
+                className="object-cover w-full h-full "
+                alt="about jpg"
+              />
+            </div>
             <div className="absolute invisible w-full h-full border-2 md:visible -bottom-2 -left-2 border-line"></div>
-            <div className="mx-10 my-10 bg-opacity-50">
+            <div className="mx-10 my-10 font-bold bg-opacity-50">
               <p
-                className="leading-8 p"
+                className="px-2 leading-8 bg-white bg-opacity-80 max-w-max p"
                 data-aos="flip-left"
                 data-aos-duration="1000"
               >
-                甜點，是生活裡的享受，
+                甜點，是生活裡的享受
                 <br />
-                是給自己溫柔地犒賞。
+                是給自己溫柔地犒賞
               </p>
               <br />
               <p
-                className="leading-8 text-center p"
+                className="px-2 mx-auto leading-8 text-center bg-white bg-opacity-80 max-w-max p"
                 data-aos="flip-left"
                 data-aos-duration="2000"
               >
-                每一個微笑的時刻，
+                每一個微笑的時刻
                 <br />
-                每一個值得慶祝的時刻，
+                每一個值得慶祝的時刻
               </p>
               <br />
               <p
-                className="leading-8 text-end p"
+                className="px-2 ml-auto leading-8 bg-white bg-opacity-80 text-end max-w-max p"
                 data-aos="flip-left"
                 data-aos-duration="3000"
               >
-                無論什麼時候，
+                無論什麼時候
                 <br />
-                都是適合吃甜點的好時光。
+                都是適合吃甜點的好時光
               </p>
             </div>
           </div>
@@ -86,8 +93,10 @@ function About() {
         {/* 照片牆 */}
         <div className="lg:h-14 h-24  ml-10 mt-40 bg-gradient-to-r pb-[6px] from-secondary to-transparent">
           <div className="h-20 p-0 bg-white lg:h-12">
+            {/* <div className="h-14  mt-40 bg-gradient-to-r pb-[6px] from-secondary to-transparent">
+          <div className="h-12 p-0 bg-white"> */}
             <h1
-              className=" flex  h-12 text-4xl  font-bold leading-9  tracking-[.5em] pr-20"
+              className=" flex h-12 lg:text-4xl text-2xl font-bold leading-9  tracking-[.3em]"
               data-aos="fade-in-left"
               data-aos-duration="2000"
             >
@@ -95,7 +104,7 @@ function About() {
             </h1>
           </div>
         </div>
-        <span className="mx-10 my-5 leading-9 p">
+        <span className="my-5 leading-9 md:mx-10 p">
           近年來，風格獨立甜點店一間間開起，各色甜點創作不僅滿足甜點迷的味蕾，也形塑出多元甜點文化。事實上台灣常民生活與甜點的美味關係其來有自。早從日治時期開始，台灣人便可以在喫茶店裡享用兼具和洋風味的「洋菓子」；到了美援時期，在美國推廣小麥的背景下，街邊開起一間間「西點麵包店」，西點師傅們在「台灣區麵麥食品推廣執行委員會」教導下，以當時看來科學化的先進技術，製作出充滿美式風格的西點麵包，成為許多人的童年回憶。
         </span>
         <div className="relative flex flex-wrap items-start justify-center px-4 mt-20 2xl:px-1 lg:px-12">
@@ -254,8 +263,10 @@ function About() {
       {/*師資*/}
       <div className="lg:h-14 h-24  ml-10 mt-40 bg-gradient-to-r pb-[6px] from-secondary to-transparent">
         <div className="h-20 p-0 bg-white lg:h-12">
+          {/* <div className="h-14  mt-40 bg-gradient-to-r pb-[6px] from-secondary to-transparent">
+        <div className="h-12 p-0 bg-white"> */}
           <h1
-            className=" flex  h-12 text-4xl  font-bold leading-9  tracking-[.5em] pr-20"
+            className=" flex h-12 lg:text-4xl text-2xl font-bold leading-9  tracking-[.3em]"
             data-aos="fade-in-left"
             data-aos-duration="2000"
           >
@@ -267,6 +278,7 @@ function About() {
         {/* Each Teacher */}
         <div
           className="flex items-center p-2 mb-2 hover:bg-gradient-to-r bg-gradient-to-l from-primary to-transparent w-60"
+          // className="flex items-center w-full p-2 lg:w-1/4 sm:w-1/2 hover:bg-primary"
           data-aos="flip-left"
           data-aos-duration="2000"
         >
@@ -282,6 +294,7 @@ function About() {
         </div>
         <div
           className="flex items-center p-2 mb-2 hover:bg-gradient-to-r bg-gradient-to-l from-primary to-transparent w-60"
+          // className="flex items-center w-full p-2 lg:w-1/4 sm:w-1/2 hover:bg-primary"
           data-aos="flip-left"
           data-aos-duration="2000"
         >
@@ -297,6 +310,7 @@ function About() {
         </div>
         <div
           className="flex items-center p-2 mb-2 hover:bg-gradient-to-r bg-gradient-to-l from-primary to-transparent w-60"
+          // className="flex items-center w-full p-2 lg:w-1/4 sm:w-1/2 hover:bg-primary"
           data-aos="flip-left"
           data-aos-duration="2000"
         >
@@ -312,6 +326,7 @@ function About() {
         </div>
         <div
           className="flex items-center p-2 mb-2 hover:bg-gradient-to-r bg-gradient-to-l from-primary to-transparent w-60"
+          // className="flex items-center w-full p-2 lg:w-1/4 sm:w-1/2 hover:bg-primary"
           data-aos="flip-left"
           data-aos-duration="2000"
         >
@@ -336,7 +351,7 @@ function About() {
         <div className="lg:h-14 h-24  text-center mt-10 bg-gradient-to-r pb-[6px] from-secondary to-transparent">
           <div className="h-20 p-0 bg-white  lg:h-12">
             <h1
-              className=" flex  h-12 text-4xl  font-bold leading-9  tracking-[.5em] pr-20"
+              className=" flex h-12 lg:text-4xl text-2xl font-bold leading-9  tracking-[.3em]"
               data-aos="fade-in-left"
               data-aos-duration="2000"
             >
@@ -564,7 +579,7 @@ function About() {
             data-aos-easing="ease-in"
             data-aos-duration="2000"
           >
-            <h1 className="text-4xl font-semibold leading-9 text-center text-white">
+            <h1 className=" flex h-12 text-white lg:text-4xl text-2xl font-bold leading-9  tracking-[.3em]">
               訂閱我們
             </h1>
             <p className="mt-6 text-base leading-normal text-center text-white">
@@ -582,10 +597,10 @@ function About() {
           </div>
         </div>
       </div>
-      <blockquote class="text-2xl font-semibold italic text-center mt-20 mb-10">
+      <blockquote className="mt-20 mb-10 text-2xl italic font-semibold text-center">
         Let us&nbsp;
-        <span class="before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-secondary relative inline-block">
-          <span class="relative text-white">sweeten</span>
+        <span className="relative inline-block before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-secondary">
+          <span className="relative text-white">sweeten</span>
         </span>
         &nbsp;up your life.
       </blockquote>

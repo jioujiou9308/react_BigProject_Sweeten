@@ -23,10 +23,16 @@ function MemberOrderBar(props) {
         })}
 
         <motion.div
-          className="w-full border border-dark"
+          className="w-full border border-sub"
           initial={{ x: 0 }}
           animate={{ x }}
         ></motion.div>
+        {/* <motion.div
+          initial={{ x: 0}}
+          animate={{ x}}
+          transition={{ ease: "easeOut", duration: 2, delay: 1 }}
+          className="bg-gradient-to-r pb-[5px] from-sub to-transparent"
+        ></motion.div> */}
       </div>
     </>
   );

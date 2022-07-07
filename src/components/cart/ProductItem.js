@@ -12,7 +12,7 @@ function ProductItem(props) {
   const { name, size, flavor, count, image, price } = product;
   const [cart, setCart] = useCartState();
   const [favorite, setFavorite] = useFavoriteState();
-  console.log(favorite)
+  console.log(favorite);
   return (
     <>
       {/* each item div */}

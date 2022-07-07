@@ -99,7 +99,7 @@ const Home = (props) => {
                 className="mySwiper"
                 effect="fade"
               >
-                <SwiperSlide>
+                <SwiperSlide className="object-cover h-full">
                   <img src={`/images/home/banner1.jpeg`} alt="slide" />
                 </SwiperSlide>
                 <SwiperSlide>

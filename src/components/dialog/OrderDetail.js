@@ -1,16 +1,17 @@
 import React from "react";
 
 function OrderDetail({ order }) {
+  
   return (
     <>
       {order.map((v, i) => {
         return (
           <>
             <div
-              className="flex justify-between p-2 border border-line"
-              data-aos="fade-down"
-              data-aos-easing="ease-in-out"
-              data-aos-duration="500"
+              className="flex justify-between w-full p-2 mb-2 border border-line"
+              // data-aos="fade-down"
+              // data-aos-easing="ease-in-out"
+              // data-aos-duration="500"
             >
               {/* 商品價格數量 */}
               <div className="justify-between ">
@@ -30,14 +31,16 @@ function OrderDetail({ order }) {
                   </div>
 
                   <div>
-                    <p>蛋糕</p>
-                    <p className="my-2">780</p>
-                    <p>*5</p>
+                    <p>{v.name}</p>
+                    <p className="my-2">{v.price}</p>
+                    <p>* {v.memo}</p>
                   </div>
                 </div>
               </div>
-              {/* TODO:還要抓數量 */}
-              <h3 className="self-end h3">小計: {v.price}</h3>
+              {/* 抓數量 */}
+              <h3 className="self-end h3">
+                小計: {parseInt(v.price) * parseInt(v.memo)}
+              </h3>
             </div>
           </>
         );
