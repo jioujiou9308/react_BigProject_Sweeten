@@ -4,10 +4,8 @@ import CourseSwiper from "./CourseSwiper";
 import { API_URL } from "../../utils/config";
 import CourseContent from "./CourseContent";
 import CourseHeader from "./CourseHeader";
-import CourseIntro from "./CourseIntro";
 
 import CourseDetail from "./CourseDetail";
-import CourseSwiperTitle from "./CourseSwiperTitle";
 // import LessonList from "../courseDetail/LessonList";
 
 const image = [

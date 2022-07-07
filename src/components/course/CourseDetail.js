@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { AiTwotoneStar } from "react-icons/ai";
-import { Button } from "@material-tailwind/react";
+import { Button, Input, Select, Option } from "@material-tailwind/react";
 import { useCourseState } from "../../utils/redux/hooks-redux";
 
 const CourseDetail = (props) => {
@@ -86,65 +86,56 @@ const CourseDetail = (props) => {
       <div className="w-full ml-10 mr-16 lg:w-1/3">
         <div className="w-full bg-white">
           <div className="flex items-center justify-between mt-10">
-            <p className="h2">{lessons[a].name}</p>
+            <p className="font-bold h2">{lessons[a]?.name}</p>
           </div>
-          <p className="mt-2 mb-5 h3">$ {lessons[a].price}/人 NTD</p>
+          <p className="mt-2 mb-5 h3">$ {lessons[a]?.price}/人 NTD</p>
 
           {/* 課程的日期 */}
           {/* 課程的日期 */}
           <div>
-            <p className="mt-2 text-sm leading-none text-gray-800 md:mt-0">
-              <span className="font-semibold text-gray-300">時段</span>
-            </p>
-            <select
+            <Select
               id="date"
-              defaultValue="Select date"
-              className="w-full py-2 text-sm text-center transition-all duration-150 ease-linear bg-white border-0 rounded shadow placeholder-primary text-blueGray-600 focus:outline-none focus:ring"
+              variant="standard"
+              label="請選擇日期"
               onChange={(e) => {
                 setSelect(e.target.value);
               }}
             >
-              <option value="請選擇日期" selected>
-                請選擇日期
-              </option>
-              <option value="2022/07/03(日) 10:00">2022/07/03(日) 10:00</option>
-              <option value="2022/07/04(一) 13:00">2022/07/04(一) 13:00</option>
-              <option value="2022/07/19(二) 15:00">2022/07/19(二) 15:00</option>
-              <option value="2022/07/23(六) 13:00">2022/07/23(六) 13:00</option>
-            </select>
+              <Option value="2022/07/03(日) 10:00">2022/07/03(日) 10:00</Option>
+              <Option value="2022/07/04(一) 13:00">2022/07/04(一) 13:00</Option>
+              <Option value="2022/07/19(二) 15:00">2022/07/19(二) 15:00</Option>
+              <Option value="2022/07/23(六) 13:00">2022/07/23(六) 13:00</Option>
+            </Select>
           </div>
 
           <p className="mt-5 p">參加人數</p>
-          <div className="flex flex-col gap-2 sm:flex-row sm:gap-0">
-            <div className="sm:-mr-8">
-              <label htmlFor="adult">大人：</label>
-              <input
+          <div className="flex flex-col sm:flex-col sm:gap-0">
+            <div>
+              <Input
                 required
                 id="adult"
                 type="number"
-                className="w-1/2 py-2 text-sm transition-all duration-150 ease-linear bg-white border-0 rounded shadow placeholder-blueGray-300 text-blueGray-600 focus:outline-none focus:ring"
                 min="0"
-                placeholder="請輸入人數"
+                variant="standard"
+                placeholder="大人人數"
                 onChange={(e) => {
                   setInputAdult(e.target.value);
                 }}
               />
-              人,
             </div>
             <div>
-              <label htmlFor="kid">小孩：</label>
-              <input
+              <Input
+                className=""
                 required
                 id="kid"
                 type="number"
-                className="w-1/2 py-2 text-sm transition-all duration-150 ease-linear bg-white border-0 rounded shadow placeholder-blueGray-300 text-blueGray-600 focus:outline-none focus:ring"
+                variant="standard"
                 min="0"
-                placeholder="請輸入人數"
+                placeholder="小孩人數"
                 onChange={(e) => {
                   setInputChild(e.target.value);
                 }}
-              />{" "}
-              人
+              />
             </div>
           </div>
           <div className="mt-8 ">
