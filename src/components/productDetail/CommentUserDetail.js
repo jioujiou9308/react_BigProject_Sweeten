@@ -33,7 +33,7 @@ function CommentUserDetail(props) {
   return (
     <>
          <div className="flex justify-center py-4 md:ml-10 md:justify-start md:border-b-2">
-                <div className="pt-2 overflow-hidden text-center text-white border-2 rounded-full h3 md:mr-8 mr-14 bg-theme w-14 bg-secondary">
+                <div className="pt-2 overflow-auto text-center text-white border-2 rounded-full h3 md:mr-8 mr-14 bg-theme w-14 bg-secondary">
                   {user[0]?.email?.slice(0,1)}
                 </div>
 
