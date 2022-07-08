@@ -10,7 +10,7 @@ const sideStyle = {
 const MessageBox = () => {
   const chatState = useSelector((state) => state.chat);
   return (
-    <div className="w-full  pb-3 rounded-sm min-h-[50vh]">
+    <div className="w-full pb-3 rounded-sm min-h-[50vh]">
       {chatState &&
         chatState.map(({ side, msg }) => (
           <MessageRow key={msg[0]} comingFrom={sideStyle[side]} msg={msg} />
