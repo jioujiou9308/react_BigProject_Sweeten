@@ -48,7 +48,7 @@ function YouMayLikeProduct() {
         modules={[Pagination, Navigation]}
         className="mySwiper "
       >
-        {product?.filter((item)=>item.price<80)?.map((product, i) => {
+        {product?.filter((item)=>item.price<200)?.map((product, i) => {
           const { id, name, price} = product;
           return (
             <>
