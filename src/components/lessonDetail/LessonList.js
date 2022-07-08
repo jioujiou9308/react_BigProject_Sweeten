@@ -7,22 +7,12 @@ const LessonList = () => {
   const [courseCart, setCourseCart] = useCourseState();
 
   return (
-    <div className="px-4 py-14 md:px-6 2xl:px-20 2xl:container 2xl:mx-auto">
-      <div className="flex flex-col justify-start space-y-2 item-start ">
-        <h1 className="text-3xl font-semibold leading-7 text-gray-800 lg:text-3xl lg:leading-9">
-          課程預約資訊
-        </h1>
-        {/* <p className="text-base font-medium leading-6 text-gray-600">
-          21st Mart 2021 at 10:34 PM
-        </p> */}
-      </div>
-      <div className="flex flex-col items-stretch w-full mt-10 space-y-4 xl:flex-row jusitfy-center xl:space-x-8 md:space-y-6 xl:space-y-0">
-        <div className="flex flex-col items-start justify-center w-full space-y-4 xl:flex-row md:space-y-6 xl:space-y-8">
-          <div className="flex flex-col">
-            <LessonItem courseCart={courseCart} />
-          </div>
-          <LessonSummary courseCart={courseCart} />
+    <div className="flex flex-col items-stretch w-full mt-10 space-y-4 xl:flex-row jusitfy-center xl:space-x-8 md:space-y-6 xl:space-y-0">
+      <div className="flex flex-col items-start justify-center w-full space-y-4 xl:flex-row md:space-y-6 xl:space-y-8">
+        <div className="flex flex-col">
+          <LessonItem courseCart={courseCart} />
         </div>
+        <LessonSummary courseCart={courseCart} />
       </div>
     </div>
   );

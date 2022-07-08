@@ -2,7 +2,7 @@ import React from "react";
 // {"/images/product/green.jpg"}
 const CourseHeader = () => {
   return (
-    <div className="relative flex h-52 md:h-64 ">
+    <div className="relative flex h-52 md:h-64">
       <img
         className="z-0 object-cover w-full opacity-60"
         src={"/images/courseDetail/white.jpg"}

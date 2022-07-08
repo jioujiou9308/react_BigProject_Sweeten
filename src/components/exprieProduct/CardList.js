@@ -17,6 +17,7 @@ const CardList = () => {
   // const [carData, setCartData] = useCartState([]);
   console.log(expireProuct);
   //從後端抓資料到前端
+  console.log();
   useEffect(() => {
     let getExpireProduct = async () => {
       let response = await axios.get(`${API_URL}/expiry/expire_product`, {
@@ -54,7 +55,7 @@ const CardList = () => {
           即期良品 | 限時特賣
         </h3>
       </div>
-      <div className="container flex flex-wrap justify-around px-6 py-8">
+      <div className="container flex flex-wrap justify-around py-8">
         {/* ---------------------------- */}
 
         {expireProuct?.map((product) => {
@@ -63,6 +64,7 @@ const CardList = () => {
               <Card
                 key={product.id}
                 product={product}
+
                 // setCartData={setCartData}
               />
             </div>

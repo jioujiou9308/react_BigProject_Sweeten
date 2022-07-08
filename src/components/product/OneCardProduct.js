@@ -1,3 +1,4 @@
+import { toast } from "react-toastify";
 import axios from "axios";
 import { React, useEffect, useState } from "react";
 import { AiOutlineMessage, AiFillHeart, AiOutlineHeart } from "react-icons/ai";
@@ -20,6 +21,7 @@ const OnceCarkProduct = ({ product }) => {
   const favSwitchHander = async () => {
     if (currentUser.id == 0) {
       // 登入才可以按愛心
+      toast.info("請登入會員");
       return;
     } else {
       if (favProduct.findIndex((item) => item.product_id === product.id) > -1) {
@@ -95,6 +97,7 @@ const OnceCarkProduct = ({ product }) => {
                 return data.name === product.name;
               });
               // console.log('productInx',productIndex);
+
               if (productIndex > -1) {
                 let newCount = {
                   ...product,
