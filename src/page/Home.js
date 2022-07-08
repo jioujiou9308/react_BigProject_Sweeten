@@ -130,7 +130,13 @@ const Home = (props) => {
               </Swiper>
             </div>
           </section>
-          {/* ----------------------------------- 特色 ----------------------------------- */}
+{/* ----------------------------------- background image ----------------------------------- */}
+          
+          <div  style={{ 
+  backgroundImage: `url(${process.env.PUBLIC_URL}/images/home/bg1.png)`, backgroundPosition:'top', 
+ backgroundRepeat: 'no-repeat',
+ backgroundSize: 'cover'}}>
+{/* ----------------------------------- 特色 ----------------------------------- */}
           <section className="relative flex items-center min-h-screen mt-20">
             <img
               src="./images/home/cake007.png"
@@ -330,6 +336,12 @@ const Home = (props) => {
               </div>
             </div>
           </section>
+          </div>
+          {/* ---------------------------------- second bgImg---------------------------------- */}
+          <div  style={{ 
+  backgroundImage: `url(${process.env.PUBLIC_URL}/images/home/bgpic2.jpg)`, backgroundPosition:'center', 
+ backgroundRepeat: 'no-repeat',
+ backgroundSize: 'cover'}}>
           {/* ----------------------------------- QA ----------------------------------- */}
           <section className="relative">
             <img
@@ -835,6 +847,7 @@ const Home = (props) => {
             transition={{ ease: "easeOut", duration: 2, delay: 1 }}
             className="bg-gradient-to-r pb-[5px] from-line to-transparent"
           ></motion.div>
+          </div>
           {/* 照片牆 */}
           <section className="flex flex-col items-center justify-center py-20 bg-gray-50">
             <div
