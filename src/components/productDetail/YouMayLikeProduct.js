@@ -1,52 +1,38 @@
 import { AiOutlineRight, AiOutlineLeft } from "react-icons/ai";
 
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Link } from "react-router-dom";
 
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "../../styles.css";
+import axios from 'axios';
+import { API_URL } from "../../utils/config";
 
 // import required modules
 import { Pagination, Navigation } from "swiper";
+import { useNavigate } from "react-router-dom";
 
-//假資料們
-const products = [
-  {
-    id: 1,
-    name: "葡萄柚蛋糕",
-    price: 500,
-    img:
-      process.env.PUBLIC_URL + "/images/productDetail/product_demo1_lower.png",
-  },
-  {
-    id: 2,
-    name: "柚蛋糕",
-    price: 470,
-    img:
-      process.env.PUBLIC_URL + "/images/productDetail/product_demo1_lower.png",
-  },
-  {
-    id: 3,
-    name: "草莓蛋糕",
-    price: 700,
-    img:
-      process.env.PUBLIC_URL + "/images/productDetail/product_demo1_lower.png",
-  },
-  {
-    id: 4,
-    name: "巧克力蛋糕",
-    price: 300,
-    img:
-      process.env.PUBLIC_URL + "/images/productDetail/product_demo1_lower.png",
-  },
-];
 
-//TODO 會被aside擋住，無法滿版
 function YouMayLikeProduct() {
+  const navigate = useNavigate()
+  const [product, setProduct] = useState([])
+  
+  useEffect(()=>{
+     //抓所有商品(沒有分頁)
+     axios
+     .get(API_URL + "/product/all")
+     .then(({ data }) => {
+      setProduct(data.data);
+      console.log(data.data)
+     })
+     .catch((e) => console.log(e));
+  },[])
+  
   return (
     <>
       <Swiper
@@ -62,19 +48,20 @@ function YouMayLikeProduct() {
         modules={[Pagination, Navigation]}
         className="mySwiper "
       >
-        {products.map((product, i) => {
-          const { id, name, price, img } = product;
+        {product?.filter((item)=>item.price<200)?.map((product, i) => {
+          const { id, name, price} = product;
           return (
             <>
-              <SwiperSlide>
-                <div className="pb-12 ">
-                  <div className="h-32 overflow-hidden w-36">
-                    <img src={img} alt="" />
+              <SwiperSlide className="bg-sub">
+                <div className="">
+                  <div className="overflow-hidden cursor-pointer h-36 w-44">
+                    <img src={`http://localhost:8001/public/product/${id}.jpg`} alt="product" className="object-contain "/>
                   </div>
-                  <div className="text-center w-36">
-                    <p className="py-1 text-white p bg-secondary note-words">
-                      加入購物車
-                    </p>
+                 
+                  <div className="text-center w-44">
+                     <Link to ={`/main/product/${id}`} ><p className="py-1 text-white cursor-pointer p bg-secondary note-words" >
+                      查看商品
+                    </p></Link>
                     <p className="p">{name}</p>
                     <p className="note">$ {price}</p>
                   </div>

@@ -23,7 +23,7 @@ const Main = () => {
   return (
     <main className="flex flex-wrap justify-center min-h-screen pb-12 mx-auto pt-36 ">
       {/* <Aside /> */}
-      <div className="relative w-full p-8 bg-white shadow max-w-screen-2xl ">
+      <div className="relative w-full p-6 bg-white shadow max-w-screen-2xl ">
         <Routes>
           <Route path="/product" element={<Product />} />
           <Route path="/product/:id" element={<ProductDetail />} />

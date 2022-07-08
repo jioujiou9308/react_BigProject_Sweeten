@@ -46,12 +46,12 @@ function OrderItems({ order }) {
             <div className="flex justify-between p-2 md:border border-line">
               <div className="">
                 {/* 商品價格數量 */}
-                <div className="flex items-center justify-start">
-                  <div className="mr-2 overflow-hidden">
+                <div className="flex items-center justify-start ">
+                  <div className="mr-2 overflow-hidden w-[70px]">
                     <img
-                      className="scale-105 "
-                      src="/images/memberCollectionAndOrder/member_order1.png"
-                      alt=""
+                      className="object-contain "
+                      src={`http://localhost:8001/public/product/${order[0].product_id}.jpg`}
+                      alt="product"
                     />
                   </div>
 
@@ -121,7 +121,7 @@ function OrderItems({ order }) {
             >
               聯絡客服
             </Button>
-            {/* NOTE 要記得座新增評論ㄉ功能 */}
+            
             {order[0].order_status_id === 4 ? (
               <Button
                 onClick={() => {
@@ -143,24 +143,20 @@ function OrderItems({ order }) {
       <div className="md:my-3 md:border-l-2 border-line"></div>
       {/* 右欄 */}
       <div className="relative p-5 bg-white md:w-1/3">
-        <h4 className="pb-5 h4 ">訂單金額</h4>
+        <h4 className="pb-5 h4 md:pb-16">訂單金額</h4>
         {/* 金額 */}
 
         <div className="flex justify-between mt-2 p">
           <p>金額:</p>
           <p>{countTotalPrice()}</p>
         </div>
-        <div className="flex justify-between p">
+        <div className="flex justify-between pb-1 border-b border-line p">
           <p>運費:</p>
           <p>60</p>
         </div>
-        <div className="flex justify-between pb-2 border-b border-line p">
-          <p>折扣:</p>
-          <p>-30</p>
-        </div>
 
-        <h2 className="self-end text-right md:absolute right-5 bottom-5 p">
-          總計: {parseInt(countTotalPrice()) + 60 - 30}
+        <h2 className="self-end mt-1 text-right md:absolute right-5 bottom-5 p">
+          總計: {parseInt(countTotalPrice()) + 60 }
         </h2>
       </div>
     </>

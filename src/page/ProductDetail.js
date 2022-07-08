@@ -28,6 +28,7 @@ function ProductDetail() {
   const [comment, setComment] = useState([]);
   const [currentUser] = useUserState();
   const [cart, setCart] = useCartState();
+
   const { id } = useParams();
   const navigate = useNavigate();
   // console.log(id);
@@ -39,7 +40,7 @@ function ProductDetail() {
     setFavProduct(response.data);
     console.log("此用戶喜歡ㄉ商品", response.data);
   };
-  //TODO: 照片ㄉAPI還沒串
+
   useEffect(() => {
     //抓這個商品資料
     let getProductDetail = async () => {
@@ -59,7 +60,7 @@ function ProductDetail() {
     //看喜歡ㄉproduct有哪些
 
     getFavProduct();
-  }, []);
+  }, [id]);
   //抓此商品平均分數
   const averageScore = () => {
     let result = 0;
@@ -119,8 +120,8 @@ function ProductDetail() {
                 {/* demo大圖(左側)桌機板 */}
                 <div className="w-2/5 mt-8 mr-16 ml-7">
                   <img
-                    className="max-w-full"
-                    src={`${process.env.PUBLIC_URL}/images/productDetail/product_demo1_upper.png`}
+                    className="object-contain max-w-full mx-auto"
+                    src={`http://localhost:8001/public/product/${id}.jpg`}
                     alt=""
                   />
                   {/* DEMO左側三張小圖 */}
@@ -235,13 +236,32 @@ function ProductDetail() {
                               let newData = [cart[0], cartList];
                               setCart(newData);
                             } else {
-                              let newCount = { ...v, count: clickCount };
-                              let cartList = [...cart[1], newCount];
-                              let newData = [cart[0], cartList];
-                              setCart(newData);
+                              let productIndex = cart[1].findIndex(function (
+                                data,
+                                index
+                              ) {
+                                return data.name === name;
+                              });
+                              // console.log('productInx',productIndex);
+                              if (productIndex > -1) {
+                                let newCount = {
+                                  ...v,
+                                  count:
+                                    cart[1][productIndex].count + clickCount,
+                                };
+                                let cartList = [...cart[1]];
+                                cartList[productIndex] = newCount;
+                                let newData = [cart[0], cartList];
+                                setCart(newData);
+                              } else {
+                                let newCount = { ...v, count: clickCount };
+                                let cartList = [...cart[1], newCount];
+                                let newData = [cart[0], cartList];
+                                setCart(newData);
+                              }
+                              toast.success("已加入購物車");
+                              setClickCount(1);
                             }
-                            toast.success("已加入購物車");
-                            setClickCount(1);
                           }
                         }}
                       >
@@ -273,12 +293,32 @@ function ProductDetail() {
                               setCart(newData);
                               navigate("/main/cart");
                             } else {
-                              let newCount = { ...v, count: clickCount };
-                              let cartList = [...cart[1], newCount];
-                              let newData = [cart[0], cartList];
-                              setCart(newData);
-                              setClickCount(1);
-                              navigate("/main/cart");
+                              let productIndex = cart[1].findIndex(function (
+                                data,
+                                index
+                              ) {
+                                return data.name === name;
+                              });
+                              // console.log('productInx',productIndex);
+                              if (productIndex > -1) {
+                                let newCount = {
+                                  ...v,
+                                  count:
+                                    cart[1][productIndex].count + clickCount,
+                                };
+                                let cartList = [...cart[1]];
+                                cartList[productIndex] = newCount;
+                                let newData = [cart[0], cartList];
+                                setCart(newData);
+                                navigate("/main/cart");
+                              } else {
+                                let newCount = { ...v, count: clickCount };
+                                let cartList = [...cart[1], newCount];
+                                let newData = [cart[0], cartList];
+                                setCart(newData);
+                                setClickCount(1);
+                                navigate("/main/cart");
+                              }
                             }
                           }
                         }}
@@ -292,11 +332,8 @@ function ProductDetail() {
               {/* 展示圖手機板 */}
               <div className="md:hidden">
                 <img
-                  className="max-w-full px-2 pt-10 mb-8"
-                  src={
-                    process.env.PUBLIC_URL +
-                    "/images/productDetail/product_demo1_upper.png"
-                  }
+                  className="max-w-full px-2 pt-10 mx-auto b-8 m"
+                  src={`http://localhost:8001/public/product/${id}.jpg`}
                   alt=""
                 />
 
@@ -385,13 +422,31 @@ function ProductDetail() {
                           let newData = [cart[0], cartList];
                           setCart(newData);
                         } else {
-                          let newCount = { ...v, count: clickCount };
-                          let cartList = [...cart[1], newCount];
-                          let newData = [cart[0], cartList];
-                          setCart(newData);
+                          let productIndex = cart[1].findIndex(function (
+                            data,
+                            index
+                          ) {
+                            return data.name === name;
+                          });
+                          // console.log('productInx',productIndex);
+                          if (productIndex > -1) {
+                            let newCount = {
+                              ...v,
+                              count: cart[1][productIndex].count + clickCount,
+                            };
+                            let cartList = [...cart[1]];
+                            cartList[productIndex] = newCount;
+                            let newData = [cart[0], cartList];
+                            setCart(newData);
+                          } else {
+                            let newCount = { ...v, count: clickCount };
+                            let cartList = [...cart[1], newCount];
+                            let newData = [cart[0], cartList];
+                            setCart(newData);
+                          }
+                          toast.success("已加入購物車");
+                          setClickCount(1);
                         }
-                        toast.success("已加入購物車");
-                        setClickCount(1);
                       }
                     }}
                   >
@@ -422,13 +477,31 @@ function ProductDetail() {
                           let newData = [cart[0], cartList];
                           setCart(newData);
                         } else {
-                          let newCount = { ...v, count: clickCount };
-                          let cartList = [...cart[1], newCount];
-                          let newData = [cart[0], cartList];
-                          setCart(newData);
+                          let productIndex = cart[1].findIndex(function (
+                            data,
+                            index
+                          ) {
+                            return data.name === name;
+                          });
+                          // console.log('productInx',productIndex);
+                          if (productIndex > -1) {
+                            let newCount = {
+                              ...v,
+                              count: cart[1][productIndex].count + clickCount,
+                            };
+                            let cartList = [...cart[1]];
+                            cartList[productIndex] = newCount;
+                            let newData = [cart[0], cartList];
+                            setCart(newData);
+                          } else {
+                            let newCount = { ...v, count: clickCount };
+                            let cartList = [...cart[1], newCount];
+                            let newData = [cart[0], cartList];
+                            setCart(newData);
+                          }
+                          setClickCount(1);
+                          navigate("/main/cart");
                         }
-                        setClickCount(1);
-                        navigate("/main/cart");
                       }
                     }}
                   >
@@ -505,8 +578,8 @@ function ProductDetail() {
       })}
 
       {/* 你可能也會喜歡 */}
-      <div className="hidden my-8 bg-sub md:block">
-        <p className="pt-3 pb-6 text-center h2">你可能也會喜歡</p>
+      <div className="hidden mt-8 bg-sub md:block">
+        <p className="pt-3 text-center h2">你可能也會喜歡</p>
 
         <YouMayLikeProduct />
       </div>
