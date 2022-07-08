@@ -82,6 +82,7 @@ const CourseDetail = (props) => {
   ];
 
   return (
+<<<<<<< HEAD
     <div className="flex flex-wrap justify-between h-full mb-10">
       <div className="w-full ml-10 mr-16 lg:w-1/3">
         <div className="w-full bg-white">
@@ -89,6 +90,16 @@ const CourseDetail = (props) => {
             <p className="font-bold h2">{lessons[a]?.name}</p>
           </div>
           <p className="mt-2 mb-5 h3">$ {lessons[a]?.price}/人 NTD</p>
+=======
+    <div className="flex h-full mt-5 mb-5 ">
+      <div className="flex flex-wrap h-full">
+        <div className="w-full ml-10 mr-10 lg:w-2/5">
+          <div className="w-full bg-white">
+            <div className="flex items-center justify-between mt-10">
+              <p className="h2">{lessons[a]?.name}</p>
+            </div>
+            <p className="mt-2 mb-5 h3">$ {lessons[a]?.price}/人 NTD</p>
+>>>>>>> 61c5ced7f1a64fc5ec0cdd26f36bc718039016fa
 
           {/* 課程的日期 */}
           {/* 課程的日期 */}
@@ -123,6 +134,7 @@ const CourseDetail = (props) => {
                 }}
               />
             </div>
+<<<<<<< HEAD
             <div>
               <Input
                 className=""
@@ -134,6 +146,56 @@ const CourseDetail = (props) => {
                 placeholder="小孩人數"
                 onChange={(e) => {
                   setInputChild(e.target.value);
+=======
+
+            <p className="mt-5 p">參加人數</p>
+            <div className="flex flex-col gap-2 sm:flex-row sm:gap-0">
+              <div className="sm:-mr-8">
+                <label htmlFor="adult">大人：</label>
+                <input
+                  required
+                  id="adult"
+                  type="number"
+                  className="w-1/2 py-2 text-sm transition-all duration-150 ease-linear bg-white border-0 rounded shadow placeholder-blueGray-300 text-blueGray-600 focus:outline-none focus:ring"
+                  min="0"
+                  placeholder="請輸入人數"
+                  onChange={(e) => {
+                    setInputAdult(e.target.value);
+                  }}
+                />
+                人,
+              </div>
+              <div>
+                <label htmlFor="kid">小孩：</label>
+                <input
+                  required
+                  id="kid"
+                  type="number"
+                  className="w-1/2 py-2 text-sm transition-all duration-150 ease-linear bg-white border-0 rounded shadow placeholder-blueGray-300 text-blueGray-600 focus:outline-none focus:ring"
+                  min="0"
+                  placeholder="請輸入人數"
+                  onChange={(e) => {
+                    setInputChild(e.target.value);
+                  }}
+                />{" "}
+                人
+              </div>
+            </div>
+            <div className="mt-8 ">
+              <Button
+                className="ml-3 text-white border-2 rounded-none border-warning bg-warning"
+                variant="filled"
+                onClick={() => {
+                  setCoursCart([
+                    select,
+                    inputAdult,
+                    inputChild,
+                    lessons[a]?.name,
+                    lessons[a]?.price,
+                    lessonImage[a],
+                  ]);
+                  navigate("/main/courseDetail");
+>>>>>>> 61c5ced7f1a64fc5ec0cdd26f36bc718039016fa
                 }}
               />
             </div>

@@ -1,7 +1,8 @@
 import React from "react";
-import { Input, Button } from "@material-tailwind/react";
+import { Input, IconButton } from "@material-tailwind/react";
 import { useRef } from "react";
 import { useSelector } from "react-redux/es/exports";
+import {RiSendPlaneFill } from "react-icons/ri";
 
 const InputBar = ({ socket }) => {
   const inputRef = useRef();
@@ -29,15 +30,15 @@ const InputBar = ({ socket }) => {
           label="請提供您的問題"
           ref={inputRef}
         />
-        <Button
-          className="w-20 px-2 ml-1 rounded"
+        <IconButton
+          className="w-20 px-2 ml-2 flex top-1 border-none hover:focus:border-none"
           color="grey"
           variant="outlined"
           size="sm"
           onClick={handleSubmit}
         >
-          送出
-        </Button>
+          <RiSendPlaneFill className="icon-lg" color="gray" />
+        </IconButton>
       </div>
     </div>
   );

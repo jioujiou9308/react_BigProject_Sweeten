@@ -7,7 +7,6 @@ import CourseDetail from "../page/CourseDetail";
 import Member from "../page/Member";
 import MemberColloction from "../page/MemberCollection";
 import MemberInformation from "../page/MemberInformation";
-import MemberInformation2 from "../page/MemberInformation2";
 import MemberOrder from "../page/MemberOrder";
 import Product from "../page/Product";
 import ProductDetail from "../page/ProductDetail";
@@ -18,6 +17,7 @@ import CustomerService from "../page/CustomerService";
 import CheckOut from "../page/CheckOut";
 import ExpireProduct from "../page/ExpireProduct";
 import ErrorPage from "../page/ErrorPage";
+import FloatingBt from "../components/onlineHelp/FloatingBt"
 
 const Main = () => {
   return (
@@ -33,7 +33,6 @@ const Main = () => {
           <Route path="/member/collection" element={<MemberColloction />} />
           <Route path="/member/information" element={<MemberInformation />} />
           {/* <Route path="/course" element={<Course />} /> */}
-          <Route path="/member/information2" element={<MemberInformation2 />} />
           <Route path="/course" element={<Course />} />
           <Route path="/courseDetail" element={<CourseDetail />} />
           <Route path="/about" element={<About />} />
@@ -45,6 +44,7 @@ const Main = () => {
           <Route path="/expireProduct" element={<ExpireProduct />} />
         </Routes>
       </div>
+      <FloatingBt/>
     </main>
   );
 };

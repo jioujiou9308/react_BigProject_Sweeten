@@ -4,6 +4,7 @@ import ProductItem from "./ProductItem";
 
 function OrderList() {
   const [cart, setCart] = useCartState();
+  console.log(cart);
   return (
     <>
       <div className="p-8 bg-white lg:w-2/3 md:p-12" id="scroll">
