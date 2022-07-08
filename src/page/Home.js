@@ -98,6 +98,7 @@ const Home = (props) => {
                 modules={[Autoplay, EffectFade]}
                 className="mySwiper"
                 effect="fade"
+                style={{ width: "100%" }}
               >
                 <SwiperSlide className="object-cover h-full">
                   <img src={`/images/home/banner1.jpeg`} alt="slide" />
