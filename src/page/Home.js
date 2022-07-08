@@ -336,6 +336,12 @@ const Home = (props) => {
               </div>
             </div>
           </section>
+          </div>
+          {/* ---------------------------------- second bgImg---------------------------------- */}
+          <div  style={{ 
+  backgroundImage: `url(${process.env.PUBLIC_URL}/images/home/bgpic2.jpg)`, backgroundPosition:'center', 
+ backgroundRepeat: 'no-repeat',
+ backgroundSize: 'cover'}}>
           {/* ----------------------------------- QA ----------------------------------- */}
           <section className="relative">
             <img
@@ -682,12 +688,6 @@ const Home = (props) => {
             transition={{ ease: "easeOut", duration: 2, delay: 1 }}
             className="bg-gradient-to-r pb-[5px] from-line to-transparent mt-10"
           ></motion.div>
-          </div>
-          {/* ---------------------------------- second bgImg---------------------------------- */}
-          <div  style={{ 
-  backgroundImage: `url(${process.env.PUBLIC_URL}/images/home/bg1.png)`, backgroundPosition:'center', 
- backgroundRepeat: 'no-repeat',
- backgroundSize: 'cover'}}>
           {/* ---------------------------------- 服務項目 ---------------------------------- */}
           <section>
             <div className="px-4 2xl:mx-auto 2xl:container lg:py-16 lg:px-24 xl:px-20 md:py-12 md:px-6 py-9">
@@ -847,6 +847,7 @@ const Home = (props) => {
             transition={{ ease: "easeOut", duration: 2, delay: 1 }}
             className="bg-gradient-to-r pb-[5px] from-line to-transparent"
           ></motion.div>
+          </div>
           {/* 照片牆 */}
           <section className="flex flex-col items-center justify-center py-20 bg-gray-50">
             <div
@@ -1029,7 +1030,6 @@ const Home = (props) => {
               </div>
             </div>
           </section>
-          </div>
         </>
       }
     />
