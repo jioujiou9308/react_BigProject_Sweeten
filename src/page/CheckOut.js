@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Ecpay from "../components/cart/Ecpay";
 
 import CitySelector from "../components/tw-city-selector/tw-city-selector";
@@ -12,6 +12,8 @@ function Index() {
     cityData: "",
     address: "",
   });
+
+  console.log(fields);
   const [shippingFields, setShippingFields] = useState({
     name: "",
     mobile: "",
@@ -293,7 +295,7 @@ function Index() {
                   </div>
                 )}
               </div>
-              <Ecpay />
+              <Ecpay fields={fields} />
               {/* <button
                 type="submit"
                 className="w-full py-2 text-white border hover:bg-secondary"
