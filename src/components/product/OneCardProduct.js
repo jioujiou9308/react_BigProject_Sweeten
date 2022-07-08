@@ -1,3 +1,4 @@
+import { toast } from "react-toastify";
 import axios from "axios";
 import { React, useEffect, useState } from "react";
 import { AiOutlineMessage, AiFillHeart, AiOutlineHeart } from "react-icons/ai";
@@ -18,31 +19,37 @@ const OnceCarkProduct = ({ product }) => {
   // console.log("所有商品", product);
 
   const favSwitchHander = async () => {
-    if (favProduct.findIndex((item) => item.product_id === product.id) > -1) {
-      //delete
-      await axios.delete(
-        `${API_URL}/user/favorite_product/${currentUser.id}?product_id=${product.id}`
-      );
-      // 抓所有最愛ㄉ商品(沒有分頁)
-      axios
-        .get(API_URL + `/user/favorite_product/all_data/${currentUser.id}`)
-        .then(({ data }) => {
-          setFavProduct(data);
-        })
-        .catch((e) => console.log(e));
+    if (currentUser.id == 0) {
+      // 登入才可以按愛心
+      toast.info("請登入會員");
+      return;
     } else {
-      //   //post
-      await axios.post(`${API_URL}/user/favorite_product`, {
-        user_id: currentUser.id,
-        product_id: product.id,
-      });
-      // 抓所有最愛ㄉ商品(沒有分頁)
-      axios
-        .get(API_URL + `/user/favorite_product/all_data/${currentUser.id}`)
-        .then(({ data }) => {
-          setFavProduct(data);
-        })
-        .catch((e) => console.log(e));
+      if (favProduct.findIndex((item) => item.product_id === product.id) > -1) {
+        //delete
+        await axios.delete(
+          `${API_URL}/user/favorite_product/${currentUser.id}?product_id=${product.id}`
+        );
+        // 抓所有最愛ㄉ商品(沒有分頁)
+        axios
+          .get(API_URL + `/user/favorite_product/all_data/${currentUser.id}`)
+          .then(({ data }) => {
+            setFavProduct(data);
+          })
+          .catch((e) => console.log(e));
+      } else {
+        //   //post
+        await axios.post(`${API_URL}/user/favorite_product`, {
+          user_id: currentUser.id,
+          product_id: product.id,
+        });
+        // 抓所有最愛ㄉ商品(沒有分頁)
+        axios
+          .get(API_URL + `/user/favorite_product/all_data/${currentUser.id}`)
+          .then(({ data }) => {
+            setFavProduct(data);
+          })
+          .catch((e) => console.log(e));
+      }
     }
   };
 
@@ -90,6 +97,7 @@ const OnceCarkProduct = ({ product }) => {
                 return data.name === product.name;
               });
               // console.log('productInx',productIndex);
+
               if (productIndex > -1) {
                 let newCount = {
                   ...product,

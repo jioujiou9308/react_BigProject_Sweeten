@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useCartState } from "../../utils/redux/hooks-redux";
+import { useCartState, useUserState } from "../../utils/redux/hooks-redux";
 
 function Summary(props) {
   const navigate = useNavigate();
   const [productsInOrder, setProductsInOrder] = useCartState();
+  const [currentUser] = useUserState();
+  const [onClickBtn, setOnClickBtn] = useState(false);
+  // console.log(currentUser.id);
 
   let totalCount = 0;
   let temPrice = 0;
@@ -13,13 +16,22 @@ function Summary(props) {
     totalCount = totalCount + v.count;
   });
 
-  const plusTax = temPrice * productsInOrder[0].tax + temPrice;
+  const plusTax = Math.ceil(temPrice * productsInOrder[0].tax) + temPrice;
 
   const totalPrice = plusTax + productsInOrder[0].fee;
 
+  function handleCheckOut() {
+    if (currentUser.id == 0) {
+      setOnClickBtn(true);
+      return;
+    } else {
+      navigate("/main/checkOut");
+    }
+  }
+
   return (
     <>
-      <div className="bg-primary lg:w-1/3 flex flex-col justify-between m-8 px-8 pb-8 max-h-[38rem]">
+      <div className="bg-primary lg:w-1/3 flex flex-col justify-between m-8 px-8 pb-8 max-h-[38rem] relative">
         <div>
           <p className="py-5 font-black h3">購物明細</p>
           <hr />
@@ -54,7 +66,7 @@ function Summary(props) {
           </div>
           <div className="flex justify-between pt-5">
             <p className="">Tax</p>
-            <p className="">${temPrice * productsInOrder[0].tax}</p>
+            <p className="">${Math.ceil(temPrice * productsInOrder[0].tax)}</p>
           </div>
           <div className="flex justify-between pt-5">
             <p className="">運費</p>
@@ -72,10 +84,17 @@ function Summary(props) {
           </div>
           <button
             className="w-full py-2 text-white border hover:bg-secondary"
-            onClick={() => navigate("/main/checkOut")}
+            onClick={handleCheckOut}
           >
             Checkout
           </button>
+          {onClickBtn ? (
+            <div className="absolute mx-auto text-center -translate-x-1/2 text-warning bottom-2 left-1/2">
+              <p className="mt-3">請先登入帳戶</p>
+            </div>
+          ) : (
+            <></>
+          )}
         </div>
       </div>
     </>

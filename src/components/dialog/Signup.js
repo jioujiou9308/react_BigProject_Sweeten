@@ -56,6 +56,7 @@ const Signup = () => {
           input.value = "";
         });
         dispatch(openSignup());
+        toast.success("註冊成功!");
       })
       .catch((e) => {
         const msg = e.response.data;
@@ -135,7 +136,7 @@ const Signup = () => {
         <div className="relative">
           <Input
             id="confirmPassword"
-            type="password"
+            type={eye.confirmPasswordEye ? "text" : "password"}
             name="confirmPassword"
             color="grey"
             label="確認密碼"
