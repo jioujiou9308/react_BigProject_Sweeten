@@ -1,11 +1,8 @@
 import React from "react";
 import { Input, IconButton } from "@material-tailwind/react";
 import { useRef } from "react";
-<<<<<<< HEAD
-import { RiSendPlaneFill } from "react-icons/ri";
-=======
 import { useSelector } from "react-redux/es/exports";
->>>>>>> master
+import {RiSendPlaneFill } from "react-icons/ri";
 
 const InputBar = ({ socket }) => {
   const inputRef = useRef();

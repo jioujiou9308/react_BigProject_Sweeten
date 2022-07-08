@@ -13,9 +13,6 @@ function OrderItems({ order }) {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [selectedId, setSelectedId] = useState(false);
-<<<<<<< HEAD
-  
-=======
   //計算所有商品數量
   const countTotalNum = () => {
     let result = 0;
@@ -34,7 +31,6 @@ function OrderItems({ order }) {
   };
   // console.log('order',order)
 
->>>>>>> master
   return (
     <>
       {/* 左欄 */}
