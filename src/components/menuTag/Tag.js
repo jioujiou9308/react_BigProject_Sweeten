@@ -28,6 +28,21 @@ const Tag = ({ title, i, id }) => {
           navigate("/main/expireProduct");
           window.scrollTo({ top: 0, left: 0 });
         }
+        // 會員檔案
+        if (id == 1000) {
+          navigate("/main/member/information");
+          window.scrollTo({ top: 0, left: 0 });
+        }
+        // 訂單查詢
+        if (id == 1001) {
+          navigate("/main/member/order");
+          window.scrollTo({ top: 0, left: 0 });
+        }
+        // 蒐藏清單
+        if (id == 1002) {
+          navigate("/main/member/collection");
+          window.scrollTo({ top: 0, left: 0 });
+        }
         let getFlavor = async () => {
           let response = await axios.get(API_URL + `/product/category/10${i}`);
           setProduct(response.data.data);

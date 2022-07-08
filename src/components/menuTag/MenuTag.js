@@ -6,27 +6,35 @@ import { API_URL } from "../../utils/config";
 
 // const titleList = ["蛋糕", "餅乾", "點心", "冰品"];
 
-const pathname = window.location.href;
-const memberPage = pathname.includes("member");
-// console.log(pathname.includes("member") ? "yes" : "no");
-
 const MenuTag = () => {
-  const [productOrUser, setProductOrUser] = useState({ page: "product" });
+  const [path, setPath] = useState(true);
   const [allCategory, setAllCategory] = useState([]);
+
+  function getPath() {
+    const pathName = () => window.location.href;
+    // console.log("This is the test", pathName());
+    // const memberPage = pathname().includes("member");
+    // console.log(
+    //   "This is the test",
+    //   pathName().includes("member") ? "yes" : "no"
+    // );
+    return pathName().includes("member") ? setPath(true) : setPath(false);
+  }
 
   const categoryTag = allCategory?.filter((item) => String(item.id)[0] == 1);
   //NOTE categoryTag是空陣列
   console.log("categorytag", categoryTag);
 
   useEffect(() => {
-    if (memberPage) {
+    getPath();
+    if (path) {
       const memberTagList = [
-        { id: 1, name: "訂單" },
-        { id: 2, name: "蒐藏" },
-        { id: 3, name: "會員檔案" },
+        { id: 1000, name: "會員檔案" },
+        { id: 1001, name: "訂單查詢" },
+        { id: 1002, name: "蒐藏清單" },
       ];
       setAllCategory(memberTagList);
-      console.log(memberTagList);
+      // console.log(memberTagList);
     } else {
       axios
         .get(API_URL + "/product/category")
@@ -38,7 +46,7 @@ const MenuTag = () => {
         })
         .catch((e) => console.log(e));
     }
-  }, []);
+  }, [path]);
 
   return (
     <div className="absolute top-0 flex overflow-hidden -translate-y-full">
