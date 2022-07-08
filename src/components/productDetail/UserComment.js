@@ -1,11 +1,15 @@
-import { React, useState, useEffect } from "react";
+import { React, useState, useEffect, } from "react";
 import { AiOutlineStar, AiFillStar } from "react-icons/ai";
 import axios from "axios";
 import { API_URL } from "../../utils/config";
 import { useParams } from "react-router-dom";
+import { useUserState } from "../../utils/redux/hooks-redux";
+import CommentUserDetail from "./CommentUserDetail";
 
 const UserComment = () => {
   const { id } = useParams();
+  const [currentUser]=useUserState()
+  console.log(currentUser)
  
   const [comment, setComment] = useState([]);
   useEffect(() => {
@@ -31,16 +35,7 @@ const UserComment = () => {
     return elementArr;
   };
 
-  //生成字母
-  const getLetter=()=>{
-    let arr = ['A','B','C','S','G','W','K','P'];
-    let letter = '';
-    for(let i = 0; i <1;i++){
-      letter+=arr[Math.floor(Math.random()*8)]
-    }
-    return letter
-    
-  }
+ 
 
   return (
     <>
@@ -53,17 +48,17 @@ const UserComment = () => {
           const { id, user_id, content, score } = comment;
           return (
             <>
-              <div className="flex justify-center py-4 md:ml-10 md:justify-start md:border-b-2">
-                <div className="pt-2 overflow-hidden text-center border-2 rounded-full h3 md:mr-8 mr-14 bg-theme w-14">
-                  {/* {(Math.random()*10).toFixed(0)} */}
-                  {getLetter()}
+              {/* <div className="flex justify-center py-4 md:ml-10 md:justify-start md:border-b-2">
+                <div className="pt-2 overflow-hidden text-center text-white border-2 rounded-full h3 md:mr-8 mr-14 bg-theme w-14 bg-secondary">
+                 {currentUser.name.slice(0,1)}
                 </div>
 
                 <div>
                   <div className="flex mb-2">{stars(score)}</div>
                   <p className="p">{content}</p>
                 </div>
-              </div>
+              </div> */}
+              <CommentUserDetail user_id={user_id} content={content} score={score}/>
             </>
           );
         })

@@ -26,7 +26,7 @@ const products = [
   },
   {
     id: 2,
-    name: "柚蛋糕",
+    name: "芋泥蛋糕",
     price: 470,
     img:
     "http://localhost:8001/public/product/1657186358833.jpg",
@@ -34,29 +34,29 @@ const products = [
   {
     id: 3,
     name: "草莓蛋糕",
-    price: 700,
+    price: 570,
     img:
     "http://localhost:8001/public/product/1657186358833.jpg",
   },
   {
     id: 5,
-    name: "巧克力蛋糕",
-    price: 900,
+    name: "檸檬蛋糕",
+    price: 370,
     img:
     "http://localhost:8001/public/product/1657186358833.jpg",
   },
   {
     id: 6,
-    name: "巧克力蛋糕",
-    price: 300,
+    name: "磅蛋糕",
+    price: 480,
     img:
     "http://localhost:8001/public/product/1657186358833.jpg",
   },
  
   {
     id: 8,
-    name: "巧克力蛋糕",
-    price: 3100,
+    name: "波士頓派",
+    price: 310,
     img:
     "http://localhost:8001/public/product/1657186358833.jpg",
   },
@@ -95,10 +95,7 @@ function YouMayLikeProduct() {
               <SwiperSlide className="bg-sub">
                 <div className="">
                   <div className="overflow-hidden cursor-pointer h-36 w-44">
-                    <img src={img} alt=""  onClick={()=>{
-                      setGetThere(id)
-                      navigate(`/main/product/${getThere}`);
-                    }}/>
+                    <img src={img} alt="product" className="object-contain w-full"/>
                   </div>
                  
                   <div className="text-center w-44">

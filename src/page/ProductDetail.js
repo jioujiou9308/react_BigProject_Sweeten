@@ -40,7 +40,7 @@ function ProductDetail() {
     setFavProduct(response.data);
     console.log("此用戶喜歡ㄉ商品", response.data);
   };
-  //TODO: 照片ㄉAPI還沒串
+ 
   useEffect(() => {
     //抓這個商品資料
     let getProductDetail = async () => {
@@ -60,7 +60,7 @@ function ProductDetail() {
     //看喜歡ㄉproduct有哪些
 
     getFavProduct();
-  }, []);
+  }, [id]);
   //抓此商品平均分數
   const averageScore = () => {
     let result = 0;
