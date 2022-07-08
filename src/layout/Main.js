@@ -34,7 +34,7 @@ const Main = () => {
           <Route path="/member/information" element={<MemberInformation />} />
           {/* <Route path="/course" element={<Course />} /> */}
           <Route path="/course" element={<Course />} />
-          <Route path="/course/detail" element={<CourseDetail />} />
+          <Route path="/courseDetail" element={<CourseDetail />} />
           <Route path="/about" element={<About />} />
           <Route path="/ErrorPage" element={<ErrorPage />} />
           <Route path="/cart" element={<Cart />} />

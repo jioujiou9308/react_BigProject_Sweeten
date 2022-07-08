@@ -3,7 +3,7 @@ CREATE TABLE `user` (
   `full_name` varchar(255),
   `email` varchar(255),
   `password` varchar(255),
-  `birthday` date,
+  `birthday` varchar(255),
   `gender_id` int,
   `country_id` int,
   `created_at` timestamp,
@@ -99,7 +99,7 @@ CREATE TABLE `lesson_photo` (
 );
 
 CREATE TABLE `order_info` (
-  `id` int PRIMARY KEY AUTO_INCREMENT,
+  `id` varchar(255) PRIMARY KEY,
   `user_id` varchar(255),
   `order_status_id` int,
   `address` varchar(255),
@@ -109,7 +109,7 @@ CREATE TABLE `order_info` (
 
 CREATE TABLE `order_product` (
   `id` int PRIMARY KEY AUTO_INCREMENT,
-  `order_info_id` int,
+  `order_info_id` varchar(255),
   `product_id` int,
   `coupon_id` int DEFAULT 0,
   `memo` varchar(255),
@@ -137,9 +137,9 @@ CREATE TABLE `coupon_category` (
 );
 
 CREATE TABLE `expiry` (
-  `id` int,
+  `id` int PRIMARY KEY AUTO_INCREMENT,
   `product_id` varchar(255),
-  `expriy_date` date,
-  `count` int
+  `expiry_date` date,
+  `count` int,
+  `discount` int
 );
-

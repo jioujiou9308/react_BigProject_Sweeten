@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { API_URL } from "../../utils/config";
 import axios from "axios";
 import Pagination from "./Pangination";
+// import { useCartState } from "../../utils/redux/hooks-redux";
 
 const CardList = () => {
   //目前在第幾頁
@@ -12,11 +13,13 @@ const CardList = () => {
   const [lastPage, setLastPage] = useState(1);
   //設定資料庫抓取的資料
   const [expireProuct, setExpireProduct] = useState([]);
-
+  //新增進購物車的功能
+  // const [carData, setCartData] = useCartState([]);
+  console.log(expireProuct);
   //從後端抓資料到前端
   useEffect(() => {
     let getExpireProduct = async () => {
-      let response = await axios.get(`${API_URL}/product/expire_product`, {
+      let response = await axios.get(`${API_URL}/expiry/expire_product`, {
         params: {
           page: page,
         },
@@ -50,24 +53,18 @@ const CardList = () => {
         <h3 className="w-full p-1 border-b-2 border-line p">
           即期良品 | 限時特賣
         </h3>
-        {/* <p className="text-gray-500 dark:text-gray-300">Items</p>
-        <div className="flex items-center">
-          <p className="text-gray-500 dark:text-gray-300">Sort</p>
-          <select className="font-medium text-gray-700 bg-transparent dark:text-gray-500 focus:outline-none">
-            <option value="#">Recommended</option>
-            <option value="#">Size</option>
-            <option value="#">Price</option>
-          </select>
-        </div> */}
       </div>
-
       <div className="container flex flex-wrap justify-around px-6 py-8">
         {/* ---------------------------- */}
 
-        {expireProuct.map((product) => {
+        {expireProuct?.map((product) => {
           return (
             <div className="flex flex-wrap justify-around">
-              <Card key={product.id} product={product} />
+              <Card
+                key={product.id}
+                product={product}
+                // setCartData={setCartData}
+              />
             </div>
           );
         })}

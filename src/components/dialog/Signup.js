@@ -56,6 +56,7 @@ const Signup = () => {
           input.value = "";
         });
         dispatch(openSignup());
+        toast.success("註冊成功!");
       })
       .catch((e) => {
         const msg = e.response.data;

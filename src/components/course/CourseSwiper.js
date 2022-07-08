@@ -10,15 +10,16 @@ import "./SwiperStyles.css";
 import { Pagination, Navigation } from "swiper";
 
 const CourseSwiper = (props) => {
-  const { lessons, setSwipe } = props;
+  const { lessons, setSwipe, lessonImage } = props;
+
   console.log(lessons);
 
   return (
     <>
       <Swiper
-        slidesPerView={2}
+        slidesPerView={1}
         spaceBetween={30}
-        slidesPerGroup={2}
+        slidesPerGroup={1}
         loop={true}
         loopFillGroupWithBlank={true}
         pagination={{
@@ -28,22 +29,31 @@ const CourseSwiper = (props) => {
         modules={[Pagination, Navigation]}
         className="mySwiper"
       >
-        {/* <SwiperSlide>
-          <img src={"/images/course/hand.jpg"} alt="" />
-        </SwiperSlide> */}
-        {lessons.map((lesson, i) => {
-          return (
-            <SwiperSlide
-              onClick={() => {
-                setSwipe(i);
-              }}
-            >
-              {lesson.name}
-              <br />
-              {lesson.description}
-            </SwiperSlide>
-          );
-        })}
+        {lessons ? (
+          <>
+            {lessonImage.map((image, i) => {
+              return (
+                <SwiperSlide
+                  key={i}
+                  onClick={() => {
+                    setSwipe(i);
+                  }}
+                >
+                  <div className="w-full ">
+                    <div className="w-full ">
+                      <img src={image.image3} alt="" />
+                    </div>
+                    <div className="w-1/2 h-10 pt-1 m-auto font-semibold text-center rounded-md shadow-md md:w-1/6 -translate-y-7 bg-light h2">
+                      {image.name}
+                    </div>
+                  </div>
+                </SwiperSlide>
+              );
+            })}
+          </>
+        ) : (
+          <></>
+        )}
       </Swiper>
     </>
   );

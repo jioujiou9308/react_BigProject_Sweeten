@@ -4,42 +4,40 @@ import MemberSearchBar from "../components/memberCollection/MemberSearchBar";
 import MemberOrderBar from "../components/memberOrder/MemberOrderBar";
 import axios from "axios";
 import { API_URL } from "../utils/config";
-import { useUserState } from "../utils/redux/hooks-redux";
+import { useProductState, useUserState } from "../utils/redux/hooks-redux";
+import { useParams } from "react-router-dom";
+import { motion } from "framer-motion";
 
 function MemberOrder() {
   const step = ["全部", "待付款", "待出貨", "待收貨", "完成"];
   const [barStep, setBarStep] = useState(0);
   const [order, setOrder] = useState([]);
-  const [currentUser]=useUserState()
+  const [orderProduct, setOrderProduct] = useState([]);
+  const [currentUser] = useUserState();
 
   useEffect(() => {
+    //拿個人所有訂單_product
     let getOrder = async () => {
       let response = await axios.get(API_URL + `/order/user/${currentUser.id}`);
-      setOrder(response.data.data);
-      console.log(response.data.data);
+
+      const orders = [];
+      response.data.data.forEach((item) => {
+        // 當前商品對應的訂單id
+        const info_id = item.order_info_id;
+
+        // 如果在 orders 內沒有這個 key，就建立一個陣列
+        if (!orders[info_id]) {
+          orders[info_id] = [item];
+        } else {
+          // 如果orders內有這個 key 表示陣列存在，新增 item 在陣列尾端
+          orders[info_id].push(item);
+        }
+      });
+      console.log("orders", orders);
+      setOrder(orders);
     };
     getOrder();
   }, []);
-
-  //待付款ARR
-  const notPaidArr = order.filter((v) => {
-    return v.order_status_id == 1;
-  });
-
-  //待出貨ARR
-  const notDeliveredArr = order.filter((v) => {
-    return v.order_status_id == 2;
-  });
-
-  //待收貨ARR
-  const notReceivedArr = order.filter((v) => {
-    return v.order_status_id == 3;
-  });
-
-  //完成ARR
-  const completedArr = order.filter((v) => {
-    return v.order_status_id == 4;
-  });
 
   return (
     <>
@@ -53,29 +51,21 @@ function MemberOrder() {
 
         {barStep == 0 && (
           <>
-            <div className="pt-2 mx-5 text-left border-b h2">
+            <div className="py-2 mx-5 text-left h2">
               <h2>我的訂單</h2>
             </div>
+            <motion.div
+              initial={{ width: 0 }}
+              animate={{ width: "auto" }}
+              transition={{ ease: "easeOut", duration: 2 }}
+              className="bg-gradient-to-r pb-[5px] from-sub to-transparent mx-5"
+            ></motion.div>
             <div className="mb-10">
-              {order.map((v, i) => {
-                const {
-                  id,
-                  coupon_id,
-                  address,
-                  payment_id,
-                  name,
-                  count,
-                  price,
-                } = v;
+              {order.map((order, i) => {
                 return (
                   <>
                     <div className="mt-10 shadow-md md:flex">
-                      <OrderItems
-                        id={id}
-                        name={name}
-                        count={count}
-                        price={price}
-                      />
+                      <OrderItems order={order} />
                     </div>
                   </>
                 );
@@ -85,97 +75,105 @@ function MemberOrder() {
         )}
         {barStep == 1 && (
           <>
-            <div className="pt-2 mx-5 text-left border-b h2">
+            <div className="py-2 mx-5 text-left h2">
               <h2>待付款項目</h2>
             </div>
+            <motion.div
+              initial={{ width: 0 }}
+              animate={{ width: "auto" }}
+              transition={{ ease: "easeOut", duration: 2 }}
+              className="bg-gradient-to-r pb-[5px] from-sub to-transparent mx-5"
+            ></motion.div>
             <div className="mb-10">
-              {notPaidArr.map((v, i) => {
-                const { id, name, count, price } = v;
-                return (
-                  <>
-                    <div className="mt-10 shadow-md md:flex">
-                      <OrderItems
-                        id={id}
-                        name={name}
-                        count={count}
-                        price={price}
-                      />
-                    </div>
-                  </>
-                );
-              })}
+              {order
+                .filter((v, i) => v[i]?.order_status_id == 1)
+                .map((order, i) => {
+                  return (
+                    <>
+                      <div className="mt-10 shadow-md md:flex">
+                        <OrderItems order={order} />
+                      </div>
+                    </>
+                  );
+                })}
             </div>
           </>
         )}
         {barStep == 2 && (
           <>
-            <div className="pt-2 mx-5 text-left border-b h2">
+            <div className="py-2 mx-5 text-left h2">
               <h2>待出貨項目</h2>
             </div>
+            <motion.div
+              initial={{ width: 0 }}
+              animate={{ width: "auto" }}
+              transition={{ ease: "easeOut", duration: 2 }}
+              className="bg-gradient-to-r pb-[5px] from-sub to-transparent mx-5"
+            ></motion.div>
             <div className="mb-10">
-              {notDeliveredArr.map((v, i) => {
-                const { id, name, count, price } = v;
-                return (
-                  <>
-                    <div className="mt-10 shadow-md md:flex">
-                      <OrderItems
-                        id={id}
-                        name={name}
-                        count={count}
-                        price={price}
-                      />
-                    </div>
-                  </>
-                );
-              })}
+              {order
+                .filter((v, i) => v[i]?.order_status_id == 2)
+                .map((order, i) => {
+                  return (
+                    <>
+                      <div className="mt-10 shadow-md md:flex">
+                        <OrderItems order={order} />
+                      </div>
+                    </>
+                  );
+                })}
             </div>
           </>
         )}
         {barStep == 3 && (
           <>
-            <div className="pt-2 mx-5 text-left border-b h2">
+            <div className="py-2 mx-5 text-left h2">
               <h2>待收貨項目</h2>
             </div>
+            <motion.div
+              initial={{ width: 0 }}
+              animate={{ width: "auto" }}
+              transition={{ ease: "easeOut", duration: 2 }}
+              className="bg-gradient-to-r pb-[5px] from-sub to-transparent mx-5"
+            ></motion.div>
             <div className="mb-10">
-              {notReceivedArr.map((v, i) => {
-                const { id, name, count, price } = v;
-                return (
-                  <>
-                    <div className="mt-10 shadow-md md:flex">
-                      <OrderItems
-                        id={id}
-                        name={name}
-                        count={count}
-                        price={price}
-                      />
-                    </div>
-                  </>
-                );
-              })}
+              {order
+                .filter((v, i) => v[i]?.order_status_id == 3)
+                .map((order, i) => {
+                  return (
+                    <>
+                      <div className="mt-10 shadow-md md:flex">
+                        <OrderItems order={order} />
+                      </div>
+                    </>
+                  );
+                })}
             </div>
           </>
         )}
         {barStep == 4 && (
           <>
-            <div className="pt-2 mx-5 text-left border-b h2">
+            <div className="py-2 mx-5 text-left h2">
               <h2>完成項目</h2>
             </div>
+            <motion.div
+              initial={{ width: 0 }}
+              animate={{ width: "auto" }}
+              transition={{ ease: "easeOut", duration: 2 }}
+              className="bg-gradient-to-r pb-[5px] from-sub to-transparent mx-5"
+            ></motion.div>
             <div className="mb-10">
-              {completedArr.map((v, i) => {
-                const { id, name, count, price } = v;
-                return (
-                  <>
-                    <div className="mt-10 shadow-md md:flex">
-                      <OrderItems
-                        id={id}
-                        name={name}
-                        count={count}
-                        price={price}
-                      />
-                    </div>
-                  </>
-                );
-              })}
+              {order
+                .filter((v, i) => v[i]?.order_status_id == 4)
+                .map((order, i) => {
+                  return (
+                    <>
+                      <div className="mt-10 shadow-md md:flex">
+                        <OrderItems order={order} />
+                      </div>
+                    </>
+                  );
+                })}
             </div>
           </>
         )}

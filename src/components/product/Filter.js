@@ -1,20 +1,167 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { AiFillFilter } from "react-icons/ai";
-import { Fragment, useState } from "react";
-import { calcLength } from "framer-motion";
+import { useState } from "react";
 import axios from "axios";
 import { API_URL } from "../../utils/config";
+import { clearConfigCache } from "prettier";
+import moment from "moment";
+import { useProductState } from "../../utils/redux/hooks-redux";
 
 function Filter() {
+  const [allCategory, setAllCategory] = useState([]);
+  const [product, setProduct] = useProductState();
   const [open, setOpen] = useState(false);
+  //價格範圍選項
+  const priceOption = ["600以下", "600~1200", "1200以上"];
+  //口味選項 NOTE篩出來是空陣列
+  const flavorOption = allCategory?.filter((item) => String(item.id)[0] == 2);
+  console.log("flavorOption", flavorOption);
+  //種類選項
+  const categoryOption = ["蛋糕", "餅乾", "點心", "冰品"];
+  console.log(product);
 
- 
+  useEffect(() => {
+    axios.get(API_URL + "/product/category").then(({ data }) => {
+      setAllCategory(data);
+      // console.log("categoryfilter", data);
+    });
+  }, []);
   //手機板篩選ㄉ彈跳視窗
-  const categoryHandler = () => {
+  const filterHandler = () => {
     setOpen(!open);
   };
 
- 
+  //價格filter
+  const PriceChangeHandler = async (e) => {
+    const res = await axios.get(API_URL + "/product/all");
+    const newList = res.data.data;
+
+    switch (e.target.value) {
+      case "0":
+        const newProduct0 = newList.filter((v) => v.price <= 600);
+        // console.log("case0=", newProduct0);
+        setProduct(newProduct0);
+        break;
+
+      case "1":
+        const newProduct1 = newList.filter(
+          (v) => v.price >= 600 && v.price <= 1200
+        );
+        // console.log("case1=", newProduct1);
+        setProduct(newProduct1);
+        break;
+
+      case "2":
+        // console.log(product);
+        const newProduct2 = newList.filter((v) => v.price >= 1200);
+        // console.log("case2=", newProduct2);
+        setProduct(newProduct2);
+        break;
+      default:
+        return;
+    }
+  };
+  //口味filter
+  const flavorChangeHandler =async (e) => {
+    switch(e.target.value){
+      case '0':
+        let getfilteredCategory0= async()=>{
+          let response = await axios.get(API_URL+`/product/category/20${e.target.value}`)
+          setProduct(response.data.data)
+          console.log(response.data.data)
+        }
+        getfilteredCategory0();
+        break;
+
+        case '1':
+          let getfilteredCategory1= async()=>{
+            let response = await axios.get(API_URL+`/product/category/20${e.target.value}`)
+            setProduct(response.data.data)
+            console.log(response.data.data)
+          }
+          getfilteredCategory1();
+          break;
+
+          case '2':
+            let getfilteredCategory2= async()=>{
+              let response = await axios.get(API_URL+`/product/category/20${e.target.value}`)
+              setProduct(response.data.data)
+              console.log(response.data.data)
+            }
+            getfilteredCategory2();
+          break;
+
+          case '3':
+            let getfilteredCategory3= async()=>{
+              let response = await axios.get(API_URL+`/product/category/20${e.target.value}`)
+              setProduct(response.data.data)
+              console.log(response.data.data)
+            }
+            getfilteredCategory3();
+          break;
+
+          case '4':
+            let getfilteredCategory4= async()=>{
+              let response = await axios.get(API_URL+`/product/category/20${e.target.value}`)
+              setProduct(response.data.data)
+              console.log(response.data.data)
+            }
+            getfilteredCategory4();
+            break;
+          
+
+          default:
+            return;
+        
+    }
+  };
+  //價格排序
+  const priceOrderChangeHandler = async (e) => {
+    const res = await axios.get(API_URL + "/product/all");
+    const newList = res.data.data;
+
+    switch (e.target.value) {
+      case "0":
+        const newProduct0 = [...newList].sort((a, b) => {
+          return b.price - a.price;
+        });
+        setProduct(newProduct0);
+        break;
+
+      case "1":
+        const newProduct1 = [...newList].sort((a, b) => {
+          return a.price - b.price;
+        });
+        setProduct(newProduct1);
+        break;
+      default:
+        return;
+    }
+  };
+  //上架時間排序
+  const timeOrderChangeHandler = async (e) => {
+    const res = await axios.get(API_URL + "/product/all");
+    const newList = res.data.data;
+    console.log(newList);
+    switch (e.target.value) {
+      case "0":
+        const newProduct0 = [...newList].sort((a, b) => {
+          return a.id - b.id;
+        });
+        setProduct(newProduct0);
+        break;
+
+      case "1":
+        const newProduct1 = [...newList].sort((a, b) => {
+          return b.id - a.id;
+        });
+        setProduct(newProduct1);
+        break;
+
+      default:
+        return;
+    }
+  };
 
   return (
     <>
@@ -29,57 +176,56 @@ function Filter() {
         <div>
           {/* 各類選項 */}
           <div className="grid grid-cols-1 gap-4 mt-4 border-b-2 border-line">
+            {/* 價格範圍 */}
             <select
-              value="lowest-price"
-              onChange={() => {
-               
-              }}
+              onChange={PriceChangeHandler}
               className="w-full px-4 py-3 text-sm bg-gray-100 border-transparent rounded-none focus:border-gray-500 focus:bg-white focus:ring-0"
             >
-              <option value="">價格範圍</option>
-              <option>600以下</option>
-
-              <option value="mid-price">600~1200</option>
-              <option value="highest-price">1200以上</option>
+              <option>價格範圍</option>
+              {priceOption.map((v, i) => {
+                return <option value={i}>{v}</option>;
+              })}
             </select>
 
-            <select className="w-full px-4 py-3 text-sm bg-gray-100 border-transparent rounded-none md:hidden focus:border-gray-500 focus:bg-white focus:ring-0">
-              <option value="">分類</option>
-              <option value="cake">蛋糕</option>
-              <option value="cookie">餅乾</option>
-              <option value="gift-box">禮盒</option>
-              <option value="ice-cream">冰品</option>
-            </select>
-
-            <select className="hidden w-full px-4 py-3 text-sm bg-gray-100 border-transparent rounded-none md:block focus:border-gray-500 focus:bg-white focus:ring-0">
+            {/* 口味 */}
+            <select
+              onChange={flavorChangeHandler}
+              className="hidden w-full px-4 py-3 text-sm bg-gray-100 border-transparent rounded-none md:block focus:border-gray-500 focus:bg-white focus:ring-0"
+            >
               <option value="">口味</option>
-              <option value="chocolate">巧克力</option>
-              <option value="strawberry">草莓</option>
-              <option value="taro">芋頭</option>
+              {flavorOption.map((v, i) => {
+                return <option value={i}>{v.name}</option>;
+              })}
             </select>
 
-            <select className="hidden w-full px-4 py-3 text-sm bg-gray-100 border-transparent rounded-none md:block focus:border-gray-500 focus:bg-white focus:ring-0">
+            {/* 上架時間 */}
+            <select
+              onChange={timeOrderChangeHandler}
+              className="hidden w-full px-4 py-3 text-sm bg-gray-100 border-transparent rounded-none md:block focus:border-gray-500 focus:bg-white focus:ring-0"
+            >
               <option value="">上架時間</option>
-              <option value="latest">最新到最舊</option>
-              <option value="oldest">最舊到最新</option>
+              <option value="0">最新到最舊</option>
+              <option value="1">最舊到最新</option>
+            </select>
+
+            {/* 價格排序 */}
+            <select
+              onChange={priceOrderChangeHandler}
+              className="hidden w-full px-4 py-3 text-sm bg-gray-100 border-transparent rounded-none md:block focus:border-gray-500 focus:bg-white focus:ring-0"
+            >
+              <option value="">價格排序</option>
+              <option value="0">由高到低</option>
+              <option value="1">由低到高</option>
             </select>
           </div>
         </div>
-
-        {/* <div className="flex-wrap justify-between hidden pt-5 md:flex">
-          <p className="px-3 py-1 mb-2 text-white p bg-dark">蛋糕</p>
-          <p className="px-3 py-1 mb-2 text-white p bg-dark">餅乾</p>
-          <p className="px-3 py-1 mb-2 text-white p bg-dark">蛋塔</p>
-          <p className="px-3 py-1 mb-2 text-white p bg-dark">禮盒</p>
-          <p className="px-3 py-1 mb-2 text-white p bg-dark">冰品</p>
-        </div> */}
       </div>
 
       {/* 手機版 */}
       <div className="w-full px-5 md:hidden">
         <div
           className="flex items-center justify-center border-b border-line"
-          onClick={categoryHandler}
+          onClick={filterHandler}
         >
           <p className="mr-1 text-center text-dark h3">篩選 </p>
           <AiFillFilter className="icon-sm" />
@@ -94,68 +240,27 @@ function Filter() {
             >
               <select className="w-full px-4 py-3 text-sm bg-gray-100 border-transparent rounded-none focus:border-gray-500 focus:bg-white focus:ring-0">
                 <option value="">價格範圍</option>
-                <option value="for-rent ">100以下</option>
-                <option value="for-sale">100~300</option>
-                <option value="for-sale">300~500</option>
-                <option value="for-sale">500以上</option>
-              </select>
-
-              <select className="w-full px-4 py-3 text-sm bg-gray-100 border-transparent rounded-none focus:border-gray-500 focus:bg-white focus:ring-0">
-                <option value="">熱門程度</option>
-                <option value="fully-furnished">本月最熱門</option>
-                <option value="partially-furnished">本季最熱門</option>
-              </select>
-
-              <select className="w-full px-4 py-3 text-sm bg-gray-100 border-transparent rounded-none md:hidden focus:border-gray-500 focus:bg-white focus:ring-0">
-                <option value="">分類</option>
-                <option value="fully-furnished">蛋糕</option>
-                <option value="partially-furnished">餅乾</option>
-                <option value="not-furnished">蛋塔</option>
-                <option value="not-furnished">禮盒</option>
-                <option value="not-furnished">冰品</option>
+                {priceOption.map((v, i) => {
+                  return <option value={i}>{v}</option>;
+                })}
               </select>
 
               <select className="hidden w-full px-4 py-3 text-sm bg-gray-100 border-transparent rounded-none md:block focus:border-gray-500 focus:bg-white focus:ring-0">
                 <option value="">口味</option>
-                <option value="1000">巧克力</option>
-                <option value="2000">草莓</option>
-                <option value="3000">芋頭</option>
+                {flavorOption.map((v, i) => {
+                  return <option value={i}>{v}</option>;
+                })}
               </select>
 
               <select className="hidden w-full px-4 py-3 text-sm bg-gray-100 border-transparent rounded-none md:block focus:border-gray-500 focus:bg-white focus:ring-0">
                 <option value="">上架時間</option>
-                <option value="200">最新到最舊</option>
-                <option value="400">最舊到最新</option>
+                <option value="0">最新到最舊</option>
+                <option value="1">最舊到最新</option>
               </select>
             </div>
           ) : (
             <></>
           )}
-        </div>
-
-        <div className="flex-wrap justify-around hidden pt-5 md:flex">
-          {/* <Button variant="outlined" color="brown" size="sm">
-            蛋糕
-          </Button>{" "}
-          <Button variant="outlined" color="brown" size="sm">
-            蛋糕
-          </Button>{" "}
-          <Button variant="outlined" color="brown" size="sm">
-            蛋糕
-          </Button>{" "}
-          <Button variant="outlined" color="brown" size="sm">
-            蛋糕
-          </Button>{" "}
-          <Button variant="outlined" color="brown" size="sm">
-            蛋糕
-          </Button>{" "}
-          <Button variant="outlined" color="brown" size="sm">
-            蛋糕
-          </Button> */}
-          {/* <p className="px-3 py-1 mb-2 text-white p bg-dark">餅乾</p>
-          <p className="px-3 py-1 mb-2 text-white p bg-dark">蛋塔</p>
-          <p className="px-3 py-1 mb-2 text-white p bg-dark">禮盒</p>
-          <p className="px-3 py-1 mb-2 text-white p bg-dark">冰品</p> */}
         </div>
       </div>
     </>

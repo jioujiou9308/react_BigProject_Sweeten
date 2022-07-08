@@ -1,16 +1,23 @@
 import React from "react";
 import { Input, IconButton } from "@material-tailwind/react";
 import { useRef } from "react";
+<<<<<<< HEAD
 import { RiSendPlaneFill } from "react-icons/ri";
+=======
+import { useSelector } from "react-redux/es/exports";
+>>>>>>> master
 
 const InputBar = ({ socket }) => {
   const inputRef = useRef();
+  const user = useSelector((state) => state.user.user);
 
   const handleSubmit = () => {
     const input = inputRef.current.children[0];
+
     console.log(input.value);
     socket.emit("support", {
       side: "client",
+      id: user.id,
       content: input.value,
     });
     input.value = "";
