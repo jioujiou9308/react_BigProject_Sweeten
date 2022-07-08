@@ -14,8 +14,8 @@ function MemberOrder() {
   const [order, setOrder] = useState([]);
   const [orderProduct, setOrderProduct] = useState([]);
   const [currentUser] = useUserState();
-  const [searchWord, setSearchWord]=useState('')
-console.log(searchWord)
+  const [searchWord, setSearchWord] = useState("");
+  console.log(searchWord);
   useEffect(() => {
     //拿個人所有訂單_product
     let getOrder = async () => {
@@ -47,7 +47,10 @@ console.log(searchWord)
           <MemberOrderBar setBarStep={setBarStep} step={step} />
         </div>
         <div className="mb-6">
-          <MemberOrderSearch searchWord={searchWord} setSearchWord={setSearchWord} />
+          <MemberOrderSearch
+            searchWord={searchWord}
+            setSearchWord={setSearchWord}
+          />
         </div>
 
         {barStep == 0 && (
@@ -65,15 +68,17 @@ console.log(searchWord)
               <h1 className="mt-4 text-center h2">尚無項目</h1>
             )}
             <div className="mb-10" data-aos="fade-right">
-              {order?.map((order, i) => {
-                return (
-                  <>
-                    <div className="mt-10 shadow-md md:flex">
-                      <OrderItems order={order}/>
-                    </div>
-                  </>
-                );
-              })}
+              {order
+                ?.filter((item) => item[0].order_info_id?.includes(searchWord))
+                ?.map((order, i) => {
+                  return (
+                    <>
+                      <div className="mt-10 shadow-md md:flex">
+                        <OrderItems order={order} />
+                      </div>
+                    </>
+                  );
+                })}
             </div>
           </>
         )}
@@ -88,12 +93,15 @@ console.log(searchWord)
               transition={{ ease: "easeOut", duration: 2 }}
               className="bg-gradient-to-r pb-[5px] from-sub to-transparent mx-5"
             ></motion.div>
-            {order.filter((v, i) => v[i]?.order_status_id == 1).length == 0 && (
-              <h1 className="mt-4 text-center h2">尚無項目</h1>
-            )}
+            {order?.filter((v, i) => v[i]?.order_status_id == 1).length ==
+              0 && <h1 className="mt-4 text-center h2">尚無項目</h1>}
             <div className="mb-10" data-aos="fade-right">
               {order
-                .filter((v, i) => v[i]?.order_status_id == 1)
+                .filter(
+                  (v, i) =>
+                    v[i]?.order_status_id == 1 &&
+                    v[0].order_info_id?.includes(searchWord)
+                )
                 .map((order, i) => {
                   return (
                     <>
@@ -117,13 +125,16 @@ console.log(searchWord)
               transition={{ ease: "easeOut", duration: 2 }}
               className="bg-gradient-to-r pb-[5px] from-sub to-transparent mx-5"
             ></motion.div>
-             {order.filter((v, i) => v[i]?.order_status_id == 2).length == 0 && (
+            {order.filter((v, i) => v[i]?.order_status_id == 2).length == 0 && (
               <h1 className="mt-4 text-center h2">尚無項目</h1>
             )}
             <div className="mb-10" data-aos="fade-right">
               {order
-                .filter((v, i) => v[i]?.order_status_id == 2)
-                .map((order, i) => {
+                .filter(
+                  (v, i) =>
+                    v[i]?.order_status_id == 2 &&
+                    v[0].order_info_id?.includes(searchWord)
+                ).map((order, i) => {
                   return (
                     <>
                       <div className="mt-10 shadow-md md:flex">
@@ -146,12 +157,16 @@ console.log(searchWord)
               transition={{ ease: "easeOut", duration: 2 }}
               className="bg-gradient-to-r pb-[5px] from-sub to-transparent mx-5"
             ></motion.div>
-             {order.filter((v, i) => v[i]?.order_status_id == 3).length == 0 && (
+            {order.filter((v, i) => v[i]?.order_status_id == 3).length == 0 && (
               <h1 className="mt-4 text-center h2">尚無項目</h1>
             )}
             <div className="mb-10" data-aos="fade-right">
               {order
-                .filter((v, i) => v[i]?.order_status_id == 3)
+                .filter(
+                  (v, i) =>
+                    v[i]?.order_status_id == 3 &&
+                    v[0].order_info_id?.includes(searchWord)
+                )
                 .map((order, i) => {
                   return (
                     <>
@@ -175,12 +190,16 @@ console.log(searchWord)
               transition={{ ease: "easeOut", duration: 2 }}
               className="bg-gradient-to-r pb-[5px] from-sub to-transparent mx-5"
             ></motion.div>
-             {order.filter((v, i) => v[i]?.order_status_id == 4).length == 0 && (
+            {order.filter((v, i) => v[i]?.order_status_id == 4).length == 0 && (
               <h1 className="mt-4 text-center h2">尚無項目</h1>
             )}
             <div className="mb-10" data-aos="fade-right">
               {order
-                .filter((v, i) => v[i]?.order_status_id == 4)
+                .filter(
+                  (v, i) =>
+                    v[i]?.order_status_id == 4 &&
+                    v[0].order_info_id?.includes(searchWord)
+                )
                 .map((order, i) => {
                   return (
                     <>

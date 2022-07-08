@@ -120,7 +120,7 @@ function ProductDetail() {
                 {/* demo大圖(左側)桌機板 */}
                 <div className="w-2/5 mt-8 mr-16 ml-7">
                   <img
-                    className="max-w-full mx-auto"
+                    className="object-contain max-w-full mx-auto"
                     src={`http://localhost:8001/public/product/${id}.jpg`}
                     alt=""
                   />
