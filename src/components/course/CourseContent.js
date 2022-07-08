@@ -36,6 +36,25 @@ const CourseContent = (props) => {
                         <div class="h-2 bg-primary rounded"></div>
                       </div>
                       <div class="h-2 bg-primary rounded hidden lg:block"></div>
+                      <div class="h-2 bg-primary rounded"></div>
+                      <div class="space-y-3">
+                        <div class="grid grid-cols-3 gap-4">
+                          <div class="h-2 bg-primary rounded col-span-2"></div>
+                          <div class="h-2 bg-primary rounded col-span-1"></div>
+                        </div>
+                        <div class="h-2 bg-primary rounded"></div>
+                      </div>
+                      <div class="h-2 bg-primary rounded hidden lg:block"></div>
+                      <div class="h-2 bg-primary rounded"></div>
+                      <div class="space-y-3">
+                        <div class="grid grid-cols-3 gap-4">
+                          <div class="h-2 bg-primary rounded col-span-2"></div>
+                          <div class="h-2 bg-primary rounded col-span-1"></div>
+                        </div>
+                        <div class="h-2 bg-primary rounded"></div>
+                      </div>
+                      {/* <div class="h-2 bg-primary rounded hidden lg:block"></div>
+                      <div class="h-2 bg-primary rounded"></div> */}
                     </div>
                   </div>
                 </div>
@@ -68,28 +87,44 @@ const CourseContent = (props) => {
                         <div class="h-2 bg-primary rounded"></div>
                       </div>
                       <div class="h-2 bg-primary rounded hidden lg:block"></div>
+                      <div class="h-2 bg-primary rounded"></div>
+                      <div class="space-y-3">
+                        {/* <div class="grid grid-cols-3 gap-4">
+                          <div class="h-2 bg-primary rounded col-span-2"></div>
+                          <div class="h-2 bg-primary rounded col-span-1"></div>
+                        </div> */}
+                        {/* <div class="h-2 bg-primary rounded"></div> */}
+                      </div>
                     </div>
                   </div>
                 </div>
               }
             />
 
-            <div
-              style={{
-                transform: " translate(40px, -43px)",
-              }}
-              className=" lg:absolute sm:px-14 lg:py-5 lg:px-28 lg:z-3 lg:opacity-80 lg:bg-yellow-300"
-            ></div>
-            <div
-              style={{
-                transform: " translate(30px, -50px)",
-              }}
-              className=" lg:absolute sm:px-14 lg:py-5 lg:px-28 lg:z-4 lg:opacity-80 lg:bg-secondary"
-            ></div>
+            {/* 授課教師：XXX */}
+            <WhileLoading
+              done={
+                <>
+                  <div
+                    style={{
+                      transform: " translate(40px, -43px)",
+                    }}
+                    className=" lg:absolute sm:px-14 lg:py-5 lg:px-28 lg:z-3 lg:opacity-80 lg:bg-yellow-300"
+                  ></div>
+                  <div
+                    style={{
+                      transform: " translate(30px, -50px)",
+                    }}
+                    className=" lg:absolute sm:px-14 lg:py-5 lg:px-28 lg:z-4 lg:opacity-80 lg:bg-secondary"
+                  ></div>
 
-            <div className="hidden text-black lg:flex lg:font-bold lg:absolute lg:translate-x-16 lg:-translate-y-11 lg:z-4 lg:h3 sm:p">
-              {lessonImage[a]?.teacher}
-            </div>
+                  <div className="hidden text-black lg:flex lg:font-bold lg:absolute lg:translate-x-16 lg:-translate-y-11 lg:z-4 lg:h3 sm:p">
+                    {lessonImage[a]?.teacher}
+                  </div>
+                </>
+              }
+              onLoad={<></>}
+            />
           </div>
           {/* <div className=" absolute lg:z-10 bg-grey-50 sm:h-80 lg:w-1/2 lg:h-[410px] lg:top-1/2 lg:-translate-y-1/2 lg:left-12 lg:translate-x-4"></div> */}
         </div>
@@ -121,6 +156,7 @@ const CourseContent = (props) => {
                         <div class="h-2 bg-primary rounded"></div>
                       </div>
                       <div class="h-2 bg-primary rounded hidden lg:block"></div>
+                      <div class="h-2 bg-primary rounded"></div>
                     </div>
                   </div>
                 </div>
