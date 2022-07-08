@@ -7,7 +7,7 @@ import { API_URL } from "../utils/config";
 import { useProductState, useUserState } from "../utils/redux/hooks-redux";
 import { useParams } from "react-router-dom";
 import { motion } from "framer-motion";
-import MenuTag from "../components/menuTag/MenuTag";
+// import MenuTag from "../components/menuTag/MenuTag";
 
 function MemberOrder() {
   const step = ["全部", "待付款", "待出貨", "待收貨", "完成"];
@@ -44,7 +44,7 @@ function MemberOrder() {
   return (
     <>
       <div className="mx-auto">
-        <MenuTag />
+        {/* <MenuTag /> */}
         <div className="bg-white">
           <div className="mb-6">
             <MemberOrderBar setBarStep={setBarStep} step={step} />

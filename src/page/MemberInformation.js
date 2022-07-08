@@ -7,7 +7,6 @@ import { useUserState } from "../utils/redux/hooks-redux";
 import { API_URL, IMAGE_URL } from "../utils/config";
 import { toast } from "react-toastify";
 
-
 //----------------------會員資訊-----------------------
 
 const genders = ["選擇性別", "男", "女", "不提供"];
@@ -102,7 +101,6 @@ const MemberInformation = () => {
   }
 
   // 頁面重整 function
-  
 
   return (
     <div className="mx-auto">
