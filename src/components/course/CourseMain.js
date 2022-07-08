@@ -30,7 +30,7 @@ const image = [
     image2: "/images/courseDetail/lesson3/chef.jpg",
     image3: "/images/courseDetail/lesson3/tar3.jpg",
     name: "新鮮水果塔",
-    teacher: "授課教師:Ms.z廖",
+    teacher: "授課教師:Ms.廖",
     teacherFullName: "Rebecca Liao",
   },
   {
@@ -78,7 +78,7 @@ const CourseMain = () => {
         lessonImage={lessonImage}
       />
       {detailContent === true ? (
-        <div data-aos="flip-up">
+        <div data-aos="fade-up" data-aos-duration="1800">
           <CourseDetail
             lessons={lessons}
             swipe={swipe}

@@ -20,21 +20,23 @@ const CourseContent = (props) => {
               src={lessonImage[a]?.image2}
               className="relative object-cover w-full h-full"
             />
-            <div
-              style={{
-                transform: " translate(40px, -43px)",
-              }}
-              className=" lg:absolute sm:px-14 lg:py-5 lg:px-28 lg:z-3 lg:opacity-80 lg:bg-yellow-300"
-            ></div>
-            <div
-              style={{
-                transform: " translate(30px, -50px)",
-              }}
-              className=" lg:absolute sm:px-14 lg:py-5 lg:px-28 lg:z-4 lg:opacity-80 lg:bg-secondary"
-            ></div>
+            <div data-aos="fade-right" data-aos-duration="3000">
+              <div
+                style={{
+                  transform: " translate(40px, -43px)",
+                }}
+                className=" lg:absolute sm:px-14 lg:py-5 lg:px-28 lg:z-3 lg:opacity-80 lg:bg-yellow-300"
+              ></div>
+              <div
+                style={{
+                  transform: " translate(30px, -50px)",
+                }}
+                className=" lg:absolute sm:px-14 lg:py-5 lg:px-28 lg:z-4 lg:opacity-80 lg:bg-secondary"
+              ></div>
 
-            <div className="hidden text-black lg:flex lg:font-bold lg:absolute lg:translate-x-16 lg:-translate-y-11 lg:z-4 lg:h3 sm:p">
-              {lessonImage[a]?.teacher}
+              <div className="hidden text-black lg:flex lg:font-bold lg:absolute lg:translate-x-16 lg:-translate-y-11 lg:z-4 lg:h3 sm:p">
+                {lessonImage[a]?.teacher}
+              </div>
             </div>
           </div>
           {/* <div className=" absolute lg:z-10 bg-grey-50 sm:h-80 lg:w-1/2 lg:h-[410px] lg:top-1/2 lg:-translate-y-1/2 lg:left-12 lg:translate-x-4"></div> */}
@@ -51,13 +53,14 @@ const CourseContent = (props) => {
 
             <p className="mt-4 mb-4 opcacity-60 p">{lessons[a]?.description}</p>
             <div className="inline-block mt-2 mr-2">
-              <button
+              <Button
                 type="button"
-                className="w-20 ml-3 text-white h-14 bg-warning hover:"
+                className="ml-3 text-white border-2 rounded-none border-warning bg-warning"
+                variant="filled"
                 onClick={toggle}
               >
                 預約課程
-              </button>
+              </Button>
             </div>
           </div>
         </div>
