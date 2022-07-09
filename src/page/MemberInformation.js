@@ -14,7 +14,6 @@ const genders = ["選擇性別", "男", "女", "不提供"];
 
 const MemberInformation = () => {
   const [user] = useUserState();
-  console.log(user.id);
   const [member, setMember] = useState({
     id: user.id,
     full_name: "",
@@ -32,14 +31,12 @@ const MemberInformation = () => {
   function handleChangeGender(e) {
     setMember({ ...member, gender_id: e });
   }
-
   // -------- 取得會員的資料 --------
   useEffect(() => {
     let getUser = async () => {
       // let path = `${IMAGE_URL}/user/${user.id}`;
       // let response = await axios.get(`${API_URL}/user/${user.id}`, member);
       let response = await axios.get(`${API_URL}/user/${user.id}`, member);
-      console.log(response.data[0]);
       setMember({
         full_name: response.data[0].full_name,
         email: response.data[0].email,
@@ -49,10 +46,9 @@ const MemberInformation = () => {
         user_photo_id: response.data[0].user_photo_id,
         path: response.data[0].path,
       });
-      console.log(response.data[0]);
     };
     getUser();
-  }, []);
+  }, [user]);
 
   // -------- 修改會員資料進資料庫 --------
   async function handleSubmit(e) {
@@ -71,8 +67,8 @@ const MemberInformation = () => {
     id: user.id,
     photo: "",
   });
-  console.log(userPhoto);
-
+  console.log(`http://localhost:8001/public${member.path}`);
+  console.log(member.path);
   // ----------會員照片上傳-------------
   function handlePhoto(e) {
     setUserPhoto({ ...userPhoto, photo: e.target.files[0] });
@@ -144,6 +140,7 @@ const MemberInformation = () => {
                         className="absolute top-0 object-cover w-auto h-full m-auto rounded-full"
                         src={`http://localhost:8001/public${member.path}`}
                       />
+                      <p className="hidden">{path}</p>
                     </div>
                   </>
                 )}
