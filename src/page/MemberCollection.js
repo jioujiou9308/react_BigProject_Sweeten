@@ -21,6 +21,7 @@ import { toast } from "react-toastify";
 import { calcLength } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { clearConfigCache } from "prettier";
+import MemberMenuTag from "../components/menuTag/MemberMenuTag";
 // import MenuTag from "../components/menuTag/MenuTag";
 
 //生成評價星星
@@ -70,7 +71,7 @@ const MemberColloction = () => {
   return (
     <>
       <div className="mx-auto">
-        {/* <MenuTag /> */}
+        <MemberMenuTag />
         <div className="mx-0 ">
           <div className="">
             <MemberCollectionBar isOn={isOn} setIsOn={setIsOn} />

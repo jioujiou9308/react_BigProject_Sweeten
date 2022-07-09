@@ -2,10 +2,11 @@ import React, { useEffect, useState } from "react";
 import { Input, Button, Select, Option } from "@material-tailwind/react";
 import axios from "axios";
 import { motion } from "framer-motion";
-import MenuTag from "../components/menuTag/MenuTag";
+// import MenuTag from "../components/menuTag/MenuTag";
 import { useUserState } from "../utils/redux/hooks-redux";
 import { API_URL, IMAGE_URL } from "../utils/config";
 import { toast } from "react-toastify";
+import MemberMenuTag from "../components/menuTag/MemberMenuTag";
 
 //----------------------會員資訊-----------------------
 
@@ -104,7 +105,7 @@ const MemberInformation = () => {
 
   return (
     <div className="mx-auto">
-      <MenuTag />
+      <MemberMenuTag />
       <div className="lg:flex">
         <div className="xl:w-3/5 lg:w-3/5  xl:rounded-bl rounded-tl rounded-tr xl:rounded-tr-none">
           <div className="xl:w-5/6 xl:px-0 px-8 mx-auto">

@@ -7,6 +7,7 @@ import { API_URL } from "../utils/config";
 import { useProductState, useUserState } from "../utils/redux/hooks-redux";
 import { useParams } from "react-router-dom";
 import { motion } from "framer-motion";
+import MemberMenuTag from "../components/menuTag/MemberMenuTag";
 // import MenuTag from "../components/menuTag/MenuTag";
 
 function MemberOrder() {
@@ -44,7 +45,7 @@ function MemberOrder() {
   return (
     <>
       <div className="mx-auto">
-        {/* <MenuTag /> */}
+        <MemberMenuTag />
         <div className="bg-white">
           <div className="mb-6">
             <MemberOrderBar setBarStep={setBarStep} step={step} />
