@@ -91,7 +91,7 @@ const Card = (props) => {
                 <div className=" p">剩餘:{restCount}</div>
               </div>
 
-              {/* <div className=" p">倒數:{product.expire_time}</div> */}
+              {/* 123<div className=" p">倒數:{product.expire_time}</div> */}
             </div>
             <div className="flex justify-between w-full mt-2 -mb-1">
               <div className="">{}</div>
