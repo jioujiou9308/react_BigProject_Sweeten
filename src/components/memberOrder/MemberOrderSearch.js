@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import { AiOutlineSearch } from "react-icons/ai";
 import { Input, Button } from "@material-tailwind/react";
 
-function MemberSearchBar(props) {
-  const { searchWord, setSearchWord }=props
+
+function MemberOrderSearch(props) {
+    const { searchWord, setSearchWord }=props
   return (
+  
     <>
       <div className="px-3">
         <Input
@@ -15,7 +17,7 @@ function MemberSearchBar(props) {
             setSearchWord(e.target.value);
             // console.log(e.target.value);
           }}
-          label="你可以透過商品名稱或編號搜索"
+          label="你可以透過訂單編號搜索"
           icon={<AiOutlineSearch className="mr-4 cursor-pointer icon" />}
         />
       </div>
@@ -23,4 +25,7 @@ function MemberSearchBar(props) {
   );
 }
 
-export default MemberSearchBar;
+export default MemberOrderSearch;
+
+
+  

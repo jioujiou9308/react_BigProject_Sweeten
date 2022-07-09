@@ -6,7 +6,7 @@ body {
 }
 
 body {
-  background: #eee;
+  background: #FAD2BC;
   font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
   font-size: 14px;
   color: #000;
@@ -50,7 +50,7 @@ body {
 
 .swiper-button-prev,
 .swiper-button-next {
-  color: #f39898;
+  color: #f39898 !important; 
   transform: translateY(-30px);
 }
 
@@ -58,10 +58,10 @@ body {
 }
 
 .swiper-slide {
-  background: #fad2bc;
+  background: #fad2bc !important;
 }
 .swiper-pagination-bullet-active {
-  background: #f39898;
+  background: #f39898 !important;
 }
 
 //彈跳視窗視窗
@@ -104,7 +104,7 @@ body {
   left: 51%;
   right: 51%;
   bottom: 0;
-  background: #f39898;
+  background: #f39898 ;
   height: 4px;
   -webkit-transition-property: left, right;
   transition-property: left, right;

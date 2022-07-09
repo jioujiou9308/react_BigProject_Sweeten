@@ -7,7 +7,7 @@ const Pagination = (props) => {
       <li
         className={`${
           i == pageInfo.cur ? "bg-secondary text-white" : ""
-        } px-3 py-2 mx-1 text-gray-500 bg-gray-200 rounded-lg`}
+        } px-3 py-2 mx-1 text-gray-500 cursor-pointer bg-gray-200 rounded-lg`}
         onClick={() => {
           setPageInfo({ ...pageInfo, cur: i });
         }}

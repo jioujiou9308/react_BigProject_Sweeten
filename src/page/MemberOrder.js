@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import OrderItems from "../components/memberOrder/OrderItems";
-import MemberSearchBar from "../components/memberCollection/MemberSearchBar";
+import MemberOrderSearch from "../components/memberOrder/MemberOrderSearch";
 import MemberOrderBar from "../components/memberOrder/MemberOrderBar";
 import axios from "axios";
 import { API_URL } from "../utils/config";
@@ -14,7 +14,8 @@ function MemberOrder() {
   const [order, setOrder] = useState([]);
   const [orderProduct, setOrderProduct] = useState([]);
   const [currentUser] = useUserState();
-
+  const [searchWord, setSearchWord] = useState("");
+  console.log(currentUser);
   useEffect(() => {
     //拿個人所有訂單_product
     let getOrder = async () => {
@@ -37,7 +38,7 @@ function MemberOrder() {
       setOrder(orders);
     };
     getOrder();
-  }, []);
+  }, [currentUser]);
 
   return (
     <>
@@ -46,7 +47,10 @@ function MemberOrder() {
           <MemberOrderBar setBarStep={setBarStep} step={step} />
         </div>
         <div className="mb-6">
-          <MemberSearchBar />
+          <MemberOrderSearch
+            searchWord={searchWord}
+            setSearchWord={setSearchWord}
+          />
         </div>
 
         {barStep == 0 && (
@@ -57,19 +61,27 @@ function MemberOrder() {
             <motion.div
               initial={{ width: 0 }}
               animate={{ width: "auto" }}
-              transition={{ ease: "easeOut", duration: 2 }}
+              transition={{ ease: "easeOut", duration: 1.5 }}
               className="bg-gradient-to-r pb-[5px] from-sub to-transparent mx-5"
             ></motion.div>
-            <div className="mb-10">
-              {order.map((order, i) => {
-                return (
-                  <>
-                    <div className="mt-10 shadow-md md:flex">
-                      <OrderItems order={order} />
-                    </div>
-                  </>
-                );
-              })}
+            {order.length == 0 && (
+              <h1 className="mt-4 text-center h2">尚無項目</h1>
+            )}
+            <div className="mb-10" data-aos="fade-right">
+              {order
+                ?.filter((item) => {
+                  console.log(item);
+                  return `${item[0]?.order_info_id}`.includes(searchWord);
+                })
+                ?.map((order, i) => {
+                  return (
+                    <>
+                      <div className="mt-10 shadow-md md:flex">
+                        <OrderItems order={order} />
+                      </div>
+                    </>
+                  );
+                })}
             </div>
           </>
         )}
@@ -84,9 +96,15 @@ function MemberOrder() {
               transition={{ ease: "easeOut", duration: 2 }}
               className="bg-gradient-to-r pb-[5px] from-sub to-transparent mx-5"
             ></motion.div>
-            <div className="mb-10">
+            {order?.filter((v, i) => v[i]?.order_status_id == 1).length ==
+              0 && <h1 className="mt-4 text-center h2">尚無項目</h1>}
+            <div className="mb-10" data-aos="fade-right">
               {order
-                .filter((v, i) => v[i]?.order_status_id == 1)
+                .filter(
+                  (v, i) =>
+                    v[i]?.order_status_id == 1 &&
+                    `${v[0].order_info_id}`?.includes(searchWord)
+                )
                 .map((order, i) => {
                   return (
                     <>
@@ -110,9 +128,16 @@ function MemberOrder() {
               transition={{ ease: "easeOut", duration: 2 }}
               className="bg-gradient-to-r pb-[5px] from-sub to-transparent mx-5"
             ></motion.div>
-            <div className="mb-10">
+            {order.filter((v, i) => v[i]?.order_status_id == 2).length == 0 && (
+              <h1 className="mt-4 text-center h2">尚無項目</h1>
+            )}
+            <div className="mb-10" data-aos="fade-right">
               {order
-                .filter((v, i) => v[i]?.order_status_id == 2)
+                .filter(
+                  (v, i) =>
+                    v[i]?.order_status_id == 2 &&
+                    v[0].order_info_id?.includes(searchWord)
+                )
                 .map((order, i) => {
                   return (
                     <>
@@ -136,9 +161,16 @@ function MemberOrder() {
               transition={{ ease: "easeOut", duration: 2 }}
               className="bg-gradient-to-r pb-[5px] from-sub to-transparent mx-5"
             ></motion.div>
-            <div className="mb-10">
+            {order.filter((v, i) => v[i]?.order_status_id == 3).length == 0 && (
+              <h1 className="mt-4 text-center h2">尚無項目</h1>
+            )}
+            <div className="mb-10" data-aos="fade-right">
               {order
-                .filter((v, i) => v[i]?.order_status_id == 3)
+                .filter(
+                  (v, i) =>
+                    v[i]?.order_status_id == 3 &&
+                    v[0].order_info_id?.includes(searchWord)
+                )
                 .map((order, i) => {
                   return (
                     <>
@@ -162,9 +194,16 @@ function MemberOrder() {
               transition={{ ease: "easeOut", duration: 2 }}
               className="bg-gradient-to-r pb-[5px] from-sub to-transparent mx-5"
             ></motion.div>
-            <div className="mb-10">
+            {order.filter((v, i) => v[i]?.order_status_id == 4).length == 0 && (
+              <h1 className="mt-4 text-center h2">尚無項目</h1>
+            )}
+            <div className="mb-10" data-aos="fade-right">
               {order
-                .filter((v, i) => v[i]?.order_status_id == 4)
+                .filter(
+                  (v, i) =>
+                    v[i]?.order_status_id == 4 &&
+                    v[0].order_info_id?.includes(searchWord)
+                )
                 .map((order, i) => {
                   return (
                     <>

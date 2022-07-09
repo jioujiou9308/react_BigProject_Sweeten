@@ -11,7 +11,7 @@ function MemberOrderBar(props) {
         {step.map((v, i) => {
           return (
             <div
-              className="pb-2 text-center"
+              className="pb-2 text-center cursor-pointer"
               onClick={() => {
                 setX(`${i * 100}%`);
                 setBarStep(i);
