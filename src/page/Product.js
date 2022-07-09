@@ -1,7 +1,6 @@
 import React from "react";
 import CardProduct from "../components/product/CardProduct";
 import Filter from "../components/product/Filter";
-
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { API_URL } from "../utils/config";
@@ -21,6 +20,7 @@ const Product = () => {
   const [allCategory, setAllCategory] = useState([]);
   const categoryTag = allCategory?.filter((item) => String(item.id)[0] == 1);
   console.log("categorytag", categoryTag);
+  console.log(allCategory);
 
   console.log(products.length, "product count");
   useEffect(() => {
@@ -44,7 +44,6 @@ const Product = () => {
     axios
       .get(API_URL + "/product/category")
       .then(({ data }) => {
-        data.push({ id: 199, name: "即期良品" });
         setAllCategory(data);
         console.log("categorytag", data);
       })

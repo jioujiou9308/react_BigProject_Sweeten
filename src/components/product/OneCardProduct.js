@@ -1,9 +1,9 @@
-import { toast } from "react-toastify";
 import axios from "axios";
 import { React, useEffect, useState, editState } from "react";
 import { AiOutlineMessage, AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
 import { API_URL } from "../../utils/config";
+import { toast } from "react-toastify";
 
 import {
   useCartState,
@@ -22,11 +22,6 @@ const OnceCarkProduct = ({ product }) => {
 
   // 加入最愛
   const favSwitchHander = async () => {
-    // if (currentUser.id == 0) {
-    //   // 登入才可以按愛心
-    //   toast.info("請登入會員");
-    //   return;
-    // } else {}
     if (favProduct.findIndex((item) => item.product_id === product.id) > -1) {
       //delete
       await axios.delete(
@@ -84,6 +79,7 @@ const OnceCarkProduct = ({ product }) => {
       toast.info("請登入會員");
     }
   };
+  console.log(product);
 
   return (
     <>
@@ -91,7 +87,9 @@ const OnceCarkProduct = ({ product }) => {
         <div className="flex flex-col items-center justify-center mr-1 ">
           <img
             className="object-cover w-full cursor-pointer rounded-sm h-[15rem]"
-            src={`http://localhost:8001/public/product/${product.id}.jpg`}
+            src={`http://localhost:8001/public/product/${
+              product.id || product.product_id
+            }.jpg`}
             alt="T-Shirt"
             onClick={() => {
               navigate(`/main/product/${product.id}`);

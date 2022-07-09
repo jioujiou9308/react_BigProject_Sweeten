@@ -168,13 +168,14 @@ const CourseContent = (props) => {
 
             <p className="mt-4 mb-4 opcacity-60 p">{lessons[a]?.description}</p>
             <div className="inline-block mt-2 mr-2">
-              <button
+              <Button
                 type="button"
-                className="w-20 ml-3 text-white h-14 bg-warning hover:"
+                className="ml-3 text-white border-2 rounded-none border-warning bg-warning"
+                variant="filled"
                 onClick={toggle}
               >
                 預約課程
-              </button>
+              </Button>
             </div>
           </div>
         </div>

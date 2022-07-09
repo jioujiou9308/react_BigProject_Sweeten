@@ -3,10 +3,10 @@ import { Input, Button, Select, Option } from "@material-tailwind/react";
 import axios from "axios";
 import { motion } from "framer-motion";
 // import MenuTag from "../components/menuTag/MenuTag";
+import MemberMenuTag from "../components/menuTag/MemberMenuTag";
 import { useUserState } from "../utils/redux/hooks-redux";
 import { API_URL, IMAGE_URL } from "../utils/config";
 import { toast } from "react-toastify";
-import MemberMenuTag from "../components/menuTag/MemberMenuTag";
 
 //----------------------會員資訊-----------------------
 
@@ -56,7 +56,6 @@ const MemberInformation = () => {
 
   // -------- 修改會員資料進資料庫 --------
   async function handleSubmit(e) {
-    e.preventDefault();
     try {
       axios.patch(`${API_URL}/user/${user.id}`, member);
       toast.success("會員資料修改成功!");
@@ -89,7 +88,6 @@ const MemberInformation = () => {
   // -------- 新增會員片進資料庫 --------
 
   async function handlePhotoSubmit(e) {
-    e.preventDefault();
     try {
       toast.success("會員照片上傳成功!");
       let formData = new FormData();
@@ -107,8 +105,8 @@ const MemberInformation = () => {
     <div className="mx-auto">
       <MemberMenuTag />
       <div className="lg:flex">
-        <div className="xl:w-3/5 lg:w-3/5  xl:rounded-bl rounded-tl rounded-tr xl:rounded-tr-none">
-          <div className="xl:w-5/6 xl:px-0 px-8 mx-auto">
+        <div className="rounded-tl rounded-tr xl:w-3/5 lg:w-3/5 xl:rounded-bl xl:rounded-tr-none">
+          <div className="px-8 mx-auto xl:w-5/6 xl:px-0">
             <h1 className="font-bold text-gray-800 focus:outline-none h1">
               我的檔案
             </h1>
@@ -118,14 +116,14 @@ const MemberInformation = () => {
               transition={{ ease: "easeOut", duration: 2, delay: 1 }}
               className="bg-gradient-to-r pb-[5px] from-sub to-transparent"
             ></motion.div>
-            {/* 大頭照 */}
+            {/* 大頭照 .*/}
             <div className="flex flex-wrap items-center px-2 sm:flex-row">
-              <div className="relative w-40 h-40 mt-6 rounded-full border object-cover">
+              <div className="relative object-cover w-40 h-40 mt-6 border rounded-full">
                 <img
                   value=""
                   src={`${process.env.PUBLIC_URL}/images/memberInformation/user_small.png`}
                   alt=""
-                  className="w-full h-full rounded-full opacity-40 object-cover"
+                  className="object-cover w-full h-full rounded-full opacity-40"
                 />
                 {/* 預覽圖片 */}
                 {userPhoto.photo !== "" ? (
@@ -133,7 +131,7 @@ const MemberInformation = () => {
                     <div className="w-full h-full text-center">
                       <img
                         alt=""
-                        className="w-auto h-full m-auto object-cover absolute top-0 rounded-full"
+                        className="absolute top-0 object-cover w-auto h-full m-auto rounded-full"
                         src={path}
                       />
                     </div>
@@ -143,7 +141,7 @@ const MemberInformation = () => {
                     <div className="w-full h-full text-center">
                       <img
                         alt=""
-                        className="w-auto h-full m-auto object-cover absolute top-0 rounded-full"
+                        className="absolute top-0 object-cover w-auto h-full m-auto rounded-full"
                         src={`http://localhost:8001/public${member.path}`}
                       />
                     </div>
@@ -269,13 +267,13 @@ const MemberInformation = () => {
         </div>
 
         {/* 拖曳區*/}
-        <div className="xl:w-2/5 lg:w-2/5 pt-5 pb-5 xl:pr-5 xl:pl-0 mt-20">
-          <div className="border-2 border-dashed h-80 w-80 relative">
+        <div className="pt-5 pb-5 mt-20 xl:w-2/5 lg:w-2/5 xl:pr-5 xl:pl-0">
+          <div className="relative border-2 border-dashed h-80 w-80">
             <input
               name="photo"
               type="file"
               id="photo"
-              className="w-full h-full object-cover opacity-0 "
+              className="object-cover w-full h-full opacity-0 "
               accept="image/*"
               onChange={handlePhoto}
             />
@@ -283,14 +281,14 @@ const MemberInformation = () => {
               value="photo"
               src={`${process.env.PUBLIC_URL}/images/memberInformation/uploadImg.png`}
               alt=""
-              className="top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-1/2 h-1/3 object-cover absolute opacity-40"
+              className="absolute object-cover w-1/2 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 h-1/3 opacity-40"
             />
 
             <Button
               size="sm"
               color="brown"
               variant="outlined"
-              className="border rounded mt-4 mx-28"
+              className="mt-4 border rounded mx-28"
               type="submit"
               onClick={handlePhotoSubmit}
             >
@@ -302,7 +300,7 @@ const MemberInformation = () => {
                 <div className="w-full h-full text-center">
                   <img
                     alt=""
-                    className="w-auto h-full m-auto object-cover absolute top-0 "
+                    className="absolute top-0 object-cover w-auto h-full m-auto "
                     src={path}
                   />
                 </div>

@@ -71,7 +71,7 @@ const Header = () => {
     axios
       .get(API_URL + "/auth/logout", { withCredentials: true })
       .then(({ data }) => {
-        dispatch(updateUser({ id: 0, name: "遊客" }));
+        dispatch(updateUser({ id: 0, name: "遊客", email: "遊客" }));
         toast.info(data);
       })
       .catch((e) => {
@@ -101,8 +101,8 @@ const Header = () => {
           <div className="w-full md:w-auto">
             {/* icons */}
             <div className="absolute flex items-center justify-end w-full mb-2 right-2 top-3 md:static ">
-              <span className="px-2 p">
-                {user && user.email?.split("@")[0]}
+              <span className="px-2 mx-2 rounded-full bg-light p">
+                {user.id != "0" && user.email[0].toUpperCase()}
               </span>
               <AiOutlineSearch
                 className="mx-1 icon-sm "
@@ -146,6 +146,7 @@ const Header = () => {
                   />
                 </span>
               )}
+
               <AiOutlineUnorderedList
                 className="mx-1 icon-sm"
                 onClick={toggle}

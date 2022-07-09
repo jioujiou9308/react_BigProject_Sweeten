@@ -16,7 +16,7 @@ function Filter() {
   //口味選項
   const flavorOption = allCategory?.filter((item) => String(item.id)[0] == 2);
   console.log("flavorOption", flavorOption);
-  
+
   console.log(product);
 
   useEffect(() => {

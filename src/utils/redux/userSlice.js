@@ -8,6 +8,7 @@ export const userSlice = createSlice({
     user: {
       id: 0,
       name: "遊客",
+      email: "遊客",
     },
     favorite: [],
     cart: [

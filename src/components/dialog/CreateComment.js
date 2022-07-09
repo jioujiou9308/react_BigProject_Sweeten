@@ -73,6 +73,8 @@ function CreateComment({ order, v, i }) {
       setStar(0);
     }
   };
+
+  console.log(currentUser.id, order[i].product_id, star, contentInput);
   return (
     <>
       {/* 桌機板 */}

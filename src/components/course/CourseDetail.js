@@ -168,14 +168,6 @@ const CourseDetail = (props) => {
               </h2>
               <p className="text-justify p">{courseDetail[a].materialIntro}</p>
             </div>
-            <div className="flex flex-wrap mb-4">
-              <h2 className="font-bold md:ml-0 h2">
-                {courseDetail[a].difficulty}
-              </h2>
-              <h2 className="flex text-yellow-500 h2">
-                {courseDetail[a].difficultyIntro}
-              </h2>
-            </div>
             <div className="mb-4 ">
               <h2 className="font-bold md:ml-0 h2">
                 {courseDetail[a].teacher}
@@ -185,6 +177,14 @@ const CourseDetail = (props) => {
             <div className="mb-4 ">
               <h2 className="font-bold md:ml-0 h2">{courseDetail[a].time}</h2>
               <h2 className=" md:ml-0 h3">{courseDetail[a].timeIntro}</h2>
+            </div>
+            <div className="flex flex-wrap mb-4">
+              <h2 className="font-bold md:ml-0 h2">
+                {courseDetail[a].difficulty}
+              </h2>
+              <h2 className="flex text-yellow-500 h2">
+                {courseDetail[a].difficultyIntro}
+              </h2>
             </div>
           </div>
         </div>

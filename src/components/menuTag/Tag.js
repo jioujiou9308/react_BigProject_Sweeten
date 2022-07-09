@@ -45,8 +45,10 @@ const Tag = ({ title, i, id }) => {
         }
         let getFlavor = async () => {
           let response = await axios.get(API_URL + `/product/category/10${i}`);
+          const list = response.data.data;
+          // console.log(list);
+          // list.forEach((item) => (item.id = item.product_id));
           setProduct(response.data.data);
-          console.log(response.data.data);
         };
         getFlavor();
       }}

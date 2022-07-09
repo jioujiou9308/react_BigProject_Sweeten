@@ -3,7 +3,6 @@ import OneCardProduct from "./OneCardProduct";
 import { useProductState } from "../../utils/redux/hooks-redux";
 import Pagination from "./Pagination";
 import useLoading from "../../utils/hooks/useLoading";
-import BeatLoader from "react-spinners/BeatLoader";
 import { motion } from "framer-motion";
 
 const initPageInfo = {

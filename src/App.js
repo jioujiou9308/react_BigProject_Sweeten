@@ -25,7 +25,6 @@ import AddCommentModal from "./components/dialog/AddCommentModal";
 // TODO 註冊 關於 上下架 訂單 課程 即期品
 
 function App() {
-  
   const dispatch = useDispatch();
   const [user] = useUserState();
   console.log(user);
@@ -46,7 +45,7 @@ function App() {
       .then(({ data: { user } }) => {
         user && toast.success("成功登入!");
 
-        dispatch(updateUser(user || { id: 0, name: "遊客" }));
+        dispatch(updateUser(user || { id: 0, name: "遊客", email: "遊客" }));
       });
   }, [dispatch]);
 
@@ -72,8 +71,8 @@ function App() {
       />
       <LoginModal />
       <SignupModal />
-      <OrderDetailModal/>
-      <AddCommentModal/>
+      <OrderDetailModal />
+      <AddCommentModal />
     </div>
   );
 }
