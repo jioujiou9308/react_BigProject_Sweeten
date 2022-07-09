@@ -117,7 +117,7 @@ const MemberInformation = () => {
               transition={{ ease: "easeOut", duration: 2, delay: 1 }}
               className="bg-gradient-to-r pb-[5px] from-sub to-transparent"
             ></motion.div>
-            {/* 大頭照 */}
+            {/* 大頭照 .*/}
             <div className="flex flex-wrap items-center px-2 sm:flex-row">
               <div className="relative object-cover w-40 h-40 mt-6 border rounded-full">
                 <img
