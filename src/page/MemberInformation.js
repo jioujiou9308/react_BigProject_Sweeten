@@ -55,7 +55,6 @@ const MemberInformation = () => {
 
   // -------- 修改會員資料進資料庫 --------
   async function handleSubmit(e) {
-    e.preventDefault();
     try {
       axios.patch(`${API_URL}/user/${user.id}`, member);
       toast.success("會員資料修改成功!");
@@ -88,7 +87,6 @@ const MemberInformation = () => {
   // -------- 新增會員片進資料庫 --------
 
   async function handlePhotoSubmit(e) {
-    e.preventDefault();
     try {
       toast.success("會員照片上傳成功!");
       let formData = new FormData();
