@@ -72,6 +72,7 @@ const Header = () => {
       .get(API_URL + "/auth/logout", { withCredentials: true })
       .then(({ data }) => {
         dispatch(updateUser({ id: 0, name: "遊客", email: "遊客" }));
+        navigate("/");
         toast.info(data);
       })
       .catch((e) => {

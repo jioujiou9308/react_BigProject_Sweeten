@@ -110,7 +110,7 @@ CREATE TABLE `order_info` (
 CREATE TABLE `order_product` (
   `id` int PRIMARY KEY AUTO_INCREMENT,
   `order_info_id` varchar(255),
-  `product_id` int,
+  `product_id` varchar(255),
   `coupon_id` int DEFAULT 0,
   `memo` varchar(255),
   `price` int
