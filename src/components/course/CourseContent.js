@@ -109,16 +109,16 @@ const CourseContent = (props) => {
                     style={{
                       transform: " translate(40px, -43px)",
                     }}
-                    className=" lg:absolute sm:px-14 lg:py-5 lg:px-28 lg:z-3 lg:opacity-80 lg:bg-yellow-300"
+                    className=" lg:absolute sm:px-14 lg:py-5 lg:px-32 lg:z-3 lg:opacity-80 lg:bg-yellow-300"
                   ></div>
                   <div
                     style={{
                       transform: " translate(30px, -50px)",
                     }}
-                    className=" lg:absolute sm:px-14 lg:py-5 lg:px-28 lg:z-4 lg:opacity-80 lg:bg-secondary"
+                    className=" lg:absolute sm:px-14 lg:py-5 lg:px-32 lg:z-4 lg:opacity-80 lg:bg-secondary"
                   ></div>
 
-                  <div className="hidden text-black lg:flex lg:font-bold lg:absolute lg:translate-x-16 lg:-translate-y-11 lg:z-4 lg:h3 sm:p">
+                  <div className="hidden text-black lg:flex lg:font-bold lg:absolute lg:translate-x-14 lg:-translate-y-11 lg:z-4 lg:h3 sm:p">
                     {lessonImage[a]?.teacher}
                   </div>
                 </>

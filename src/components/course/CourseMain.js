@@ -16,7 +16,7 @@ const image = [
     image2: "/images/courseDetail/lesson1/chef.jpg",
     image3: "/images/courseDetail/lesson1/lesson3.jpg",
     name: "手工馬卡龍",
-    teacher: "授課教師:Ms.陳",
+    teacher: "授課教師:Ms.Chen",
     teacherFullName: "Julianna Chen",
   },
   {
@@ -24,7 +24,7 @@ const image = [
     image2: "/images/courseDetail/lesson2/chef.jpg",
     image3: "/images/courseDetail/lesson2/cookie3.jpg",
     name: "手工餅乾",
-    teacher: "授課教師:Ms.黃",
+    teacher: "授課教師:Ms.Huang",
     teacherFullName: "Makayla Huang",
   },
   {
@@ -32,7 +32,7 @@ const image = [
     image2: "/images/courseDetail/lesson3/chef.jpg",
     image3: "/images/courseDetail/lesson3/tar3.jpg",
     name: "新鮮水果塔",
-    teacher: "授課教師:Ms.廖",
+    teacher: "授課教師:Ms.Liao",
     teacherFullName: "Rebecca Liao",
   },
   {
@@ -40,7 +40,7 @@ const image = [
     image2: "/images/courseDetail/lesson4/chef.jpg",
     image3: "/images/courseDetail/lesson4/cake3.jpg",
     name: "新鮮生乳捲",
-    teacher: "授課教師:Ms.趙",
+    teacher: "授課教師:Ms.Chao",
     teacherFullName: "Journey Chao",
   },
 ];

@@ -94,15 +94,9 @@ const Card = (props) => {
               {/* 123<div className=" p">倒數:{product.expire_time}</div> */}
             </div>
             <div className="flex justify-between w-full mt-2 -mb-1">
-              <div className="">{}</div>
-              <div>
-                {timeOut ? (
-                  <>特賣結束囉</>
-                ) : (
-                  <>
-                    {timer[0]}天 {timer[1]}小時 {timer[2]}分 {timer[3]}秒
-                  </>
-                )}
+              <div className="p">即期倒數</div>
+              <div className="p">
+                {timer[0]}天 {timer[1]}小時 {timer[2]}分 {timer[3]}秒
               </div>
             </div>
             {restCount > 0 ? (
