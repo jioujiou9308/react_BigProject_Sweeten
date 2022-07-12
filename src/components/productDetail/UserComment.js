@@ -1,4 +1,4 @@
-import { React, useState, useEffect, } from "react";
+import { React, useState, useEffect } from "react";
 import { AiOutlineStar, AiFillStar } from "react-icons/ai";
 import axios from "axios";
 import { API_URL } from "../../utils/config";
@@ -8,15 +8,13 @@ import CommentUserDetail from "./CommentUserDetail";
 
 const UserComment = () => {
   const { id } = useParams();
-  const [currentUser]=useUserState()
-  console.log(currentUser)
- 
+  const [currentUser] = useUserState();
+  console.log(currentUser);
+
   const [comment, setComment] = useState([]);
   useEffect(() => {
     let getComment = async () => {
-      let response = await axios.get(
-        `${API_URL}/product/comment/${id}`
-      );
+      let response = await axios.get(`${API_URL}/product/comment/${id}`);
       setComment(response.data);
       console.log(response.data);
     };
@@ -34,8 +32,6 @@ const UserComment = () => {
     }
     return elementArr;
   };
-
- 
 
   return (
     <>
@@ -58,7 +54,11 @@ const UserComment = () => {
                   <p className="p">{content}</p>
                 </div>
               </div> */}
-              <CommentUserDetail user_id={user_id} content={content} score={score}/>
+              <CommentUserDetail
+                user_id={user_id}
+                content={content}
+                score={score}
+              />
             </>
           );
         })

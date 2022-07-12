@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import MemberCollectionBar from "../components/memberCollection/MemberCollectionBar";
 import MemberSearchBar from "../components/memberCollection/MemberSearchBar";
 import {
@@ -23,6 +23,7 @@ import { useNavigate } from "react-router-dom";
 import { clearConfigCache } from "prettier";
 import MemberMenuTag from "../components/menuTag/MemberMenuTag";
 // import MenuTag from "../components/menuTag/MenuTag";
+import swal from "sweetalert";
 
 //生成評價星星
 const star = (score) => {
@@ -104,12 +105,12 @@ const MemberColloction = () => {
                 .map((v, i) => {
                   const { user_id, product_id, id, name, price } = v;
                   return (
-                    <>
+                    <Fragment key={product_id}>
                       {/* 圖片 備註 評分*/}
                       <div className="flex items-center justify-between px-0 py-1 border-b md:justify-around md:py-6 md:px-8">
-                        <div className="overflow-hidden w-[70px] md:w-[140px]">
+                        <div className="overflow-hidden w-[70px] h-[70px] md:w-[140px] md:h-[140px]">
                           <img
-                            className="object-contain rounded-sm"
+                            className="object-cover rounded-sm"
                             src={`http://localhost:8001/public/product/${product_id}.jpg`}
                             alt="collection"
                           />
@@ -123,7 +124,7 @@ const MemberColloction = () => {
                           <p className="hidden md:block h4">目前活動</p>
                         </div>
 
-                        <div>
+                        <div className="w-[7rem] md:w-[10rem]">
                           <p className="mb-3 md:p">{name}</p>
                           <p className="mb-3 md:p">{price}</p>
                           <button className="px-1 text-white md:p bg-warning">
@@ -164,9 +165,10 @@ const MemberColloction = () => {
                         {/* 沒有評分 */}
 
                         {/* 移除&購買 */}
-                        <div className="flex-col md:ml-4 ">
+                        <div className="flex-col md:ml-4 w-[6rem] md:w-[8rem]">
                           <Button
                             size="sm"
+                            color="orange"
                             className="flex items-center px-2 mb-3 rounded-sm md:px-4 md:p bg-warning"
                             onClick={() => {
                               let productIndex = cart[1].findIndex(function (
@@ -208,20 +210,34 @@ const MemberColloction = () => {
                               className="flex items-center "
                               onClick={async () => {
                                 console.log(user_id);
-                                let response = await axios.delete(
-                                  `${API_URL}/user/favorite_product/${user_id}?product_id=${product_id}`
-                                );
-                                // console.log(response);
-                                toast.info("已移除收藏");
-                                axios
-                                  .get(
-                                    API_URL +
-                                      `/user/favorite_product/all_data/${currentUser.id}`
-                                  )
-                                  .then(({ data }) => {
-                                    setMemberCollection(data);
-                                  })
-                                  .catch((e) => console.log(e));
+
+                                swal({
+                                  title: "確定要移除此筆資料嗎",
+                                  text: "",
+                                  icon: "warning",
+                                  buttons: ["取消", "移除"],
+                                  dangerMode: true,
+                                }).then(async (willDelete) => {
+                                  if (willDelete) {
+                                    await axios.delete(
+                                      `${API_URL}/user/favorite_product/${user_id}?product_id=${product_id}`
+                                    );
+                                    // console.log(response);
+                                    toast.info("已移除收藏");
+
+                                    return await axios
+                                      .get(
+                                        API_URL +
+                                          `/user/favorite_product/all_data/${currentUser.id}`
+                                      )
+                                      .then(({ data }) => {
+                                        setMemberCollection(data);
+                                      })
+                                      .catch((e) => console.log(e));
+                                  } else {
+                                    swal("您的商品未移除");
+                                  }
+                                });
                               }}
                             >
                               移除收藏 <AiOutlineDelete className="icon-sm" />
@@ -229,7 +245,7 @@ const MemberColloction = () => {
                           </Button>
                         </div>
                       </div>
-                    </>
+                    </Fragment>
                   );
                 })}
           </div>

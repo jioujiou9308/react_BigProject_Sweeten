@@ -41,6 +41,7 @@ function MemberOrder() {
     };
     getOrder();
   }, [currentUser]);
+  console.log(order);
 
   return (
     <>
@@ -89,7 +90,7 @@ function MemberOrder() {
               </div>
             </>
           )}
-          {barStep == 1 && (
+          {barStep != 0 && (
             <>
               <div className="py-2 mx-5 text-left h2">
                 <h2>待付款項目</h2>
@@ -100,13 +101,13 @@ function MemberOrder() {
                 transition={{ ease: "easeOut", duration: 2 }}
                 className="bg-gradient-to-r pb-[5px] from-sub to-transparent mx-5"
               ></motion.div>
-              {order?.filter((v, i) => v[i]?.order_status_id == 1).length ==
+              {order?.filter((v) => v[0]?.order_status_id == barStep).length ==
                 0 && <h1 className="mt-4 text-center h2">尚無項目</h1>}
               <div className="mb-10" data-aos="fade-right">
                 {order
                   .filter(
                     (v, i) =>
-                      v[i]?.order_status_id == 1 &&
+                      v[0]?.order_status_id == barStep &&
                       `${v[0].order_info_id}`?.includes(searchWord)
                   )
                   .map((order, i) => {
@@ -121,7 +122,7 @@ function MemberOrder() {
               </div>
             </>
           )}
-          {barStep == 2 && (
+          {/* {barStep == 2 && (
             <>
               <div className="py-2 mx-5 text-left h2">
                 <h2>待出貨項目</h2>
@@ -200,10 +201,10 @@ function MemberOrder() {
                 0 && <h1 className="mt-4 text-center h2">尚無項目</h1>}
               <div className="mb-10" data-aos="fade-right">
                 {order
-                  .filter(
+                  ?.filter(
                     (v, i) =>
                       v[i]?.order_status_id == 4 &&
-                      v[0].order_info_id?.includes(searchWord)
+                      `${v[0].order_info_id}`?.includes(searchWord)
                   )
                   .map((order, i) => {
                     return (
@@ -216,7 +217,7 @@ function MemberOrder() {
                   })}
               </div>
             </>
-          )}
+          )} */}
         </div>
       </div>
     </>

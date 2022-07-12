@@ -90,6 +90,7 @@ function OrderItems({ order }) {
               <motion.button>
                 <Button
                   size="sm"
+                  color="orange"
                   className="mr-3 text-white rounded-sm bg-warning"
                   onClick={() => {
                     dispatch(openOrderDetail(order));
@@ -116,18 +117,20 @@ function OrderItems({ order }) {
               onClick={() => {
                 navigate("/main/customerService");
               }}
+              color="orange"
               size="sm"
               className="mr-3 text-white rounded-sm bg-warning"
             >
               聯絡客服
             </Button>
-            
+
             {order[0].order_status_id === 4 ? (
               <Button
                 onClick={() => {
                   dispatch(openAddComment(order));
                   // console.log("open");
                 }}
+                color="orange"
                 size="sm"
                 className="text-white rounded-sm bg-warning"
               >
@@ -156,7 +159,7 @@ function OrderItems({ order }) {
         </div>
 
         <h2 className="self-end mt-1 text-right md:absolute right-5 bottom-5 p">
-          總計: {parseInt(countTotalPrice()) + 60 }
+          總計: {parseInt(countTotalPrice()) + 60}
         </h2>
       </div>
     </>

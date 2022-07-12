@@ -86,7 +86,7 @@ const OnceCarkProduct = ({ product }) => {
       <div className=" mb-6 mx-1 xl:w-[13rem]">
         <div className="flex flex-col items-center justify-center mr-1 ">
           <img
-            className="object-cover w-full cursor-pointer rounded-sm h-[15rem]"
+            className="object-cover w-[200px] cursor-pointer rounded-sm h-[15rem]"
             src={`http://localhost:8001/public/product/${
               product.id || product.product_id
             }.jpg`}
@@ -95,23 +95,25 @@ const OnceCarkProduct = ({ product }) => {
               navigate(`/main/product/${product.id}`);
             }}
           />
-          <div className="flex items-center justify-end w-full mt-2">
-            <h4 className="w-full text-lg font-medium dark:text-gray-200">
+          <div className="flex items-start justify-end w-full mt-2">
+            <h4 className="w-full text-lg h-[2.5rem] font-medium dark:text-gray-200">
               {product.name}
             </h4>
-            <div className="mr-1 text-blue-500 p">${product.price}</div>
+            <div className="mr-1 text-blue-500 p h-[2.5rem]">
+              ${product.price}
+            </div>
             <div className="flex items-center ">
-              <AiOutlineMessage
+              {/* <AiOutlineMessage
                 className="cursor-pointer icon-sm"
                 onClick={() => {
                   navigate(`/main/product/${product.id}`);
                 }}
-              />
+              /> */}
 
               {favProduct?.findIndex((item) => item.product_id === product.id) >
               -1 ? (
                 <AiFillHeart
-                  className="cursor-pointer icon-sm text-secondary"
+                  className="mt-1 cursor-pointer icon-sm text-secondary"
                   onClick={() => {
                     currentUser.id != 0
                       ? favSwitchHander()
@@ -120,7 +122,7 @@ const OnceCarkProduct = ({ product }) => {
                 />
               ) : (
                 <AiOutlineHeart
-                  className="cursor-pointer icon-sm"
+                  className="mt-1 cursor-pointer icon-sm"
                   onClick={() => {
                     currentUser.id != 0
                       ? favSwitchHander()

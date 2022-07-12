@@ -66,9 +66,9 @@ function ProductDetail() {
     let result = 0;
     for (let i = 0; i < comment.length; i++) {
       result += comment[i].score;
-      result = Math.round(result / comment.length);
+      result = result;
     }
-    return result;
+    return Math.round(result / comment.length);
   };
 
   const isFavor = favProduct.filter((item) => item.product_id == id);
@@ -125,7 +125,7 @@ function ProductDetail() {
                     alt=""
                   />
                   {/* DEMO左側三張小圖 */}
-                  <div className="flex justify-center w-1/2 mx-auto mt-14">
+                  {/* <div className="flex justify-center w-1/2 mx-auto mt-14">
                     <img
                       className="w-1/3 mx-1"
                       src={`${process.env.PUBLIC_URL}/images/productDetail/product_demo1_upper_small.png`}
@@ -147,7 +147,7 @@ function ProductDetail() {
                       }
                       alt=""
                     />
-                  </div>
+                  </div> */}
                 </div>
                 {/* DEMO右欄 桌機板*/}
                 <div className="w-3/5 mr-10">
@@ -158,7 +158,7 @@ function ProductDetail() {
                       <p className="h1">{name}</p>
                       <Button
                         variant="outlined"
-                        className="border rounded-full select-none border-line text-line"
+                        className="border rounded-full shadow-none select-none border-line text-line"
                         onClick={() => {
                           currentUser.id != 0
                             ? favSwitchHandler()
@@ -213,7 +213,7 @@ function ProductDetail() {
 
                     <div className="flex justify-center ">
                       <Button
-                        className="border-2 rounded-none border-sub"
+                        className="border-2 rounded-none shadow-none border-sub"
                         variant="outlined"
                         onClick={() => {
                           if (currentUser.id == 0) {
@@ -271,6 +271,7 @@ function ProductDetail() {
                       <Button
                         className="ml-3 text-white border-2 rounded-none border-warning bg-warning"
                         variant="filled"
+                        color="orange"
                         onClick={() => {
                           if (currentUser.id === 0) {
                             toast.info("請登入會員");
@@ -349,7 +350,7 @@ function ProductDetail() {
                     }}
                   >
                     <AiFillHeart
-                      className={`icon-xl select-none rounded-full  ${
+                      className={`icon-xl select-none rounded-full shadow-none  ${
                         isFavor.length > 0 ? "text-secondary" : ""
                       }`}
                     />
@@ -399,7 +400,7 @@ function ProductDetail() {
                 {/* 加入購物車按鈕手機板 */}
                 <div className="flex justify-around my-6">
                   <Button
-                    className="px-4 py-1 border-2 rounded-none border-sub"
+                    className="px-4 py-1 border-2 rounded-none shadow-none border-sub"
                     variant="outlined"
                     onClick={() => {
                       if (currentUser.id == 0) {
@@ -450,12 +451,13 @@ function ProductDetail() {
                       }
                     }}
                   >
-                    <span className="text-black p">加入購物車</span>
+                    <span className="text-black p ">加入購物車</span>
                   </Button>
 
                   <Button
                     className="px-4 text-white border-2 rounded-none shadow-primary border-warning bg-warning"
                     variant="filled"
+                    color="orange"
                     onClick={() => {
                       if (currentUser.id == 0) {
                         toast.info("請登入會員");
