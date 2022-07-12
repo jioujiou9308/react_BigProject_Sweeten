@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Ecpay from "../components/cart/Ecpay";
+import { API_URL } from "../utils/config";
 
 import CitySelector from "../components/tw-city-selector/tw-city-selector";
 
@@ -13,7 +14,6 @@ function Index() {
     address: "",
   });
 
-  console.log(fields);
   const [shippingFields, setShippingFields] = useState({
     name: "",
     mobile: "",
@@ -44,13 +44,14 @@ function Index() {
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("這裡送出表單資料到伺服器了");
+    // for (let key in fieldErrors) {
+    //   if (fieldErrors[key]) console.log(fieldErrors[key]);
+    // }
+    // return true;
   };
 
   const handleInvalid = (e) => {
     e.preventDefault();
-
     const newFieldErrors = {
       ...fieldErrors,
       [e.target.name]: e.target.validationMessage,
@@ -94,6 +95,8 @@ function Index() {
       <div className="p-10">
         <span className="block font-medium h3">訂購資訊</span>
         <form
+          action={`${API_URL}/ecpay`}
+          method="POST"
           onSubmit={handleSubmit}
           onInvalid={handleInvalid}
           onChange={handleFormChange}
@@ -295,7 +298,13 @@ function Index() {
                   </div>
                 )}
               </div>
-              <Ecpay fields={fields} />
+              <Ecpay
+                fields={fields}
+                fieldErrors={fieldErrors}
+                handleSubmit={handleSubmit}
+                handleInvalid={handleInvalid}
+                handleFormChange={handleFormChange}
+              />
               {/* <button
                 type="submit"
                 className="w-full py-2 text-white border hover:bg-secondary"

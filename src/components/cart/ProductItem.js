@@ -12,14 +12,16 @@ function ProductItem(props) {
   const { name, size, flavor, count, image, price } = product;
   const [cart, setCart] = useCartState();
   const [favorite, setFavorite] = useFavoriteState();
-  console.log(favorite);
+  console.log(product);
   return (
     <>
       {/* each item div */}
       <div className="items-center py-5 mt-6 border-t md:flex">
         <div className="w-full md:w-1/4">
           <img
-            src={image}
+            src={`http://localhost:8001/public/product/${
+              product.product_id || product.id
+            }.jpg`}
             alt=""
             className="object-cover object-center w-full rounded-none max-h-40"
           />
@@ -30,8 +32,8 @@ function ProductItem(props) {
             <div className="flex items-center">
               <AiOutlineMinus
                 onClick={() => {
-                  if(count==1)return
-                  
+                  if (count == 1) return;
+
                   const newCart = [...cart];
                   const newProduct = [...cart[1]];
                   const target = newProduct.findIndex(

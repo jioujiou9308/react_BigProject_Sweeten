@@ -293,7 +293,7 @@ function About() {
         >
           <img
             className="w-20 h-20 rounded-full shrink-0"
-            src={`${process.env.PUBLIC_URL}/images/about/aboutwall1.jpeg`}
+            src={`${process.env.PUBLIC_URL}/images/about/aboutwall2.jpeg`}
             alt=""
           />
           <div className="ml-3 mr-3">
@@ -308,7 +308,7 @@ function About() {
         >
           <img
             className="w-20 h-20 rounded-full shrink-0"
-            src={`${process.env.PUBLIC_URL}/images/about/aboutwall1.jpeg`}
+            src={`${process.env.PUBLIC_URL}/images/about/aboutwall3.jpeg`}
             alt=""
           />
           <div className="ml-3 mr-3">
@@ -323,7 +323,7 @@ function About() {
         >
           <img
             className="w-20 h-20 rounded-full shrink-0"
-            src={`${process.env.PUBLIC_URL}/images/about/aboutwall1.jpeg`}
+            src={`${process.env.PUBLIC_URL}/images/about/aboutwall5.jpeg`}
             alt=""
           />
           <div className="ml-3 mr-3">

@@ -140,6 +140,7 @@ const CourseDetail = (props) => {
           </div>
           <div className="mt-8 ">
             <Button
+              color="orange"
               className="ml-3 text-white border-2 rounded-none border-warning bg-warning"
               variant="filled"
               onClick={() => {

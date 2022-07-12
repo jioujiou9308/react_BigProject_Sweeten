@@ -1,12 +1,17 @@
 import React from "react";
-import { API_URL } from "../../utils/config";
 import { useCartState, useUserState } from "../../utils/redux/hooks-redux";
 
-const Ecpay = ({ fields }) => {
+const Ecpay = ({ fields, fieldErrors, handleFormChange, handleInvalid }) => {
   const [cart] = useCartState();
   const [user] = useUserState();
   const [info, products] = cart;
   console.log(cart[0]);
+
+  const handleSubmit = (e) => {
+    for (let key in fieldErrors) {
+      if (!fieldErrors[key]) e.preventDefault();
+    }
+  };
   /* ----------------------------------- 總價錢 ---------------------------------- */
   const amount = () =>
     products.reduce((pre, cur) => {
@@ -20,8 +25,15 @@ const Ecpay = ({ fields }) => {
     info.fee
   }}`;
   return (
-    <form action={`${API_URL}/ecpay`} method="POST">
-      <div className=" hidden">
+    // <form
+    //   action={`${API_URL}/ecpay`}
+    //   method="POST"
+    //   onSubmit={handleSubmit}
+    //   onInvalid={handleInvalid}
+    //   onChange={handleFormChange}
+    // >
+    <>
+      <div className="hidden ">
         <input
           type="text"
           name="TotalAmount"
@@ -51,9 +63,10 @@ const Ecpay = ({ fields }) => {
         </p>
       </div>
       <button className="w-full py-2 text-white border border-white hover:bg-secondary">
-        <span>確認付款</span>
+        確認付款
       </button>
-    </form>
+    </>
+    // </form>
   );
 };
 
