@@ -144,7 +144,7 @@ const CourseContent = (props) => {
               onLoad={
                 <div class="border border-primary shadow w-full h-full lg:h-96 mx-auto object-cover m-auto rounded-lg">
                   <div class="animate-load flex space-x-4 flex-col my-5 gap-10">
-                    {/* 圓 */}
+                    {/* 圓123 */}
                     <div class="rounded-full bg-primary h-36 w-36 mx-auto"></div>
                     <div class="flex-1 space-y-6 py-1 pr-4">
                       <div class="h-2 bg-primary rounded"></div>
