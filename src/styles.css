@@ -1,4 +1,4 @@
-//給課程和商品推薦用ㄉ跑馬燈
+/* 給課程和商品推薦用ㄉ跑馬燈 */
 
 body {
   position: relative;
@@ -6,7 +6,7 @@ body {
 }
 
 body {
-  background: #FAD2BC;
+  background: #fad2bc;
   font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
   font-size: 14px;
   color: #000;
@@ -25,7 +25,6 @@ body {
   font-size: 18px;
   background: #fad2bc;
 
-  /* Center slide text vertically */
   display: -webkit-box;
   display: -ms-flexbox;
   display: -webkit-flex;
@@ -50,7 +49,7 @@ body {
 
 .swiper-button-prev,
 .swiper-button-next {
-  color: #f39898 !important; 
+  color: #f39898 !important;
   transform: translateY(-30px);
 }
 
@@ -64,7 +63,7 @@ body {
   background: #f39898 !important;
 }
 
-//彈跳視窗視窗
+/* 彈跳視窗視窗 */
 .parent {
   background: black;
   width: 100px;
@@ -86,8 +85,8 @@ body {
   border-radius: 50%;
 }
 
-//hover button
-/* Underline From Center */
+/* hover button */
+
 .hvr-underline-from-center {
   display: inline-block;
   vertical-align: middle;
@@ -104,7 +103,7 @@ body {
   left: 51%;
   right: 51%;
   bottom: 0;
-  background: #f39898 ;
+  background: #f39898;
   height: 4px;
   -webkit-transition-property: left, right;
   transition-property: left, right;
