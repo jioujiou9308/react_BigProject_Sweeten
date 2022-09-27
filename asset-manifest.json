@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/react_BigProject_Sweeten/static/css/main.9a1d9ce5.css",
+    "main.js": "/react_BigProject_Sweeten/static/js/main.dbaf0820.js",
+    "static/media/loading_logo.gif": "/react_BigProject_Sweeten/static/media/loading_logo.ef649e96c4e9b692ef62.gif",
+    "index.html": "/react_BigProject_Sweeten/index.html",
+    "static/media/index.cjs": "/react_BigProject_Sweeten/static/media/index.cd351d7c31d0d3fccf96.cjs",
+    "main.9a1d9ce5.css.map": "/react_BigProject_Sweeten/static/css/main.9a1d9ce5.css.map",
+    "main.dbaf0820.js.map": "/react_BigProject_Sweeten/static/js/main.dbaf0820.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9a1d9ce5.css",
+    "static/js/main.dbaf0820.js"
+  ]
+}
